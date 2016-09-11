@@ -9,6 +9,7 @@ using System.Reflection;
 
 namespace Szcg.Service.Common
 {
+
     public static class ConvertDtHelper<T> where T : new()
     {
         /// <summary>
