@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AA594BF1-07AD-4F27-A16A-50DB85EB6D85}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Szcg.Core.appraiseDL</RootNamespace>
+    <AssemblyName>Szcg.Core.appraiseDL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="zhpj\AppraiseSetting\AppraiseSettingDAO.cs" />
+    <Compile Include="zhpj\Appraise_Arearoof.cs" />
+    <Compile Include="zhpj\Appraise_lead.cs" />
+    <Compile Include="zhpj\Appraise_post.cs" />
+    <Compile Include="zhpj\Appraise_xcy.cs" />
+    <Compile Include="zhpj\Appraise_zaj.cs" />
+    <Compile Include="zhpj\AreaAppraise.cs" />
+    <Compile Include="zhpj\DepartAppraise.cs" />
+    <Compile Include="zhpj\PQAJ_dealyl.cs" />
+    <Compile Include="zhpj\SampleStatManage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="zhpj\AppraiseSetting\vssver2.scc" />
+    <None Include="zhpj\vssver2.scc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\dbl\Szcg.Core.bussinesDBL\Szcg.Core.bussinesDBL.csproj">
+      <Project>{f4c5be34-af8c-462f-b4aa-998d9be75623}</Project>
+      <Name>Szcg.Core.bussinesDBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\dbl\Szcg.Core.DBL.appraiseDBL\Szcg.Core.DBL.appraiseDBL.csproj">
+      <Project>{61897884-7215-44f5-9e60-b36897b394ce}</Project>
+      <Name>Szcg.Core.DBL.appraiseDBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Szcg.Core.Common\Szcg.Core.Common.csproj">
+      <Project>{08fb2dcd-fa7d-49a2-9051-cfaa39e38796}</Project>
+      <Name>Szcg.Core.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

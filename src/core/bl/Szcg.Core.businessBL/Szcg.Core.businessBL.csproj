@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{425729BE-2713-45A8-800E-FE05C47C9839}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Szcg.Core.businessBL</RootNamespace>
+    <AssemblyName>Szcg.Core.businessBL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxPro.2">
+      <HintPath>..\..\CODE_bak20160725\CODE\SzcgWeb\Bin\AjaxPro.2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="business\collecter.cs" />
+    <Compile Include="business\group\BUSINESS_GroupManagers.cs" />
+    <Compile Include="business\group\groupmanager.cs" />
+    <Compile Include="business\idea\BUSINESS_idea.cs" />
+    <Compile Include="business\jdygl\TaskStat.cs" />
+    <Compile Include="business\Message.cs" />
+    <Compile Include="business\MyMessage.cs" />
+    <Compile Include="business\Project.cs" />
+    <Compile Include="business\wdxxmanage\wdxx.cs" />
+    <Compile Include="business\wdxxmanage\wdxxAjax.cs" />
+    <Compile Include="business\zscgw\BUSINESS_ArchiveInfo.cs" />
+    <Compile Include="business\zscgw\BUSINESS_Archives.cs" />
+    <Compile Include="business\zscgw\BUSINESS_Departs.cs" />
+    <Compile Include="business\zscgw\BUSINESS_Repositorys.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="business\group\vssver2.scc" />
+    <None Include="business\idea\vssver2.scc" />
+    <None Include="business\jdygl\vssver2.scc" />
+    <None Include="business\vssver2.scc" />
+    <None Include="business\wdxxmanage\vssver2.scc" />
+    <None Include="business\zscgw\vssver2.scc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\dbl\Szcg.Core.bussinesDBL\Szcg.Core.bussinesDBL.csproj">
+      <Project>{f4c5be34-af8c-462f-b4aa-998d9be75623}</Project>
+      <Name>Szcg.Core.bussinesDBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\dbl\Szcg.Core.loginDBL\Szcg.Core.loginDBL.csproj">
+      <Project>{0dac275c-0804-4790-bb69-1d0a4979887b}</Project>
+      <Name>Szcg.Core.loginDBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\dbl\Szcg.Core.pubDBL\Szcg.Core.pubDBL.csproj">
+      <Project>{ad9aa70c-ceb9-4e75-b740-31fbc319b46a}</Project>
+      <Name>Szcg.Core.pubDBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\dbl\Szcg.Core.szbaseDBL\Szcg.Core.szbaseDBL.csproj">
+      <Project>{b2f00ca1-c5e2-4e6d-a544-411acf4e2e8d}</Project>
+      <Name>Szcg.Core.szbaseDBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\dl\Szcg.Core.businessDL\Szcg.Core.businessDL.csproj">
+      <Project>{b6400c06-186b-4722-a508-268d7fbcb1a7}</Project>
+      <Name>Szcg.Core.businessDL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\dl\Szcg.Core.pubDL\Szcg.Core.pubDL.csproj">
+      <Project>{914f3bf1-174f-4b30-b491-b1e6406ac135}</Project>
+      <Name>Szcg.Core.pubDL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\dl\Szcg.Core.szbaseDL\Szcg.Core.szbaseDL.csproj">
+      <Project>{ede80fbe-8fd7-45a4-92d2-fbeb1df042d6}</Project>
+      <Name>Szcg.Core.szbaseDL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Szcg.Core.Common\Szcg.Core.Common.csproj">
+      <Project>{08fb2dcd-fa7d-49a2-9051-cfaa39e38796}</Project>
+      <Name>Szcg.Core.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Szcg.Core.comold\Szcg.Core.comold.csproj">
+      <Project>{742542f4-2455-4d86-8351-285db8079c0f}</Project>
+      <Name>Szcg.Core.comold</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Szcg.Core.pubBL\Szcg.Core.pubBL.csproj">
+      <Project>{ca3e2dcc-c3ce-4d42-8f85-dd73846e51e5}</Project>
+      <Name>Szcg.Core.pubBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Szcg.Core.szbaseBL\Szcg.Core.szbaseBL.csproj">
+      <Project>{6fe7567e-4316-4756-8da1-06facf310638}</Project>
+      <Name>Szcg.Core.szbaseBL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

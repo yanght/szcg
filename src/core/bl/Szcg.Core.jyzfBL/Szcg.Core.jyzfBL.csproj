@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{25E802B8-9467-4538-9B63-98B1DF520662}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Szcg.Core.jyzfBL</RootNamespace>
+    <AssemblyName>Szcg.Core.jyzfBL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="ProjectJycg.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\dbl\Szcg.Core.jyzfDBL\Szcg.Core.jyzfDBL.csproj">
+      <Project>{733fc533-6b10-4af5-90ec-f795d84c81cd}</Project>
+      <Name>Szcg.Core.jyzfDBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\dbl\Szcg.Core.zhifaDBL\Szcg.Core.zhifaDBL.csproj">
+      <Project>{1ed20bad-804b-4b6e-81b6-5066de3a4e7e}</Project>
+      <Name>Szcg.Core.zhifaDBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\dl\Szcg.Core.jyzfDL\Szcg.Core.jyzfDL.csproj">
+      <Project>{8ecff2bd-7c2c-4ef4-aafe-e71c1164ecc2}</Project>
+      <Name>Szcg.Core.jyzfDL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\dl\Szcg.Core.zhifaDL\Szcg.Core.zhifaDL.csproj">
+      <Project>{fa8cb07b-899a-423c-b061-29c22fb3da39}</Project>
+      <Name>Szcg.Core.zhifaDL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Szcg.Core.Common\Szcg.Core.Common.csproj">
+      <Project>{08fb2dcd-fa7d-49a2-9051-cfaa39e38796}</Project>
+      <Name>Szcg.Core.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Szcg.Core.zhifaBL\Szcg.Core.zhifaBL.csproj">
+      <Project>{f1e56de6-732f-4391-be8c-5b1f16bb5914}</Project>
+      <Name>Szcg.Core.zhifaBL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

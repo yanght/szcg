@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ABFE607D-2ADF-489A-B3C4-022EDC434214}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Szcg.Service.Bussiness</RootNamespace>
+    <AssemblyName>Szcg.Service.Bussiness</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.5\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CollectorService.cs" />
+    <Compile Include="OrganizeService.cs" />
+    <Compile Include="PermissionService.cs" />
+    <Compile Include="ProjectService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\core\bl\Szcg.Core.businessBL\Szcg.Core.businessBL.csproj">
+      <Project>{425729be-2713-45a8-800e-fe05c47c9839}</Project>
+      <Name>Szcg.Core.businessBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core\bl\Szcg.Core.loginBL\Szcg.Core.loginBL.csproj">
+      <Project>{c724664a-c88b-482d-a215-4e0ba99a27e3}</Project>
+      <Name>Szcg.Core.loginBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core\bl\Szcg.Core.pubBL\Szcg.Core.pubBL.csproj">
+      <Project>{80100cb2-3958-48a0-ab76-2fc69ccf877f}</Project>
+      <Name>Szcg.Core.pubBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core\bl\Szcg.Core.szbaseBL\Szcg.Core.szbaseBL.csproj">
+      <Project>{36a8b3b7-6e72-4bcc-a88f-a0dfccc6915b}</Project>
+      <Name>Szcg.Core.szbaseBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core\dbl\Szcg.Core.bussinesDBL\Szcg.Core.bussinesDBL.csproj">
+      <Project>{f4c5be34-af8c-462f-b4aa-998d9be75623}</Project>
+      <Name>Szcg.Core.bussinesDBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core\dbl\Szcg.Core.loginDBL\Szcg.Core.loginDBL.csproj">
+      <Project>{0dac275c-0804-4790-bb69-1d0a4979887b}</Project>
+      <Name>Szcg.Core.loginDBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core\dbl\Szcg.Core.pubDBL\Szcg.Core.pubDBL.csproj">
+      <Project>{ad9aa70c-ceb9-4e75-b740-31fbc319b46a}</Project>
+      <Name>Szcg.Core.pubDBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core\dl\Szcg.Core.loginDL\Szcg.Core.loginDL.csproj">
+      <Project>{17ac39bb-1e7c-4e24-8ab4-ce89ecb409dc}</Project>
+      <Name>Szcg.Core.loginDL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core\dl\Szcg.Core.pubDL\Szcg.Core.pubDL.csproj">
+      <Project>{914f3bf1-174f-4b30-b491-b1e6406ac135}</Project>
+      <Name>Szcg.Core.pubDL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core\Szcg.Core.Common\Szcg.Core.Common.csproj">
+      <Project>{08fb2dcd-fa7d-49a2-9051-cfaa39e38796}</Project>
+      <Name>Szcg.Core.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Szcg.Service.Common\Szcg.Service.Common.csproj">
+      <Project>{4a65f49a-5505-4bdf-b880-c7e6b6ba196c}</Project>
+      <Name>Szcg.Service.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Szcg.Service.IBussiness\Szcg.Service.IBussiness.csproj">
+      <Project>{dabbf415-009f-4a62-b441-fd1e4f314081}</Project>
+      <Name>Szcg.Service.IBussiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Szcg.Service.Model\Szcg.Service.Model.csproj">
+      <Project>{a0514ebb-b17b-499d-9eba-769007f01400}</Project>
+      <Name>Szcg.Service.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

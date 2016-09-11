@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="CarGPSDs" targetNamespace="http://tempuri.org/CarGPSDs.xsd" elementFormDefault="qualified"
+	attributeFormDefault="qualified" xmlns="http://tempuri.org/CarGPSDs.xsd" xmlns:mstns="http://tempuri.org/CarGPSDs.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+	<xs:element name="CarGPSDs" msdata:IsDataSet="true">
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="CommandLog">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="LogId" type="xs:int" minOccurs="0" />
+							<xs:element name="SIM" type="xs:string" minOccurs="0" />
+							<xs:element name="CarName" type="xs:string" minOccurs="0" />
+							<xs:element name="CommandName" type="xs:string" minOccurs="0" />
+							<xs:element name="CommandContent" type="xs:string" minOccurs="0" />
+							<xs:element name="HostAddress" type="xs:string" minOccurs="0" />
+							<xs:element name="SendTime" type="xs:dateTime" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="GPSStateLog">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="LogId" type="xs:int" minOccurs="0" />
+							<xs:element name="SIM" type="xs:string" minOccurs="0" />
+							<xs:element name="CarName" type="xs:string" minOccurs="0" />
+							<xs:element name="Longitude" type="xs:double" minOccurs="0" />
+							<xs:element name="Latitude" type="xs:double" minOccurs="0" />
+							<xs:element name="Speed" type="xs:double" minOccurs="0" />
+							<xs:element name="Angle" type="xs:double" minOccurs="0" />
+							<xs:element name="StarCount" type="xs:int" minOccurs="0" />
+							<xs:element name="ReceiveTime" type="xs:dateTime" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="RealGPSState">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="SIM" type="xs:string" minOccurs="0" />
+							<xs:element name="CarName" type="xs:string" minOccurs="0" />
+							<xs:element name="Longitude" type="xs:double" minOccurs="0" />
+							<xs:element name="Latitude" type="xs:double" minOccurs="0" />
+							<xs:element name="Speed" type="xs:double" minOccurs="0" />
+							<xs:element name="Angle" type="xs:double" minOccurs="0" />
+							<xs:element name="StarCount" type="xs:int" minOccurs="0" />
+							<xs:element name="ReceiveTime" type="xs:dateTime" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="CarImage">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="SendTime" type="xs:dateTime" minOccurs="0" />
+							<xs:element name="ReceiveTime" type="xs:dateTime" minOccurs="0" />
+							<xs:element name="Image" type="xs:base64Binary" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Message">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="MessageId" type="xs:int" minOccurs="0" />
+							<xs:element name="SIM" type="xs:string" minOccurs="0" />
+							<xs:element name="CarName" type="xs:string" minOccurs="0" />
+							<xs:element name="Content" type="xs:string" minOccurs="0" />
+							<xs:element name="Direction" type="xs:string" minOccurs="0" />
+							<xs:element name="IsRead" type="xs:boolean" minOccurs="0" />
+							<xs:element name="ReceiveTime" type="xs:string" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

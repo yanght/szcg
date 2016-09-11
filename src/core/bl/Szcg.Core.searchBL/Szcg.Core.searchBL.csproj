@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{160EA3A7-4ABF-4A6A-B695-1C62C84E6289}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Szcg.Core.searchBL</RootNamespace>
+    <AssemblyName>Szcg.Core.searchBL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\..\CODE_bak20160725\CODE\SzcgWeb\Bin\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Analysis.China">
+      <HintPath>..\..\CODE_bak20160725\CODE\SzcgWeb\Bin\Lucene.Net.Analysis.China.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Analysis.Cn">
+      <HintPath>..\..\CODE_bak20160725\CODE\SzcgWeb\Bin\Lucene.Net.Analysis.Cn.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Search\ConfigAnalyzer.cs" />
+    <Compile Include="Search\EntryData.cs" />
+    <Compile Include="Search\Indexer.cs" />
+    <Compile Include="Search\IndexManager.cs" />
+    <Compile Include="Search\pager.cs" />
+    <Compile Include="Search\QueryIndex.cs" />
+    <Compile Include="Search\Result.cs" />
+    <Compile Include="Search\ResultSet.cs" />
+    <Compile Include="Search\SearchEngineSchedule.cs" />
+    <Compile Include="Search\SearchLock.cs" />
+    <Compile Include="Search\StopWatch.cs" />
+    <Compile Include="Search\Weighter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Search\vssver2.scc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Szcg.Core.Common\Szcg.Core.Common.csproj">
+      <Project>{519a5e35-b78a-409b-91c3-842904d0d63d}</Project>
+      <Name>Szcg.Core.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Szcg.Core.searchDL\Szcg.Core.searchDL.csproj">
+      <Project>{0489c3fe-369a-438b-a3ed-ef51c426a39c}</Project>
+      <Name>Szcg.Core.searchDL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

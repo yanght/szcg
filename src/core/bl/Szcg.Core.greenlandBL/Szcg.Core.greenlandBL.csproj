@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2703EBF5-EB7E-4771-94B5-DBAE3733B459}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Szcg.Core.greenlandBL</RootNamespace>
+    <AssemblyName>Szcg.Core.greenlandBL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="greenland\GetXMLDeploy.cs" />
+    <Compile Include="greenland\GreendLandORG.cs" />
+    <Compile Include="greenland\GreenLandStat.cs" />
+    <Compile Include="greenland\GreenLandStatBl.cs" />
+    <Compile Include="greenland\Lhsbmanage.cs" />
+    <Compile Include="greenland\Parksmanager.cs" />
+    <Compile Include="greenland\patrolmanage.cs" />
+    <Compile Include="greenland\RCManager.cs" />
+    <Compile Include="greenland\regulationmanage.cs" />
+    <Compile Include="greenland\SEDDataManage.cs" />
+    <Compile Include="greenland\YjInspection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="greenland\vssver2.scc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Scg.Core.greenlandDL\Scg.Core.greenlandDL.csproj">
+      <Project>{64052b78-111f-42f5-9f4d-25bc37232be5}</Project>
+      <Name>Scg.Core.greenlandDL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Szcg.Core.bussinesDBL\Szcg.Core.bussinesDBL.csproj">
+      <Project>{318e4eb9-a7a0-46a5-8a15-c76eba807c2d}</Project>
+      <Name>Szcg.Core.bussinesDBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Szcg.Core.Common\Szcg.Core.Common.csproj">
+      <Project>{519a5e35-b78a-409b-91c3-842904d0d63d}</Project>
+      <Name>Szcg.Core.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Szcg.Core.environmentDL\Szcg.Core.environmentDL.csproj">
+      <Project>{508d92eb-1a16-4cf8-864f-3b56bacd8a67}</Project>
+      <Name>Szcg.Core.environmentDL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Szcg.Core.pubDL\Szcg.Core.pubDL.csproj">
+      <Project>{d33b817a-f815-4f2e-8052-632df86b1964}</Project>
+      <Name>Szcg.Core.pubDL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

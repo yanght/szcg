@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E12B9208-52DF-4CDF-96B1-12C5B87D37EA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Szcg.Core.environmentDL</RootNamespace>
+    <AssemblyName>Szcg.Core.environmentDL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="environment\acceptplace\acceptplacedao.cs" />
+    <Compile Include="environment\entitys\acceptplace.cs" />
+    <Compile Include="environment\entitys\codedict.cs" />
+    <Compile Include="environment\entitys\Dept.cs" />
+    <Compile Include="environment\entitys\Establishment.cs" />
+    <Compile Include="environment\entitys\garbageclean.cs" />
+    <Compile Include="environment\entitys\LandFillInfo.cs" />
+    <Compile Include="environment\entitys\landfire.cs" />
+    <Compile Include="environment\entitys\LJsweep.cs" />
+    <Compile Include="environment\entitys\patrol.cs" />
+    <Compile Include="environment\entitys\person.cs" />
+    <Compile Include="environment\entitys\PersonnelStatistic.cs" />
+    <Compile Include="environment\entitys\siltdirtcls.cs" />
+    <Compile Include="environment\entitys\StatisticType.cs" />
+    <Compile Include="environment\establishments\EstablishmentDAO.cs" />
+    <Compile Include="environment\garbage\LandFillDao.cs" />
+    <Compile Include="environment\garbage\landfiredao.cs" />
+    <Compile Include="environment\organizes\DepartManageDL.cs" />
+    <Compile Include="environment\patrols\GarbagecleanDAO.cs" />
+    <Compile Include="environment\patrols\LJsweepDAO.cs" />
+    <Compile Include="environment\patrols\PatrolDao.cs" />
+    <Compile Include="environment\personnels\PersonnelDAO.cs" />
+    <Compile Include="environment\siltdirt\siltdirtdao.cs" />
+    <Compile Include="environment\statistics\StatisticDAO.cs" />
+    <Compile Include="environment\sysset\CodedictDao.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="environment\acceptplace\vssver2.scc" />
+    <None Include="environment\entitys\vssver2.scc" />
+    <None Include="environment\establishments\vssver2.scc" />
+    <None Include="environment\garbage\vssver2.scc" />
+    <None Include="environment\organizes\vssver2.scc" />
+    <None Include="environment\patrols\vssver2.scc" />
+    <None Include="environment\personnels\vssver2.scc" />
+    <None Include="environment\siltdirt\vssver2.scc" />
+    <None Include="environment\statistics\vssver2.scc" />
+    <None Include="environment\sysset\vssver2.scc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Szcg.Core.Common\Szcg.Core.Common.csproj">
+      <Project>{08fb2dcd-fa7d-49a2-9051-cfaa39e38796}</Project>
+      <Name>Szcg.Core.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

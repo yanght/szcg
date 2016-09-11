@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--此文件由 XML 架构设计器自动生成。它包含设计器表面组件的布局信息。-->
+<XSDDesignerLayout layoutVersion="2" viewPortLeft="-1352" viewPortTop="0" zoom="100">
+    <CommandLog_XmlElement left="17827" top="2059" width="5292" height="4234" selected="0" zOrder="0" index="0" expanded="1" />
+    <GPSStateLog_XmlElement left="-430" top="7456" width="5291" height="5080" selected="0" zOrder="1" index="1" expanded="1" />
+    <RealGPSState_XmlElement left="-484" top="1767" width="5292" height="4657" selected="0" zOrder="2" index="2" expanded="1" />
+    <CarImage_XmlElement left="11978" top="1901" width="5292" height="2540" selected="0" zOrder="3" index="3" expanded="1" />
+    <Message_XmlElement left="5865" top="1900" width="5291" height="4233" selected="0" zOrder="4" index="4" expanded="1" />
+</XSDDesignerLayout>

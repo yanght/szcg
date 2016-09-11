@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{12F20E3A-B41D-4D6E-919B-9BB95200C05C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Szcg.Core.environmentBL</RootNamespace>
+    <AssemblyName>Szcg.Core.environmentBL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxPro.2">
+      <HintPath>..\..\CODE_bak20160725\CODE\SzcgWeb\Bin\AjaxPro.2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="environment\acceptplace\base_acceptplacehelper.cs" />
+    <Compile Include="environment\CarManager\BASE_carmanager.cs" />
+    <Compile Include="environment\establishments\BASE_establishmenthelper.cs" />
+    <Compile Include="environment\establishments\GetXMLDeploy.cs" />
+    <Compile Include="environment\garbage\base_landfirehelper.cs" />
+    <Compile Include="environment\garbage\LandFillManager.cs" />
+    <Compile Include="environment\grid\Base_gridhelper.cs" />
+    <Compile Include="environment\organizes\DepartManage.cs" />
+    <Compile Include="environment\patrols\BASE_garbagehelper.cs" />
+    <Compile Include="environment\patrols\BASE_LJsweephelper.cs" />
+    <Compile Include="environment\patrols\BASE_patrolhelper.cs" />
+    <Compile Include="environment\personnels\BASE_personnelhelper.cs" />
+    <Compile Include="environment\siltdirt\base_siltdirthelper.cs" />
+    <Compile Include="environment\statistics\BASE_statistichelper.cs" />
+    <Compile Include="environment\sysset\Base_Codedicthelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="environment\acceptplace\vssver2.scc" />
+    <None Include="environment\CarManager\vssver2.scc" />
+    <None Include="environment\establishments\vssver2.scc" />
+    <None Include="environment\garbage\vssver2.scc" />
+    <None Include="environment\grid\vssver2.scc" />
+    <None Include="environment\organizes\vssver2.scc" />
+    <None Include="environment\patrols\vssver2.scc" />
+    <None Include="environment\personnels\vssver2.scc" />
+    <None Include="environment\siltdirt\vssver2.scc" />
+    <None Include="environment\statistics\vssver2.scc" />
+    <None Include="environment\sysset\vssver2.scc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Szcg.Core.Common\Szcg.Core.Common.csproj">
+      <Project>{519a5e35-b78a-409b-91c3-842904d0d63d}</Project>
+      <Name>Szcg.Core.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Szcg.Core.comold\Szcg.Core.comold.csproj">
+      <Project>{742542f4-2455-4d86-8351-285db8079c0f}</Project>
+      <Name>Szcg.Core.comold</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Szcg.Core.environmentDL\Szcg.Core.environmentDL.csproj">
+      <Project>{508d92eb-1a16-4cf8-864f-3b56bacd8a67}</Project>
+      <Name>Szcg.Core.environmentDL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Szcg.Core.pubBL\Szcg.Core.pubBL.csproj">
+      <Project>{ca3e2dcc-c3ce-4d42-8f85-dd73846e51e5}</Project>
+      <Name>Szcg.Core.pubBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Szcg.Core.pubDBL\Szcg.Core.pubDBL.csproj">
+      <Project>{4c46ff86-463c-4880-a1ec-ad09765d18ba}</Project>
+      <Name>Szcg.Core.pubDBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Szcg.Core.pubDL\Szcg.Core.pubDL.csproj">
+      <Project>{d33b817a-f815-4f2e-8052-632df86b1964}</Project>
+      <Name>Szcg.Core.pubDL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Szcg.Core.szbaseBL\Szcg.Core.szbaseBL.csproj">
+      <Project>{6fe7567e-4316-4756-8da1-06facf310638}</Project>
+      <Name>Szcg.Core.szbaseBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Szcg.Core.szbaseDL\Szcg.Core.szbaseDL.csproj">
+      <Project>{6747746a-1c41-455a-8f18-b94feb7a3199}</Project>
+      <Name>Szcg.Core.szbaseDL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

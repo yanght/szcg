@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{69BC850F-E186-470F-8A11-3028E712AB4C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Szcg.Core.comold</RootNamespace>
+    <AssemblyName>Szcg.Core.comold</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxPro.2">
+      <HintPath>..\..\CODE_bak20160725\CODE\SzcgWeb\Bin\AjaxPro.2.dll</HintPath>
+    </Reference>
+    <Reference Include="FtpSupport">
+      <HintPath>..\..\CODE_bak20160725\CODE\SzcgWeb\Bin\FtpSupport.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.Excel">
+      <HintPath>..\..\CODE_bak20160725\CODE\SzcgWeb\Bin\Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.Microsoft.Office.Core">
+      <HintPath>..\..\CODE_bak20160725\CODE\SzcgWeb\Bin\Interop.Microsoft.Office.Core.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.SQLDMO">
+      <HintPath>..\..\CODE_bak20160725\CODE\SzcgWeb\Bin\Interop.SQLDMO.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.VBIDE">
+      <HintPath>..\..\CODE_bak20160725\CODE\SzcgWeb\Bin\Interop.VBIDE.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Web.UI.WebControls">
+      <HintPath>..\..\CODE_bak20160725\CODE\SzcgWeb\Bin\Microsoft.Web.UI.WebControls.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="com\teamax\business\entity\ActionEntity.cs" />
+    <Compile Include="com\teamax\business\entity\CollecterInfo.cs" />
+    <Compile Include="com\teamax\business\entity\GroupInfo.cs" />
+    <Compile Include="com\teamax\business\entity\MsgInfo.cs" />
+    <Compile Include="com\teamax\business\entity\ProjInfo.cs" />
+    <Compile Include="com\teamax\business\grxx\Business_grxx.cs" />
+    <Compile Include="com\teamax\business\jdygl\BUSINESS_jdyQuery.cs" />
+    <Compile Include="com\teamax\business\message\Business_msg.cs" />
+    <Compile Include="com\teamax\business\message\DepartnameInfo.cs" />
+    <Compile Include="com\teamax\business\message\DepartTree.cs" />
+    <Compile Include="com\teamax\business\projectmanage\BUSINESS_ProjectManage.cs" />
+    <Compile Include="com\teamax\business\projectmanage\BUSINESS_ProjQuery.cs" />
+    <Compile Include="com\teamax\business\projectmanage\Business_Projregister.cs" />
+    <Compile Include="com\teamax\chart\Functions.cs" />
+    <Compile Include="com\teamax\chart\FusionCharts.cs" />
+    <Compile Include="com\teamax\MSG\MsgCollecter.cs" />
+    <Compile Include="com\teamax\MSG\MsgManager.cs" />
+    <Compile Include="com\teamax\MSG\ProjectInter.cs" />
+    <Compile Include="com\teamax\remote\AuthorInfo.cs" />
+    <Compile Include="com\teamax\remote\RemoteLib.cs" />
+    <Compile Include="com\teamax\szbase\appraise\BASE_appraise.cs" />
+    <Compile Include="com\teamax\szbase\archives\BASE_archives.cs" />
+    <Compile Include="com\teamax\szbase\capability\BASE_backup.cs" />
+    <Compile Include="com\teamax\szbase\capability\BASE_capabilityManage.cs" />
+    <Compile Include="com\teamax\szbase\classmanage\BASE_classmanage.cs" />
+    <Compile Include="com\teamax\szbase\collecter\BASE_collecterhelper.cs" />
+    <Compile Include="com\teamax\szbase\doormanager\BASE_doormanager.cs" />
+    <Compile Include="com\teamax\szbase\entity\Collecter.cs" />
+    <Compile Include="com\teamax\szbase\entity\EntitySet.cs" />
+    <Compile Include="com\teamax\szbase\entity\Lawer.cs" />
+    <Compile Include="com\teamax\szbase\entity\User.cs" />
+    <Compile Include="com\teamax\szbase\entity\UserLog.cs" />
+    <Compile Include="com\teamax\szbase\grid\Base_gridhelper.cs" />
+    <Compile Include="com\teamax\szbase\organize\BASE_orghelper.cs" />
+    <Compile Include="com\teamax\szbase\purview\BASE_Bl.cs" />
+    <Compile Include="com\teamax\szbase\purview\BASE_Purviews.cs" />
+    <Compile Include="com\teamax\szbase\systemsetting\BASE_systemsetting.cs" />
+    <Compile Include="com\teamax\szbase\systemsetting\employeeInfo.cs" />
+    <Compile Include="com\teamax\szbase\systemsetting\logmanage\BASE_logmanageservice.cs" />
+    <Compile Include="com\teamax\szbase\template\BASE_addOpinion.cs" />
+    <Compile Include="com\teamax\szbase\template\BASE_template.cs" />
+    <Compile Include="com\teamax\util\ConfigSettings.cs" />
+    <Compile Include="com\teamax\util\DataAccess.cs" />
+    <Compile Include="com\teamax\util\DateUtil.cs" />
+    <Compile Include="com\teamax\util\ExcelReport.cs" />
+    <Compile Include="com\teamax\util\FileUpload.cs" />
+    <Compile Include="com\teamax\util\MailUtil.cs" />
+    <Compile Include="com\teamax\util\PageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="com\teamax\util\SortUtil.cs" />
+    <Compile Include="com\teamax\util\SqlFilter.cs" />
+    <Compile Include="com\teamax\util\TreeUtil.cs" />
+    <Compile Include="com\teamax\util\XmlUtil.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="com\teamax\business\entity\vssver2.scc" />
+    <None Include="com\teamax\business\grxx\vssver2.scc" />
+    <None Include="com\teamax\business\jdygl\vssver2.scc" />
+    <None Include="com\teamax\business\message\vssver2.scc" />
+    <None Include="com\teamax\business\projectmanage\vssver2.scc" />
+    <None Include="com\teamax\MSG\vssver2.scc" />
+    <None Include="com\teamax\remote\vssver2.scc" />
+    <None Include="com\teamax\szbase\appraise\vssver2.scc" />
+    <None Include="com\teamax\szbase\archives\vssver2.scc" />
+    <None Include="com\teamax\szbase\capability\vssver2.scc" />
+    <None Include="com\teamax\szbase\classmanage\vssver2.scc" />
+    <None Include="com\teamax\szbase\collecter\vssver2.scc" />
+    <None Include="com\teamax\szbase\doormanager\vssver2.scc" />
+    <None Include="com\teamax\szbase\entity\vssver2.scc" />
+    <None Include="com\teamax\szbase\grid\vssver2.scc" />
+    <None Include="com\teamax\szbase\organize\vssver2.scc" />
+    <None Include="com\teamax\szbase\purview\vssver2.scc" />
+    <None Include="com\teamax\szbase\systemsetting\logmanage\vssver2.scc" />
+    <None Include="com\teamax\szbase\systemsetting\vssver2.scc" />
+    <None Include="com\teamax\szbase\template\vssver2.scc" />
+    <None Include="com\teamax\util\vssver2.scc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\dbl\Szcg.Core.bussinesDBL\Szcg.Core.bussinesDBL.csproj">
+      <Project>{f4c5be34-af8c-462f-b4aa-998d9be75623}</Project>
+      <Name>Szcg.Core.bussinesDBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\dbl\Szcg.Core.pubDBL\Szcg.Core.pubDBL.csproj">
+      <Project>{ad9aa70c-ceb9-4e75-b740-31fbc319b46a}</Project>
+      <Name>Szcg.Core.pubDBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\dbl\Szcg.Core.szbaseDBL\Szcg.Core.szbaseDBL.csproj">
+      <Project>{b2f00ca1-c5e2-4e6d-a544-411acf4e2e8d}</Project>
+      <Name>Szcg.Core.szbaseDBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\dl\Szcg.Core.pubDL\Szcg.Core.pubDL.csproj">
+      <Project>{914f3bf1-174f-4b30-b491-b1e6406ac135}</Project>
+      <Name>Szcg.Core.pubDL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\dl\Szcg.Core.szbaseDL\Szcg.Core.szbaseDL.csproj">
+      <Project>{ede80fbe-8fd7-45a4-92d2-fbeb1df042d6}</Project>
+      <Name>Szcg.Core.szbaseDL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Szcg.Core.Common\Szcg.Core.Common.csproj">
+      <Project>{08fb2dcd-fa7d-49a2-9051-cfaa39e38796}</Project>
+      <Name>Szcg.Core.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Szcg.Core.pubBL\Szcg.Core.pubBL.csproj">
+      <Project>{ca3e2dcc-c3ce-4d42-8f85-dd73846e51e5}</Project>
+      <Name>Szcg.Core.pubBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Szcg.Core.szbaseBL\Szcg.Core.szbaseBL.csproj">
+      <Project>{6fe7567e-4316-4756-8da1-06facf310638}</Project>
+      <Name>Szcg.Core.szbaseBL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

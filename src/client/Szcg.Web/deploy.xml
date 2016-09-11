@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<deploy>
+  <!-- 
+       DB:配置数据库日志
+
+       Operate:配置系统操作日志
+       Level：设定日志级别
+
+          All：调用All()方法以及级别高于它的所有方法都会纪录日志
+
+          DEBUG：调用DEBUG()方法以及级别高于它的所有方法都会纪录日志
+
+          ...
+          OFF： 不记录任何日志
+
+          限制等级： All<DEBUG<INFO<WARN<ERROR<FATAL<OFF
+      filelog：是否在系统数据库无法记录数据的情况下讲日志写到本地文件
+          0：写
+          1：不写
+
+      lognumber：设置日志条数 作为提交数据库 频度条件 
+       
+   -->
+  <DB>
+    <Level>ERROR</Level>
+    <filelog>1</filelog>
+    <lognumber>100</lognumber>
+  </DB>
+  <Operate>
+    <Level>All</Level>
+    <filelog>1</filelog>
+    <lognumber>100</lognumber>
+  </Operate>
+</deploy>
