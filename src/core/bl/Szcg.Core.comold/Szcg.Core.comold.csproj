@@ -31,10 +31,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AjaxPro.2">
-      <HintPath>..\..\CODE_bak20160725\CODE\SzcgWeb\Bin\AjaxPro.2.dll</HintPath>
+      <HintPath>..\..\..\service\Szcg.Service.Common\third\AjaxPro.2.dll</HintPath>
     </Reference>
     <Reference Include="FtpSupport">
-      <HintPath>..\..\CODE_bak20160725\CODE\SzcgWeb\Bin\FtpSupport.dll</HintPath>
+      <HintPath>..\..\..\service\Szcg.Service.Common\third\FtpSupport.dll</HintPath>
     </Reference>
     <Reference Include="Interop.Excel">
       <HintPath>..\..\CODE_bak20160725\CODE\SzcgWeb\Bin\Interop.Excel.dll</HintPath>
@@ -53,7 +53,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.Web.UI.WebControls">
-      <HintPath>..\..\CODE_bak20160725\CODE\SzcgWeb\Bin\Microsoft.Web.UI.WebControls.dll</HintPath>
+      <HintPath>..\..\..\service\Szcg.Service.Common\third\Microsoft.Web.UI.WebControls.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -61,6 +61,7 @@
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />

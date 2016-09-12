@@ -30,8 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxPro.2">
-      <HintPath>..\..\CODE_bak20160725\CODE\SzcgWeb\Bin\AjaxPro.2.dll</HintPath>
+    <Reference Include="AjaxPro.2, Version=6.5.9.1, Culture=neutral, PublicKeyToken=4735ae9824c7d3ec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\service\Szcg.Service.Common\third\AjaxPro.2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

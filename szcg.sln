@@ -89,12 +89,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Szcg.Core.Common", "src\cor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "src\client\Test\Test.csproj", "{EC99CD27-30A4-468E-870A-9D2C934B500A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "third", "third", "{9DF11085-6516-41FC-AE7D-B30C9F8B06C6}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\szcg\szcg\Szcg.Core.businessBL\bin\Debug\AjaxPro.2.dll = ..\..\szcg\szcg\Szcg.Core.businessBL\bin\Debug\AjaxPro.2.dll
-		..\..\szcg\szcg\Szcg.Core.businessBL\bin\Debug\FtpSupport.dll = ..\..\szcg\szcg\Szcg.Core.businessBL\bin\Debug\FtpSupport.dll
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Szcg.Web", "src\client\Szcg.Web\Szcg.Web.csproj", "{0F44FC4D-92D1-4BFA-83D1-42AAD1FF2F77}"
 EndProject
 Global
@@ -293,7 +287,6 @@ Global
 		{A0514EBB-B17B-499D-9EBA-769007F01400} = {2875F638-4507-45CC-A21F-7D6D78E0AA8C}
 		{08FB2DCD-FA7D-49A2-9051-CFAA39E38796} = {36A29ECC-5FE3-4CDF-A301-CC4A33F3B569}
 		{EC99CD27-30A4-468E-870A-9D2C934B500A} = {0AF9F171-415D-4A95-B564-09FDA97085D0}
-		{9DF11085-6516-41FC-AE7D-B30C9F8B06C6} = {E922B313-AB37-45FB-B81B-A206CE82B001}
 		{0F44FC4D-92D1-4BFA-83D1-42AAD1FF2F77} = {0AF9F171-415D-4A95-B564-09FDA97085D0}
 	EndGlobalSection
 EndGlobal
