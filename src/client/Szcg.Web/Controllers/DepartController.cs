@@ -64,7 +64,11 @@ namespace Szcg.Web.Controllers
         }
 
         [HttpPost]
-
+        /// <summary>
+        /// 修改部门信息
+        /// </summary>
+        /// <param name="depart">部门实体</param>
+        /// <returns></returns>
         public AjaxFxRspJson UpdateDepart(Depart depart)
         {
             AjaxFxRspJson ajax = CheckDepart(depart);

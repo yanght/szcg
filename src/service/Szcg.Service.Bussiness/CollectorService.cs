@@ -24,8 +24,22 @@ namespace Szcg.Service.Bussiness
         /// </summary>
         /// <param name="collecter">监督员对象</param>
         /// <returns></returns>
-        public int AddCollecter(Collecter collecter)
+        public ReturnValue AddCollecter(Collecter collecter)
         {
+            ReturnValue rtn = new ReturnValue() { ReturnState = true };
+
+            int temp = bl.CheckLoginName(collecter.LoginName, ref strErr);
+            if (!string.IsNullOrEmpty(strErr))
+            {
+                LoggerManager.Instance.logger.ErrorFormat("检查用户名重复异常：" + strErr);
+            }
+            if (temp > 0)
+            {
+                rtn.ErrorMsg = "登录名不能重复!";
+                rtn.ReturnState = false;
+                return rtn;
+            }
+
             List<string> list = new List<string>();
             list.Add(collecter.CollCode.ToString());
             list.Add(collecter.GridCode);
@@ -46,8 +60,11 @@ namespace Szcg.Service.Bussiness
             if (!string.IsNullOrEmpty(strErr))
             {
                 LoggerManager.Instance.logger.Error("添加监督员异常：" + strErr);
+                rtn.ErrorMsg = "添加监督员失败!";
+                rtn.ReturnState = false;
+                return rtn;
             }
-            return i;
+            return rtn;
         }
 
         /// <summary>
@@ -55,8 +72,22 @@ namespace Szcg.Service.Bussiness
         /// </summary>
         /// <param name="collecter">new监督员对象</param>
         /// <returns></returns>
-        public bool ModifyCollector(Collecter collecter)
+        public ReturnValue ModifyCollector(Collecter collecter)
         {
+            ReturnValue rtn = new ReturnValue() { ReturnState = true };
+
+            int temp = bl.CheckLoginName(collecter.LoginName, ref strErr);
+            if (!string.IsNullOrEmpty(strErr))
+            {
+                LoggerManager.Instance.logger.ErrorFormat("检查用户名重复异常：" + strErr);
+            }
+            if (temp > 0)
+            {
+                rtn.ErrorMsg = "登录名不能重复!";
+                rtn.ReturnState = false;
+                return rtn;
+            }
+
             List<string> list = new List<string>();
             list.Add(collecter.CollCode.ToString());
             list.Add(collecter.GridCode);
@@ -76,9 +107,12 @@ namespace Szcg.Service.Bussiness
             int i = bl.UpdateToCollecter(list.ToArray(), collecter.CollCode.ToString(), ref strErr);
             if (!string.IsNullOrEmpty(strErr))
             {
-                LoggerManager.Instance.logger.Error("修改监督员信息异常：" + strErr);
+                LoggerManager.Instance.logger.Error("添加监督员异常：" + strErr);
+                rtn.ErrorMsg = "添加监督员失败!";
+                rtn.ReturnState = false;
+                return rtn;
             }
-            return i > 0;
+            return rtn;
         }
 
         /// <summary>

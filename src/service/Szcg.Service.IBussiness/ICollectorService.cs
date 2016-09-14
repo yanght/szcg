@@ -13,14 +13,14 @@ namespace Szcg.Service.IBussiness
         /// </summary>
         /// <param name="collecter"></param>
         /// <returns></returns>
-        int AddCollecter(Collecter collecter);
+        ReturnValue AddCollecter(Collecter collecter);
 
         /// <summary>
         /// 修改监督员
         /// </summary>
         /// <param name="collecter"></param>
         /// <returns></returns>
-        bool ModifyCollector(Collecter collecter);
+        ReturnValue ModifyCollector(Collecter collecter);
 
         /// <summary>
         /// 删除监督员

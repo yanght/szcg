@@ -21,8 +21,6 @@ namespace Szcg.Service.Bussiness
     /// </summary>
     public class PermissionService : IPermissionService
     {
-        ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-
         private string strErr = "";
 
         /// <summary>

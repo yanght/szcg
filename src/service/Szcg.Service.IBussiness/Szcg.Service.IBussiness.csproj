@@ -59,7 +59,7 @@
       <Name>Szcg.Core.businessDL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Szcg.Service.Model\Szcg.Service.Model.csproj">
-      <Project>{d40cb61e-7290-4f40-a362-683ca67c9f28}</Project>
+      <Project>{a0514ebb-b17b-499d-9eba-769007f01400}</Project>
       <Name>Szcg.Service.Model</Name>
     </ProjectReference>
   </ItemGroup>
