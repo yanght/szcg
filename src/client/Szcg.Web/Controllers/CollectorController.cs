@@ -32,11 +32,36 @@ namespace Szcg.Web.Controllers
             return ajax;
         }
 
+        [HttpPost]
         public AjaxFxRspJson AddCollecter(Collecter collector)
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
+            ReturnValue rtn = svc.AddCollecter(collector);
 
+            if (!rtn.ReturnState)
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = rtn.ErrorMsg;
+                return ajax;
+            }
+
+            return ajax;
+        }
+
+        [HttpPost]
+        public AjaxFxRspJson ModifyCollecter(Collecter collector)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            ReturnValue rtn = svc.ModifyCollector(collector);
+
+            if (!rtn.ReturnState)
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = rtn.ErrorMsg;
+                return ajax;
+            }
 
             return ajax;
         }
