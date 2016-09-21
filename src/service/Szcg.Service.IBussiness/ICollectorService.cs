@@ -6,7 +6,7 @@ using Szcg.Service.Model;
 
 namespace Szcg.Service.IBussiness
 {
-    public interface ICollectorService
+    public interface ICollecterservice
     {
         /// <summary>
         /// 添加监督员
@@ -34,7 +34,7 @@ namespace Szcg.Service.IBussiness
         /// </summary>
         /// <param name="args"></param>
         /// <returns></returns>
-        List<Collecter> GetCollectors(CollectorQueryArgs args);
+        List<Collecter> GetCollecters(CollectorQueryArgs args);
 
         /// <summary>
         /// 获取核查用的监督员列表
@@ -42,7 +42,7 @@ namespace Szcg.Service.IBussiness
         /// <param name="streetCode">街道编码</param>
         /// <param name="projcode">案卷编号</param>
         /// <returns></returns>
-        List<Collecter> GetCollectors(string streetcode, string projcode);
+        List<Collecter> GetCollecters(string streetcode, string projcode);
 
         /// <summary>
         /// 获取监督员列表
@@ -51,7 +51,7 @@ namespace Szcg.Service.IBussiness
         /// <param name="streetcode">街道编码</param>
         /// <param name="commcode">社区编码</param>
         /// <returns></returns>
-        List<Collecter> GetCollectors(string areacode, string streetcode, string commcode);
+        List<Collecter> GetCollecters(string areacode, string streetcode, string commcode);
 
 
     }

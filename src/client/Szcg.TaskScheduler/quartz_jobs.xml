@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains job definitions in schema version 2.0 format -->
+
+<job-scheduling-data xmlns="http://quartznet.sourceforge.net/JobSchedulingData" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0">
+
+  <processing-directives>
+    <overwrite-existing-data>true</overwrite-existing-data>
+  </processing-directives>
+
+  <schedule>
+
+    <job>
+      <name>jobkey_kidmenudetail</name>
+      <group>jobgroupkey_kidmenudetail</group>
+      <description>周期配配送订单订单支付状态检测服务</description>
+      <job-type>YGOP.ZQPScheduler.Service.Jobs.KidMenuDetailJob,YGOP.ZQPScheduler.Service</job-type>
+      <durable>true</durable>
+      <recover>false</recover>
+    </job>
+    <trigger>
+      <cron>
+        <name>triggerkey_kidmenudetail</name>
+        <group>triggergroupkey_kidmenudetail</group>
+        <job-name>jobkey_kidmenudetail</job-name>
+        <job-group>jobgroupkey_kidmenudetail</job-group>
+        <start-time>2016-07-07T00:00:00+08:00</start-time>
+        <cron-expression>0 0 12 * * ?</cron-expression>
+      </cron>
+    </trigger>
+
+
+  </schedule>
+
+
+</job-scheduling-data>

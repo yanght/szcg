@@ -24,7 +24,7 @@ namespace Test
             //bigclassList(1);
             //smallclassList(0, "01");
 
-            //getcollectors("331125","","");
+            //getCollecters("331125","","");
 
 
             //new OrganizeService().GetDepartList("331125", "183", "2");
@@ -119,9 +119,9 @@ namespace Test
             return svc.GetSmallClassList(type, bigclassCode);
         }
 
-        public static List<Collecter> getcollectors(string areacode, string streetcode, string commcode)
+        public static List<Collecter> getCollecters(string areacode, string streetcode, string commcode)
         {
-            return new CollectorService().GetCollectors(areacode, streetcode, commcode);
+            return new Collecterservice().GetCollecters(areacode, streetcode, commcode);
         }
 
     }

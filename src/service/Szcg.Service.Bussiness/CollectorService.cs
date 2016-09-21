@@ -13,7 +13,7 @@ using Szcg.Service.Model;
 
 namespace Szcg.Service.Bussiness
 {
-    public class CollectorService : ICollectorService
+    public class Collecterservice : ICollecterservice
     {
         private string strErr = "";
 
@@ -135,9 +135,9 @@ namespace Szcg.Service.Bussiness
         /// </summary>
         /// <param name="CollectorQueryArgs">监督员查询参数</param>
         /// <returns></returns>
-        public List<Collecter> GetCollectors(CollectorQueryArgs args)
+        public List<Collecter> GetCollecters(CollectorQueryArgs args)
         {
-            List<Collecter> collectors = new List<Collecter>();
+            List<Collecter> Collecters = new List<Collecter>();
             ArrayList[] list = bl.GetAllCollecter(args.Type, args.Id, args.PageIndex, args.PageSize, args.ReturnRecordCount, args.Name, args.LoginName, args.GridCode, ref strErr);
             if (!string.IsNullOrEmpty(strErr))
             {
@@ -147,17 +147,17 @@ namespace Szcg.Service.Bussiness
             {
                 foreach (var item in list[1])
                 {
-                    collectors.Add((Collecter)item);
+                    Collecters.Add((Collecter)item);
                 }
             }
             else
             {
                 foreach (var item in list[0])
                 {
-                    collectors.Add((Collecter)item);
+                    Collecters.Add((Collecter)item);
                 }
             }
-            return collectors;
+            return Collecters;
         }
 
         /// <summary>
@@ -167,7 +167,7 @@ namespace Szcg.Service.Bussiness
         /// <param name="streetcode">街道编码</param>
         /// <param name="commcode">社区编码</param>
         /// <returns></returns>
-        public List<Collecter> GetCollectors(string areacode, string streetcode, string commcode)
+        public List<Collecter> GetCollecters(string areacode, string streetcode, string commcode)
         {
             List<Collecter> list = new List<Collecter>();
 
@@ -191,9 +191,9 @@ namespace Szcg.Service.Bussiness
         /// <param name="streetCode">街道编码</param>
         /// <param name="projcode">案卷编号</param>
         /// <returns></returns>
-        public List<Collecter> GetCollectors(string streetcode, string projcode)
+        public List<Collecter> GetCollecters(string streetcode, string projcode)
         {
-            List<Collecter> collectors = new List<Collecter>();
+            List<Collecter> collecters = new List<Collecter>();
             DataSet ds = bacgBL.business.collecter.GetCollectereList4HC(streetcode, projcode, out strErr);
             if (!string.IsNullOrEmpty(strErr))
             {
@@ -201,9 +201,9 @@ namespace Szcg.Service.Bussiness
             }
             if (ds != null && ds.Tables[0].Rows.Count > 0)
             {
-                collectors = ConvertDtHelper<Collecter>.GetModelList(ds.Tables[0].Rows);
+                collecters = ConvertDtHelper<Collecter>.GetModelList(ds.Tables[0].Rows);
             }
-            return collectors;
+            return collecters;
         }
     }
 }

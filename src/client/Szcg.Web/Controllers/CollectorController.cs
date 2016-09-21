@@ -12,7 +12,7 @@ namespace Szcg.Web.Controllers
 {
     public class CollectorController : Controller
     {
-        ICollectorService svc = new CollectorService();
+        ICollecterservice svc = new Collecterservice();
         //
         // GET: /Collector/
 
@@ -21,13 +21,13 @@ namespace Szcg.Web.Controllers
             return View();
         }
 
-        public AjaxFxRspJson GetCollectors(CollectorQueryArgs args)
+        public AjaxFxRspJson GetCollecters(CollectorQueryArgs args)
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
-            List<Collecter> list = svc.GetCollectors(args);
+            List<Collecter> list = svc.GetCollecters(args);
 
-            ajax.RspData.Add("collectors", JToken.FromObject(list));
+            ajax.RspData.Add("Collecters", JToken.FromObject(list));
 
             return ajax;
         }

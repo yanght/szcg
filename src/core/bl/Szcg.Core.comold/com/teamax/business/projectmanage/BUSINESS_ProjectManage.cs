@@ -648,7 +648,7 @@ namespace szcg.com.teamax.business
 		}
 
 		//得到监督员的信息
-		public ArrayList getCollectors(string id,string projcode)
+		public ArrayList getCollecters(string id,string projcode)
 		{
 			string sql = "";
 			if(id!="")

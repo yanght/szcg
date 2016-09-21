@@ -18,6 +18,12 @@ namespace Szcg.Web.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Index(string username, string password)
+        {
+            return View();
+        }
+
         public void ChageRole(string systemId)
         {
             string strRoleId = string.Empty;

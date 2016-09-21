@@ -40,6 +40,45 @@
         <h5>Find Web Hosting</h5>
         You can easily find a web hosting company that offers the right mix of features
         and price for your applications.
-        <a href="http://go.microsoft.com/fwlink/?LinkId=245157">Learn more…</a>        
+        <a href="http://go.microsoft.com/fwlink/?LinkId=245157">Learn more…</a>
     </li>
 </ol>
+
+<div>
+    @using (Html.BeginForm("GetDepartList", "Depart", FormMethod.Post, new { id = "form1" }))
+    {
+        @Html.TextBox("username", "yannis")
+        @Html.TextBox("password", "123456")
+        <input type="submit" value="submit" id="btn" />
+    }
+</div>
+
+<div>
+
+    @Html.TextArea("text", new { id = "result", style = "width:100%;height:200px" })
+
+</div>
+@section scripts{
+    <script>
+        $(function () {
+            $('#form1').submit(function () {
+
+                $.ajax({
+                    url: this.action,
+                    type: this.method,
+                    data: $(this).serialize(),
+                    success: function (result) {
+                        $('#result').html(result);
+                    },
+                    error: function (result) {
+                        alert(result);
+                    }
+                });
+
+                return false;
+            });
+
+        })
+
+    </script>
+}
