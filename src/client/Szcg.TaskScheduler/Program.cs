@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,19 +10,20 @@ namespace Szcg.TaskScheduler
 {
     class Program
     {
+       
         static void Main(string[] args)
         {
             log4net.Config.XmlConfigurator.ConfigureAndWatch(new FileInfo(AppDomain.CurrentDomain.BaseDirectory + "log4net.config"));
-          
+
             HostFactory.Run(x =>
             {
                 //x.UseLog4Net();
 
                 x.Service<ServiceRunner>();
 
-                x.SetDescription("YGOP.ZQPScheduler.Server");
-                x.SetDisplayName("YGOP.ZQPScheduler.Server");
-                x.SetServiceName("YGOP.ZQPScheduler.Server");
+                x.SetDescription("Szcg.TaskScheduler");
+                x.SetDisplayName("Szcg.TaskScheduler");
+                x.SetServiceName("Szcg.TaskScheduler");
 
                 x.EnablePauseAndContinue();
             });

@@ -11,19 +11,19 @@
   <schedule>
 
     <job>
-      <name>jobkey_kidmenudetail</name>
-      <group>jobgroupkey_kidmenudetail</group>
-      <description>周期配配送订单订单支付状态检测服务</description>
-      <job-type>YGOP.ZQPScheduler.Service.Jobs.KidMenuDetailJob,YGOP.ZQPScheduler.Service</job-type>
+      <name>jobkey_testjob</name>
+      <group>jobgroupkey_testjob</group>
+      <description>测试任务</description>
+      <job-type>Szcg.TaskScheduler.Jobs.TestJob,Szcg.TaskScheduler</job-type>
       <durable>true</durable>
       <recover>false</recover>
     </job>
     <trigger>
       <cron>
-        <name>triggerkey_kidmenudetail</name>
-        <group>triggergroupkey_kidmenudetail</group>
-        <job-name>jobkey_kidmenudetail</job-name>
-        <job-group>jobgroupkey_kidmenudetail</job-group>
+        <name>triggerkey_testjob</name>
+        <group>triggergroupkey_testjob</group>
+        <job-name>jobkey_testjob</job-name>
+        <job-group>jobgroupkey_testjob</job-group>
         <start-time>2016-07-07T00:00:00+08:00</start-time>
         <cron-expression>0 0 12 * * ?</cron-expression>
       </cron>

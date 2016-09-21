@@ -8,6 +8,7 @@ using Szcg.Service.IBussiness;
 using Szcg.Service.Bussiness;
 using log4net;
 using System.Reflection;
+using Newtonsoft.Json.Linq;
 
 [assembly: log4net.Config.XmlConfigurator(Watch = true)]
 namespace Szcg.Web.Controllers
@@ -28,7 +29,7 @@ namespace Szcg.Web.Controllers
         [HttpPost]
         public AjaxFxRspJson Login(string userName, string passWord)
         {
-            AjaxFxRspJson ajax = new AjaxFxRspJson();
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
             if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(passWord))
             {
@@ -47,8 +48,7 @@ namespace Szcg.Web.Controllers
                 ajax.RspCode = 0;
                 return ajax;
             }
-
-
+            ajax.RspData.Add("userInfo", JToken.FromObject(userInfo));
             return ajax;
         }
 

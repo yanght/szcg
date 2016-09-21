@@ -45,10 +45,10 @@
 </ol>
 
 <div>
-    @using (Html.BeginForm("GetDepartList", "Depart", FormMethod.Post, new { id = "form1" }))
+    @using (Html.BeginForm("login", "login", FormMethod.Post, new { id = "form1" }))
     {
-        @Html.TextBox("username", "yannis")
-        @Html.TextBox("password", "123456")
+        @Html.TextBox("userName", "zjw")
+        @Html.Password("passWord", "123")
         <input type="submit" value="submit" id="btn" />
     }
 </div>
