@@ -17,7 +17,7 @@ namespace Szcg.Service.Bussiness
     {
         private string strErr = "";
 
-        #region 案卷相关
+        #region [ 案卷相关 ]
 
         /// <summary>
         /// 获取待办案件列表
@@ -96,283 +96,6 @@ namespace Szcg.Service.Bussiness
 
             return project;
         }
-
-        #region [ 大小类 ]
-
-        /// <summary>
-        /// 获取案卷大类列表
-        /// </summary>
-        /// <param name="eventType">类型（0：部件 1：事件）</param>
-        /// <returns></returns>
-        public List<ProjectBigClass> GetBigClassList(string classType)
-        {
-            string strErr = string.Empty;
-            List<ProjectBigClass> list = new List<ProjectBigClass>();
-
-            DataSet ds = bacgBL.business.Project.GetBigClassList(classType, out strErr);
-            if (!string.IsNullOrEmpty(strErr))
-            {
-                LoggerManager.Instance.logger.Error("获取案卷大类列表异常：" + strErr);
-            }
-            if (ds != null && ds.Tables.Count > 0)
-            {
-                DataTable dt = ds.Tables[0];
-
-                list = ConvertDtHelper<ProjectBigClass>.GetModelList(dt.Rows);
-            }
-            return list;
-        }
-
-        /// <summary>
-        /// 获取案卷小类列表
-        /// </summary>
-        /// <param name="eventType">类型（0：部件 1：事件）</param>
-        /// <returns></returns>
-        public List<ProjectSmallClass> GetSmallClassList(string classType, string bigclassCode)
-        {
-            string strErr = string.Empty;
-
-            List<ProjectSmallClass> list = new List<ProjectSmallClass>();
-
-            DataSet ds = bacgBL.business.Project.GetSmallClassList(classType, bigclassCode, out strErr);
-
-            if (!string.IsNullOrEmpty(strErr))
-            {
-                LoggerManager.Instance.logger.Error("获取案卷小类列表异常：" + strErr);
-            }
-
-            if (ds != null && ds.Tables.Count > 0)
-            {
-                DataTable dt = ds.Tables[0];
-
-                list = ConvertDtHelper<ProjectSmallClass>.GetModelList(dt.Rows);
-            }
-            return list;
-        }
-
-        /// <summary>
-        /// 添加事件大类
-        /// </summary>
-        /// <param name="bigclass"></param>
-        /// <returns></returns>
-        public ReturnValue InsertEvent(ProjectBigClass bigclass)
-        {
-            ReturnValue rtn = new ReturnValue() { ReturnState = true };
-
-            EventDepartManage bl = new EventDepartManage();
-
-            if (string.IsNullOrEmpty(bigclass.BigClassCode))
-            {
-                rtn.ErrorMsg = "事件编号不能为空";
-                rtn.ReturnState = false;
-                return rtn;
-            }
-            if (!checkEventName(bigclass.Name, "名称").ReturnState)
-            {
-                return rtn;
-            }
-            if (bigclass.BigClassCode.Length > 2)
-            {
-                rtn.ErrorMsg = "大类事件编号不能超过二位.";
-                rtn.ReturnState = false;
-                return rtn;
-            }
-            if (!Teamax.Common.PublicClass.IsValidInt(bigclass.BigClassCode))
-            {
-                rtn.ErrorMsg = "事件编码必需是数字.";
-                rtn.ReturnState = false;
-                return rtn;
-            }
-            int temp = bl.CheckEvent(bigclass.Name, ref strErr);
-            if (strErr != "")
-            {
-                rtn.ErrorMsg = strErr;
-                rtn.ReturnState = false;
-                return rtn;
-            }
-            if (temp > 0)
-            {
-                rtn.ErrorMsg = "事件名称不能重复!";
-                rtn.ReturnState = false;
-                return rtn;
-            }
-
-            temp = bl.InsertEvent(bigclass.BigClassCode, bigclass.Name, ref strErr);
-            if (strErr != "")
-            {
-                rtn.ErrorMsg = strErr;
-                rtn.ReturnState = false;
-                return rtn;
-            }
-            if (temp <= 0)
-            {
-                rtn.ErrorMsg = "添加失败！";
-                rtn.ReturnState = false;
-                return rtn;
-            }
-            return rtn;
-        }
-
-        /// <summary>
-        /// 添加事件小类
-        /// </summary>
-        /// <param name="smallclass"></param>
-        /// <returns></returns>
-        public ReturnValue InsertEventSmallClass(ProjectSmallClass smallclass)
-        {
-
-            ReturnValue rtn = new ReturnValue() { ReturnState = true };
-
-            EventDepartManage bl = new EventDepartManage();
-
-            rtn = checkEventName(smallclass.Name, "名称");
-
-            if (!rtn.ReturnState)
-            {
-                return rtn;
-            }
-
-            if (string.IsNullOrEmpty(smallclass.Dutyunit))
-            {
-                rtn.ErrorMsg = "责任单位不能为空!";
-                rtn.ReturnState = false;
-                return rtn;
-            }
-
-            if (string.IsNullOrEmpty(smallclass.SmallCallCode))
-            {
-                rtn.ErrorMsg = "事件编号不能为空!";
-                rtn.ReturnState = false;
-                return rtn;
-            }
-
-            if (!Teamax.Common.PublicClass.IsValidInt(smallclass.Name))
-            {
-                rtn.ErrorMsg = "事件编码必需是数字!";
-                rtn.ReturnState = false;
-                return rtn;
-            }
-            if (smallclass.SmallCallCode.Length != 4)
-            {
-                rtn.ErrorMsg = "小类事件编码的长度必须是四位数字!";
-                rtn.ReturnState = false;
-                return rtn;
-            }
-
-            //TODO
-            //if (!smallclass.Name.Trim().Equals(Server.UrlDecode(Request["smallname"])))
-            if (!smallclass.Name.Trim().Equals(""))
-            {
-                int temp = bl.CheckSmallEvent(smallclass.Name, ref strErr);
-                if (strErr != "")
-                {
-                    rtn.ErrorMsg = strErr;
-                    rtn.ReturnState = false;
-                    return rtn;
-                }
-                if (temp > 1)
-                {
-                    rtn.ErrorMsg = "事件名称不能重复!";
-                    rtn.ReturnState = false;
-                    return rtn;
-                }
-                temp = bl.CheckSmallCode(smallclass.SmallCallCode, ref strErr);
-                if (strErr != "")
-                {
-                    rtn.ErrorMsg = strErr;
-                    rtn.ReturnState = false;
-                    return rtn;
-                }
-                if (temp > 1)
-                {
-                    rtn.ErrorMsg = "事件编码不能重复!";
-                    rtn.ReturnState = false;
-                    return rtn;
-                }
-            }
-
-            rtn = checkEventCode(smallclass.BigClassCode, smallclass.SmallCallCode, "");
-
-            if (!rtn.ReturnState)
-            {
-                return rtn;
-            }
-
-
-            bl.InsertSmallEvent(smallclass.BigClassCode, smallclass.SmallCallCode, smallclass.Name, 0, smallclass.Dutyunit, smallclass.T1Name, smallclass.T1Time, smallclass.T1Time_2, smallclass.T1Time_3, smallclass.T1Time_4, smallclass.T2Name, smallclass.T2Time, smallclass.T2Time_2, smallclass.T2Time_3, smallclass.T2Time_4, smallclass.T3Name, smallclass.T3Time, smallclass.T3Time_2, smallclass.T3Time_3, smallclass.T3Time_4, smallclass.T4Name, smallclass.T4Time, smallclass.T4Time_2, smallclass.T4Time_3, smallclass.T4Time_4,
-                                                    t5name, t5time, t5time_2, t5time_3, t5time_4, t6name, t6time, t6time_2, t6time_3, t6time_4, t7name, t7time, t7time_2, t7time_3, t7time_4, t8name, t8time, t8time_2, t8time_3, t8time_4, t9name, t9time, t9time_2, t9time_3, t9time_4,
-                                                    t10name, t10time, t10time_2, t10time_3, t10time_4, t1type, t1type_2, t1type_3, t1type_4, t2type, t2type_2, t2type_3, t2type_4, t3type, t3type_2, t3type_3, t3type_4, t4type, t4type_2, t4type_3, t4type_4, t5type, t5type_2, t5type_3,
-                                                    t5type_4, t6type, t6type_2, t6type_3, t6type_4, t7type, t7type_2, t7type_3, t7type_4, t8type, t8type_2, t8type_3, t8type_4, t9type, t9type_2, t9type_3, t9type_4, t10type, t10type_2, t10type_3, t10type_4, ref strErr);
-
-
-            return rtn;
-        }
-
-
-
-        #region checkEventName:验证输入的名称是否合法
-        /// <summary>
-        /// 验证输入的大类名称是否合法
-        /// </summary>
-        /// <param name="name">需要验证的字符串</param>
-        /// <param name="text">名称</param>
-        /// <returns></returns>
-        public ReturnValue checkEventName(string name, string text)
-        {
-            ReturnValue rtn = new ReturnValue() { ReturnState = true };
-            if (name.Length == 0)
-            {
-                rtn.ErrorMsg = "名称不能为空!!";
-                rtn.ReturnState = false;
-                return rtn;
-            }
-            if (name.Length > 64)
-            {
-                rtn.ErrorMsg = "名称长度不能超过64个字符!!";
-                rtn.ReturnState = false;
-                return rtn;
-            }
-            if (name.IndexOf(",") >= 0 || name.IndexOf(";") >= 0 || name.IndexOf("@") >= 0)
-            {
-                rtn.ErrorMsg = text + "中不能含有 , ; @ 等特殊字符!";
-                rtn.ReturnState = false;
-                return rtn;
-            }
-            return rtn;
-        }
-        #endregion
-
-        #region checkEventCode:验证输入事件编码是否合法
-        /// <summary>
-        /// 验证输入事件编码是否合法
-        /// </summary>
-        /// <param name="name">需要验证的字符串</param>
-        /// <param name="text">名称</param>
-        /// <returns></returns>
-        public ReturnValue checkEventCode(string bigclassCode, string name, string text)
-        {
-            ReturnValue rtn = new ReturnValue() { ReturnState = true };
-
-            string bigcode = bigclassCode;
-            if (bigcode.Length > 0)
-            {
-                string temp = name.Substring(0, bigcode.Length);
-                if (bigcode != temp)
-                {
-                    rtn.ErrorMsg = "小类事件编码必须以大类事件编码" + bigcode + "开头.";
-                    rtn.ReturnState = false;
-                    return rtn;
-                }
-                else
-                {
-                    return rtn;
-                }
-            }
-            return rtn;
-        }
-        #endregion
-
-        #endregion
 
         /// <summary>
         /// 获取案卷流程
@@ -1242,7 +965,7 @@ namespace Szcg.Service.Bussiness
 
         #endregion
 
-        #region  区域相关
+        #region  [ 区域相关 ] 
 
         /// <summary>
         /// 获取区域列表
@@ -1310,6 +1033,540 @@ namespace Szcg.Service.Bussiness
 
             return list;
         }
+
+        #endregion
+
+        #region [ 大小类 ]
+
+        /// <summary>
+        /// 获取案卷大类列表
+        /// </summary>
+        /// <param name="eventType">类型（0：部件 1：事件）</param>
+        /// <returns></returns>
+        public List<ProjectBigClass> GetBigClassList(string classType)
+        {
+            string strErr = string.Empty;
+            List<ProjectBigClass> list = new List<ProjectBigClass>();
+
+            DataSet ds = bacgBL.business.Project.GetBigClassList(classType, out strErr);
+            if (!string.IsNullOrEmpty(strErr))
+            {
+                LoggerManager.Instance.logger.Error("获取案卷大类列表异常：" + strErr);
+            }
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                DataTable dt = ds.Tables[0];
+
+                list = ConvertDtHelper<ProjectBigClass>.GetModelList(dt.Rows);
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 获取案卷小类列表
+        /// </summary>
+        /// <param name="eventType">类型（0：部件 1：事件）</param>
+        /// <returns></returns>
+        public List<ProjectSmallClass> GetSmallClassList(string classType, string bigclassCode)
+        {
+            string strErr = string.Empty;
+
+            List<ProjectSmallClass> list = new List<ProjectSmallClass>();
+
+            DataSet ds = bacgBL.business.Project.GetSmallClassList(classType, bigclassCode, out strErr);
+
+            if (!string.IsNullOrEmpty(strErr))
+            {
+                LoggerManager.Instance.logger.Error("获取案卷小类列表异常：" + strErr);
+            }
+
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                DataTable dt = ds.Tables[0];
+
+                list = ConvertDtHelper<ProjectSmallClass>.GetModelList(dt.Rows);
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 添加或修改事件大类
+        /// </summary>
+        /// <param name="bigclass">大类实体</param>
+        /// <returns></returns>
+        public ReturnValue InsertEvent(ProjectBigClass bigclass)
+        {
+            ReturnValue rtn = new ReturnValue() { ReturnState = true };
+
+            EventDepartManage bl = new EventDepartManage();
+
+            if (string.IsNullOrEmpty(bigclass.BigClassCode))
+            {
+                rtn.ErrorMsg = "事件编号不能为空";
+                rtn.ReturnState = false;
+                return rtn;
+            }
+            if (!checkEventName(bigclass.Name, "名称").ReturnState)
+            {
+                return rtn;
+            }
+            if (bigclass.BigClassCode.Length > 2)
+            {
+                rtn.ErrorMsg = "大类事件编号不能超过二位.";
+                rtn.ReturnState = false;
+                return rtn;
+            }
+            if (!Teamax.Common.PublicClass.IsValidInt(bigclass.BigClassCode))
+            {
+                rtn.ErrorMsg = "事件编码必需是数字.";
+                rtn.ReturnState = false;
+                return rtn;
+            }
+            int temp = bl.CheckEvent(bigclass.Name, ref strErr);
+            if (strErr != "")
+            {
+                rtn.ErrorMsg = strErr;
+                rtn.ReturnState = false;
+                return rtn;
+            }
+            if (temp > 0)
+            {
+                rtn.ErrorMsg = "事件名称不能重复!";
+                rtn.ReturnState = false;
+                return rtn;
+            }
+            if (!string.IsNullOrEmpty(bigclass.Id))
+            {
+                temp = bl.UpateEvent(bigclass.Id, bigclass.BigClassCode, bigclass.Name, ref strErr);
+            }
+            else
+            {
+                temp = bl.InsertEvent(bigclass.BigClassCode, bigclass.Name, ref strErr);
+            }
+
+            if (strErr != "")
+            {
+                rtn.ErrorMsg = strErr;
+                rtn.ReturnState = false;
+                return rtn;
+            }
+            if (temp <= 0)
+            {
+                rtn.ErrorMsg = "事件打类更新失败！";
+                rtn.ReturnState = false;
+                return rtn;
+            }
+            return rtn;
+        }
+
+        /// <summary>
+        /// 添加或修改事件小类
+        /// </summary>
+        /// <param name="smallclass">小类实体</param>
+        /// <returns></returns>
+        public ReturnValue InsertEventSmallClass(ProjectSmallClass smallclass)
+        {
+
+            ReturnValue rtn = new ReturnValue() { ReturnState = true };
+
+            EventDepartManage bl = new EventDepartManage();
+
+            rtn = checkEventName(smallclass.Name, "名称");
+
+            if (!rtn.ReturnState)
+            {
+                return rtn;
+            }
+
+            if (string.IsNullOrEmpty(smallclass.Dutyunit))
+            {
+                rtn.ErrorMsg = "责任单位不能为空!";
+                rtn.ReturnState = false;
+                return rtn;
+            }
+
+            if (string.IsNullOrEmpty(smallclass.SmallCallCode))
+            {
+                rtn.ErrorMsg = "事件编号不能为空!";
+                rtn.ReturnState = false;
+                return rtn;
+            }
+
+            if (!Teamax.Common.PublicClass.IsValidInt(smallclass.Name))
+            {
+                rtn.ErrorMsg = "事件编码必需是数字!";
+                rtn.ReturnState = false;
+                return rtn;
+            }
+            if (smallclass.SmallCallCode.Length != 4)
+            {
+                rtn.ErrorMsg = "小类事件编码的长度必须是四位数字!";
+                rtn.ReturnState = false;
+                return rtn;
+            }
+
+            //TODO
+            //if (!smallclass.Name.Trim().Equals(Server.UrlDecode(Request["smallname"])))
+            if (!smallclass.Name.Trim().Equals(""))
+            {
+                int temp = bl.CheckSmallEvent(smallclass.Name, ref strErr);
+                if (strErr != "")
+                {
+                    rtn.ErrorMsg = strErr;
+                    rtn.ReturnState = false;
+                    return rtn;
+                }
+                if (temp > 1)
+                {
+                    rtn.ErrorMsg = "事件名称不能重复!";
+                    rtn.ReturnState = false;
+                    return rtn;
+                }
+                temp = bl.CheckSmallCode(smallclass.SmallCallCode, ref strErr);
+                if (strErr != "")
+                {
+                    rtn.ErrorMsg = strErr;
+                    rtn.ReturnState = false;
+                    return rtn;
+                }
+                if (temp > 1)
+                {
+                    rtn.ErrorMsg = "事件编码不能重复!";
+                    rtn.ReturnState = false;
+                    return rtn;
+                }
+            }
+
+            rtn = checkEventCode(smallclass.BigClassCode.ToString(), smallclass.SmallCallCode, "");
+
+            if (!rtn.ReturnState)
+            {
+                return rtn;
+            }
+
+            if (!string.IsNullOrEmpty(smallclass.Id))
+            {
+                bl.InsertSmallEvent(int.Parse(smallclass.BigClassCode), smallclass.SmallCallCode, smallclass.Name, 0, smallclass.Dutyunit, smallclass.T1Name, smallclass.T1Time, smallclass.T1Time_2, smallclass.T1Time_3, smallclass.T1Time_4, smallclass.T2Name, smallclass.T2Time, smallclass.T2Time_2, smallclass.T2Time_3, smallclass.T2Time_4, smallclass.T3Name, smallclass.T3Time, smallclass.T3Time_2, smallclass.T3Time_3, smallclass.T3Time_4, smallclass.T4Name, smallclass.T4Time, smallclass.T4Time_2, smallclass.T4Time_3, smallclass.T4Time_4,
+                                                        smallclass.T5Name, smallclass.T5Time, smallclass.T5Time_2, smallclass.T5Time_3, smallclass.T5Time_4, smallclass.T6Name, smallclass.T6Time, smallclass.T6Time_2, smallclass.T6Time_3, smallclass.T6Time_4, smallclass.T7Name, smallclass.T7Time, smallclass.T7Time_2, smallclass.T7Time_3, smallclass.T7Time_4, smallclass.T8Name, smallclass.T8Time, smallclass.T8Time_2, smallclass.T8Time_3, smallclass.T8Time_4, smallclass.T9Name, smallclass.T9Time, smallclass.T9Time_2, smallclass.T9Time_3, smallclass.T9Time_4,
+                                                        smallclass.T10Name, smallclass.T10Time, smallclass.T10Time_2, smallclass.T10Time_3, smallclass.T10Time_4, smallclass.T1Type, smallclass.T1Type_2, smallclass.T1Type_3, smallclass.T1Type_4, smallclass.T2Type, smallclass.T2Type_2, smallclass.T2Type_3, smallclass.T2Type_4, smallclass.T3Type, smallclass.T3Type_2, smallclass.T3Type_3, smallclass.T3Type_4, smallclass.T4Type, smallclass.T4Type_2, smallclass.T4Type_3, smallclass.T4Type_4, smallclass.T5Type, smallclass.T5Type_2, smallclass.T5Type_3,
+                                                        smallclass.T5Type_4, smallclass.T6Type, smallclass.T6Type_2, smallclass.T6Type_3, smallclass.T6Type_4, smallclass.T7Type, smallclass.T7Type_2, smallclass.T7Type_3, smallclass.T7Type_4, smallclass.T8Type, smallclass.T8Type_2, smallclass.T8Type_3, smallclass.T8Type_4, smallclass.T9Type, smallclass.T9Type_2, smallclass.T9Type_3, smallclass.T9Type_4, smallclass.T10Type, smallclass.T10Type_2, smallclass.T10Type_3, smallclass.T10Type_4, ref strErr);
+            }
+            else
+            {
+                bl.UpateSmallEvent(smallclass.Id, smallclass.SmallCallCode, smallclass.BigClassCode, smallclass.Name, 0, smallclass.Dutyunit, smallclass.T_Time_Kc, 0, smallclass.T1Name, smallclass.T1Time, smallclass.T1Time_2, smallclass.T1Time_3, smallclass.T1Time_4, smallclass.T2Name, smallclass.T2Time, smallclass.T2Time_2, smallclass.T2Time_3, smallclass.T2Time_4, smallclass.T3Name, smallclass.T3Time, smallclass.T3Time_2, smallclass.T3Time_3, smallclass.T3Time_4, smallclass.T4Name, smallclass.T4Time, smallclass.T4Time_2, smallclass.T4Time_3, smallclass.T4Time_4,
+                                                       smallclass.T5Name, smallclass.T5Time, smallclass.T5Time_2, smallclass.T5Time_3, smallclass.T5Time_4, smallclass.T6Name, smallclass.T6Time, smallclass.T6Time_2, smallclass.T6Time_3, smallclass.T6Time_4, smallclass.T7Name, smallclass.T7Time, smallclass.T7Time_2, smallclass.T7Time_3, smallclass.T7Time_4, smallclass.T8Name, smallclass.T8Time, smallclass.T8Time_2, smallclass.T8Time_3, smallclass.T8Time_4, smallclass.T9Name, smallclass.T9Time, smallclass.T9Time_2, smallclass.T9Time_3, smallclass.T9Time_4,
+                                                       smallclass.T10Name, smallclass.T10Time, smallclass.T10Time_2, smallclass.T10Time_3, smallclass.T10Time_4, smallclass.T1Type, smallclass.T1Type_2, smallclass.T1Type_3, smallclass.T1Type_4, smallclass.T2Type, smallclass.T2Type_2, smallclass.T2Type_3, smallclass.T2Type_4, smallclass.T3Type, smallclass.T3Type_2, smallclass.T3Type_3, smallclass.T3Type_4, smallclass.T4Type, smallclass.T4Type_2, smallclass.T4Type_3, smallclass.T4Type_4, smallclass.T5Type, smallclass.T5Type_2, smallclass.T5Type_3,
+                                                       smallclass.T5Type_4, smallclass.T6Type, smallclass.T6Type_2, smallclass.T6Type_3, smallclass.T6Type_4, smallclass.T7Type, smallclass.T7Type_2, smallclass.T7Type_3, smallclass.T7Type_4, smallclass.T8Type, smallclass.T8Type_2, smallclass.T8Type_3, smallclass.T8Type_4, smallclass.T9Type, smallclass.T9Type_2, smallclass.T9Type_3, smallclass.T9Type_4, smallclass.T10Type, smallclass.T10Type_2, smallclass.T10Type_3, smallclass.T10Type_4, ref strErr);
+            }
+            if (strErr != "")
+            {
+                rtn.ReturnState = false;
+                rtn.ErrorMsg = "更新小类失败！";
+                return rtn;
+            }
+            return rtn;
+        }
+
+        /// <summary>
+        /// 添加或修改部件大类
+        /// </summary>
+        /// <param name="bigclass">大类实体</param>
+        /// <returns></returns>
+        public ReturnValue InsertPart(ProjectBigClass bigclass)
+        {
+            ReturnValue rtn = new ReturnValue() { ReturnState = true };
+
+            EventDepartManage bl = new EventDepartManage();
+            rtn = checkEventName(bigclass.Name, "名称");
+            if (!rtn.ReturnState)
+            {
+                return rtn;
+            }
+            if (string.IsNullOrEmpty(bigclass.BigClassCode))
+            {
+                rtn.ErrorMsg = "部件编码不能为空.";
+                rtn.ReturnState = false;
+                return rtn;
+            }
+            if (!Teamax.Common.PublicClass.IsValidInt(bigclass.BigClassCode))
+            {
+                rtn.ErrorMsg = "部件编码必需是数字.";
+                rtn.ReturnState = false;
+                return rtn;
+            }
+            if (bigclass.BigClassCode.Length != 2)
+            {
+                rtn.ErrorMsg = "大类部件编码的长度必须二位.";
+                rtn.ReturnState = false;
+                return rtn;
+            }
+            int temp = bl.CheckPart(bigclass.BigClassCode, ref strErr);
+            if (strErr != "")
+            {
+                rtn.ErrorMsg = strErr;
+                rtn.ReturnState = false;
+                return rtn;
+            }
+            if (temp > 0)
+            {
+                rtn.ErrorMsg = "部件名称不能重复.";
+                rtn.ReturnState = false;
+                return rtn;
+            }
+
+            temp = bl.CheckPartCode(bigclass.BigClassCode, ref strErr);
+            if (strErr != "")
+            {
+                rtn.ErrorMsg = strErr;
+                rtn.ReturnState = false;
+                return rtn;
+            }
+            if (temp > 0)
+            {
+                rtn.ErrorMsg = "部件编号不能重复";
+                rtn.ReturnState = false;
+                return rtn;
+            }
+            if (!string.IsNullOrEmpty(bigclass.Id))
+            {
+                temp = bl.InsertPart(bigclass.BigClassCode, bigclass.Name, ref strErr);
+            }
+            else
+            {
+                temp = bl.UpatePart(bigclass.Id, bigclass.BigClassCode, bigclass.Name, ref strErr);
+            }
+
+            if (strErr != "")
+            {
+                rtn.ErrorMsg = strErr;
+                rtn.ReturnState = false;
+                return rtn;
+            }
+            if (temp <= 0)
+            {
+                rtn.ErrorMsg = "部件大类更新失败！";
+                rtn.ReturnState = false;
+                return rtn;
+            }
+            return rtn;
+        }
+
+        /// <summary>
+        /// 添加或修改部件小类
+        /// </summary>
+        /// <param name="smallclass">小类实体</param>
+        /// <returns></returns>
+        public ReturnValue InsertPartSmallClass(ProjectSmallClass smallclass)
+        {
+
+            ReturnValue rtn = new ReturnValue() { ReturnState = true };
+
+            EventDepartManage bl = new EventDepartManage();
+
+            rtn = checkEventName(smallclass.Name, "名称");
+
+            if (!rtn.ReturnState)
+            {
+                return rtn;
+            }
+
+            //if (string.IsNullOrEmpty(smallclass.Dutyunit))
+            //{
+            //    rtn.ErrorMsg = "责任单位不能为空!";
+            //    rtn.ReturnState = false;
+            //    return rtn;
+            //}
+
+            if (string.IsNullOrEmpty(smallclass.SmallCallCode))
+            {
+                rtn.ErrorMsg = "部件编号不能为空!";
+                rtn.ReturnState = false;
+                return rtn;
+            }
+
+            if (!Teamax.Common.PublicClass.IsValidInt(smallclass.Name))
+            {
+                rtn.ErrorMsg = "部件编码必需是数字!";
+                rtn.ReturnState = false;
+                return rtn;
+            }
+            if (smallclass.SmallCallCode.Length != 4)
+            {
+                rtn.ErrorMsg = "小类部件编码的长度必须是四位数字!";
+                rtn.ReturnState = false;
+                return rtn;
+            }
+
+            //TODO
+            //if (!smallclass.Name.Trim().Equals(Server.UrlDecode(Request["smallname"])))
+            if (!smallclass.Name.Trim().Equals(""))
+            {
+                int temp = bl.CheckPart(smallclass.Name, ref strErr);
+                if (strErr != "")
+                {
+                    rtn.ErrorMsg = strErr;
+                    rtn.ReturnState = false;
+                    return rtn;
+                }
+                if (temp > 1)
+                {
+                    rtn.ErrorMsg = "部件名称不能重复!";
+                    rtn.ReturnState = false;
+                    return rtn;
+                }
+                temp = bl.CheckSmallPartCode(smallclass.SmallCallCode, ref strErr);
+                if (strErr != "")
+                {
+                    rtn.ErrorMsg = strErr;
+                    rtn.ReturnState = false;
+                    return rtn;
+                }
+                if (temp > 1)
+                {
+                    rtn.ErrorMsg = "部件编码不能重复!";
+                    rtn.ReturnState = false;
+                    return rtn;
+                }
+            }
+
+            rtn = checkEventCode(smallclass.BigClassCode.ToString(), smallclass.SmallCallCode, "");
+
+            if (!rtn.ReturnState)
+            {
+                return rtn;
+            }
+
+            if (!string.IsNullOrEmpty(smallclass.Id))
+            {
+                bl.InsertSmallPart(int.Parse(smallclass.BigClassCode), smallclass.SmallCallCode, smallclass.Name, 0, smallclass.Dutyunit, string.Empty,
+                   smallclass.T1Name, smallclass.T1Time,
+                   smallclass.T2Name, smallclass.T2Time,
+                   smallclass.T3Name, smallclass.T3Time,
+                   smallclass.T4Name, smallclass.T4Time,
+                   smallclass.T5Name, smallclass.T5Time,
+                   smallclass.T6Name, smallclass.T6Time,
+                   smallclass.T7Name, smallclass.T7Time,
+                   smallclass.T8Name, smallclass.T8Time,
+                   smallclass.T9Name, smallclass.T9Time,
+                   smallclass.T10Name, smallclass.T10Time,
+                   smallclass.T1Time_2, smallclass.T1Time_3, smallclass.T1Time_4,
+                   smallclass.T2Time_2, smallclass.T2Time_3, smallclass.T2Time_4,
+                   smallclass.T3Time_2, smallclass.T3Time_3, smallclass.T3Time_4,
+                   smallclass.T4Time_2, smallclass.T4Time_3, smallclass.T4Time_4,
+                   smallclass.T5Time_2, smallclass.T5Time_3, smallclass.T5Time_4,
+                   smallclass.T6Time_2, smallclass.T6Time_3, smallclass.T6Time_4,
+                   smallclass.T7Time_2, smallclass.T7Time_3, smallclass.T7Time_4,
+                   smallclass.T8Time_2, smallclass.T8Time_3, smallclass.T8Time_4,
+                   smallclass.T9Time_2, smallclass.T9Time_3, smallclass.T9Time_4,
+                   smallclass.T10Time_2, smallclass.T10Time_3, smallclass.T10Time_4,
+                   smallclass.T1Type, smallclass.T1Type_2, smallclass.T1Type_3, smallclass.T1Type_4,
+                   smallclass.T2Type, smallclass.T2Type_2, smallclass.T2Type_3, smallclass.T2Type_4,
+                   smallclass.T3Type, smallclass.T3Type_2, smallclass.T3Type_3, smallclass.T3Type_4,
+                   smallclass.T4Type, smallclass.T4Type_2, smallclass.T4Type_3, smallclass.T4Type_4,
+                   smallclass.T5Type, smallclass.T5Type_2, smallclass.T5Type_3, smallclass.T5Type_4,
+                   smallclass.T6Type, smallclass.T6Type_2, smallclass.T6Type_3, smallclass.T6Type_4,
+                   smallclass.T7Type, smallclass.T7Type_2, smallclass.T7Type_3, smallclass.T7Type_4,
+                   smallclass.T8Type, smallclass.T8Type_2, smallclass.T8Type_3, smallclass.T8Type_4,
+                   smallclass.T9Type, smallclass.T9Type_2, smallclass.T9Type_3, smallclass.T9Type_4,
+                   smallclass.T10Type, smallclass.T10Type_2, smallclass.T10Type_3, smallclass.T10Type_4, ref strErr);
+            }
+            else
+            {
+                bl.UpateSmallPart(int.Parse(smallclass.Id),  smallclass.SmallCallCode, smallclass.Name,0, 0, smallclass.Dutyunit, string.Empty,0,0,0,
+                   smallclass.T1Name, smallclass.T1Time,smallclass.T1Time_2, smallclass.T1Time_3, smallclass.T1Time_4,
+                   smallclass.T2Name, smallclass.T2Time,smallclass.T2Time_2, smallclass.T2Time_3, smallclass.T2Time_4,
+                   smallclass.T3Name, smallclass.T3Time,smallclass.T3Time_2, smallclass.T3Time_3, smallclass.T3Time_4,
+                   smallclass.T4Name, smallclass.T4Time,smallclass.T4Time_2, smallclass.T4Time_3, smallclass.T4Time_4,
+                   smallclass.T5Name, smallclass.T5Time,smallclass.T5Time_2, smallclass.T5Time_3, smallclass.T5Time_4,
+                   smallclass.T6Name, smallclass.T6Time,smallclass.T6Time_2, smallclass.T6Time_3, smallclass.T6Time_4,
+                   smallclass.T7Name, smallclass.T7Time,smallclass.T7Time_2, smallclass.T7Time_3, smallclass.T7Time_4,
+                   smallclass.T8Name, smallclass.T8Time,smallclass.T8Time_2, smallclass.T8Time_3, smallclass.T8Time_4,
+                   smallclass.T9Name, smallclass.T9Time,smallclass.T9Time_2, smallclass.T9Time_3, smallclass.T9Time_4,
+                   smallclass.T10Name, smallclass.T10Time,smallclass.T10Time_2, smallclass.T10Time_3, smallclass.T10Time_4,
+                   smallclass.T1Type, smallclass.T1Type_2,smallclass.T1Type_3, smallclass.T1Type_4,
+                   smallclass.T2Type, smallclass.T2Type_2,smallclass.T2Type_3, smallclass.T2Type_4,
+                   smallclass.T3Type, smallclass.T3Type_2,smallclass.T3Type_3, smallclass.T3Type_4,
+                   smallclass.T4Type, smallclass.T4Type_2,smallclass.T4Type_3, smallclass.T4Type_4,
+                   smallclass.T5Type, smallclass.T5Type_2,smallclass.T5Type_3, smallclass.T5Type_4,
+                   smallclass.T6Type, smallclass.T6Type_2,smallclass.T6Type_3, smallclass.T6Type_4,
+                   smallclass.T7Type, smallclass.T7Type_2,smallclass.T7Type_3, smallclass.T7Type_4,
+                   smallclass.T8Type, smallclass.T8Type_2,smallclass.T8Type_3, smallclass.T8Type_4,
+                   smallclass.T9Type, smallclass.T9Type_2,smallclass.T9Type_3, smallclass.T9Type_4,
+                   smallclass.T10Type, smallclass.T10Type_2,smallclass.T10Type_3, smallclass.T10Type_4, ref strErr);            
+                   
+            }
+            if (strErr != "")
+            {
+                rtn.ReturnState = false;
+                rtn.ErrorMsg = "更新小类失败！";
+                return rtn;
+            }
+            return rtn;
+        }
+
+
+
+        #region checkEventName:验证输入的名称是否合法
+        /// <summary>
+        /// 验证输入的大类名称是否合法
+        /// </summary>
+        /// <param name="name">需要验证的字符串</param>
+        /// <param name="text">名称</param>
+        /// <returns></returns>
+        public ReturnValue checkEventName(string name, string text)
+        {
+            ReturnValue rtn = new ReturnValue() { ReturnState = true };
+            if (name.Length == 0)
+            {
+                rtn.ErrorMsg = "名称不能为空!!";
+                rtn.ReturnState = false;
+                return rtn;
+            }
+            if (name.Length > 64)
+            {
+                rtn.ErrorMsg = "名称长度不能超过64个字符!!";
+                rtn.ReturnState = false;
+                return rtn;
+            }
+            if (name.IndexOf(",") >= 0 || name.IndexOf(";") >= 0 || name.IndexOf("@") >= 0)
+            {
+                rtn.ErrorMsg = text + "中不能含有 , ; @ 等特殊字符!";
+                rtn.ReturnState = false;
+                return rtn;
+            }
+            return rtn;
+        }
+        #endregion
+
+        #region checkEventCode:验证输入事件编码是否合法
+        /// <summary>
+        /// 验证输入事件编码是否合法
+        /// </summary>
+        /// <param name="name">需要验证的字符串</param>
+        /// <param name="text">名称</param>
+        /// <returns></returns>
+        public ReturnValue checkEventCode(string bigclassCode, string name, string text)
+        {
+            ReturnValue rtn = new ReturnValue() { ReturnState = true };
+
+            string bigcode = bigclassCode;
+            if (bigcode.Length > 0)
+            {
+                string temp = name.Substring(0, bigcode.Length);
+                if (bigcode != temp)
+                {
+                    rtn.ErrorMsg = "小类事部件编码必须以大类事件编码" + bigcode + "开头.";
+                    rtn.ReturnState = false;
+                    return rtn;
+                }
+                else
+                {
+                    return rtn;
+                }
+            }
+            return rtn;
+        }
+        #endregion
 
         #endregion
 

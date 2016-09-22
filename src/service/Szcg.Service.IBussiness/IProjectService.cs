@@ -12,7 +12,7 @@ namespace Szcg.Service.IBussiness
 {
     public interface IProjectService
     {
-        #region 案卷相关
+        #region [ 案卷相关 ]
 
         /// <summary>
         /// 获取待办案件列表
@@ -33,20 +33,6 @@ namespace Szcg.Service.IBussiness
         /// <param name="nodeId">节点Id</param>
         /// <returns></returns>
         Project GetProjectDetail(string projcode, int year, bool isEnd);
-
-        /// <summary>
-        /// 获取案卷大类列表
-        /// </summary>
-        /// <param name="eventType">类型（0：部件 1：事件）</param>
-        /// <returns></returns>
-        List<ProjectBigClass> GetBigClassList(string classType);
-
-        /// <summary>
-        /// 获取案卷小类列表
-        /// </summary>
-        /// <param name="eventType">类型（0：部件 1：事件）</param>
-        /// <returns></returns>
-        List<ProjectSmallClass> GetSmallClassList(string classType, string bigclassCode);
 
         /// <summary>
         /// 获取案卷流程
@@ -81,7 +67,7 @@ namespace Szcg.Service.IBussiness
         /// <returns></returns>
         string GetIoFlag(string projcode);
 
-        #region 案卷批转 
+        #region 案卷批转
 
         /// <summary>
         /// 案卷上报
@@ -210,7 +196,7 @@ namespace Szcg.Service.IBussiness
 
         #endregion
 
-        #region 区域相关
+        #region [ 区域相关 ]
 
         /// <summary>
         /// 获取区域列表
@@ -232,6 +218,53 @@ namespace Szcg.Service.IBussiness
         /// <param name="streetCode">街道编码</param>
         /// <returns></returns>
         List<Community> GetCommunityList(string areaCode, string streetCode);
+
+        #endregion
+
+        #region [ 大小类 ]
+
+        /// <summary>
+        /// 获取案卷大类列表
+        /// </summary>
+        /// <param name="eventType">类型（0：部件 1：事件）</param>
+        /// <returns></returns>
+        List<ProjectBigClass> GetBigClassList(string classType);
+
+        /// <summary>
+        /// 获取案卷小类列表
+        /// </summary>
+        /// <param name="eventType">类型（0：部件 1：事件）</param>
+        /// <returns></returns>
+        List<ProjectSmallClass> GetSmallClassList(string classType, string bigclassCode);
+
+
+        /// <summary>
+        /// 添加或修改事件大类
+        /// </summary>
+        /// <param name="bigclass">大类实体</param>
+        /// <returns></returns>
+        ReturnValue InsertEvent(ProjectBigClass bigclass);
+
+        /// <summary>
+        /// 添加或修改事件小类
+        /// </summary>
+        /// <param name="smallclass">小类实体</param>
+        /// <returns></returns>
+        ReturnValue InsertEventSmallClass(ProjectSmallClass smallclass);
+
+        /// <summary>
+        /// 添加或修改部件大类
+        /// </summary>
+        /// <param name="bigclass">大类实体</param>
+        /// <returns></returns>
+        ReturnValue InsertPart(ProjectBigClass bigclass);
+
+        /// <summary>
+        /// 添加或修改部件小类
+        /// </summary>
+        /// <param name="smallclass">小类实体</param>
+        /// <returns></returns>
+        ReturnValue InsertPartSmallClass(ProjectSmallClass smallclass);
 
         #endregion
 

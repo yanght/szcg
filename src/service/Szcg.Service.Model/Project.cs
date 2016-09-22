@@ -263,6 +263,7 @@ namespace Szcg.Service.Model
     /// </summary>
     public class ProjectBigClass
     {
+        public string Id { get; set; }
         /// <summary>
         /// 大类编码
         /// </summary>
@@ -280,10 +281,11 @@ namespace Szcg.Service.Model
     /// </summary>
     public class ProjectSmallClass
     {
+        public string Id { get; set; }
         /// <summary>
         /// 大类编码
         /// </summary>
-        public string BigClassCode { get; set; }
+        public string  BigClassCode { get; set; }
         /// <summary>
         /// 小类编码
         /// </summary>

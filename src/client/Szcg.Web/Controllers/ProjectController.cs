@@ -501,54 +501,6 @@ namespace Szcg.Web.Controllers
 
         #endregion
 
-        #region [ 获取案卷大类列表 ]
-
-        /// <summary>
-        /// 获取案卷大类列表
-        /// </summary>
-        /// <param name="classType">类型（0：部件 1：事件）</param>
-        /// <returns></returns>
-        public AjaxFxRspJson GetBigClassList(string classType)
-        {
-            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
-
-            if (classType != "0" && classType != "1")
-            {
-                ajax.RspMsg = "请输入正确的类型！";
-                ajax.RspCode = 0;
-                return ajax;
-            }
-
-            List<ProjectBigClass> bigclass = svc.GetBigClassList(classType);
-
-            ajax.RspData.Add("bigclass", JToken.FromObject(bigclass));
-
-            return ajax;
-        }
-
-        #endregion
-
-        #region [ 获取案卷小类列表 ]
-
-        /// <summary>
-        /// 获取案卷小类列表
-        /// </summary>
-        /// <param name="classType">类型（0：部件 1：事件）</param>
-        /// <param name="bigclassCode">大类编码</param>
-        /// <returns></returns>
-        public AjaxFxRspJson GetSmallClassList(string classType, string bigclassCode)
-        {
-            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
-
-            List<ProjectSmallClass> smallclass = svc.GetSmallClassList(classType, bigclassCode);
-
-            ajax.RspData.Add("smallclass", JToken.FromObject(smallclass));
-
-            return ajax;
-        }
-
-        #endregion
-
         #endregion
 
         #region [ 区域相关 ]
@@ -601,6 +553,136 @@ namespace Szcg.Web.Controllers
             return ajax;
         }
 
+
+        #endregion
+
+        #region [ 大小类 ]
+
+        #region [ 获取案卷大类列表 ]
+
+        /// <summary>
+        /// 获取案卷大类列表
+        /// </summary>
+        /// <param name="classType">类型（0：部件 1：事件）</param>
+        /// <returns></returns>
+        public AjaxFxRspJson GetBigClassList(string classType)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            if (classType != "0" && classType != "1")
+            {
+                ajax.RspMsg = "请输入正确的类型！";
+                ajax.RspCode = 0;
+                return ajax;
+            }
+
+            List<ProjectBigClass> bigclass = svc.GetBigClassList(classType);
+
+            ajax.RspData.Add("bigclass", JToken.FromObject(bigclass));
+
+            return ajax;
+        }
+
+        #endregion
+
+        #region [ 获取案卷小类列表 ]
+
+        /// <summary>
+        /// 获取案卷小类列表
+        /// </summary>
+        /// <param name="classType">类型（0：部件 1：事件）</param>
+        /// <param name="bigclassCode">大类编码</param>
+        /// <returns></returns>
+        public AjaxFxRspJson GetSmallClassList(string classType, string bigclassCode)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            List<ProjectSmallClass> smallclass = svc.GetSmallClassList(classType, bigclassCode);
+
+            ajax.RspData.Add("smallclass", JToken.FromObject(smallclass));
+
+            return ajax;
+        }
+
+        #endregion
+
+        #region [ 添加或修改事件大类 ]
+
+        public AjaxFxRspJson InsertEvent(ProjectBigClass bigclass)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            ReturnValue rtn = svc.InsertEvent(bigclass);
+
+            if (!rtn.ReturnState)
+            {
+                ajax.RspMsg = rtn.ErrorMsg;
+                ajax.RspCode = 0;
+                return ajax;
+            }
+            return ajax;
+        }
+
+        #endregion
+
+        #region [ 添加或修改部件大类 ]
+
+        public AjaxFxRspJson InsertPart(ProjectBigClass bigclass)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            ReturnValue rtn = svc.InsertPart(bigclass);
+
+            if (!rtn.ReturnState)
+            {
+                ajax.RspMsg = rtn.ErrorMsg;
+                ajax.RspCode = 0;
+                return ajax;
+            }
+            return ajax;
+        }
+
+        #endregion
+
+        #region [ 添加或修改事件小类 ]
+
+        public AjaxFxRspJson InsertEventSmallClass(ProjectSmallClass smallclass)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            ReturnValue rtn = svc.InsertEventSmallClass(smallclass);
+
+            if (!rtn.ReturnState)
+            {
+                ajax.RspMsg = rtn.ErrorMsg;
+                ajax.RspCode = 0;
+                return ajax;
+            }
+            return ajax;
+            
+        }
+
+        #endregion
+
+        #region [ 添加或修改部件小类 ]
+
+        public AjaxFxRspJson InsertPartSmallClass(ProjectSmallClass smallclass)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            ReturnValue rtn = svc.InsertPartSmallClass(smallclass);
+
+            if (!rtn.ReturnState)
+            {
+                ajax.RspMsg = rtn.ErrorMsg;
+                ajax.RspCode = 0;
+                return ajax;
+            }
+            return ajax;
+
+        }
+
+        #endregion
 
         #endregion
 
