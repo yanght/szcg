@@ -107,13 +107,13 @@ namespace Test
             return svc.GetDealProjectList(prj, pgInfo, "2016-1-1", "2016-12-30");
         }
 
-        public static List<ProjectBigClass> bigclassList(int type)
+        public static List<ProjectBigClass> bigclassList(string type)
         {
             IProjectService svc = new ProjectService();
             return svc.GetBigClassList(type);
         }
 
-        public static List<ProjectSmallClass> smallclassList(int type, string bigclassCode)
+        public static List<ProjectSmallClass> smallclassList(string type, string bigclassCode)
         {
             IProjectService svc = new ProjectService();
             return svc.GetSmallClassList(type, bigclassCode);

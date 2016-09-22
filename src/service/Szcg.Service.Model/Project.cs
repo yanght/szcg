@@ -292,6 +292,276 @@ namespace Szcg.Service.Model
         /// 名称
         /// </summary>
         public string Name { get; set; }
+        /// <summary>
+        /// 责任单位
+        /// </summary>
+        public string Dutyunit { get; set; }
+
+        public int T_Time_Kc { get; set; }
+
+        public int T_Time { get; set; }
+        public int T_Time_Ts { get; set; }
+        public int T_Time_Gc { get; set; }
+        public int GisType { get; set; }
+        public string PartSign { get; set; }
+
+        public int RoleCode { get; set; }
+        public string Memo { get; set; }
+        public string Link_SmallCode { get; set; }
+        public string Max_Nemuric { get; set; }
+        public string Min_Nemuric { get; set; }
+
+        #region  time1
+
+        public int T1Time { get; set; }
+        public int T1Time_2 { get; set; }
+        public int T1Time_3 { get; set; }
+        public int T1Time_4 { get; set; }
+
+        public int T1Time_LA { get; set; }
+        public int T1Time_PQ { get; set; }
+        public int T1Time_DB { get; set; }
+        public int T1Time_HC { get; set; }
+        public string T1Name { get; set; }
+
+        public int T1Type { get; set; }
+        public int T1Type_2 { get; set; }
+        public int T1Type_3 { get; set; }
+        public int T1Type_4 { get; set; }
+
+        public int T1Type_LA { get; set; }
+        public int T1Type_PQ { get; set; }
+        public int T1Type_DB { get; set; }
+        public int T1Type_HC { get; set; }
+
+        #endregion
+
+        #region  time2
+
+        public int T2Time { get; set; }
+        public int T2Time_2 { get; set; }
+        public int T2Time_3 { get; set; }
+        public int T2Time_4 { get; set; }
+
+        public int T2Time_LA { get; set; }
+        public int T2Time_PQ { get; set; }
+        public int T2Time_DB { get; set; }
+        public int T2Time_HC { get; set; }
+        public string T2Name { get; set; }
+
+        public int T2Type { get; set; }
+        public int T2Type_2 { get; set; }
+        public int T2Type_3 { get; set; }
+        public int T2Type_4 { get; set; }
+
+        public int T2Type_LA { get; set; }
+        public int T2Type_PQ { get; set; }
+        public int T2Type_DB { get; set; }
+        public int T2Type_HC { get; set; }
+
+        #endregion
+
+        #region  time3
+
+        public int T3Time { get; set; }
+        public int T3Time_2 { get; set; }
+        public int T3Time_3 { get; set; }
+        public int T3Time_4 { get; set; }
+
+        public int T3Time_LA { get; set; }
+        public int T3Time_PQ { get; set; }
+        public int T3Time_DB { get; set; }
+        public int T3Time_HC { get; set; }
+        public string T3Name { get; set; }
+
+        public int T3Type { get; set; }
+        public int T3Type_2 { get; set; }
+        public int T3Type_3 { get; set; }
+        public int T3Type_4 { get; set; }
+
+        public int T3Type_LA { get; set; }
+        public int T3Type_PQ { get; set; }
+        public int T3Type_DB { get; set; }
+        public int T3Type_HC { get; set; }
+
+        #endregion
+
+        #region  time4
+
+        public int T4Time { get; set; }
+        public int T4Time_2 { get; set; }
+        public int T4Time_3 { get; set; }
+        public int T4Time_4 { get; set; }
+
+        public int T4Time_LA { get; set; }
+        public int T4Time_PQ { get; set; }
+        public int T4Time_DB { get; set; }
+        public int T4Time_HC { get; set; }
+        public string T4Name { get; set; }
+
+        public int T4Type { get; set; }
+        public int T4Type_2 { get; set; }
+        public int T4Type_3 { get; set; }
+        public int T4Type_4 { get; set; }
+
+        public int T4Type_LA { get; set; }
+        public int T4Type_PQ { get; set; }
+        public int T4Type_DB { get; set; }
+        public int T4Type_HC { get; set; }
+
+        #endregion
+
+        #region  time5
+
+        public int T5Time { get; set; }
+        public int T5Time_2 { get; set; }
+        public int T5Time_3 { get; set; }
+        public int T5Time_4 { get; set; }
+
+        public int T5Time_LA { get; set; }
+        public int T5Time_PQ { get; set; }
+        public int T5Time_DB { get; set; }
+        public int T5Time_HC { get; set; }
+        public string T5Name { get; set; }
+
+        public int T5Type { get; set; }
+        public int T5Type_2 { get; set; }
+        public int T5Type_3 { get; set; }
+        public int T5Type_4 { get; set; }
+
+        public int T5Type_LA { get; set; }
+        public int T5Type_PQ { get; set; }
+        public int T5Type_DB { get; set; }
+        public int T5Type_HC { get; set; }
+
+        #endregion
+
+        #region  time6
+
+        public int T6Time { get; set; }
+        public int T6Time_2 { get; set; }
+        public int T6Time_3 { get; set; }
+        public int T6Time_4 { get; set; }
+
+        public int T6Time_LA { get; set; }
+        public int T6Time_PQ { get; set; }
+        public int T6Time_DB { get; set; }
+        public int T6Time_HC { get; set; }
+        public string T6Name { get; set; }
+
+        public int T6Type { get; set; }
+        public int T6Type_2 { get; set; }
+        public int T6Type_3 { get; set; }
+        public int T6Type_4 { get; set; }
+
+        public int T6Type_LA { get; set; }
+        public int T6Type_PQ { get; set; }
+        public int T6Type_DB { get; set; }
+        public int T6Type_HC { get; set; }
+
+        #endregion
+
+        #region  time7
+
+        public int T7Time { get; set; }
+        public int T7Time_2 { get; set; }
+        public int T7Time_3 { get; set; }
+        public int T7Time_4 { get; set; }
+
+        public int T7Time_LA { get; set; }
+        public int T7Time_PQ { get; set; }
+        public int T7Time_DB { get; set; }
+        public int T7Time_HC { get; set; }
+        public string T7Name { get; set; }
+
+        public int T7Type { get; set; }
+        public int T7Type_2 { get; set; }
+        public int T7Type_3 { get; set; }
+        public int T7Type_4 { get; set; }
+
+        public int T7Type_LA { get; set; }
+        public int T7Type_PQ { get; set; }
+        public int T7Type_DB { get; set; }
+        public int T7Type_HC { get; set; }
+
+
+        #endregion
+
+        #region  time8
+
+        public int T8Time { get; set; }
+        public int T8Time_2 { get; set; }
+        public int T8Time_3 { get; set; }
+        public int T8Time_4 { get; set; }
+
+        public int T8Time_LA { get; set; }
+        public int T8Time_PQ { get; set; }
+        public int T8Time_DB { get; set; }
+        public int T8Time_HC { get; set; }
+        public string T8Name { get; set; }
+
+        public int T8Type { get; set; }
+        public int T8Type_2 { get; set; }
+        public int T8Type_3 { get; set; }
+        public int T8Type_4 { get; set; }
+
+        public int T8Type_LA { get; set; }
+        public int T8Type_PQ { get; set; }
+        public int T8Type_DB { get; set; }
+        public int T8Type_HC { get; set; }
+
+        #endregion
+
+        #region  time9
+
+        public int T9Time { get; set; }
+        public int T9Time_2 { get; set; }
+        public int T9Time_3 { get; set; }
+        public int T9Time_4 { get; set; }
+
+        public int T9Time_LA { get; set; }
+        public int T9Time_PQ { get; set; }
+        public int T9Time_DB { get; set; }
+        public int T9Time_HC { get; set; }
+        public string T9Name { get; set; }
+
+        public int T9Type { get; set; }
+        public int T9Type_2 { get; set; }
+        public int T9Type_3 { get; set; }
+        public int T9Type_4 { get; set; }
+
+        public int T9Type_LA { get; set; }
+        public int T9Type_PQ { get; set; }
+        public int T9Type_DB { get; set; }
+        public int T9Type_HC { get; set; }
+
+        #endregion
+
+        #region  time10
+
+        public int T10Time { get; set; }
+        public int T10Time_2 { get; set; }
+        public int T10Time_3 { get; set; }
+        public int T10Time_4 { get; set; }
+
+        public int T10Time_LA { get; set; }
+        public int T10Time_PQ { get; set; }
+        public int T10Time_DB { get; set; }
+        public int T10Time_HC { get; set; }
+        public string T10Name { get; set; }
+
+        public int T10Type { get; set; }
+        public int T10Type_2 { get; set; }
+        public int T10Type_3 { get; set; }
+        public int T10Type_4 { get; set; }
+
+        public int T10Type_LA { get; set; }
+        public int T10Type_PQ { get; set; }
+        public int T10Type_DB { get; set; }
+        public int T10Type_HC { get; set; }
+
+        #endregion
+
 
     }
 

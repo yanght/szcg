@@ -22,6 +22,8 @@ namespace Szcg.Web.Controllers
             return View();
         }
 
+        #region [ 获取部门列表 ]
+
         /// <summary>
         /// 根据当前用户获取部门树列表
         /// </summary>
@@ -36,6 +38,10 @@ namespace Szcg.Web.Controllers
 
             return ajax;
         }
+
+        #endregion
+
+        #region [ 添加部门 ]
 
         [HttpPost]
         /// <summary>
@@ -63,6 +69,10 @@ namespace Szcg.Web.Controllers
             return ajax;
         }
 
+        #endregion
+
+        #region [ 修改部门 ]
+
         [HttpPost]
         /// <summary>
         /// 修改部门信息
@@ -87,6 +97,10 @@ namespace Szcg.Web.Controllers
 
             return ajax;
         }
+
+        #endregion
+
+        #region [ 验证部门信息输入 ]
 
         /// <summary>
         /// 检查部门信息合法性
@@ -157,6 +171,8 @@ namespace Szcg.Web.Controllers
             return ajax;
         }
 
+        #endregion
+                
         /// <summary>
         /// 检查部门名称字符合法性
         /// </summary>

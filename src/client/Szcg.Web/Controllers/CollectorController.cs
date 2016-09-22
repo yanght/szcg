@@ -21,16 +21,22 @@ namespace Szcg.Web.Controllers
             return View();
         }
 
+        #region [ 获取监督员列表 ]
+
         public AjaxFxRspJson GetCollecters(CollectorQueryArgs args)
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
             List<Collecter> list = svc.GetCollecters(args);
 
-            ajax.RspData.Add("Collecters", JToken.FromObject(list));
+            ajax.RspData.Add("collecters", JToken.FromObject(list));
 
             return ajax;
         }
+
+        #endregion
+
+        #region [ 添加监督员 ]
 
         [HttpPost]
         public AjaxFxRspJson AddCollecter(Collecter collector)
@@ -49,6 +55,10 @@ namespace Szcg.Web.Controllers
             return ajax;
         }
 
+        #endregion
+
+        #region [ 修改监督员 ]
+
         [HttpPost]
         public AjaxFxRspJson ModifyCollecter(Collecter collector)
         {
@@ -65,6 +75,9 @@ namespace Szcg.Web.Controllers
 
             return ajax;
         }
+
+        #endregion
+
 
     }
 }

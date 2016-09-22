@@ -11,11 +11,8 @@ namespace Szcg.Service.IBussiness
     /// </summary>
     public interface IPermissionService
     {
-        /// <summary>
-        /// 获取角色列表
-        /// </summary>
-        /// <returns></returns>
-        List<Role> GetRoles();
+
+        #region [ 权限 ]
 
         /// <summary>
         /// 获取所有系统模块
@@ -37,6 +34,17 @@ namespace Szcg.Service.IBussiness
         /// <param name="nodelist">系统模块列表</param>
         /// <returns></returns>
         bool UpdateSystemModel(string roleid, string nodelist);
+
+        #endregion
+
+        #region [ 角色 ]
+
+        /// <summary>
+        /// 获取角色列表
+        /// </summary>
+        /// <returns></returns>
+        List<Role> GetRoles();
+
 
         /// <summary>
         /// 添加角色
@@ -74,12 +82,26 @@ namespace Szcg.Service.IBussiness
         List<Role> GetRoleList(int userCode);
 
         /// <summary>
+        /// 获取角色步骤列表
+        /// </summary>
+        /// <returns></returns>
+        List<RoleStep> GetStepList();
+
+        #endregion
+
+        #region [ 授权 ]
+
+        /// <summary>
         /// 角色授权
         /// </summary>
         /// <param name="purview"></param>
         /// <returns></returns>
         bool AccreditPurview(AccreditPurview purview);
 
+
+        #endregion
+
+        
         /// <summary>
         /// 用户登录
         /// </summary>

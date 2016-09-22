@@ -54,9 +54,21 @@ namespace Szcg.Service.Model
     /// </summary>
     public class SystemModel
     {
+        /// <summary>
+        /// 上级编号
+        /// </summary>
         public string ParentCode { get; set; }
+        /// <summary>
+        /// 模块编码
+        /// </summary>
         public string NodeCode { get; set; }
+        /// <summary>
+        /// 模块名称
+        /// </summary>
         public string NodeName { get; set; }
+        /// <summary>
+        /// 备注
+        /// </summary>
         public string Memo { get; set; }
     }
 
@@ -85,5 +97,20 @@ namespace Szcg.Service.Model
         /// 结束时间
         /// </summary>
         public DateTime endTime { get; set; }
+    }
+
+    /// <summary>
+    /// 角色所在步骤
+    /// </summary>
+    public class RoleStep
+    {
+        /// <summary>
+        /// 步骤编码
+        /// </summary>
+        public int StepCode { get; set; }
+        /// <summary>
+        /// 步骤名称
+        /// </summary>
+        public string StepName { get; set; }
     }
 }

@@ -25,7 +25,7 @@ namespace Szcg.Web.Controllers
             return View();
         }
 
-        #region 【 案卷流程 】
+        #region [ 案卷流程 ]
 
         #region [ 案卷上报 ]
 
@@ -432,7 +432,7 @@ namespace Szcg.Web.Controllers
 
         #endregion
 
-        #region 【 获取案卷信息 】
+        #region [ 获取案卷信息 ]
 
         #region [ 获取案卷流程 ]
 
@@ -500,6 +500,107 @@ namespace Szcg.Web.Controllers
         }
 
         #endregion
+
+        #region [ 获取案卷大类列表 ]
+
+        /// <summary>
+        /// 获取案卷大类列表
+        /// </summary>
+        /// <param name="classType">类型（0：部件 1：事件）</param>
+        /// <returns></returns>
+        public AjaxFxRspJson GetBigClassList(string classType)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            if (classType != "0" && classType != "1")
+            {
+                ajax.RspMsg = "请输入正确的类型！";
+                ajax.RspCode = 0;
+                return ajax;
+            }
+
+            List<ProjectBigClass> bigclass = svc.GetBigClassList(classType);
+
+            ajax.RspData.Add("bigclass", JToken.FromObject(bigclass));
+
+            return ajax;
+        }
+
+        #endregion
+
+        #region [ 获取案卷小类列表 ]
+
+        /// <summary>
+        /// 获取案卷小类列表
+        /// </summary>
+        /// <param name="classType">类型（0：部件 1：事件）</param>
+        /// <param name="bigclassCode">大类编码</param>
+        /// <returns></returns>
+        public AjaxFxRspJson GetSmallClassList(string classType, string bigclassCode)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            List<ProjectSmallClass> smallclass = svc.GetSmallClassList(classType, bigclassCode);
+
+            ajax.RspData.Add("smallclass", JToken.FromObject(smallclass));
+
+            return ajax;
+        }
+
+        #endregion
+
+        #endregion
+
+        #region [ 区域相关 ]
+
+        /// <summary>
+        /// 获取区域列表
+        /// </summary>
+        /// <returns></returns>
+        public AjaxFxRspJson GetAreaList()
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            List<Area> list = svc.GetAreaList();
+
+            ajax.RspData.Add("areas", JToken.FromObject(list));
+
+            return ajax;
+        }
+
+        /// <summary>
+        /// 获取街道列表
+        /// </summary>
+        /// <param name="areacode">区域编码</param>
+        /// <returns></returns>
+        public AjaxFxRspJson GetStreetList(string areacode)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            List<Street> list = svc.GetStreetList(areacode);
+
+            ajax.RspData.Add("streets", JToken.FromObject(list));
+
+            return ajax;
+        }
+
+        /// <summary>
+        /// 获取社区列表
+        /// </summary>
+        /// <param name="areacode">区域编码</param>
+        /// <param name="streetcode">街道编码</param>
+        /// <returns></returns>
+        public AjaxFxRspJson GetCommunityList(string areacode, string streetcode)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            List<Community> list = svc.GetCommunityList(areacode, streetcode);
+
+            ajax.RspData.Add("commoditys", JToken.FromObject(list));
+
+            return ajax;
+        }
+
 
         #endregion
 

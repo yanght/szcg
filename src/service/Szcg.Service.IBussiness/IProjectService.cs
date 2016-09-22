@@ -39,14 +39,14 @@ namespace Szcg.Service.IBussiness
         /// </summary>
         /// <param name="eventType">类型（0：部件 1：事件）</param>
         /// <returns></returns>
-        List<ProjectBigClass> GetBigClassList(int eventType);
+        List<ProjectBigClass> GetBigClassList(string classType);
 
         /// <summary>
         /// 获取案卷小类列表
         /// </summary>
         /// <param name="eventType">类型（0：部件 1：事件）</param>
         /// <returns></returns>
-        List<ProjectSmallClass> GetSmallClassList(int eventType, string bigclassCode);
+        List<ProjectSmallClass> GetSmallClassList(string classType, string bigclassCode);
 
         /// <summary>
         /// 获取案卷流程

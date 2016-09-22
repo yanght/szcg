@@ -26,6 +26,8 @@ namespace Szcg.Web.Controllers
             return View();
         }
 
+        #region [ 用户登录 ]
+
         [HttpPost]
         public AjaxFxRspJson Login(string userName, string passWord)
         {
@@ -51,6 +53,8 @@ namespace Szcg.Web.Controllers
             ajax.RspData.Add("userInfo", JToken.FromObject(userInfo));
             return ajax;
         }
+
+        #endregion
 
     }
 }

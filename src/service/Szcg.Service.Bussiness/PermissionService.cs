@@ -23,26 +23,8 @@ namespace Szcg.Service.Bussiness
     {
         private string strErr = "";
 
-        /// <summary>
-        /// 获取角色列表
-        /// </summary>
-        /// <returns></returns>
-        public List<Role> GetRoles()
-        {
-            List<Role> list = new List<Role>();
-            RoleManage bl = new RoleManage();
-            DataSet ds = bl.GetRole(ref strErr);
-            if (!string.IsNullOrEmpty(strErr))
-            {
-                LoggerManager.Instance.logger.Error("获取角色列表异常：" + strErr);
-            }
 
-            if (ds != null && ds.Tables[0].Rows.Count > 0)
-            {
-                list = ConvertDtHelper<Role>.GetModelList(ds.Tables[0].Rows);
-            }
-            return list;
-        }
+        #region [ 权限 ]
 
         /// <summary>
         /// 获取所有系统模块
@@ -120,6 +102,11 @@ namespace Szcg.Service.Bussiness
             return i > 0;
         }
 
+        #endregion
+
+
+        #region [ 角色 ]
+
         /// <summary>
         /// 添加角色
         /// </summary>
@@ -194,6 +181,27 @@ namespace Szcg.Service.Bussiness
         }
 
         /// <summary>
+        /// 获取角色列表
+        /// </summary>
+        /// <returns></returns>
+        public List<Role> GetRoles()
+        {
+            List<Role> list = new List<Role>();
+            RoleManage bl = new RoleManage();
+            DataSet ds = bl.GetRole(ref strErr);
+            if (!string.IsNullOrEmpty(strErr))
+            {
+                LoggerManager.Instance.logger.Error("获取角色列表异常：" + strErr);
+            }
+
+            if (ds != null && ds.Tables[0].Rows.Count > 0)
+            {
+                list = ConvertDtHelper<Role>.GetModelList(ds.Tables[0].Rows);
+            }
+            return list;
+        }
+
+        /// <summary>
         /// 获取当前用户的角色列表
         /// </summary>
         /// <param name="userCode"></param>
@@ -226,6 +234,42 @@ namespace Szcg.Service.Bussiness
         }
 
         /// <summary>
+        /// 获取角色步骤列表
+        /// </summary>
+        /// <returns></returns>
+        public List<RoleStep> GetStepList()
+        {
+            List<RoleStep> list = new List<RoleStep>();
+
+            RoleManage bl = new RoleManage();
+
+            DataSet ds = bl.GetStepList(ref strErr);
+
+            if (!string.IsNullOrEmpty(strErr))
+            {
+                LoggerManager.Instance.logger.Error("案获取用户角色步骤列表异常：" + strErr);
+            }
+            if (ds != null && ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    RoleStep step = new RoleStep()
+                    {
+                        StepCode = SqlDataConverter.ToInt32(dr["stepcode"]),
+                        StepName = SqlDataConverter.ToString(dr["stepname"]),
+                    };
+                    list.Add(step);
+                }
+            }
+            return list;
+        }
+
+        #endregion
+
+
+        #region [ 授权 ]
+
+        /// <summary>
         /// 角色授权
         /// </summary>
         /// <param name="purview"></param>
@@ -241,6 +285,14 @@ namespace Szcg.Service.Bussiness
             }
             return flag > 0;
         }
+
+        #endregion
+
+
+
+
+
+
 
         /// <summary>
         /// 用户登录
@@ -289,9 +341,9 @@ namespace Szcg.Service.Bussiness
         /// <param name="modelCode">父模块编号</param>
         /// <param name="systemId">系统编号</param>
         /// <returns></returns>
-        public List<FlowNodePower> GetFlowNodePower(string roleCode,string modelCode, string systemId)
+        public List<FlowNodePower> GetFlowNodePower(string roleCode, string modelCode, string systemId)
         {
-            DataSet ds = bacgBL.business.Project.GetFlowNodePower(roleCode,modelCode, systemId, strErr);
+            DataSet ds = bacgBL.business.Project.GetFlowNodePower(roleCode, modelCode, systemId, strErr);
             if (!string.IsNullOrEmpty(strErr))
             {
                 LoggerManager.Instance.logger.Error("案件立案批转异常：" + strErr);
@@ -300,6 +352,9 @@ namespace Szcg.Service.Bussiness
                 return ConvertDtHelper<FlowNodePower>.GetModelList(ds.Tables[0].Rows);
             return null;
         }
+
+
+
 
     }
 }
