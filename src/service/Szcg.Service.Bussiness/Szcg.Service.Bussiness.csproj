@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppraiseService.cs" />
     <Compile Include="CollectorService.cs" />
     <Compile Include="OrganizeService.cs" />
     <Compile Include="PermissionService.cs" />
