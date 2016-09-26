@@ -6,8 +6,8 @@ using Szcg.Service.IBussiness;
 
 namespace Szcg.Service.Bussiness
 {
-    public class AppraiseService : IAppraiseService
+    public class TaskService : ITaskService
     {
-
+        
     }
 }

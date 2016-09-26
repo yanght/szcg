@@ -58,6 +58,7 @@
     <Compile Include="ResponseModel\PageReturnValue.cs" />
     <Compile Include="ResponseModel\ReturnValue.cs" />
     <Compile Include="Role.cs" />
+    <Compile Include="SchedulerModel\TaskMessage.cs" />
     <Compile Include="UserData.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

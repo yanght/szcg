@@ -49,6 +49,7 @@
     <Compile Include="PermissionService.cs" />
     <Compile Include="ProjectService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaskService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\core\bl\Szcg.Core.businessBL\Szcg.Core.businessBL.csproj">
