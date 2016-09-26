@@ -49,7 +49,7 @@ namespace Szcg.Service.Model
         public string max_bjja { get; set; }
         public string max_sjja { get; set; }
         public string max_bjjal { get; set; }
-        public string max_sjja { get; set; }
+        public string max_sjjal { get; set; }
         public string max_cqja { get; set; }
         public string max_bjcqja { get; set; }
         public string max_zqpq { get; set; }
@@ -57,8 +57,7 @@ namespace Szcg.Service.Model
         public string bjpq { get; set; }
         public string sjpq { get; set; }
         public string wja { get; set; }
-        public string ja_a { get; set; }
-        public string bjja_a { get; set; }
+        public string ja_a { get; set; }       
         public string bjja_a { get; set; }
         public string sjja_a { get; set; }
         public string aqja { get; set; }

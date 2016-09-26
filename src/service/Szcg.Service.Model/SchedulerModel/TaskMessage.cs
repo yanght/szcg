@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Szcg.Service.Model
 {
+    /// <summary>
+    /// 短信发送
+    /// </summary>
     public class TaskMessage
     {
         /// <summary>
