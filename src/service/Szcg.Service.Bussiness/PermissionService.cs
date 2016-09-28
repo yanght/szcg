@@ -288,12 +288,7 @@ namespace Szcg.Service.Bussiness
 
         #endregion
 
-
-
-
-
-
-
+        
         /// <summary>
         /// 用户登录
         /// </summary>

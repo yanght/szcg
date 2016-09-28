@@ -12,7 +12,6 @@ namespace Szcg.Web.Areas.Appraise
             }
         }
 
-
         public override void RegisterArea(AreaRegistrationContext context)
         {
             //context.MapRoute(
