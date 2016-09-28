@@ -9,6 +9,9 @@ using Szcg.Service.Bussiness;
 using log4net;
 using System.Reflection;
 using Newtonsoft.Json.Linq;
+using System.Web.Security;
+using Szcg.Service.Common;
+using Newtonsoft.Json;
 
 [assembly: log4net.Config.XmlConfigurator(Watch = true)]
 namespace Szcg.Web.Controllers
@@ -28,7 +31,7 @@ namespace Szcg.Web.Controllers
 
         #region [ 用户登录 ]
 
-        [HttpPost]
+        //[HttpPost]
         public AjaxFxRspJson Login(string userName, string passWord)
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
@@ -50,6 +53,21 @@ namespace Szcg.Web.Controllers
                 ajax.RspCode = 0;
                 return ajax;
             }
+
+            string userdata = JsonConvert.SerializeObject(userInfo);
+            try
+            {
+                FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, userName, DateTime.Now, DateTime.Now.AddHours(2), false, userdata);
+                HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(ticket));
+                HttpContext.Response.Cookies.Add(cookie);
+                Session["UserInfo"] = userInfo;
+
+            }
+            catch (Exception ex)
+            {
+                LoggerManager.Instance.logger.ErrorFormat("登录信息写入cookie失败,错误信息：{0}", ex.ToString());
+            }
+
             ajax.RspData.Add("userInfo", JToken.FromObject(userInfo));
             return ajax;
         }

@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using szcg.com.teamax.business.entity;
 using Szcg.Service.Bussiness;
 
@@ -14,11 +16,35 @@ namespace Szcg.Web.Controllers
         {
             get
             {
+                UserInfo user = new UserInfo();
+
                 if (Session["UserInfo"] == null)
                 {
-                    szcg.com.teamax.business.entity.UserInfo userinfo = new PermissionService().LoginValidate("zjw", "123");
-                    Session["UserInfo"] = userinfo;
-                    return userinfo;
+                    HttpCookie cookie = HttpContext.Request.Cookies[FormsAuthentication.FormsCookieName];
+                    if (cookie == null)
+                        return null;
+
+                    FormsAuthenticationTicket _ticket = null;
+                    try
+                    {
+                        _ticket = FormsAuthentication.Decrypt(cookie.Value);
+                        if (_ticket == null)
+                            return null;
+                    }
+                    catch
+                    {
+                        _ticket = null;
+                        return null;
+                    }
+
+                    string userdata = _ticket.UserData;
+
+                    if(!string.IsNullOrEmpty(userdata))
+                    {
+                        user = JsonConvert.DeserializeObject<UserInfo>(userdata);
+                    }                    
+
+                    return user;
                 }
                 else
                 {

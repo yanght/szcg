@@ -52,6 +52,10 @@
     <Compile Include="TaskService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\core\bl\Szcg.Core.appraiseBL\Szcg.Core.appraiseBL.csproj">
+      <Project>{39fbfcfd-9a05-4ba9-b351-3bb8bf1c9116}</Project>
+      <Name>Szcg.Core.appraiseBL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\core\bl\Szcg.Core.businessBL\Szcg.Core.businessBL.csproj">
       <Project>{425729be-2713-45a8-800e-fe05c47c9839}</Project>
       <Name>Szcg.Core.businessBL</Name>
@@ -79,6 +83,10 @@
     <ProjectReference Include="..\..\core\dbl\Szcg.Core.pubDBL\Szcg.Core.pubDBL.csproj">
       <Project>{ad9aa70c-ceb9-4e75-b740-31fbc319b46a}</Project>
       <Name>Szcg.Core.pubDBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core\dl\Szcg.Core.appraiseDL\Szcg.Core.appraiseDL.csproj">
+      <Project>{aa594bf1-07ad-4f27-a16a-50db85eb6d85}</Project>
+      <Name>Szcg.Core.appraiseDL</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\core\dl\Szcg.Core.loginDL\Szcg.Core.loginDL.csproj">
       <Project>{17ac39bb-1e7c-4e24-8ab4-ce89ecb409dc}</Project>

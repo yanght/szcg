@@ -14,11 +14,11 @@ using System;
 
 namespace szcg.com.teamax.business.entity
 {
-	/// <summary>
+    /// <summary>
     /// 用户信息实体类
-	/// </summary>
-	public class  UserInfo
-	{
+    /// </summary>
+    public class UserInfo
+    {
         //是否弹出式窗体
         private bool _IsOpenWindow;
 
@@ -37,9 +37,9 @@ namespace szcg.com.teamax.business.entity
             }
         }
 
-		// 用户当前使用的角色代码
-		private int _intCurrentRole;
-		
+        // 用户当前使用的角色代码
+        public int _intCurrentRole;
+
         /// <summary>
         /// 用户当前使用的角色代码
         /// </summary>
@@ -50,7 +50,7 @@ namespace szcg.com.teamax.business.entity
         }
 
         // 当前节点
-        private string _CurrentNodeID;
+        public string _CurrentNodeID;
 
         /// <summary>
         /// 当前节点
@@ -62,7 +62,7 @@ namespace szcg.com.teamax.business.entity
         }
 
         //用户当前登陆的系统;
-        private string _CurrentSystemId;
+        public string _CurrentSystemId;
 
         /// <summary>
         /// 用户当前登陆的系统
@@ -80,7 +80,7 @@ namespace szcg.com.teamax.business.entity
         }
 
         //用户有权限操作的模块列表
-        private string _ModelPowers;
+        public string _ModelPowers;
 
         /// <summary>
         /// 用户有权限操作的模块列表。模块之间用逗号分割
@@ -99,51 +99,51 @@ namespace szcg.com.teamax.business.entity
 
 
         //当前用户对应的多种角色;
-        private string[] _role;
+        public string[] _role;
 
-		//当前用户多少系统可用;
-		private string [] _systemid;
-		
-		private int _usercode;
-		/*登陆次数*/
-		private int _logincount;
-     
-		private string _loginname;
-		private string _username;
-		
-		private string _password;
-		private int _departcode;
-		/*最初登陆时间*/             
-		private string _regdate;
-		/*最后登陆时间*/
-		private string _lastoutdate;
-		
-		/*是否在线*/
-		private string _isonline;
-		/*电话*/
-		private string _tel;
+        //当前用户多少系统可用;
+        public string[] _systemid;
 
-		private string _mobile;
+        public int _usercode;
+        /*登陆次数*/
+        public int _logincount;
 
-		private string _email;
-		private string _address;
-		private string _sex;
-		private string _areacode;
-		private string  _birthday;
-  
-		private string  _ca;
-		private bool _is_ca;
+        public string _loginname;
+        public string _username;
+
+        public string _password;
+        public int _departcode;
+        /*最初登陆时间*/
+        public string _regdate;
+        /*最后登陆时间*/
+        public string _lastoutdate;
+
+        /*是否在线*/
+        public string _isonline;
+        /*电话*/
+        public string _tel;
+
+        public string _mobile;
+
+        public string _email;
+        public string _address;
+        public string _sex;
+        public string _areacode;
+        public string _birthday;
+
+        public string _ca;
+        public bool _is_ca;
 
         /*部门名称*/
-	    private string _departname;
-        private string _departDefinedcode;
-		 /*部门父结点*/
-		private int _parentcode; 
-	
-		private int step;
+        public string _departname;
+        public string _departDefinedcode;
+        /*部门父结点*/
+        public int _parentcode;
 
-		private string _videolevel;
-        private string _hcpower;
+        public int step;
+
+        public string _videolevel;
+        public string _hcpower;
         /// <summary>
         /// 
         /// </summary>
@@ -167,38 +167,39 @@ namespace szcg.com.teamax.business.entity
         /// <param name="departname"></param>
         /// <param name="parentcode"></param>
         /// <param name="videolevel"></param>
-		public UserInfo(int usercode, int logincount, string loginname, string username, 
-			string password, int departcode, string regdate, string lastoutdate, string isonline, 
-			string tel, string mobile, string email, string address, string sex, string areacode, string birthday,
-			string ca,string departname,int parentcode,string videolevel,string hcpower)
-		{
-			this._usercode = usercode;
-			this._logincount = logincount;
-			this._loginname = loginname;
-			this._username = username;
-			this._password = password;
-			this._departcode = departcode;
-			this._regdate = regdate;
-			this._lastoutdate = lastoutdate;
-			this._isonline = isonline;
-			this._tel  = tel;
-			this._mobile = mobile;
-			this._email = email;
-			this._address  = address;
-			this._sex = sex;
-			this._areacode  = areacode;
-			this._birthday = birthday;
-			this._ca  = ca;
-			this._is_ca = false;
-			this._departname = departname;
-			this._parentcode = parentcode;	
-			this._videolevel=videolevel;
+        public UserInfo(int usercode, int logincount, string loginname, string username,
+            string password, int departcode, string regdate, string lastoutdate, string isonline,
+            string tel, string mobile, string email, string address, string sex, string areacode, string birthday,
+            string ca, string departname, int parentcode, string videolevel, string hcpower)
+        {
+            this._usercode = usercode;
+            this._logincount = logincount;
+            this._loginname = loginname;
+            this._username = username;
+            this._password = password;
+            this._departcode = departcode;
+            this._regdate = regdate;
+            this._lastoutdate = lastoutdate;
+            this._isonline = isonline;
+            this._tel = tel;
+            this._mobile = mobile;
+            this._email = email;
+            this._address = address;
+            this._sex = sex;
+            this._areacode = areacode;
+            this._birthday = birthday;
+            this._ca = ca;
+            this._is_ca = false;
+            this._departname = departname;
+            this._parentcode = parentcode;
+            this._videolevel = videolevel;
             this._hcpower = hcpower;
-		}
+        }
 
-		public UserInfo(){
-			
-		}
+        public UserInfo()
+        {
+
+        }
 
         public string[] getRole()
         {
@@ -248,34 +249,34 @@ namespace szcg.com.teamax.business.entity
             }
         }
 
-		public int getUsercode() 
-		{
-			return _usercode;
-		}
+        public int getUsercode()
+        {
+            return _usercode;
+        }
 
-		public void setUsercode(int usercode) 
-		{
-			this._usercode = usercode;
-		} 
+        public void setUsercode(int usercode)
+        {
+            this._usercode = usercode;
+        }
 
-		public String getLoginname()
-		{
-			return _loginname;
-		}
-		public void setLoginname(String loginname)
-		{
-			this._loginname = loginname;
-		}
+        public String getLoginname()
+        {
+            return _loginname;
+        }
+        public void setLoginname(String loginname)
+        {
+            this._loginname = loginname;
+        }
 
-		public String getVideoLevel()
-		{
-			return _videolevel;
-		}
+        public String getVideoLevel()
+        {
+            return _videolevel;
+        }
 
-		public void setVideoLevel(String videolevel)
-		{
-			this._videolevel = videolevel;
-		}
+        public void setVideoLevel(String videolevel)
+        {
+            this._videolevel = videolevel;
+        }
         public String getHcpower()
         {
             return _hcpower;
@@ -284,35 +285,35 @@ namespace szcg.com.teamax.business.entity
         {
             this._hcpower = hcpower;
         }
-		public String getUsername() 
-		{
-			return _username;
-		}
+        public String getUsername()
+        {
+            return _username;
+        }
 
-		public void setUsername(String username)
-		{
-			this._username = username;
-		}
+        public void setUsername(String username)
+        {
+            this._username = username;
+        }
 
-		public String getPassword() 
-		{
-			return  _password;
-		}
-		public void setPassword(String password)
-		{
-			this._password = password;
-		}
+        public String getPassword()
+        {
+            return _password;
+        }
+        public void setPassword(String password)
+        {
+            this._password = password;
+        }
 
 
-		public int getDepartcode() 
-		{
-			return _departcode;
-		}
+        public int getDepartcode()
+        {
+            return _departcode;
+        }
 
-		public void setDepartcode(int departcode)
-		{
-			this._departcode = departcode;
-		}
+        public void setDepartcode(int departcode)
+        {
+            this._departcode = departcode;
+        }
 
         public string getDepartDefinedcode()
         {
@@ -324,158 +325,160 @@ namespace szcg.com.teamax.business.entity
             this._departDefinedcode = departDefinedcode;
         }
 
-		public String getRegdate() 
-		{
-			return _regdate;
-		}
+        public String getRegdate()
+        {
+            return _regdate;
+        }
 
-		public void setRegdate(String regdate)
-		{
-			this._regdate = regdate;
-		}
+        public void setRegdate(String regdate)
+        {
+            this._regdate = regdate;
+        }
 
-		public String getLastoutdate() 
-		{
-			return _lastoutdate;
-		}
+        public String getLastoutdate()
+        {
+            return _lastoutdate;
+        }
 
-		public void setLastoutdate(String lastoutdate)
-		{
-			this._lastoutdate = lastoutdate;
-		}
+        public void setLastoutdate(String lastoutdate)
+        {
+            this._lastoutdate = lastoutdate;
+        }
 
-		public int getLogincount() 
-		{
-			return _logincount;
-		}
+        public int getLogincount()
+        {
+            return _logincount;
+        }
 
-		public void setLogincount(int logincount) 
-		{
-			this._logincount = logincount;
-		}
+        public void setLogincount(int logincount)
+        {
+            this._logincount = logincount;
+        }
 
-		public String getIsonline() 
-		{
-			return _isonline;
-		}
+        public String getIsonline()
+        {
+            return _isonline;
+        }
 
-		public void setIsonline(String isonline)
-		{
-			this._isonline = isonline;
-		}
-		 
-		public String getTel() 
-		{
-			return _tel;
-		}
-		public void setTel(String tel)
-		{
-			this._tel = tel;
-		}
+        public void setIsonline(String isonline)
+        {
+            this._isonline = isonline;
+        }
 
-		public String getMobile() 
-		{
-			return _mobile;
-		}
+        public String getTel()
+        {
+            return _tel;
+        }
+        public void setTel(String tel)
+        {
+            this._tel = tel;
+        }
 
-		public void setMobile(String mobile)
-		{
-			this._mobile = mobile;
-		}
+        public String getMobile()
+        {
+            return _mobile;
+        }
 
-		public String getEmail() 
-		{
-			return _email;
-		}
-		public void setEmail(String email)
-		{
-			this._email = email;
-		}
+        public void setMobile(String mobile)
+        {
+            this._mobile = mobile;
+        }
 
-		public String getAddress() 
-		{
-			return _address;
-		}
+        public String getEmail()
+        {
+            return _email;
+        }
+        public void setEmail(String email)
+        {
+            this._email = email;
+        }
 
-		public void setAddress(String address)
-		{
-			this._address = address;
-		}
+        public String getAddress()
+        {
+            return _address;
+        }
 
-		public String getSex() 
-		{
-			return _sex;
-		}
-		public void setSex(String sex)
-		{
-			this._sex = sex;
-		}
-		public String getAreacode() 
-		{
-			return _areacode;
-		}
+        public void setAddress(String address)
+        {
+            this._address = address;
+        }
 
-		public void setAreacode(String _areacode)
-		{
-			this._areacode = _areacode;
-		}
+        public String getSex()
+        {
+            return _sex;
+        }
+        public void setSex(String sex)
+        {
+            this._sex = sex;
+        }
+        public String getAreacode()
+        {
+            return _areacode;
+        }
 
-		public String getBirthday() 
-		{
-			return _birthday;
-		}
+        public void setAreacode(String _areacode)
+        {
+            this._areacode = _areacode;
+        }
 
-		public void setBirthday(String birthday)
-		{
-			this._birthday = birthday;
-		}
-		public String getCa() 
-		{
-			return _ca;
-		}
-		public void setCa(String ca)
-		{
-			this._ca = ca;
-		}
+        public String getBirthday()
+        {
+            return _birthday;
+        }
 
-		public bool getIs_ca() 
-		{
-			return this._is_ca;
-		}
-		public void setIs_ca(bool is_ca)
-		{
-			this._is_ca =is_ca ;
-		}
+        public void setBirthday(String birthday)
+        {
+            this._birthday = birthday;
+        }
+        public String getCa()
+        {
+            return _ca;
+        }
+        public void setCa(String ca)
+        {
+            this._ca = ca;
+        }
 
-
-		public String getDepartname() 
-		{
-			return _departname;
-		}
-
-		public void setDepartname(String departname)
-		{
-			this._departname = departname;
-		}
+        public bool getIs_ca()
+        {
+            return this._is_ca;
+        }
+        public void setIs_ca(bool is_ca)
+        {
+            this._is_ca = is_ca;
+        }
 
 
-		public int getParentcode() 
-		{
-			return _parentcode;
-		}
+        public String getDepartname()
+        {
+            return _departname;
+        }
 
-		public void setParentcode(int parentcode) 
-		{
-			this._parentcode = parentcode;
-		}
+        public void setDepartname(String departname)
+        {
+            this._departname = departname;
+        }
 
-		public int getStep(){
-			return this.step;
-		}
 
-		public void setStep(int step){
-			this.step = step;
-		}
+        public int getParentcode()
+        {
+            return _parentcode;
+        }
+
+        public void setParentcode(int parentcode)
+        {
+            this._parentcode = parentcode;
+        }
+
+        public int getStep()
+        {
+            return this.step;
+        }
+
+        public void setStep(int step)
+        {
+            this.step = step;
+        }
 
     }
 }
