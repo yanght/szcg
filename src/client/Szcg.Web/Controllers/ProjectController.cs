@@ -468,6 +468,13 @@ namespace Szcg.Web.Controllers
         /// <returns></returns>
         public AjaxFxRspJson GetDelProjectList(ProjectInfo projInfo, PageInfo pageInfo, string startTime, string endTime)
         {
+            projInfo = new ProjectInfo()
+            {
+                areacode = "331125",
+                NodeId = "2",
+                TargetDepartCode = "39",
+            };
+
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
             List<Szcg.Service.Model.Project> list = svc.GetDealProjectList(projInfo, pageInfo, startTime, endTime);
@@ -476,6 +483,55 @@ namespace Szcg.Web.Controllers
 
             return ajax;
         }
+
+        #endregion
+
+        #region [ 获取自办件案卷列表 ]
+
+        /// <summary>
+        /// 获取自办件案卷列表
+        /// </summary>
+        /// <param name="projectInfo">查询条件</param>
+        /// <param name="pageInfo">分页信息</param>
+        /// <param name="departCode">职能部门编码</param>
+        /// <param name="startTime">开始时间</param>
+        /// <param name="endTime">结束时间</param>
+        /// <returns></returns>
+        public AjaxFxRspJson GetZbjProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string departCode, string startTime, string endTime)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            List<Szcg.Service.Model.Project> list = svc.GetZbjProjectList(projectInfo, pageInfo, departCode, startTime, endTime);
+
+            ajax.RspData.Add("projectList", JToken.FromObject(list));
+
+            return ajax;
+        }
+
+        #endregion
+
+        #region [ 获取存档案卷列表 ]
+
+        /// <summary>
+        /// 获取存档案卷列表
+        /// </summary>
+        /// <param name="projectInfo">查询条件</param>
+        /// <param name="pageInfo">分页信息</param>
+        /// <param name="startTime">开始时间</param>
+        /// <param name="endTime">结束时间</param>
+        /// <returns></returns>
+        public AjaxFxRspJson GetZbjProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string startTime, string endTime)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            List<Szcg.Service.Model.Project> list = svc.GetCDProjectList(projectInfo, pageInfo, startTime, endTime);
+
+            ajax.RspData.Add("projectList", JToken.FromObject(list));
+
+            return ajax;
+        }
+
+        #endregion
 
         #endregion
 
@@ -498,8 +554,6 @@ namespace Szcg.Web.Controllers
 
             return ajax;
         }
-
-        #endregion
 
         #endregion
 
@@ -659,7 +713,7 @@ namespace Szcg.Web.Controllers
                 return ajax;
             }
             return ajax;
-            
+
         }
 
         #endregion

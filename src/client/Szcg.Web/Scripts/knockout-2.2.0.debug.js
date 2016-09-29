@@ -3542,7 +3542,7 @@ ko.exportSymbol('nativeTemplateEngine', ko.nativeTemplateEngine);
             if (!precompiled) {
                 var templateText = templateSource['text']() || "";
                 // Wrap in "with($whatever.koBindingContext) { ... }"
-                templateText = "{{ko_with $item.koBindingContext}}" + templateText + "{{/ko_with}}";
+                templateText = "{*ko_with $item.koBindingContext}}" + templateText + "{*/ko_with}}";
 
                 precompiled = jQuery['template'](null, templateText);
                 templateSource['data']('precompiled', precompiled);
@@ -3559,7 +3559,7 @@ ko.exportSymbol('nativeTemplateEngine', ko.nativeTemplateEngine);
         };
 
         this['createJavaScriptEvaluatorBlock'] = function(script) {
-            return "{{ko_code ((function() { return " + script + " })()) }}";
+            return "{*ko_code ((function() { return " + script + " })()) }}";
         };
 
         this['addTemplate'] = function(templateName, templateMarkup) {

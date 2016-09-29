@@ -15,9 +15,9 @@ namespace Szcg.Web.Controllers
     public class AppraiseController : BaseController
     {
         IAppraiseService svc = new AppraiseService();
+
         //
         // GET: /Appraise/
-
         public ActionResult Index()
         {
             return View();

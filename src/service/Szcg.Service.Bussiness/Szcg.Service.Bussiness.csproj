@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="AppraiseService.cs" />
     <Compile Include="CollectorService.cs" />
+    <Compile Include="MessageService.cs" />
     <Compile Include="OrganizeService.cs" />
     <Compile Include="PermissionService.cs" />
     <Compile Include="ProjectService.cs" />

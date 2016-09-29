@@ -18,13 +18,14 @@ namespace Szcg.Web.Controllers
         public ActionResult Index()
         {
             UserInfo user = UserInfo;
-            ChageRole("21");
+          
             return View();
         }
 
         [HttpPost]
         public ActionResult Index(string username, string password)
         {
+            ChageRole("21");
             return View();
         }
 
@@ -79,7 +80,7 @@ namespace Szcg.Web.Controllers
                     userInfo._ModelPowers = strModelPowers.Substring(0, strModelPowers.Length - 1).Trim();
                     userInfo.ModelPowers = strModelPowers.Substring(0, strModelPowers.Length - 1).Trim();
                 }
-        
+
                 string userdata = JsonConvert.SerializeObject(userInfo);
 
                 FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, this.UserInfo._username, DateTime.Now, DateTime.Now.AddHours(2), false, userdata);

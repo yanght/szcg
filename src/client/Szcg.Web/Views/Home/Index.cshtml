@@ -25,6 +25,7 @@
         @Html.TextBox("userName", "zjw")
         @Html.Password("passWord", "123")
         <input type="submit" value="submit" id="btn" />
+        <input type="button" value="changeRole" id="changeRole" />
     }
 </div>
 
@@ -33,11 +34,41 @@
     @Html.TextArea("text", new { id = "result", style = "width:100%;height:200px" })
 
 </div>
+
+<div id="divTpl">
+    <script id="tpl" type="text/template">
+        <ul>
+            {{each list as it,index}}
+            <li>${it.name} (index: ${index|numberPlus})</li>
+            {{/each}}
+
+            {{each blah as it}}
+            <li>
+                num: ${it.num} <br />
+                {{if it.num==3}}
+                {{each it.inner as it2}}
+                ${it2.time} <br />
+                {{/each}}
+                {{/if}}
+            </li>
+            {{/each}}
+        </ul>
+        {{helper numberPlus}}
+
+            function(number) {
+                return  parseInt(number) + 1;
+            }
+
+        {{/helper}}
+    </script>
+</div>
 @section scripts{
+
     <script>
         $(function () {
-            $('#form1').submit(function () {
 
+            $('#form1').submit(function () {
+        
                 $.ajax({
                     url: this.action,
                     type: this.method,
@@ -53,7 +84,53 @@
                 return false;
             });
 
+            $("#changeRole").click(function () {
+                $.ajax({
+                    url: "/home/index",
+                    type: "post",
+                    success: function (result) {
+                        $('#result').html(result);
+                    },
+                    error: function (result) {
+                        alert(result);
+                    }
+                });
+            })
+
         })
 
+        juicer.set({
+            'tag::operationOpen': '{{',
+            'tag::operationClose': '}}',
+        });
+
+        var data = {
+            list: [
+                { name: ' guokai', show: true },
+                { name: ' benben', show: false },
+                { name: ' dierbaby', show: true }
+            ],
+            blah: [
+                { num: 1 },
+                { num: 2 },
+                {
+                    num: 3, inner: [
+                       { 'time': '15:00' },
+                       { 'time': '16:00' },
+                       { 'time': '17:00' },
+                       { 'time': '18:00' }
+                    ]
+                },
+                { num: 4 }
+            ]
+        };
+
+
+
+        var tpl = document.getElementById('tpl').innerHTML;
+        var html = juicer(tpl, data);
+        $("#divTpl").html(html);
+
     </script>
+
 }

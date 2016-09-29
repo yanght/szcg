@@ -48,6 +48,8 @@
     <Compile Include="EnumModel\EnumProject.cs" />
     <Compile Include="EnumModel\EnumSystem.cs" />
     <Compile Include="FlowNodePower.cs" />
+    <Compile Include="GroupUser.cs" />
+    <Compile Include="Message.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="ProjectCheckMessage.cs" />
     <Compile Include="ProjectTrace.cs" />

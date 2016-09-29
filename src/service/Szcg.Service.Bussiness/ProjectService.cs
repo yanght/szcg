@@ -48,6 +48,61 @@ namespace Szcg.Service.Bussiness
         }
 
         /// <summary>
+        /// 获取自办件案卷列表
+        /// </summary>
+        /// <param name="projectInfo">查询条件</param>
+        /// <param name="pageInfo">分页信息</param>
+        /// <param name="departCode">职能部门编码</param>
+        /// <param name="startTime">开始时间</param>
+        /// <param name="endTime">结束时间</param>
+        /// <returns></returns>
+        public List<Project> GetZbjProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string departCode, string startTime, string endTime)
+        {
+            List<Model.Project> list = new List<Project>();
+
+            DataSet ds = bacgBL.business.Project.GetYJProjectList(projectInfo, startTime, endTime, departCode, pageInfo, out strErr);
+
+            if (!string.IsNullOrEmpty(strErr))
+            {
+                LoggerManager.Instance.logger.Error("获取自办件案件列表异常：" + strErr);
+            }
+
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                list = ConvertDtHelper<Project>.GetModelList(ds.Tables[0]);
+            }
+
+            return list;
+        }
+
+        /// <summary>
+        /// 获取存档案卷列表
+        /// </summary>
+        /// <param name="projectInfo">查询条件</param>
+        /// <param name="pageInfo">分页信息</param>
+        /// <param name="startTime">开始时间</param>
+        /// <param name="endTime">结束时间</param>
+        /// <returns></returns>
+        public List<Project> GetCDProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string startTime, string endTime)
+        {
+            List<Model.Project> list = new List<Project>();
+
+            DataSet ds = bacgBL.business.Project.GetCDProjList(projectInfo, startTime, endTime, pageInfo, out strErr);
+
+            if (!string.IsNullOrEmpty(strErr))
+            {
+                LoggerManager.Instance.logger.Error("获取存档案件列表异常：" + strErr);
+            }
+
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                list = ConvertDtHelper<Project>.GetModelList(ds.Tables[0]);
+            }
+
+            return list;
+        }
+
+        /// <summary>
         /// 获取案件信息
         /// </summary>
         /// <param name="projcode">案卷编号</param>
@@ -232,14 +287,6 @@ namespace Szcg.Service.Bussiness
             }
             return false;
         }
-
-        /// <summary>
-        /// 获取案卷流程
-        /// </summary>
-        /// <param name="projcode">案卷编号</param>
-        /// <param name="year">案卷年份</param>
-        /// <param name="isend">是否已结案</param>
-        /// <returns></returns>
 
         #region 案卷批转
 
@@ -965,7 +1012,7 @@ namespace Szcg.Service.Bussiness
 
         #endregion
 
-        #region  [ 区域相关 ] 
+        #region  [ 区域相关 ]
 
         /// <summary>
         /// 获取区域列表
@@ -1472,28 +1519,28 @@ namespace Szcg.Service.Bussiness
             }
             else
             {
-                bl.UpateSmallPart(int.Parse(smallclass.Id),  smallclass.SmallCallCode, smallclass.Name,0, 0, smallclass.Dutyunit, string.Empty,0,0,0,
-                   smallclass.T1Name, smallclass.T1Time,smallclass.T1Time_2, smallclass.T1Time_3, smallclass.T1Time_4,
-                   smallclass.T2Name, smallclass.T2Time,smallclass.T2Time_2, smallclass.T2Time_3, smallclass.T2Time_4,
-                   smallclass.T3Name, smallclass.T3Time,smallclass.T3Time_2, smallclass.T3Time_3, smallclass.T3Time_4,
-                   smallclass.T4Name, smallclass.T4Time,smallclass.T4Time_2, smallclass.T4Time_3, smallclass.T4Time_4,
-                   smallclass.T5Name, smallclass.T5Time,smallclass.T5Time_2, smallclass.T5Time_3, smallclass.T5Time_4,
-                   smallclass.T6Name, smallclass.T6Time,smallclass.T6Time_2, smallclass.T6Time_3, smallclass.T6Time_4,
-                   smallclass.T7Name, smallclass.T7Time,smallclass.T7Time_2, smallclass.T7Time_3, smallclass.T7Time_4,
-                   smallclass.T8Name, smallclass.T8Time,smallclass.T8Time_2, smallclass.T8Time_3, smallclass.T8Time_4,
-                   smallclass.T9Name, smallclass.T9Time,smallclass.T9Time_2, smallclass.T9Time_3, smallclass.T9Time_4,
-                   smallclass.T10Name, smallclass.T10Time,smallclass.T10Time_2, smallclass.T10Time_3, smallclass.T10Time_4,
-                   smallclass.T1Type, smallclass.T1Type_2,smallclass.T1Type_3, smallclass.T1Type_4,
-                   smallclass.T2Type, smallclass.T2Type_2,smallclass.T2Type_3, smallclass.T2Type_4,
-                   smallclass.T3Type, smallclass.T3Type_2,smallclass.T3Type_3, smallclass.T3Type_4,
-                   smallclass.T4Type, smallclass.T4Type_2,smallclass.T4Type_3, smallclass.T4Type_4,
-                   smallclass.T5Type, smallclass.T5Type_2,smallclass.T5Type_3, smallclass.T5Type_4,
-                   smallclass.T6Type, smallclass.T6Type_2,smallclass.T6Type_3, smallclass.T6Type_4,
-                   smallclass.T7Type, smallclass.T7Type_2,smallclass.T7Type_3, smallclass.T7Type_4,
-                   smallclass.T8Type, smallclass.T8Type_2,smallclass.T8Type_3, smallclass.T8Type_4,
-                   smallclass.T9Type, smallclass.T9Type_2,smallclass.T9Type_3, smallclass.T9Type_4,
-                   smallclass.T10Type, smallclass.T10Type_2,smallclass.T10Type_3, smallclass.T10Type_4, ref strErr);            
-                   
+                bl.UpateSmallPart(int.Parse(smallclass.Id), smallclass.SmallCallCode, smallclass.Name, 0, 0, smallclass.Dutyunit, string.Empty, 0, 0, 0,
+                   smallclass.T1Name, smallclass.T1Time, smallclass.T1Time_2, smallclass.T1Time_3, smallclass.T1Time_4,
+                   smallclass.T2Name, smallclass.T2Time, smallclass.T2Time_2, smallclass.T2Time_3, smallclass.T2Time_4,
+                   smallclass.T3Name, smallclass.T3Time, smallclass.T3Time_2, smallclass.T3Time_3, smallclass.T3Time_4,
+                   smallclass.T4Name, smallclass.T4Time, smallclass.T4Time_2, smallclass.T4Time_3, smallclass.T4Time_4,
+                   smallclass.T5Name, smallclass.T5Time, smallclass.T5Time_2, smallclass.T5Time_3, smallclass.T5Time_4,
+                   smallclass.T6Name, smallclass.T6Time, smallclass.T6Time_2, smallclass.T6Time_3, smallclass.T6Time_4,
+                   smallclass.T7Name, smallclass.T7Time, smallclass.T7Time_2, smallclass.T7Time_3, smallclass.T7Time_4,
+                   smallclass.T8Name, smallclass.T8Time, smallclass.T8Time_2, smallclass.T8Time_3, smallclass.T8Time_4,
+                   smallclass.T9Name, smallclass.T9Time, smallclass.T9Time_2, smallclass.T9Time_3, smallclass.T9Time_4,
+                   smallclass.T10Name, smallclass.T10Time, smallclass.T10Time_2, smallclass.T10Time_3, smallclass.T10Time_4,
+                   smallclass.T1Type, smallclass.T1Type_2, smallclass.T1Type_3, smallclass.T1Type_4,
+                   smallclass.T2Type, smallclass.T2Type_2, smallclass.T2Type_3, smallclass.T2Type_4,
+                   smallclass.T3Type, smallclass.T3Type_2, smallclass.T3Type_3, smallclass.T3Type_4,
+                   smallclass.T4Type, smallclass.T4Type_2, smallclass.T4Type_3, smallclass.T4Type_4,
+                   smallclass.T5Type, smallclass.T5Type_2, smallclass.T5Type_3, smallclass.T5Type_4,
+                   smallclass.T6Type, smallclass.T6Type_2, smallclass.T6Type_3, smallclass.T6Type_4,
+                   smallclass.T7Type, smallclass.T7Type_2, smallclass.T7Type_3, smallclass.T7Type_4,
+                   smallclass.T8Type, smallclass.T8Type_2, smallclass.T8Type_3, smallclass.T8Type_4,
+                   smallclass.T9Type, smallclass.T9Type_2, smallclass.T9Type_3, smallclass.T9Type_4,
+                   smallclass.T10Type, smallclass.T10Type_2, smallclass.T10Type_3, smallclass.T10Type_4, ref strErr);
+
             }
             if (strErr != "")
             {

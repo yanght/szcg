@@ -25,6 +25,27 @@ namespace Szcg.Service.IBussiness
         List<Project> GetDealProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string startTime, string endTime);
 
         /// <summary>
+        /// 获取自办件案卷列表
+        /// </summary>
+        /// <param name="projectInfo">查询条件</param>
+        /// <param name="pageInfo">分页信息</param>
+        /// <param name="departCode">职能部门编码</param>
+        /// <param name="startTime">开始时间</param>
+        /// <param name="endTime">结束时间</param>
+        /// <returns></returns>
+        List<Project> GetZbjProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string departCode, string startTime, string endTime);
+
+        /// <summary>
+        /// 获取存档案卷列表
+        /// </summary>
+        /// <param name="projectInfo">查询条件</param>
+        /// <param name="pageInfo">分页信息</param>
+        /// <param name="startTime">开始时间</param>
+        /// <param name="endTime">结束时间</param>
+        /// <returns></returns>
+        List<Project> GetCDProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string startTime, string endTime);
+
+        /// <summary>
         /// 获取案件信息
         /// </summary>
         /// <param name="projcode">案卷编号</param>
