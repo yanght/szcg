@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Appraise.cs" />
+    <Compile Include="Archive.cs" />
     <Compile Include="Area.cs" />
     <Compile Include="Collecter.cs" />
     <Compile Include="Depart.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="RequestModel\DutyAppraiseRequestArgs.cs" />
     <Compile Include="RequestModel\EveParAppraiseRequestArgs.cs" />
     <Compile Include="RequestModel\ProjectApprovedArgs.cs" />
+    <Compile Include="RequestModel\ProjectQueryArgs.cs" />
     <Compile Include="RequestModel\QueryArgs.cs" />
     <Compile Include="ResponseModel\PageReturnValue.cs" />
     <Compile Include="ResponseModel\ReturnValue.cs" />

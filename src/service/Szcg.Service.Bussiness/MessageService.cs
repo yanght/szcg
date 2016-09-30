@@ -139,5 +139,122 @@ namespace Szcg.Service.Bussiness
             return list;
         }
 
+        /// <summary>
+        /// 获取站内其他消息详细
+        /// </summary>
+        /// <param name="messageId">消息Id</param>
+        /// <returns></returns>
+        public Message GetOtherMessageInfo(string messageId)
+        {
+            DataSet ds = bacgBL.business.MyMessage.GetOtherMsgInfo(messageId, ref strErr);
+            if (strErr != "")
+            {
+                LoggerManager.Instance.logger.ErrorFormat("获取站内其他消息详情异常 消息Id:{0} ,错误信息：{1}", messageId, strErr);
+            }
+            if (ds != null && ds.Tables[0].Rows.Count > 0)
+            {
+                return ConvertDtHelper<Message>.GetModel(ds.Tables[0]);
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// 获取其他消息列表
+        /// </summary>
+        /// <param name="userCode">当前用户编码</param>
+        /// <param name="areaCode">区域编码</param>
+        /// <param name="userName">发件人姓名</param>
+        /// <param name="collName">监督员姓名</param>
+        /// <param name="beginTime">发件时间开始</param>
+        /// <param name="endTime"><发件时间结束/param>
+        /// <param name="pageInfo">分页信息</param>
+        /// <returns></returns>
+        public List<Message> GetOtherMessageList(string userCode, string areaCode, string userName, string collName, string beginTime, string endTime, PageInfo pageInfo)
+        {
+            List<Message> list = new List<Message>();
+
+            int pageCount = 0;
+
+            int rowCount = 0;
+
+            DataSet ds = bacgBL.business.MyMessage.GetOtherMsgList(userCode, areaCode, int.Parse(pageInfo.CurrentPage),
+                                                    int.Parse(pageInfo.PageSize), userName, collName, beginTime, endTime, "asc", "to_user", ref rowCount, ref pageCount, ref strErr);
+            pageInfo.PageCount = pageCount.ToString();
+
+            pageInfo.RowCount = rowCount.ToString();
+
+            if (ds != null && ds.Tables[0].Rows.Count > 0)
+            {
+                list = ConvertDtHelper<Message>.GetModelList(ds.Tables[0]);
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 获取智能报警消息
+        /// </summary>
+        /// <param name="areaCode">区域编码</param>
+        /// <param name="userCode">当前用户编码</param>
+        /// <param name="userName">用户姓名</param>
+        /// <param name="collName">监督员姓名</param>
+        /// <param name="beginTime">消息时间开始</param>
+        /// <param name="endTime">消息时间结束</param>
+        /// <param name="pageInfo">分页信息</param>
+        /// <returns></returns>
+        public List<Message> GetHelpMessageList(string userCode, string areaCode, string userName, string collName, string beginTime, string endTime, PageInfo pageInfo)
+        {
+            List<Message> list = new List<Message>();
+
+            int pageCount = 0;
+
+            int rowCount = 0;
+
+            DataSet ds = bacgBL.business.MyMessage.GetHelpMsgList(areaCode, int.Parse(pageInfo.CurrentPage), int.Parse(pageInfo.PageSize), userCode, collName, beginTime, endTime, "asc", "id",
+                                                                      ref rowCount, ref pageCount, ref strErr);
+            pageInfo.PageCount = pageCount.ToString();
+
+            pageInfo.RowCount = rowCount.ToString();
+
+            if (ds != null && ds.Tables[0].Rows.Count > 0)
+            {
+                list = ConvertDtHelper<Message>.GetModelList(ds.Tables[0]);
+            }
+
+            return list;
+        }
+
+        /// <summary>
+        /// 设置业务消息已读
+        /// </summary>
+        /// <param name="messageId"></param>
+        /// <returns></returns>
+        public bool SetMessageIsRead(string messageId)
+        {
+            int index = bacgBL.business.MyMessage.SetIsRead(messageId, ref strErr);
+
+            if (!string.IsNullOrEmpty(strErr))
+            {
+                LoggerManager.Instance.logger.ErrorFormat("设置消息已读错误 错误信息:{0}", strErr);
+                return false;
+            }
+            return index > 0;
+        }
+
+        /// <summary>
+        /// 设置PDA消息已读
+        /// </summary>
+        /// <param name="messageId"></param>
+        /// <returns></returns>
+        public bool SetPDAMessageIsRead(string messageId)
+        {
+            int index = bacgBL.business.MyMessage.SetPDAIsRead(messageId, ref strErr);
+
+            if (!string.IsNullOrEmpty(strErr))
+            {
+                LoggerManager.Instance.logger.ErrorFormat("设置PDA消息已读错误 错误信息:{0}", strErr);
+                return false;
+            }
+            return index > 0;
+        }
     }
 }

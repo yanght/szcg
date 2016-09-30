@@ -27,8 +27,11 @@ namespace Szcg.Service.Bussiness
         /// <param name="startTime">开始时间</param>
         /// <param name="endTime">结束时间</param>
         /// <returns></returns>
-        public List<Project> GetDealProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string startTime, string endTime)
+        public ReturnValue GetDealProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string startTime, string endTime)
         {
+
+            ReturnValue rtn = new ReturnValue() { ReturnState = true };
+
             List<Model.Project> list = new List<Project>();
 
             string Error = string.Empty;
@@ -37,14 +40,18 @@ namespace Szcg.Service.Bussiness
             if (!string.IsNullOrEmpty(strErr))
             {
                 LoggerManager.Instance.logger.Error("获取待办案件列表异常：" + strErr);
+                rtn.ErrorMsg = strErr;
+                rtn.ReturnState = false;
+                return rtn;
             }
 
             if (ds != null && ds.Tables.Count > 0)
             {
                 list = ConvertDtHelper<Project>.GetModelList(ds.Tables[0]);
+                rtn.ReturnObj = list;
             }
 
-            return list;
+            return rtn;
         }
 
         /// <summary>
@@ -56,8 +63,10 @@ namespace Szcg.Service.Bussiness
         /// <param name="startTime">开始时间</param>
         /// <param name="endTime">结束时间</param>
         /// <returns></returns>
-        public List<Project> GetZbjProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string departCode, string startTime, string endTime)
+        public ReturnValue GetZbjProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string departCode, string startTime, string endTime)
         {
+            ReturnValue rtn = new ReturnValue() { ReturnState = true };
+
             List<Model.Project> list = new List<Project>();
 
             DataSet ds = bacgBL.business.Project.GetYJProjectList(projectInfo, startTime, endTime, departCode, pageInfo, out strErr);
@@ -65,14 +74,18 @@ namespace Szcg.Service.Bussiness
             if (!string.IsNullOrEmpty(strErr))
             {
                 LoggerManager.Instance.logger.Error("获取自办件案件列表异常：" + strErr);
+                rtn.ErrorMsg = strErr;
+                rtn.ReturnState = false;
+                return rtn;
             }
 
             if (ds != null && ds.Tables.Count > 0)
             {
                 list = ConvertDtHelper<Project>.GetModelList(ds.Tables[0]);
+                rtn.ReturnObj = list;
             }
 
-            return list;
+            return rtn;
         }
 
         /// <summary>
@@ -83,8 +96,10 @@ namespace Szcg.Service.Bussiness
         /// <param name="startTime">开始时间</param>
         /// <param name="endTime">结束时间</param>
         /// <returns></returns>
-        public List<Project> GetCDProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string startTime, string endTime)
+        public ReturnValue GetCDProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string startTime, string endTime)
         {
+            ReturnValue rtn = new ReturnValue() { ReturnState = true };
+
             List<Model.Project> list = new List<Project>();
 
             DataSet ds = bacgBL.business.Project.GetCDProjList(projectInfo, startTime, endTime, pageInfo, out strErr);
@@ -92,14 +107,207 @@ namespace Szcg.Service.Bussiness
             if (!string.IsNullOrEmpty(strErr))
             {
                 LoggerManager.Instance.logger.Error("获取存档案件列表异常：" + strErr);
+                rtn.ErrorMsg = strErr;
+                rtn.ReturnState = false;
+                return rtn;
             }
 
             if (ds != null && ds.Tables.Count > 0)
             {
                 list = ConvertDtHelper<Project>.GetModelList(ds.Tables[0]);
+                rtn.ReturnObj = list;
             }
 
-            return list;
+            return rtn;
+        }
+
+        /// <summary>
+        /// 获取待反馈案卷列表
+        /// </summary>
+        /// <param name="projectInfo">查询条件</param>
+        /// <param name="pageInfo">分页信息</param>
+        /// <param name="startTime">开始时间</param>
+        /// <param name="endTime">结束时间</param>
+        /// <returns></returns>
+        public ReturnValue GetWaitFeedBackProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string startTime, string endTime)
+        {
+            ReturnValue rtn = new ReturnValue() { ReturnState = true };
+
+            List<Model.Project> list = new List<Project>();
+
+            DataSet ds = bacgBL.business.Project.WaitFeedBackList(projectInfo, startTime, endTime, pageInfo, out strErr);
+
+            if (!string.IsNullOrEmpty(strErr))
+            {
+                LoggerManager.Instance.logger.Error("获取待反馈案件列表异常：" + strErr);
+                rtn.ErrorMsg = strErr;
+                rtn.ReturnState = false;
+                return rtn;
+            }
+
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                list = ConvertDtHelper<Project>.GetModelList(ds.Tables[0]);
+                rtn.ReturnObj = list;
+            }
+
+            return rtn;
+        }
+
+        /// <summary>
+        /// 获取督办案卷列表
+        /// </summary>
+        /// <param name="leader">督办人姓名</param>
+        /// <param name="projcode">案卷编号</param>
+        /// <param name="startTime">开始时间</param>
+        /// <param name="endTime">结束时间</param>
+        /// <param name="areacode">区域编码</param>
+        /// <param name="pageInfo">分页信息</param>
+        /// <returns></returns>
+        public ReturnValue GetDBProjectList(string leader, string projcode, string startTime, string endTime, string areacode, PageInfo pageInfo)
+        {
+            ReturnValue rtn = new ReturnValue() { ReturnState = true };
+
+            List<Model.Project> list = new List<Project>();
+
+            DataSet ds = bacgBL.business.Project.GetDBProjectList(leader, projcode, startTime, endTime, areacode, pageInfo, out strErr);
+
+            if (!string.IsNullOrEmpty(strErr))
+            {
+                LoggerManager.Instance.logger.Error("获取督办案卷列表异常：" + strErr);
+                rtn.ErrorMsg = strErr;
+                rtn.ReturnState = false;
+                return rtn;
+            }
+
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                list = ConvertDtHelper<Project>.GetModelList(ds.Tables[0]);
+                rtn.ReturnObj = list;
+            }
+
+            return rtn;
+        }
+
+        /// <summary>
+        /// 查询箱查询案卷列表
+        /// </summary>
+        /// <param name="args">查询参数</param>
+        /// <param name="pageInfo">分页信息</param>
+        /// <returns></returns>
+        public ReturnValue QueryProjectList(ProjectQueryArgs args, PageInfo pageInfo)
+        {
+            ReturnValue rtn = new ReturnValue() { ReturnState = true };
+
+            List<Model.Project> list = new List<Project>();
+
+            DataTable dt = bacgBL.business.Project.GetQueryProListerqi(args.ProbSource
+                , args.ProjectState
+                , args.ProbClass
+                , args.BigClass
+                , args.SmallClass
+                , args.Street
+                , args.Square
+                , args.StartTime
+                , args.EndTime
+                , args.Projcode
+                , args.Address
+                , args.AreaCode
+                , args.CollCode
+                , args.Telephonist
+                , args.TargetDepartCode
+                , args.ProjectKind
+                , pageInfo
+                , args.DoStartTime
+                , args.DoEndTime
+                , args.DeleteState
+                , args.ProjectImport
+                , out strErr);
+
+            if (!string.IsNullOrEmpty(strErr))
+            {
+                LoggerManager.Instance.logger.Error("查询箱查询案卷列表异常：" + strErr);
+                rtn.ErrorMsg = strErr;
+                rtn.ReturnState = false;
+                return rtn;
+            }
+
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                list = ConvertDtHelper<Project>.GetModelList(dt);
+                rtn.ReturnObj = list;
+            }
+
+            return rtn;
+
+        }
+
+        /// <summary>
+        /// 查询归档案卷列表
+        /// </summary>
+        /// <param name="projectInfo">查询条件</param>
+        /// <param name="pageInfo">分页信息</param>
+        /// <param name="startTime">开始时间</param>
+        /// <param name="endTime">结束时间</param>
+        /// <returns></returns>
+        public ReturnValue GetGDProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string startTime, string endTime)
+        {
+            ReturnValue rtn = new ReturnValue() { ReturnState = true };
+
+            List<Model.Project> list = new List<Project>();
+
+            DataSet ds = bacgBL.business.Project.GetGDProjectList(projectInfo, startTime, endTime, pageInfo, out strErr);
+
+            if (!string.IsNullOrEmpty(strErr))
+            {
+                LoggerManager.Instance.logger.Error("查询归档案卷列表异常：" + strErr);
+                rtn.ErrorMsg = strErr;
+                rtn.ReturnState = false;
+                return rtn;
+            }
+
+            if (ds != null && ds.Tables[0].Rows.Count > 0)
+            {
+                list = ConvertDtHelper<Project>.GetModelList(ds.Tables[0]);
+                rtn.ReturnObj = list;
+            }
+
+            return rtn;
+        }
+
+        /// <summary>
+        /// 查询已删除案卷列表
+        /// </summary>
+        /// <param name="projectInfo">查询条件</param>
+        /// <param name="pageInfo">分页信息</param>
+        /// <param name="startTime">开始时间</param>
+        /// <param name="endTime">结束时间</param>
+        /// <param name="userName">删除人姓名</param>
+        /// <param name="type">删除时间（0：按删除 1：按上报）</param>
+        /// <returns></returns>
+        public ReturnValue GetDeleteProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string startTime, string endTime, string userName, int deleteTimeType)
+        {
+            ReturnValue rtn = new ReturnValue() { ReturnState = true };
+
+            List<Model.Project> list = new List<Project>();
+
+            DataSet ds = bacgBL.business.Project.GetDeleteProjectList(projectInfo.street, projectInfo, userName, startTime, endTime, pageInfo, "0", out strErr, deleteTimeType);
+
+            if (!string.IsNullOrEmpty(strErr))
+            {
+                LoggerManager.Instance.logger.Error("查询已删除案卷列表异常：" + strErr);
+                rtn.ErrorMsg = strErr;
+                rtn.ReturnState = false;
+                return rtn;
+            }
+
+            if (ds != null && ds.Tables[0].Rows.Count > 0)
+            {
+                list = ConvertDtHelper<Project>.GetModelList(ds.Tables[0]);
+                rtn.ReturnObj = list;
+            }
+
+            return rtn;
         }
 
         /// <summary>
@@ -945,6 +1153,68 @@ namespace Szcg.Service.Bussiness
             if (strErr != "")
             {
                 LoggerManager.Instance.logger.ErrorFormat("案卷结案回退异常:" + strErr);
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// 还原案卷
+        /// </summary>
+        /// <param name="projcode">案卷编号</param>
+        /// <param name="userCode">操作人</param>
+        /// <param name="departCode">操作人所属部门</param>
+        /// <param name="deleteSign">删除标志（0：删除案卷 1：归档案卷）</param>
+        /// <returns></returns>
+        public bool ProjectRollBack(string projcode, string userCode, string departCode, string deleteSign = "0")
+        {
+            if (deleteSign == "0")
+            {
+                bacgDL.business.ProjectTraceInfo pt = new bacgDL.business.ProjectTraceInfo();
+                pt.projcode = projcode;
+                pt.actionname = "回收站还原案件";
+                pt.PreNodeId = "";
+                pt.CurrentNodeId = "";
+                pt.CurrentBusiStatus = "";
+                pt.usercode = userCode;
+                pt.DepartCode = departCode;
+                pt._opinion = "还原案件";
+                pt.returntracetag = "0";
+
+                string strErr = "";
+                bacgBL.business.Project.RollBackProject(pt, out strErr);
+                if (strErr != "")
+                {
+                    LoggerManager.Instance.logger.ErrorFormat("还原案卷异常 案卷编号:{0} 错误信息:{1}", projcode, strErr);
+                    return false;
+                }
+            }
+            else if (deleteSign == "1")
+            {
+                string strErr = "";
+                bacgBL.business.Project.ReturnProject(projcode, out strErr);
+                if (strErr != "")
+                {
+                    LoggerManager.Instance.logger.ErrorFormat("还原案卷异常 案卷编号:{0} 错误信息:{1}", projcode, strErr);
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// 物理删除案卷信息
+        /// </summary>
+        /// <param name="projcode">案卷编号</param>
+        /// <param name="deleteSign">删除标志（0：删除案卷 1：归档案卷）</param>
+        /// <returns></returns>
+        public bool ProjectDelete(string projcode, string deleteSign = "0")
+        {
+            bacgBL.business.Project.DeleteProject(projcode, deleteSign, out strErr);
+
+            if (strErr != "")
+            {
+                LoggerManager.Instance.logger.ErrorFormat("物理删除案卷异常 案卷编号:{0} 错误信息:{1}", projcode, strErr);
                 return false;
             }
             return true;

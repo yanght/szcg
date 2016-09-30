@@ -63,6 +63,36 @@ namespace Szcg.Service.Model
         /// </summary>
         public string DepartName { get; set; }
 
+        /// <summary>
+        /// 消息状态（0:消息未阅读 1：消息已阅读）
+        /// </summary>
+        public string State { get; set; }
+        /// <summary>
+        /// 监督员编码
+        /// </summary>
+        public string CollCode { get; set; }
+        /// <summary>
+        /// 监督员姓名
+        /// </summary>
+        public string CollName { get; set; }
+
+        /// <summary>
+        /// 街道名称
+        /// </summary>
+        public string StreetName { get; set; }
+        /// <summary>
+        /// 用户编码
+        /// </summary>
+        public string UserCode { get; set; }
+        /// <summary>
+        /// 发送类型
+        /// </summary>
+        public string SendType { get; set; }
+        /// <summary>
+        /// 内容
+        /// </summary>
+        public string Content { get; set; }
+
     }
 }
 

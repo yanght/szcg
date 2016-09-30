@@ -38,6 +38,13 @@ namespace Szcg.Service.IBussiness
         List<GroupUser> GetGroupUsers(int groupId);
 
         /// <summary>
+        /// 获取站内消息详细
+        /// </summary>
+        /// <param name="messageId">消息Id</param>
+        /// <returns></returns>
+        Szcg.Service.Model.Message GetMessageInfo(string messageId);
+
+        /// <summary>
         /// 获取消息列表
         /// </summary>
         /// <param name="userCode">当前用户编码</param>
@@ -47,6 +54,53 @@ namespace Szcg.Service.IBussiness
         /// <param name="pageInfo">分页信息</param>
         /// <returns></returns>
         List<Szcg.Service.Model.Message> GetMessageList(int userCode, string userName, string beginTime, string endTime, PageInfo pageInfo);
+
+        /// <summary>
+        /// 获取站内其他消息详细
+        /// </summary>
+        /// <param name="messageId">消息Id</param>
+        /// <returns></returns>
+        Szcg.Service.Model.Message GetOtherMessageInfo(string messageId);
+
+        /// <summary>
+        /// 获取其他消息列表
+        /// </summary>
+        /// <param name="userCode">当前用户编码</param>
+        /// <param name="areaCode">区域编码</param>
+        /// <param name="userName">发件人姓名</param>
+        /// <param name="collName">监督员姓名</param>
+        /// <param name="beginTime">发件时间开始</param>
+        /// <param name="endTime">发件时间结束</param>
+        /// <param name="pageInfo">分页信息</param>
+        /// <returns></returns>
+        List<Szcg.Service.Model.Message> GetOtherMessageList(string userCode, string areaCode, string userName, string collName, string beginTime, string endTime, PageInfo pageInfo);
+
+        /// <summary>
+        /// 获取智能报警消息
+        /// </summary>
+        /// <param name="areaCode">区域编码</param>
+        /// <param name="userCode">当前用户编码</param>
+        /// <param name="userName">用户姓名</param>
+        /// <param name="collName">监督员姓名</param>
+        /// <param name="beginTime">消息时间开始</param>
+        /// <param name="endTime">消息时间结束</param>
+        /// <param name="pageInfo">分页信息</param>
+        /// <returns></returns>
+        List<Szcg.Service.Model.Message> GetHelpMessageList(string userCode, string areaCode, string userName, string collName, string beginTime, string endTime, PageInfo pageInfo);
+
+        /// <summary>
+        /// 设置业务消息已读
+        /// </summary>
+        /// <param name="messageId"></param>
+        /// <returns></returns>
+        bool SetMessageIsRead(string messageId);
+
+        /// <summary>
+        /// 设置PDA消息已读
+        /// </summary>
+        /// <param name="messageId"></param>
+        /// <returns></returns>
+        bool SetPDAMessageIsRead(string messageId);
 
     }
 }

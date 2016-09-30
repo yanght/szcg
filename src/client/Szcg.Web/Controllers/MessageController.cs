@@ -1,4 +1,6 @@
-﻿using System;
+﻿using bacgDL.business;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,7 +11,7 @@ using Szcg.Service.Model;
 
 namespace Szcg.Web.Controllers
 {
-    public class MessageController : Controller
+    public class MessageController : BaseController
     {
         IMessageService svc = new MessageService();
         //
@@ -85,7 +87,134 @@ namespace Szcg.Web.Controllers
 
         #endregion
 
-    
+        #region [ 获取消息详细 ]
+
+        /// <summary>
+        /// 获取消息详细
+        /// </summary>
+        /// <param name="messageId">消息Id</param>
+        /// <param name="type">消息类型（1：业务消息 2：其他信息）</param>
+        /// <returns></returns>
+        public AjaxFxRspJson GetMessageInfo(string messageId, string type)
+        {
+            Message message = new Message();
+
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            if (type == "1")
+            {
+                message = svc.GetMessageInfo(messageId);
+            }
+            if (type == "2")
+            {
+                message = svc.GetOtherMessageInfo(messageId);
+            }
+
+            ajax.RspData.Add("message", JToken.FromObject(message));
+
+            return ajax;
+        }
+
+        #endregion
+
+        #region [ 设置消息已读 ]
+
+        /// <summary>
+        /// 设置消息已读
+        /// </summary>
+        /// <param name="messageId">消息Id</param>
+        /// <param name="type">消息类型（1：业务消息  2：PDA消息）</param>
+        /// <returns></returns>
+        public AjaxFxRspJson SetMessageRead(string messageId, string type)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            if (string.IsNullOrEmpty(messageId))
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "请输入消息Id！";
+                return ajax;
+            }
+            if (string.IsNullOrEmpty(type))
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "请输入消息类型（1：业务消息  2：PDA消息）！";
+                return ajax;
+            }
+            if (type == "1")
+            {
+                if (!svc.SetMessageIsRead(messageId))
+                {
+                    ajax.RspCode = 0;
+                    ajax.RspMsg = "设置消息已读失败！";
+                    return ajax;
+                }
+            }
+            else if (type == "2")
+            {
+                if (!svc.SetPDAMessageIsRead(messageId))
+                {
+                    ajax.RspCode = 0;
+                    ajax.RspMsg = "设置消息已读失败！";
+                    return ajax;
+                }
+            }
+
+            return ajax;
+        }
+
+        #endregion
+
+        #region [ 获取站内信息列表 ]
+
+        public AjaxFxRspJson GetMessageList(string userName, string beginTime, string endTime, string currentPage)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            PageInfo pageinfo = new PageInfo() { CurrentPage = currentPage, PageSize = "10" };
+
+            List<Message> list = svc.GetMessageList(this.UserInfo.getUsercode(), userName, beginTime, endTime, pageinfo);
+
+            ajax.RspData.Add("list", JToken.FromObject(list));
+
+            return ajax;
+        }
+
+        #endregion
+
+        #region [ 获取其他消息列表 ]
+
+        public AjaxFxRspJson GetOtherMessageList(string userName, string collName, string beginTime, string endTime, string currentPage)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            PageInfo pageinfo = new PageInfo() { CurrentPage = currentPage, PageSize = "10" };
+
+            List<Message> list = svc.GetOtherMessageList(this.UserInfo.getUsercode().ToString(), this.UserInfo.getAreacode(), userName, collName, beginTime, endTime, pageinfo);
+
+            ajax.RspData.Add("list", JToken.FromObject(list));
+
+            return ajax;
+        }
+
+        #endregion
+
+        #region [ 获取智能报警消息列表 ]
+
+        public AjaxFxRspJson GetHelpMessageList(string userName, string collName, string beginTime, string endTime, string currentPage)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            PageInfo pageinfo = new PageInfo() { CurrentPage = currentPage, PageSize = "10" };
+
+            List<Message> list = svc.GetHelpMessageList(this.UserInfo.getUsercode().ToString(), this.UserInfo.getAreacode(), userName, collName, beginTime, endTime, pageinfo);
+
+            ajax.RspData.Add("list", JToken.FromObject(list));
+
+            return ajax;
+        }
+
+        #endregion
 
     }
 }

@@ -104,7 +104,13 @@ namespace Test
             pgInfo.Field = "projcode";
 
             IProjectService svc = new ProjectService();
-            return svc.GetDealProjectList(prj, pgInfo, "2016-1-1", "2016-12-30");
+            ReturnValue rtn = svc.GetDealProjectList(prj, pgInfo, "2016-1-1", "2016-12-30");
+            if (rtn.ReturnState)
+            {
+                return (List<Project>)rtn.ReturnObj;
+            }
+            return null;
+
         }
 
         public static List<ProjectBigClass> bigclassList(string type)

@@ -430,6 +430,46 @@ namespace Szcg.Web.Controllers
 
         #endregion
 
+        #region [ 回收站案卷还原 ]
+
+        public AjaxFxRspJson ProjectRollBack(string projcode, string userCode, string departCode)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            bool rtn = svc.ProjectRollBack(projcode, this.UserInfo.getUsercode().ToString(), this.UserInfo.getDepartcode().ToString());
+
+            if (!rtn)
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "案卷还原失败！";
+                return ajax;
+            }
+
+            return ajax;
+        }
+
+        #endregion
+
+        #region [ 案卷物理删除 ]
+
+        public AjaxFxRspJson ProjectDelete(string projcode)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            bool rtn = svc.ProjectDelete(projcode);
+
+            if (!rtn)
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "案卷删除失败！";
+                return ajax;
+            }
+
+            return ajax;
+        }
+
+        #endregion
+
         #endregion
 
         #region [ 获取案卷信息 ]
@@ -477,9 +517,19 @@ namespace Szcg.Web.Controllers
 
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
-            List<Szcg.Service.Model.Project> list = svc.GetDealProjectList(projInfo, pageInfo, startTime, endTime);
+            ReturnValue rtn = svc.GetDealProjectList(projInfo, pageInfo, startTime, endTime);
 
-            ajax.RspData.Add("projectList", JToken.FromObject(list));
+            if (rtn.ReturnState)
+            {
+                List<Szcg.Service.Model.Project> list = rtn.ReturnObj as List<Szcg.Service.Model.Project>;
+                ajax.RspData.Add("projectList", JToken.FromObject(list));
+            }
+            else
+            {
+                ajax.RspMsg = rtn.ErrorMsg;
+                ajax.RspCode = 0;
+                return ajax;
+            }
 
             return ajax;
         }
@@ -501,9 +551,19 @@ namespace Szcg.Web.Controllers
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
-            List<Szcg.Service.Model.Project> list = svc.GetZbjProjectList(projectInfo, pageInfo, departCode, startTime, endTime);
+            ReturnValue rtn = svc.GetZbjProjectList(projectInfo, pageInfo, departCode, startTime, endTime);
 
-            ajax.RspData.Add("projectList", JToken.FromObject(list));
+            if (rtn.ReturnState)
+            {
+                List<Szcg.Service.Model.Project> list = rtn.ReturnObj as List<Szcg.Service.Model.Project>;
+                ajax.RspData.Add("projectList", JToken.FromObject(list));
+            }
+            else
+            {
+                ajax.RspMsg = rtn.ErrorMsg;
+                ajax.RspCode = 0;
+                return ajax;
+            }
 
             return ajax;
         }
@@ -520,13 +580,148 @@ namespace Szcg.Web.Controllers
         /// <param name="startTime">开始时间</param>
         /// <param name="endTime">结束时间</param>
         /// <returns></returns>
-        public AjaxFxRspJson GetZbjProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string startTime, string endTime)
+        public AjaxFxRspJson GetCDProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string startTime, string endTime)
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
-            List<Szcg.Service.Model.Project> list = svc.GetCDProjectList(projectInfo, pageInfo, startTime, endTime);
+            ReturnValue rtn = svc.GetCDProjectList(projectInfo, pageInfo, startTime, endTime);
 
-            ajax.RspData.Add("projectList", JToken.FromObject(list));
+            if (rtn.ReturnState)
+            {
+                List<Szcg.Service.Model.Project> list = rtn.ReturnObj as List<Szcg.Service.Model.Project>;
+                ajax.RspData.Add("projectList", JToken.FromObject(list));
+            }
+            else
+            {
+                ajax.RspMsg = rtn.ErrorMsg;
+                ajax.RspCode = 0;
+                return ajax;
+            }
+
+            return ajax;
+        }
+
+        #endregion
+
+        #region [ 获取待反馈案卷列表 ]
+
+        public AjaxFxRspJson GetWaitFeedBackProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string startTime, string endTime)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            ReturnValue rtn = svc.GetWaitFeedBackProjectList(projectInfo, pageInfo, startTime, endTime);
+
+            if (rtn.ReturnState)
+            {
+                List<Szcg.Service.Model.Project> list = rtn.ReturnObj as List<Szcg.Service.Model.Project>;
+                ajax.RspData.Add("projectList", JToken.FromObject(list));
+            }
+            else
+            {
+                ajax.RspMsg = rtn.ErrorMsg;
+                ajax.RspCode = 0;
+                return ajax;
+            }
+
+            return ajax;
+        }
+
+        #endregion
+
+        #region [ 获取督办案卷列表 ]
+
+        public AjaxFxRspJson GetDBProjectList(string leader, string projcode, string startTime, string endTime, string areacode, PageInfo pageInfo)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            ReturnValue rtn = svc.GetDBProjectList(leader, projcode, startTime, endTime, areacode, pageInfo);
+
+            if (rtn.ReturnState)
+            {
+                List<Szcg.Service.Model.Project> list = rtn.ReturnObj as List<Szcg.Service.Model.Project>;
+                ajax.RspData.Add("projectList", JToken.FromObject(list));
+            }
+            else
+            {
+                ajax.RspMsg = rtn.ErrorMsg;
+                ajax.RspCode = 0;
+                return ajax;
+            }
+
+            return ajax;
+        }
+
+        #endregion
+
+        #region [ 获取查询箱案卷列表 ]
+
+        public AjaxFxRspJson QueryProjectList(ProjectQueryArgs args, PageInfo pageInfo)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            ReturnValue rtn = svc.QueryProjectList(args, pageInfo);
+
+            if (rtn.ReturnState)
+            {
+                List<Szcg.Service.Model.Project> list = rtn.ReturnObj as List<Szcg.Service.Model.Project>;
+                ajax.RspData.Add("projectList", JToken.FromObject(list));
+            }
+            else
+            {
+                ajax.RspMsg = rtn.ErrorMsg;
+                ajax.RspCode = 0;
+                return ajax;
+            }
+
+            return ajax;
+        }
+
+        #endregion
+
+        #region [ 获取归档案卷列表 ]
+
+        public AjaxFxRspJson GetGDProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string startTime, string endTime)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            ReturnValue rtn = svc.GetGDProjectList(projectInfo, pageInfo, startTime, endTime);
+
+            if (rtn.ReturnState)
+            {
+                List<Szcg.Service.Model.Project> list = rtn.ReturnObj as List<Szcg.Service.Model.Project>;
+                ajax.RspData.Add("projectList", JToken.FromObject(list));
+            }
+            else
+            {
+                ajax.RspMsg = rtn.ErrorMsg;
+                ajax.RspCode = 0;
+                return ajax;
+            }
+
+            return ajax;
+        }
+
+        #endregion
+
+        #region [ 获取回收站案卷列表 ]
+
+        public AjaxFxRspJson GetDeleteProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string startTime, string endTime, string userName, int deleteTimeType)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            ReturnValue rtn = svc.GetDeleteProjectList(projectInfo, pageInfo, startTime, endTime, userName, deleteTimeType);
+
+            if (rtn.ReturnState)
+            {
+                List<Szcg.Service.Model.Project> list = rtn.ReturnObj as List<Szcg.Service.Model.Project>;
+                ajax.RspData.Add("projectList", JToken.FromObject(list));
+            }
+            else
+            {
+                ajax.RspMsg = rtn.ErrorMsg;
+                ajax.RspCode = 0;
+                return ajax;
+            }
 
             return ajax;
         }

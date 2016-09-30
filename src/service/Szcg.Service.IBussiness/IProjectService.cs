@@ -22,7 +22,7 @@ namespace Szcg.Service.IBussiness
         /// <param name="startTime">开始时间</param>
         /// <param name="endTime">结束时间</param>
         /// <returns></returns>
-        List<Project> GetDealProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string startTime, string endTime);
+        ReturnValue GetDealProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string startTime, string endTime);
 
         /// <summary>
         /// 获取自办件案卷列表
@@ -33,7 +33,7 @@ namespace Szcg.Service.IBussiness
         /// <param name="startTime">开始时间</param>
         /// <param name="endTime">结束时间</param>
         /// <returns></returns>
-        List<Project> GetZbjProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string departCode, string startTime, string endTime);
+        ReturnValue GetZbjProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string departCode, string startTime, string endTime);
 
         /// <summary>
         /// 获取存档案卷列表
@@ -43,7 +43,59 @@ namespace Szcg.Service.IBussiness
         /// <param name="startTime">开始时间</param>
         /// <param name="endTime">结束时间</param>
         /// <returns></returns>
-        List<Project> GetCDProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string startTime, string endTime);
+        ReturnValue GetCDProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string startTime, string endTime);
+
+        /// <summary>
+        /// 获取待反馈案卷列表
+        /// </summary>
+        /// <param name="projectInfo">查询条件</param>
+        /// <param name="pageInfo">分页信息</param>
+        /// <param name="startTime">开始时间</param>
+        /// <param name="endTime">结束时间</param>
+        /// <returns></returns>
+        ReturnValue GetWaitFeedBackProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string startTime, string endTime);
+
+        /// <summary>
+        /// 获取督办案卷列表
+        /// </summary>
+        /// <param name="leader">督办人姓名</param>
+        /// <param name="projcode">案卷编号</param>
+        /// <param name="startTime">开始时间</param>
+        /// <param name="endTime">结束时间</param>
+        /// <param name="areacode">区域编码</param>
+        /// <param name="pageInfo">分页信息</param>
+        /// <returns></returns>
+        ReturnValue GetDBProjectList(string leader, string projcode, string startTime, string endTime, string areacode, PageInfo pageInfo);
+
+        /// <summary>
+        /// 查询箱查询案卷列表
+        /// </summary>
+        /// <param name="args">查询参数</param>
+        /// <param name="pageInfo">分页信息</param>
+        /// <returns></returns>
+        ReturnValue QueryProjectList(ProjectQueryArgs args, PageInfo pageInfo);
+
+        /// <summary>
+        /// 查询归档案卷列表
+        /// </summary>
+        /// <param name="projectInfo">查询条件</param>
+        /// <param name="pageInfo">分页信息</param>
+        /// <param name="startTime">开始时间</param>
+        /// <param name="endTime">结束时间</param>
+        /// <returns></returns>
+        ReturnValue GetGDProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string startTime, string endTime);
+
+        /// <summary>
+        /// 查询已删除案卷列表
+        /// </summary>
+        /// <param name="projectInfo">查询条件</param>
+        /// <param name="pageInfo">分页信息</param>
+        /// <param name="startTime">开始时间</param>
+        /// <param name="endTime">结束时间</param>
+        /// <param name="userName">删除人姓名</param>
+        /// <param name="type">删除时间（0：按删除 1：按上报）</param>
+        /// <returns></returns>
+        ReturnValue GetDeleteProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string startTime, string endTime, string userName, int deleteTimeType);
 
         /// <summary>
         /// 获取案件信息
@@ -212,6 +264,24 @@ namespace Szcg.Service.IBussiness
         /// <param name="args">批转参数</param>
         /// <returns></returns>
         bool ProjectClosedBack(ProjectClosedArgs args);
+
+        /// <summary>
+        /// 还原案卷
+        /// </summary>
+        /// <param name="projcode">案卷编号</param>
+        /// <param name="userCode">操作人</param>
+        /// <param name="departCode">操作人所属部门</param>
+        /// <param name="deleteSign">删除标志（0：删除案卷 1：归档案卷）</param>
+        /// <returns></returns>
+        bool ProjectRollBack(string projcode, string userCode, string departCode, string deleteSign = "1");
+
+        /// <summary>
+        /// 物理删除案卷信息
+        /// </summary>
+        /// <param name="projcode">案卷编号</param>
+        /// <param name="deleteSign">删除标志（0：删除案卷 1：归档案卷）</param>
+        /// <returns></returns>
+        bool ProjectDelete(string projcode, string deleteSign = "0");
 
         #endregion
 

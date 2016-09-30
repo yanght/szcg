@@ -39,10 +39,11 @@ namespace Szcg.Web.Controllers
 
                     string userdata = _ticket.UserData;
 
-                    if(!string.IsNullOrEmpty(userdata))
+                    if (!string.IsNullOrEmpty(userdata))
                     {
                         user = JsonConvert.DeserializeObject<UserInfo>(userdata);
-                    }                    
+                        Session["UserInfo"] = user;
+                    }
 
                     return user;
                 }
