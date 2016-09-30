@@ -17,9 +17,9 @@ namespace Szcg.Web.Filters
 
         public virtual void OnException(ExceptionContext filterContext)
         {
-            string message = string.Format("消息类型：{0}<br>消息内容：{1}<br>引发异常的方法：{2}<br>引发异常源：{3}"
-               , filterContext.Exception.GetType().Name
-               , filterContext.Exception.Message
+            string message = string.Format(" 消息类型：{0} \n 消息内容：{1}  \n 引发异常的方法：{2}  \n 引发异常源：{3}"
+                , filterContext.Exception.GetType().Name
+                , filterContext.Exception.Message
                 , filterContext.Exception.TargetSite
                 , filterContext.Exception.Source + filterContext.Exception.StackTrace
                 );

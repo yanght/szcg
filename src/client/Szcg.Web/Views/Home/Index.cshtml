@@ -38,28 +38,11 @@
 <div id="divTpl">
     <script id="tpl" type="text/template">
         <ul>
-            {{each list as it,index}}
-            <li>${it.name} (index: ${index|numberPlus})</li>
-            {{/each}}
-
-            {{each blah as it}}
-            <li>
-                num: ${it.num} <br />
-                {{if it.num==3}}
-                {{each it.inner as it2}}
-                ${it2.time} <br />
-                {{/each}}
-                {{/if}}
-            </li>
+            {{each list as value i}}
+            <li>索引 {{i + 1}} ：{{value}}</li>
             {{/each}}
         </ul>
-        {{helper numberPlus}}
 
-            function(number) {
-                return  parseInt(number) + 1;
-            }
-
-        {{/helper}}
     </script>
 </div>
 @section scripts{
@@ -99,37 +82,13 @@
 
         })
 
-        juicer.set({
-            'tag::operationOpen': '{{',
-            'tag::operationClose': '}}',
-        });
-
         var data = {
-            list: [
-                { name: ' guokai', show: true },
-                { name: ' benben', show: false },
-                { name: ' dierbaby', show: true }
-            ],
-            blah: [
-                { num: 1 },
-                { num: 2 },
-                {
-                    num: 3, inner: [
-                       { 'time': '15:00' },
-                       { 'time': '16:00' },
-                       { 'time': '17:00' },
-                       { 'time': '18:00' }
-                    ]
-                },
-                { num: 4 }
-            ]
+            title: '基本例子',
+            isAdmin: true,
+            list: ['文艺', '博客', '摄影', '电影', '民谣', '旅行', '吉他']
         };
-
-
-
-        var tpl = document.getElementById('tpl').innerHTML;
-        var html = juicer(tpl, data);
-        $("#divTpl").html(html);
+        var html = template('tpl', data);
+        document.getElementById('divTpl').innerHTML = html;
 
     </script>
 

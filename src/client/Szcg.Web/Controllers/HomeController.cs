@@ -17,6 +17,7 @@ namespace Szcg.Web.Controllers
 
         public ActionResult Index()
         {
+            //throw new Exception("testq111");
             UserInfo user = UserInfo;
           
             return View();

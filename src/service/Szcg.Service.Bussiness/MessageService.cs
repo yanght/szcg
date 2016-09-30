@@ -1,4 +1,5 @@
 ﻿using bacgBL.business.group;
+using bacgDL.business;
 using DBbase.business.group;
 using System;
 using System.Collections;
@@ -106,6 +107,36 @@ namespace Szcg.Service.Bussiness
                 return ConvertDtHelper<Message>.GetModel(ds.Tables[0]);
             }
             return null;
+        }
+
+        /// <summary>
+        /// 获取消息列表
+        /// </summary>
+        /// <param name="userCode">当前用户编码</param>
+        /// <param name="userName">发件人姓名</param>
+        /// <param name="beginTime">发送时间开始</param>
+        /// <param name="endTime">结束时间结束</param>
+        /// <param name="pageInfo">分页信息</param>
+        /// <returns></returns>
+        public List<Message> GetMessageList(int userCode, string userName, string beginTime, string endTime, PageInfo pageInfo)
+        {
+            List<Message> list = new List<Message>();
+
+            int pageCount = 0;
+
+            int rowCount = 0;
+
+            DataSet ds = bacgBL.business.MyMessage.GetMsgList(userCode, int.Parse(pageInfo.CurrentPage), int.Parse(pageInfo.PageSize), "asc", "to_user", userName, beginTime, endTime,
+                                                              ref rowCount, ref pageCount, ref strErr);
+            pageInfo.PageCount = pageCount.ToString();
+
+            pageInfo.RowCount = rowCount.ToString();
+
+            if (ds != null && ds.Tables[0].Rows.Count > 0)
+            {
+                list = ConvertDtHelper<Message>.GetModelList(ds.Tables[0]);
+            }
+            return list;
         }
 
     }
