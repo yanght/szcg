@@ -4,11 +4,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Szcg.Service.IBussiness;
 using Szcg.Service.Model;
 
 namespace Szcg.Service.Bussiness
 {
-    public class ArchiveService
+    public class ArchiveService : IArchiveService
     {
         BASE_archivesmanage arch = new BASE_archivesmanage();
 
@@ -16,7 +17,7 @@ namespace Szcg.Service.Bussiness
         /// 获取公文标题列表
         /// </summary>
         /// <returns></returns>
-        public List<DocumentTitle> getAllArchives()
+        public List<DocumentTitle> GetAllArchives()
         {
             List<DocumentTitle> list = new List<DocumentTitle>();
 
@@ -36,12 +37,53 @@ namespace Szcg.Service.Bussiness
             return list;
         }
 
-        public bool insertDocument()
+        /// <summary>
+        /// 根据Id获取公文
+        /// </summary>
+        /// <param name="id">公文Id</param>
+        /// <returns></returns>
+        public DocumentTitle GetDocumentById(int id)
         {
-            return false;
+            DocumentTitle doc = new DocumentTitle();
+            Hashtable table = (Hashtable)arch.getArchivesInfoByID(id);
+            if (table != null)
+            {
+                doc.Title = table["title"].ToString();
+                doc.Content = table["content"].ToString();
+                doc.Author = table["author"].ToString();
+            }
+            return doc;
         }
 
+        /// <summary>
+        /// 添加或修改公文
+        /// </summary>
+        /// <param name="doc">公文实体</param>
+        /// <returns></returns>
+        public bool InsertDocument(DocumentTitle doc)
+        {
+            bool rtn = false;
 
+            if (doc.Id != 0)
+            {
+                rtn = arch.updateIntoDocument(doc.Title, doc.Content, doc.Author, doc.Id);
+            }
+            else
+            {
+                rtn = arch.insertIntoDocument(doc.Title, doc.Content, doc.Author);
+            }
 
+            return rtn;
+        }
+
+        /// <summary>
+        /// 删除公文
+        /// </summary>
+        /// <param name="id">公文Id</param>
+        /// <returns></returns>
+        public bool DeleteDocument(int id)
+        {
+            return arch.deleteFromDocument(id);
+        }
     }
 }

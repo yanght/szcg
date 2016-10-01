@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Szcg.Service.Model
 {
-    public class DocumentTitle
+    public class DocumentTitle 
     {
         /// <summary>
         /// Id
