@@ -328,7 +328,6 @@ namespace Szcg.Service.IBussiness
         /// <returns></returns>
         List<ProjectSmallClass> GetSmallClassList(string classType, string bigclassCode);
 
-
         /// <summary>
         /// 添加或修改事件大类
         /// </summary>

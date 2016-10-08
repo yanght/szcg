@@ -935,7 +935,6 @@ namespace Szcg.Web.Controllers
 
         #endregion
 
-
         /// <summary>
         /// 验证案卷上报信息
         /// </summary>

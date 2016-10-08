@@ -14,6 +14,7 @@ namespace Szcg.Web.Controllers
     public class MessageController : BaseController
     {
         IMessageService svc = new MessageService();
+
         //
         // GET: /Message/
 
