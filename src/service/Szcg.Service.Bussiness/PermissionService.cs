@@ -23,7 +23,6 @@ namespace Szcg.Service.Bussiness
     {
         private string strErr = "";
 
-
         #region [ 权限 ]
 
         /// <summary>
@@ -103,8 +102,7 @@ namespace Szcg.Service.Bussiness
         }
 
         #endregion
-
-
+        
         #region [ 角色 ]
 
         /// <summary>
@@ -265,8 +263,7 @@ namespace Szcg.Service.Bussiness
         }
 
         #endregion
-
-
+        
         #region [ 授权 ]
 
         /// <summary>
@@ -287,7 +284,6 @@ namespace Szcg.Service.Bussiness
         }
 
         #endregion
-
         
         /// <summary>
         /// 用户登录
@@ -347,9 +343,6 @@ namespace Szcg.Service.Bussiness
                 return ConvertDtHelper<FlowNodePower>.GetModelList(ds.Tables[0].Rows);
             return null;
         }
-
-
-
 
     }
 }

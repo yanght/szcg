@@ -46,6 +46,7 @@
     <Compile Include="IOrganizeService.cs" />
     <Compile Include="IPermissionService.cs" />
     <Compile Include="IProjectService.cs" />
+    <Compile Include="ISystemService.cs" />
     <Compile Include="ITaskService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

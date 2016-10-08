@@ -188,6 +188,7 @@
     <Compile Include="Controllers\AppraiseController.cs" />
     <Compile Include="Controllers\DocumentController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\SystemController.cs" />
     <Compile Include="Filters\ExceptionAttribute.cs" />
     <Compile Include="Models\AjaxFxRspJson.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
