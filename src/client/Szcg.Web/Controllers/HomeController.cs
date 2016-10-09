@@ -23,6 +23,11 @@ namespace Szcg.Web.Controllers
             return View();
         }
 
+        public ActionResult Main()
+        {
+            return View();
+        }
+      
         [HttpPost]
         public ActionResult Index(string username, string password)
         {

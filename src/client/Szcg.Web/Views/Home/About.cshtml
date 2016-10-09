@@ -1,34 +1,96 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                To learn more about ASP.NET MVC visit
+                <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
+                The page features <mark>videos, tutorials, and samples</mark> to help you get the most from ASP.NET MVC.
+                If you have any questions about ASP.NET MVC visit
+                <a href="http://forums.asp.net/1146.aspx/1?MVC" title="ASP.NET MVC Forum">our forums</a>.
+            </p>
+        </div>
+    </section>
 }
 
-<hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
-    <h2>@ViewBag.Message</h2>
-</hgroup>
+<div>
+    @using (Html.BeginForm("login", "login", FormMethod.Post, new { id = "form1" }))
+    {
+        @Html.TextBox("userName", "zjw")
+        @Html.Password("passWord", "123")
+        <input type="submit" value="submit" id="btn" />
+        <input type="button" value="changeRole" id="changeRole" />
+    }
+</div>
 
-<article>
-    <p>
-        Use this area to provide additional information.
-    </p>
+<div>
 
-    <p>
-        Use this area to provide additional information.
-    </p>
+    @Html.TextArea("text", new { id = "result", style = "width:100%;height:200px" })
 
-    <p>
-        Use this area to provide additional information.
-    </p>
-</article>
+</div>
 
-<aside>
-    <h3>Aside Title</h3>
-    <p>
-        Use this area to provide additional information.
-    </p>
-    <ul>
-        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-        <li>@Html.ActionLink("About", "About", "Home")</li>
-        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-    </ul>
-</aside>
+<div id="divTpl">
+    <script id="tpl" type="text/template">
+        <ul>
+            {{each list as value i}}
+            <li>索引 {{i + 1}} ：{{value}}</li>
+            {{/each}}
+        </ul>
+
+    </script>
+</div>
+@section scripts{
+
+    <script>
+        $(function () {
+
+            $('#form1').submit(function () {
+
+                $.ajax({
+                    url: this.action,
+                    type: this.method,
+                    data: $(this).serialize(),
+                    success: function (result) {
+                        $('#result').html(result);
+                    },
+                    error: function (result) {
+                        alert(result);
+                    }
+                });
+
+                return false;
+            });
+
+            $("#changeRole").click(function () {
+                $.ajax({
+                    url: "/home/index",
+                    type: "post",
+                    success: function (result) {
+                        $('#result').html(result);
+                    },
+                    error: function (result) {
+                        alert(result);
+                    }
+                });
+            })
+
+        })
+
+        var data = {
+            title: '基本例子',
+            isAdmin: true,
+            list: ['文艺', '博客', '摄影', '电影', '民谣', '旅行', '吉他']
+        };
+        var html = template('tpl', data);
+        document.getElementById('divTpl').innerHTML = html;
+
+
+    </script>
+
+}
