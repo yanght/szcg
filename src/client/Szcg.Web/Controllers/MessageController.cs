@@ -79,9 +79,13 @@ namespace Szcg.Web.Controllers
 
         #region [ 获取群组用户 ]
 
-        public AjaxFxRspJson GetGroupUser()
+        public AjaxFxRspJson GetGroupUser(int groupId)
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            List<GroupUser> list = svc.GetGroupUsers(groupId);
+
+            ajax.RspData.Add("list", JToken.FromObject(list));
 
             return ajax;
         }

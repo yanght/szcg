@@ -61,6 +61,7 @@ namespace Szcg.Web.Controllers
 
         #region [ 添加或修改公文 ]
 
+        [HttpPost]
         public AjaxFxRspJson InsertDocument(DocumentTitle doc)
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
@@ -177,6 +178,7 @@ namespace Szcg.Web.Controllers
 
         #region [ 添加或修改知识库 ]
 
+        [HttpPost]
         public AjaxFxRspJson InsertDocument(Repository rep)
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
@@ -307,6 +309,7 @@ namespace Szcg.Web.Controllers
 
         #region [ 添加或修改字典库 ]
 
+        [HttpPost]
         public AjaxFxRspJson InsertDictionSentence(DictionSentence dic)
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };

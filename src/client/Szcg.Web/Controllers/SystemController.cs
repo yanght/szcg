@@ -48,6 +48,7 @@ namespace Szcg.Web.Controllers
 
         #region [ 添加工作时间 ]
 
+        [HttpPost]
         public AjaxFxRspJson AddSetTime(WorkTime time)
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
@@ -176,6 +177,7 @@ namespace Szcg.Web.Controllers
 
         #region [ 添加节假日时间 ]
 
+        [HttpPost]
         public AjaxFxRspJson InsertHoliday(string name, string date)
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
