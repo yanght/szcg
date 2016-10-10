@@ -186,6 +186,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\CallAcceptance\Controllers\ProjectController.cs" />
     <Compile Include="Controllers\AppraiseController.cs" />
     <Compile Include="Controllers\DocumentController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
@@ -223,6 +224,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\assets\app.js" />
     <Content Include="Content\assets\avatars\avatar.png" />
     <Content Include="Content\assets\avatars\avatar1.png" />
     <Content Include="Content\assets\avatars\avatar2.png" />
@@ -853,6 +855,7 @@
     <Content Include="Content\assets\font\readme" />
     <Content Include="Content\assets\js\ace\readme" />
     <Content Include="Content\assets\js\ace\scripts.json" />
+    <Content Include="Areas\CallAcceptance\Views\Project\Reportlist.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -915,7 +918,6 @@
     <Folder Include="Areas\Appraise\Controllers\" />
     <Folder Include="Areas\Appraise\Models\" />
     <Folder Include="Areas\Appraise\Views\Shared\" />
-    <Folder Include="Areas\CallAcceptance\Controllers\" />
     <Folder Include="Areas\CallAcceptance\Models\" />
     <Folder Include="Areas\CallAcceptance\Views\Shared\" />
     <Folder Include="Areas\Cooperative\Controllers\" />
