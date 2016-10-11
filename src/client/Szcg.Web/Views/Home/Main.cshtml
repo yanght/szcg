@@ -17,6 +17,9 @@
     <!-- text fonts -->
     <link rel="stylesheet" href="/content/assets/css/ace-fonts.css" />
 
+    <!-- page specific plugin styles -->
+    <link rel="stylesheet" href="/content/assets/css/jquery-ui.min.css" />
+
     <!-- ace styles -->
     <link rel="stylesheet" href="/content/assets/css/ace.min.css" id="main-ace-style" />
 
@@ -959,6 +962,13 @@
             <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
         </a>
     </div><!-- /.main-container -->
+
+
+
+    <div class="hide" id="dialog"></div>
+
+
+
     <!-- basic scripts -->
     <!--[if !IE]> -->
     <script type="text/javascript">
@@ -975,7 +985,7 @@
         if ('ontouchstart' in document.documentElement) document.write("<script src='/content/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
     </script>
     <script src="/content/assets/js/bootstrap.min.js"></script>
-
+    <script src="/content/assets/js/jquery-ui.min.js"></script>
     <!-- ace scripts -->
     <script src="/content/assets/js/ace-elements.min.js"></script>
     <script src="/content/assets/js/ace.min.js"></script>
@@ -993,7 +1003,7 @@
                         var path = document.location.pathname;
 
                         //for Ace HTML demo version, convert ajax.html#page/gallery to > gallery.html and load it
-                        if (path.match(/main\.html/)) return path.replace(/main\.html/, url );
+                        if (path.match(/main\.html/)) return path.replace(/main\.html/, url);
 
                         //for Ace PHP demo version convert "page/dashboard" to "?page=dashboard" and load it
                         return path + "?" + url.replace(/\//, "=");

@@ -140,7 +140,7 @@
                                 </td>
                                 <td>$45</td>
                                 <td class="hidden-480">3,330</td>
-                                <td><a href="javascript:;">云和数管【2016】第249682号</a> </td>
+                                <td><a href="javascript:;" data-url="/callacceptance/project/reportlist">云和数管【2016】第249682号</a> </td>
                                 <td>Feb 12</td>
                                 <td>Feb 12</td>
                                 <td>Feb 12</td>
@@ -279,6 +279,20 @@
         <!-- PAGE CONTENT ENDS -->
     </div><!-- /.col -->
 </div><!-- /.row -->
+
+<div id="dialog-message" class="hide">
+    <p>
+        This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.
+    </p>
+
+    <div class="hr hr-12 hr-double"></div>
+
+    <p>
+        Currently using
+        <b>36% of your storage space</b>.
+    </p>
+</div>
+
 <!-- page specific plugin scripts -->
 <!--[if lte IE 8]>
   <script src="/content/assets/js/excanvas.min.js"></script>
@@ -306,5 +320,48 @@
 		        "aaSorting": [],
 		    });
         });
+
+
+        //override dialog's title function to allow for HTML titles
+        $.widget("ui.dialog", $.extend({}, $.ui.dialog.prototype, {
+            _title: function (title) {
+                var $title = this.options.title || '&nbsp;'
+                if (("title_html" in this.options) && this.options.title_html == true)
+                    title.html($title);
+                else title.text($title);
+            }
+        }));
+
+        $("#sample-table-2 td a").click(function (e) {
+
+            var url = $(this).attr("data-url");
+            e.preventDefault();
+
+            $.get(url, function (data) {
+                $(data).dialog({
+                    modal: true,
+                    title: "<div class='widget-header widget-header-small'><h4 class='smaller'><i class='ace-icon fa fa-check'></i> jQuery UI Dialog</h4></div>",
+                    title_html: true,
+                    buttons: [
+                        {
+                            text: "Cancel",
+                            "class": "btn btn-xs",
+                            click: function () {
+                                $(this).dialog("close");
+                            }
+                        },
+                        {
+                            text: "OK",
+                            "class": "btn btn-primary btn-xs",
+                            click: function () {
+                                $(this).dialog("close");
+                            }
+                        }
+                    ]
+                });
+            })
+
+        })
+
     });
 </script>
