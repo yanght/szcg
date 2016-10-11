@@ -48,8 +48,8 @@ namespace Szcg.Service.Bussiness
             if (ds != null && ds.Tables.Count > 0)
             {
                 list = ConvertDtHelper<Project>.GetModelList(ds.Tables[0]);
-                rtn.ReturnObj = list;
             }
+            rtn.ReturnObj = list;
 
             return rtn;
         }

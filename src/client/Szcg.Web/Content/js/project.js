@@ -11,12 +11,12 @@ project.getareaList = function getareaList() {
             var render = template.compile(source);
             var html = render(data.RspData);
 
-            $("select[name='area']").html(html);
+            $("select[name='AreaId']").html(html);
 
-            $("select[name='area']").change(function () {
+            $("select[name='AreaId']").change(function () {
                 var area = $(this).val();
                 if (area == "") {
-                    $("select[name='square']").html("<option>全部</option>");
+                    $("select[name='SquareId']").html("<option>全部</option>");
                 }
                 project.getstreetList(area);
             })
@@ -39,10 +39,10 @@ project.getstreetList = function getstreetList(areacode) {
             var render = template.compile(source);
             var html = render(data.RspData);
 
-            $("select[name='street']").html(html);
+            $("select[name='StreetId']").html(html);
 
-            $("select[name='street']").change(function () {
-                var area = $("select[name='street']:selected").val();
+            $("select[name='StreetId']").change(function () {
+                var area = $("select[name='StreetId']:selected").val();
                 var street = $(this).val();
                 project.getcommounityList(area, street);
             })
@@ -65,7 +65,7 @@ project.getcommounityList = function getcommounityList(areacode, streetcode) {
             var render = template.compile(source);
             var html = render(data.RspData);
 
-            $("select[name='square']").html(html);
+            $("select[name='SquareId']").html(html);
 
         }
         else {
@@ -77,18 +77,26 @@ project.getcommounityList = function getcommounityList(areacode, streetcode) {
 project.GetDelProjectList = function GetDelProjectList() {
 
     var json = {
-        area: $("select[name='area']").val(),
-        street: $("select[name='street']"),
-        square: $("select[name='square']"),
+        AreaId: $("select[name='AreaId']").val(),
+        StreetId: $("select[name='StreetId']").val(),
+        SquareId: $("select[name='SquareId']").val(),
         startTime: $("input[name='startTime']").val(),
         endTime: $("input[name='endTime']").val(),
         projcode: $("input[name='projcode']").val(),
-        nodeid: 2,
-
+        NodeId: 3,
+        ButtonCode: 11100030,
+        PageSize: 20,
+        Field: "projcode",
+        Order: "desc",
+        CurrentPage: 1
     };
 
-    utils.httpClient("/project/GetDelProjectList", "post", {}, function () {
-
+    utils.httpClient("/project/GetDelProjectList", "post", json, function (data) {
+        if (data.RspCode == 1) {
+            utils.alert(data.RspData.projectList);
+        } else {
+            utils.alert(data.RspMsg);
+        }
     });
 
 }

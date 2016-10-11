@@ -108,7 +108,7 @@
       <Name>Szcg.Service.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Szcg.Service.IBussiness\Szcg.Service.IBussiness.csproj">
-      <Project>{dabbf415-009f-4a62-b441-fd1e4f314081}</Project>
+      <Project>{727d8e44-28fd-419a-a8bd-43292d6bd535}</Project>
       <Name>Szcg.Service.IBussiness</Name>
     </ProjectReference>
     <ProjectReference Include="..\Szcg.Service.Model\Szcg.Service.Model.csproj">

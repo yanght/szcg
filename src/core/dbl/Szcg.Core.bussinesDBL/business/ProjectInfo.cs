@@ -85,25 +85,25 @@ namespace bacgDL.business
         public string cityId
         {
             get { return _cityId; }
-            set { _cityId = value.Trim(); }
+            set { _cityId = value; }
         }
 
         public string area
         {
             get { return _area; }
-            set { _area = value.Trim(); }
+            set { _area = value; }
         }
 
         public string street
         {
             get { return _street; }
-            set { _street = value.Trim(); }
+            set { _street = value; }
         }
 
         public string square
         {
             get { return _square; }
-            set { _square = value.Trim(); }
+            set { _square = value; }
         }
 
         #region   上传的图片和声音信息  流文件信息及文件后缀

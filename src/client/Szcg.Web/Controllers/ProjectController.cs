@@ -506,15 +506,25 @@ namespace Szcg.Web.Controllers
         /// <param name="startTime">开始时间</param>
         /// <param name="endTime">结束时间</param>
         /// <returns></returns>
-        public AjaxFxRspJson GetDelProjectList(ProjectInfo projInfo, PageInfo pageInfo, string startTime, string endTime)
+        public AjaxFxRspJson GetDelProjectList(Project project, PageInfo pageInfo, string startTime, string endTime)
         {
-            projInfo = new ProjectInfo()
+            ProjectInfo projInfo = new ProjectInfo()
             {
-                areacode = "331125",
-                NodeId = "2",
-                TargetDepartCode = "39",
+                areacode = project.AreaId,
+                street = project.StreetId,
+                square = project.SquareId,
+                strUserCode = UserInfo.getUsercode().ToString(),
+                TargetDepartCode = UserInfo.getDepartcode().ToString(),
+                NodeId = project.NodeId.ToString(),
+                strButtonId = project.ButtonCode,
+              
             };
 
+            pageInfo.PageSize = "20";
+            pageInfo.CurrentPage = "1";
+            pageInfo.Field = "projcode";
+            pageInfo.Order = "desc";
+           
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
             ReturnValue rtn = svc.GetDealProjectList(projInfo, pageInfo, startTime, endTime);
