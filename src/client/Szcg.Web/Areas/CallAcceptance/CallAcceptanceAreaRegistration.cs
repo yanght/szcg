@@ -17,7 +17,8 @@ namespace Szcg.Web.Areas.CallAcceptance
             context.MapRoute(
                 "CallAcceptance_default",
                 "CallAcceptance/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { action = "Index", id = UrlParameter.Optional },
+                new[] { "Szcg.Web.Areas.CallAcceptance.Controllers" }
             );
         }
     }

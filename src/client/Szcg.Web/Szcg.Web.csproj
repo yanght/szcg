@@ -224,7 +224,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\assets\app.js" />
+    <Content Include="Content\js\app.js" />
     <Content Include="Content\assets\avatars\avatar.png" />
     <Content Include="Content\assets\avatars\avatar1.png" />
     <Content Include="Content\assets\avatars\avatar2.png" />
@@ -610,6 +610,8 @@
     <Content Include="Content\assets\js\uncompressed\x-editable\bootstrap-editable.js" />
     <Content Include="Content\assets\js\x-editable\ace-editable.min.js" />
     <Content Include="Content\assets\js\x-editable\bootstrap-editable.min.js" />
+    <Content Include="Content\js\common.js" />
+    <Content Include="Content\js\project.js" />
     <Content Include="Content\juicer.js" />
     <Content Include="Content\template.js" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />

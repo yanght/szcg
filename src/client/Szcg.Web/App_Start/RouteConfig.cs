@@ -19,16 +19,17 @@ namespace Szcg.Web
                defaults: new { controller = "Home", action = "Main" }
            );
 
-          //  routes.MapRoute(
-          //    name: "Default1",
-          //    url: "{controller}/{action}.html",
-          //    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-          //);
+            //  routes.MapRoute(
+            //    name: "Default1",
+            //    url: "{controller}/{action}.html",
+            //    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            //);
 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "Szcg.Web.Controllers" }
             );
         }
     }
