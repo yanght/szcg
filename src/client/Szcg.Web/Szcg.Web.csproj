@@ -221,6 +221,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\WebCommon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -859,6 +860,7 @@
     <Content Include="Content\assets\js\ace\scripts.json" />
     <Content Include="Areas\CallAcceptance\Views\Project\Reportlist.cshtml" />
     <Content Include="Areas\CallAcceptance\Views\Project\Preview.cshtml" />
+    <Content Include="Areas\CallAcceptance\Views\Project\ProjectTrace.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />

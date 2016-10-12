@@ -24,6 +24,10 @@ namespace Szcg.Web.Areas.CallAcceptance.Controllers
         {
             return View();
         }
+        public ActionResult ProjectTrace(string projectcode, string year, string isend)
+        {
+            return View();
+        }
 
     }
 }

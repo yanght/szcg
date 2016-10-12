@@ -76,6 +76,71 @@ namespace Szcg.Service.Model
         /// </summary>
         public string ProbSource { get; set; }
         /// <summary>
+        /// 案卷来源名称
+        /// </summary>
+        public string ProbSourceName
+        {
+            get
+            {
+                string rtn = string.Empty;
+                #region
+                switch (ProbSource)
+                {
+                    case "0":
+                        rtn = "公众举报";
+                        break;
+                    case "1":
+                        rtn = "监督员上报";
+                        break;
+                    case "2":
+                        rtn = "领导交办";
+                        break;
+                    case "3":
+                        rtn = "网站举报";
+                        break;
+                    case "4":
+                        rtn = "传真举报";
+                        break;
+                    case "5":
+                        rtn = "短信举报";
+                        break;
+                    case "6":
+                        rtn = "信访举报";
+                        break;
+                    case "7":
+                        rtn = "媒体举报";
+                        break;
+                    case "8":
+                        rtn = "邮件举报";
+                        break;
+                    case "9":
+                        rtn = "其他举报";
+                        break;
+                    case "10":
+                        rtn = "监督员快速上报";
+                        break;
+                    case "-1":
+                        rtn = "坐席拒接";
+                        break;
+                    case "11":
+                        rtn = "电话举报";
+                        break;
+                    case "15":
+                        rtn = "微信举报";
+                        break;
+                    case "16":
+                        rtn = "监控抓拍";
+                        break;
+                    default:
+                        rtn = "未知";
+                        break;
+
+                }
+                #endregion
+                return rtn;
+            }
+        }
+        /// <summary>
         /// 接线员名称（当前操作用户）
         /// </summary>
         public string Telephonist { get; set; }
@@ -132,6 +197,41 @@ namespace Szcg.Service.Model
         /// </summary>
         public string Fid { get; set; }
         /// <summary>
+        /// 经度
+        /// </summary>
+        public string Longitude
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(Fid))
+                {
+                    return Fid.Split(',')[0];
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+        /// <summary>
+        /// 纬度
+        /// </summary>
+        public string Latitude
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(Fid))
+                {
+                    return Fid.Split(',')[1];
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+
+        /// <summary>
         /// 案卷详细地址
         /// </summary>
         public string Address { get; set; }
@@ -173,7 +273,25 @@ namespace Szcg.Service.Model
         /// </summary>
         public int DepartTimeType { get; set; }
         public DateTime TraceTime { get; set; }
+
+        /// <summary>
+        /// 案卷流程时间
+        /// </summary>
         public string TreatTime { get; set; }
+        /// <summary>
+        /// 派发时间
+        /// </summary>
+        public string RacTime { get; set; }
+        /// <summary>
+        /// 剩余时间
+        /// </summary>
+        public string LimitTime { get; set; }
+        /// <summary>
+        /// 案卷终止时间
+        /// </summary>
+        public string EndTime { get; set; }
+
+
         public string ImpeachName { get; set; }
         public string ImpeachTel { get; set; }
         /// <summary>
@@ -285,7 +403,7 @@ namespace Szcg.Service.Model
         /// <summary>
         /// 大类编码
         /// </summary>
-        public string  BigClassCode { get; set; }
+        public string BigClassCode { get; set; }
         /// <summary>
         /// 小类编码
         /// </summary>

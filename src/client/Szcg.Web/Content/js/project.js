@@ -126,9 +126,30 @@ project.initDelProjectTable = function (url) {
                "bSort": false,
                "bProcessing": true,
                "columns": [
-                  { "data": "TimeState", "sWidth": "5%" },
-                  { "data": "IsPress" },
-                  { "data": "ProbSource", "sWidth": "5%" },
+                  { "data": "TimeState", "sWidth": "5%", "mRender": function (data, type, full) {
+                      if (data==0) {
+                          return "正常办理";
+                      }
+                      if (data == 1) {
+                          return "期限将至";
+                      }
+                      if (data == 2) {
+                          return "已经超期";
+                      }
+                      if (data == -1) {
+                          return "还没进入流程";
+                      }
+                  } },
+                  {
+                      "data": "IsPress", "mRender": function (data, type, full) {
+                          if (data) {
+                              return "督办案卷";
+                          } else {
+                              return "普通案卷";
+                          }
+                      }
+                  },
+                  { "data": "ProbSourceName", "sWidth": "5%" },
                   {
                       "data": "ProjName", "mRender": function (data, type, full) {
                           return '<a href="javascript:;" data-url="/callAcceptance/project/preview?projectcode=' + full.Projcode + '&year=' + full.StartYear + '&isend=' + full.IsEnd + '&nodeid=' + full.NodeId + '">' + data + '</a>';
@@ -149,8 +170,8 @@ project.initDelProjectTable = function (url) {
                       "mRender": function (data, type, full) {
                           var html = '';
                           html += '   <div class="hidden-md ">';
-                          html += '   <a href="#" class="tooltip-info" data-rel="tooltip" title="View">';
-                          html += ' <span class="blue"><i class="ace-icon fa fa-search-plus bigger-120"></i>查看案卷流程</span>';
+                          html += '   <a href="javascript:;" class="tooltip-info" data-rel="tooltip" title="View">';
+                          html += ' <span class="blue projecttrace" data-url="/callAcceptance/project/projecttrace?projectcode=' + full.Projcode + '&year=' + full.StartYear + '&isend=' + full.IsEnd + '"><i class="ace-icon fa fa-search-plus bigger-120"></i>查看案卷流程</span>';
                           html += ' </a>';
                           html += '   <div class="inline position-relative">';
                           html += '     <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown" data-position="auto">';
@@ -178,7 +199,10 @@ project.initDelProjectTable = function (url) {
                    "sInfoFiltered": "(_MAX_)"
                }, fnDrawCallback: function () {
                    $("#projectlistTB td a").click(function (e) {
-                       utils.dialog(this, "案卷详情",600,800);
+                       utils.dialog(this, "案卷详情",600,700);
+                   })
+                   $(".projecttrace").click(function (e) {
+                       utils.dialog(this, "案卷流程", 600, 400);
                    })
                }
            });
@@ -188,27 +212,19 @@ project.initDelProjectTable = function (url) {
 project.getProjectDetail = function getProjectDetail(projectcode, year, isend, nodeid) {
 
     var json = {
-        projectcode: projectcode,
+        projcode: projectcode,
         year: year,
         isend: isend,
         nodeid: nodeid
     };
 
-    utils.httpClient("/callAcceptance/project/preview?projectcode=238175&year=1&isend=false&nodeid=", "post", json, function (data) {
+    utils.httpClient("project/GetProjectDetail", "post", json, function (data) {
         if (data.RspCode == 1) {
-            var source = '{{each commoditys as value i}}'
-                 + '  <option value="{{value.CommCode}}">{{value.CommName}}</option>'
-                 + '{{/each}}';
-
-            var render = template.compile(source);
-
-            var html = render(data.RspData);
-
-            $("select[name='SquareId']").html(html);
-
+            var html = template('projectdetailtpl', data.RspData.project);
+            document.getElementById('projectdetail').innerHTML = html;
         }
         else {
-            utils.alert(e.RspMsg);
+            utils.alert(data.RspMsg);
         }
     });
 }

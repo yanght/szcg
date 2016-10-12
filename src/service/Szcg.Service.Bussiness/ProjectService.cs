@@ -357,6 +357,44 @@ namespace Szcg.Service.Bussiness
                 project.CollectorMessages = messages;
             }
 
+            if (project.NodeId != 12 && project.NodeId != 2)
+            {
+                if (!string.IsNullOrEmpty(project.TreatTime))
+                {
+                    string[] myStr = new string[project.TreatTime.Split(',').Length];
+                    myStr = project.TreatTime.Split(',');
+                    project.RacTime = project.TreatTime.Split(',')[0];
+                    if (myStr.Length == project.TreatTime.Split(',').Length && myStr.Length > 2)//add by yaoch 2012-10-24
+                    {
+                        if (myStr[2] != "0") //处理时限为0,表示视情况定
+                        {
+                            //剩余时间
+                            if (project.NodeId == 8) //专门部门办理阶段
+                                project.LimitTime = string.Format("{0:0.0}小时", double.Parse(myStr[1]) / 60);
+                            else
+                                project.LimitTime = string.Format("{0}分钟", myStr[1]);
+
+                            //终止时间 
+                            //CultureInfo culture = new CultureInfo("zh-CN");
+                            //System.DateTime dt = Convert.ToDateTime(myStr[0], culture);
+                            //dt = dt.AddMinutes(Convert.ToDouble(myStr[2])); 
+                            //this.lbl_endTime.Text = dt.ToString("yyyy-MM-dd HH:mm:ss"); 
+                            //终止时间  UP BY STEVE 返回值中增加了终止时间，参照数据库中函数dbo.GetTreatTime
+                            project.EndTime = myStr[3].ToString();
+                        }
+                        else
+                        {
+                            project.LimitTime = "视情况定";
+                            project.EndTime = "视情况定";
+                        }
+                    }
+                }
+            }
+            else
+            {
+                project.RacTime = project.EndTime;
+            }
+
             return project;
         }
 

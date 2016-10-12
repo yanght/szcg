@@ -778,6 +778,7 @@ namespace Szcg.Web.Controllers
 
             Szcg.Service.Model.Project project = svc.GetProjectDetail(projcode, year, isend);
 
+
             ajax.RspData.Add("project", JToken.FromObject(project));
 
             return ajax;

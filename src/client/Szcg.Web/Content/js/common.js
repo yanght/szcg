@@ -50,14 +50,14 @@ utils.dialog = function (obj, title, width, height) {
             title_html: true,
             buttons: [
                 {
-                    text: "Cancel",
+                    text: "取消",
                     "class": "btn btn-xs",
                     click: function () {
                         $(this).dialog("close");
                     }
                 },
                 {
-                    text: "OK",
+                    text: "确定",
                     "class": "btn btn-primary btn-xs",
                     click: function () {
                         $(this).dialog("close");
