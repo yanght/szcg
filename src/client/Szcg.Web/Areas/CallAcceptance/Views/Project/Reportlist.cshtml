@@ -34,28 +34,25 @@
                         <select class="form-control" name="AreaId">
                             <option value="">全部</option>
                         </select>
-
                         <label>街道：</label>
                         <select class="form-control" name="StreetId">
                             <option value="">全部</option>
                         </select>
-
                         <label>社区：</label>
                         <select class="form-control" name="SquareId">
                             <option value="">全部</option>
                         </select>
                         <label>案卷号：</label>
-                        <input type="password" class="form-control" placeholder="" name="projcode">
+                        <input type="text" class="form-control" placeholder="" name="Projcode">
                         <label>上报时间：</label>
-                        <div class="input-daterange input-group">
+                        <div class="input-daterange input-group" data-date-format="yyyy-mm-dd">
                             <input type="text" class="input-sm form-control" name="startTime">
                             <span class="input-group-addon">
                                 至
                             </span>
                             <input type="text" class="input-sm form-control" name="endTime" value="2016-12-1">
                         </div>
-
-                        <button type="button" class="btn btn-info btn-sm" onclick="project.GetDelProjectList()">
+                        <button type="button" class="btn btn-info btn-sm" id="query">
                             查询
                         </button>
                         <button type="reset" class="btn btn-info btn-sm">
@@ -63,11 +60,9 @@
                         </button>
                     </form>
 
-
                 </div>
             </div>
         </div>
-
         <!--案卷列表-->
         <div class="widget-box widget-color-blue">
             <div class="widget-header">
@@ -91,7 +86,7 @@
             </div>
             <div class="widget-body">
                 <div class="widget-main">
-                    <table id="sample-table-2" class="table table-striped table-bordered table-hover">
+                    <table id="projectlistTB" class="table table-striped table-bordered table-hover">
                         <thead>
                             <tr>
                                 <th>计时</th>
@@ -111,125 +106,7 @@
                                 <th>操作</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <a href="#">app.com</a>
-                                </td>
-                                <td>$45</td>
-                                <td class="hidden-480">3,330</td>
-                                <td><a href="javascript:;" data-url="/home/index">云和数管【2016】第249682号</a> </td>
-                                <td>Feb 12</td>
-                                <td>Feb 12</td>
-                                <td>Feb 12</td>
-                                <td>Feb 12</td>
-                                <td>Feb 12</td>
-                                <td>Feb 12</td>
-                                <td class="hidden-480">
-                                    <span class="label label-sm label-warning">Expiring</span>
-                                </td>
-                                <td>
-                                    <div class="hidden-md ">
-
-                                        <a href="#" class="tooltip-info" data-rel="tooltip" title="View">
-                                            <span class="blue">
-                                                <i class="ace-icon fa fa-search-plus bigger-120"></i>查看案卷流程
-                                            </span>
-                                        </a>
-                                        <div class="inline position-relative">
-                                            <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown" data-position="auto">
-                                                <i class="ace-icon fa fa-caret-down icon-only bigger-120"></i>
-                                                更多操作
-                                            </button>
-                                            <ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-                                                <li>
-                                                    <a href="#" class="tooltip-info" data-rel="tooltip" title="View">
-                                                        <span class="blue">
-                                                            <i class="ace-icon fa fa-search-plus bigger-120"></i>
-                                                            批转
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
-                                                        <span class="green">
-                                                            <i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
-                                                        <span class="red">
-                                                            <i class="ace-icon fa fa-trash-o bigger-120"></i>
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="#">base.com</a>
-                                </td>
-                                <td>$35</td>
-                                <td class="hidden-480">2,595</td>
-                                <td>云和数管【2016】第249682号 </td>
-                                <td>Feb 12</td>
-                                <td>Feb 12</td>
-                                <td>Feb 12</td>
-                                <td>Feb 12</td>
-                                <td>Feb 12</td>
-                                <td>Feb 12</td>
-                                <td class="hidden-480">
-                                    <span class="label label-sm label-success">Registered</span>
-                                </td>
-                                <td>
-                                    <div class="hidden-sm hidden-xs action-buttons">
-                                        <a class="blue" href="#">
-                                            <i class="ace-icon fa fa-search-plus bigger-130"></i>
-                                        </a>
-                                        <a class="green" href="#">
-                                            <i class="ace-icon fa fa-pencil bigger-130"></i>
-                                        </a>
-                                        <a class="red" href="#">
-                                            <i class="ace-icon fa fa-trash-o bigger-130"></i>
-                                        </a>
-                                    </div>
-                                    <div class="hidden-md hidden-lg">
-                                        <div class="inline position-relative">
-                                            <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown" data-position="auto">
-                                                <i class="ace-icon fa fa-caret-down icon-only bigger-120"></i>
-                                            </button>
-                                            <ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-                                                <li>
-                                                    <a href="#" class="tooltip-info" data-rel="tooltip" title="View">
-                                                        <span class="blue">
-                                                            <i class="ace-icon fa fa-search-plus bigger-120"></i>
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
-                                                        <span class="green">
-                                                            <i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
-                                                        <span class="red">
-                                                            <i class="ace-icon fa fa-trash-o bigger-120"></i>
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
+                        <tbody></tbody>
                     </table>
                 </div>
             </div>
@@ -246,6 +123,7 @@
 
         , "/content/assets/js/date-time/bootstrap-datepicker.min.js"
         , "/content/assets/js/date-time/bootstrap-timepicker.min.js"
+        , "/content/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"
         , "/content/assets/js/jquery.dataTables.min.js"
         , "/content/assets/js/jquery.dataTables.bootstrap.js",
 
@@ -256,20 +134,18 @@
         jQuery(function ($) {
 
             //日历控件初始化
-            $('.input-daterange').datepicker({ autoclose: true });
+            $('.input-daterange').datepicker({ autoclose: true, language: 'zh-CN', });
 
-            var oTable1 =
-		    $('#sample-table-2')
-		    .dataTable({
-		        bAutoWidth: false,
-		        "aaSorting": [],
-		    });
+            var table = project.initDelProjectTable();
+
+            $("#query").click(function () {
+                project.GetDelProjectList(table);
+            })
+
         });
 
 
-        $("#sample-table-2 td a").click(function (e) {
-            utils.dialog(this, "title");
-        })
+
 
         project.getareaList();
 

@@ -8,7 +8,8 @@ project.getareaList = function getareaList() {
                  + '  <option value="{{value.AreaCode}}">{{value.AreaName}}</option>'
                  + '{{/each}}';
 
-            var render = template.compile(source);
+            var render = template.compile(source);
+
             var html = render(data.RspData);
 
             $("select[name='AreaId']").html(html);
@@ -36,7 +37,8 @@ project.getstreetList = function getstreetList(areacode) {
                  + '  <option value="{{value.StreetCode}}">{{value.StreetName}}</option>'
                  + '{{/each}}';
 
-            var render = template.compile(source);
+            var render = template.compile(source);
+
             var html = render(data.RspData);
 
             $("select[name='StreetId']").html(html);
@@ -62,7 +64,8 @@ project.getcommounityList = function getcommounityList(areacode, streetcode) {
                  + '  <option value="{{value.CommCode}}">{{value.CommName}}</option>'
                  + '{{/each}}';
 
-            var render = template.compile(source);
+            var render = template.compile(source);
+
             var html = render(data.RspData);
 
             $("select[name='SquareId']").html(html);
@@ -74,7 +77,7 @@ project.getcommounityList = function getcommounityList(areacode, streetcode) {
     });
 }
 
-project.GetDelProjectList = function GetDelProjectList() {
+project.GetDelProjectList = function GetDelProjectList(table) {
 
     var json = {
         AreaId: $("select[name='AreaId']").val(),
@@ -82,21 +85,130 @@ project.GetDelProjectList = function GetDelProjectList() {
         SquareId: $("select[name='SquareId']").val(),
         startTime: $("input[name='startTime']").val(),
         endTime: $("input[name='endTime']").val(),
-        projcode: $("input[name='projcode']").val(),
+        Projcode: $("input[name='Projcode']").val(),
         NodeId: 3,
         ButtonCode: 11100030,
-        PageSize: 20,
-        Field: "projcode",
-        Order: "desc",
-        CurrentPage: 1
+    };
+    var url = '/project/GetDelProjectList';
+    var parm = "?AreaId=" + json.AreaId + "&StreetId=" + json.StreetId + "&SquareId=" + json.SquareId + "&startTime=" + json.startTime + "&endTime=" + json.endTime + "&Projcode=" + json.Projcode + "&NodeId=" + json.NodeId + "&ButtonCode=" + json.ButtonCode;
+
+    oSettings = table.fnSettings();
+    oSettings.ajax.url = url + parm;
+    table.fnDraw();
+
+}
+
+
+project.initDelProjectTable = function (url) {
+    var json = {
+        AreaId: $("select[name='AreaId']").val(),
+        StreetId: $("select[name='StreetId']").val(),
+        SquareId: $("select[name='SquareId']").val(),
+        startTime: $("input[name='startTime']").val(),
+        endTime: $("input[name='endTime']").val(),
+        Projcode: $("input[name='Projcode']").val(),
+        NodeId: 3,
+        ButtonCode: 11100030,
+    };
+    var url = '/project/GetDelProjectList';
+    var parm = "?AreaId=" + json.AreaId + "&StreetId=" + json.StreetId + "&SquareId=" + json.SquareId + "&startTime=" + json.startTime + "&endTime=" + json.endTime + "&Projcode=" + json.Projcode + "&NodeId=" + json.NodeId + "&ButtonCode=" + json.ButtonCode;
+
+    var oTable1 =
+           $('#projectlistTB')
+           .dataTable({
+               "bServerSide": true,
+               'bPaginate': true, //是否分页
+               "iDisplayLength": 10, //每页显示10条记录
+               "ajax": {
+                   "url": url + parm
+               },
+               'bFilter': false, //是否使用内置的过滤功能
+               "bSort": false,
+               "bProcessing": true,
+               "columns": [
+                  { "data": "TimeState", "sWidth": "5%" },
+                  { "data": "IsPress" },
+                  { "data": "ProbSource", "sWidth": "5%" },
+                  {
+                      "data": "ProjName", "mRender": function (data, type, full) {
+                          return '<a href="javascript:;" data-url="/callAcceptance/project/preview?projectcode=' + full.Projcode + '&year=' + full.StartYear + '&isend=' + full.IsEnd + '&nodeid=' + full.NodeId + '">' + data + '</a>';
+                      }
+                  },
+                  { "data": "ProbClassName", "sWidth": "5%" },
+                  { "data": "BigClassName" },
+                  { "data": "SmallClassName" },
+                  {
+                      "data": "StartDate", "mRender": function (data, type, full) {
+                          return utils.getFormatDate(data, "yyyy-mm-dd HH:MM:ss")
+                      }
+                  },
+                  { "data": "Street" },
+                  { "data": "Square" },
+                  { "data": "ProbDesc" },
+                  {
+                      "mRender": function (data, type, full) {
+                          var html = '';
+                          html += '   <div class="hidden-md ">';
+                          html += '   <a href="#" class="tooltip-info" data-rel="tooltip" title="View">';
+                          html += ' <span class="blue"><i class="ace-icon fa fa-search-plus bigger-120"></i>查看案卷流程</span>';
+                          html += ' </a>';
+                          html += '   <div class="inline position-relative">';
+                          html += '     <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown" data-position="auto">';
+                          html += '    <i class="ace-icon fa fa-caret-down icon-only bigger-120"></i>更多操作';
+                          html += '  </button>';
+                          html += '  <ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">';
+                          html += '  <li>';
+                          html += '    <a href="#" class="tooltip-info" data-rel="tooltip" title="View">';
+                          html += '  <span class="blue"><i class="ace-icon fa fa-search-plus bigger-120"></i> 批转</span>';
+                          html += ' </a>';
+                          html += ' </li>';
+                          html += '  </ul>';
+                          html += '     </div>';
+                          html += ' </div>';
+                          return html;
+                      }
+                  }
+               ],
+               "oLanguage": {
+                   'sSearch': '数据筛选:',
+                   "sLengthMenu": "每页显示 _MENU_ 项记录",
+                   "sZeroRecords": "没有符合条件的数据...",
+                   "sInfo": "当前数据为从第 _START_ 到第 _END_ 项数据；总共有 _TOTAL_ 项记录",
+                   "sInfoEmpty": "显示 0 至 0 共 0 项",
+                   "sInfoFiltered": "(_MAX_)"
+               }, fnDrawCallback: function () {
+                   $("#projectlistTB td a").click(function (e) {
+                       utils.dialog(this, "案卷详情",600,800);
+                   })
+               }
+           });
+    return oTable1;
+}
+
+project.getProjectDetail = function getProjectDetail(projectcode, year, isend, nodeid) {
+
+    var json = {
+        projectcode: projectcode,
+        year: year,
+        isend: isend,
+        nodeid: nodeid
     };
 
-    utils.httpClient("/project/GetDelProjectList", "post", json, function (data) {
+    utils.httpClient("/callAcceptance/project/preview?projectcode=238175&year=1&isend=false&nodeid=", "post", json, function (data) {
         if (data.RspCode == 1) {
-            utils.alert(data.RspData.projectList);
-        } else {
-            utils.alert(data.RspMsg);
+            var source = '{{each commoditys as value i}}'
+                 + '  <option value="{{value.CommCode}}">{{value.CommName}}</option>'
+                 + '{{/each}}';
+
+            var render = template.compile(source);
+
+            var html = render(data.RspData);
+
+            $("select[name='SquareId']").html(html);
+
+        }
+        else {
+            utils.alert(e.RspMsg);
         }
     });
-
 }

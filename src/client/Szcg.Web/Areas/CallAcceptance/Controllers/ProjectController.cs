@@ -20,6 +20,10 @@ namespace Szcg.Web.Areas.CallAcceptance.Controllers
         {
             return View();
         }
+        public ActionResult Preview(string projectcode, string year, string isend, string nodeid)
+        {
+            return View();
+        }
 
     }
 }

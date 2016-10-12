@@ -6,7 +6,7 @@ app.base.initsidebar = function () {
 }
 
 app.init = function () {
-  
+   
 }
 
 app.init();

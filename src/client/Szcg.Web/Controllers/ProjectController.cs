@@ -506,8 +506,18 @@ namespace Szcg.Web.Controllers
         /// <param name="startTime">开始时间</param>
         /// <param name="endTime">结束时间</param>
         /// <returns></returns>
-        public AjaxFxRspJson GetDelProjectList(Project project, PageInfo pageInfo, string startTime, string endTime)
+        public JsonResult GetDelProjectList(Project project, PageInfo pageInfo, string startTime, string endTime)
         {
+
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            if (UserInfo == null)
+            {
+                ajax.RspMsg = "用户未登录！";
+                ajax.RspCode = 0;
+                return Json(ajax);
+            }
+
             ProjectInfo projInfo = new ProjectInfo()
             {
                 areacode = project.AreaId,
@@ -517,31 +527,44 @@ namespace Szcg.Web.Controllers
                 TargetDepartCode = UserInfo.getDepartcode().ToString(),
                 NodeId = project.NodeId.ToString(),
                 strButtonId = project.ButtonCode,
-              
+                projcode = project.Projcode
             };
+            int currentpage = int.Parse(Request["start"]);
+            int pagesize = int.Parse(Request["length"]);
 
-            pageInfo.PageSize = "20";
-            pageInfo.CurrentPage = "1";
+            if (currentpage != 0)
+            {
+                currentpage = (currentpage / pagesize) + 1;
+            }
+            else
+            {
+                currentpage = 1;
+            }
+
+            pageInfo.PageSize = Request["length"];
+            pageInfo.CurrentPage = currentpage.ToString();
             pageInfo.Field = "projcode";
             pageInfo.Order = "desc";
-           
-            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
             ReturnValue rtn = svc.GetDealProjectList(projInfo, pageInfo, startTime, endTime);
-
+            List<Szcg.Service.Model.Project> list = new List<Project>();
             if (rtn.ReturnState)
             {
-                List<Szcg.Service.Model.Project> list = rtn.ReturnObj as List<Szcg.Service.Model.Project>;
-                ajax.RspData.Add("projectList", JToken.FromObject(list));
+                list = rtn.ReturnObj as List<Szcg.Service.Model.Project>;
+
+                ajax.RspData.Add("data", JToken.FromObject(list));
+                ajax.RspData.Add("draw", Request["draw"]);
+                ajax.RspData.Add("recordsTotal", pageInfo.RowCount);
+                ajax.RspData.Add("recordsFiltered", pageInfo.RowCount);
             }
             else
             {
                 ajax.RspMsg = rtn.ErrorMsg;
                 ajax.RspCode = 0;
-                return ajax;
+                return Json(ajax);
             }
 
-            return ajax;
+            return Json(new { draw = Request["draw"], recordsTotal = pageInfo.RowCount, recordsFiltered = pageInfo.RowCount, data = list }, JsonRequestBehavior.AllowGet);
         }
 
         #endregion

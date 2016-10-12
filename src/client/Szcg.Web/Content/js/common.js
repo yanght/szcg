@@ -44,7 +44,9 @@ utils.dialog = function (obj, title, width, height) {
 
         var dialog = $("#dialog").removeClass('hide').dialog({
             modal: true,
-            title: "<div class='widget-header widget-header-small'><h4 class='smaller'><i class='ace-icon fa fa-check'></i> " + title + "</h4></div>",
+            width: width,
+            height:height,
+            title: "<div class='widget-header widget-header-small'><h4 class='smaller'> " + title + "</h4></div>",
             title_html: true,
             buttons: [
                 {
@@ -63,13 +65,6 @@ utils.dialog = function (obj, title, width, height) {
                 }
             ]
         });
-        if (width > 0) {
-            dialog.width(width)
-        }
-        if (height > 0) {
-            dialog.height(height);
-        }
-
     })
 
 }
@@ -146,4 +141,12 @@ utils.confirm = function (message, okcallback) {
             }
         ]
     });
+}
+
+utils.getFormatDate = function (str, fomat) {
+    var d = eval('new ' + str.substr(1, str.length - 2));
+    var ar_date = [d.getFullYear(), d.getMonth() + 1, d.getDate(), d.getHours(), d.getMinutes(), d.getSeconds()];
+    for (var i = 0; i < ar_date.length; i++) ar_date[i] = dFormat(ar_date[i]);
+    return ar_date.slice(0, 3).join('-') +" "+ ar_date.slice(3, 6).join(':');
+    function dFormat(i) { return i < 10 ? "0" + i.toString() : i; }
 }
