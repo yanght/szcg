@@ -51,5 +51,9 @@ namespace Szcg.Service.Model
         /// </summary>
         public string ImageAdd { get; set; }
         public string Property { get; set; }
+        /// <summary>
+        /// 子模块
+        /// </summary>
+        public List<FlowNodePower> ChildPowers { get; set; }
     }
 }

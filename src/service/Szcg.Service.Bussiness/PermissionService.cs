@@ -102,7 +102,7 @@ namespace Szcg.Service.Bussiness
         }
 
         #endregion
-        
+
         #region [ 角色 ]
 
         /// <summary>
@@ -263,7 +263,7 @@ namespace Szcg.Service.Bussiness
         }
 
         #endregion
-        
+
         #region [ 授权 ]
 
         /// <summary>
@@ -284,7 +284,7 @@ namespace Szcg.Service.Bussiness
         }
 
         #endregion
-        
+
         /// <summary>
         /// 用户登录
         /// </summary>
@@ -334,13 +334,32 @@ namespace Szcg.Service.Bussiness
         /// <returns></returns>
         public List<FlowNodePower> GetFlowNodePower(string roleCode, string modelCode, string systemId)
         {
+            List<FlowNodePower> rtn = new List<FlowNodePower>();
+
             DataSet ds = bacgBL.business.Project.GetFlowNodePower(roleCode, modelCode, systemId, strErr);
             if (!string.IsNullOrEmpty(strErr))
             {
                 LoggerManager.Instance.logger.Error("案件立案批转异常：" + strErr);
             }
             if (ds != null && ds.Tables[0].Rows.Count > 0)
-                return ConvertDtHelper<FlowNodePower>.GetModelList(ds.Tables[0].Rows);
+            {
+                List<FlowNodePower> list = ConvertDtHelper<FlowNodePower>.GetModelList(ds.Tables[0].Rows);
+                rtn = list.FindAll((x) =>
+                {
+                    return x.ButtonCode.Substring(x.ButtonCode.Length-2,2) == "01";
+                });
+
+                foreach (FlowNodePower nodepower in rtn)
+                {
+                    nodepower.ChildPowers = list.FindAll((x) =>
+                    {
+                        return x.ModelCode == nodepower.ModelCode && x.ButtonCode.Substring(x.ButtonCode.Length - 2, 2) != "01";
+                    });
+                }
+
+                return rtn;
+            }
+
             return null;
         }
 

@@ -51,7 +51,7 @@ project.getstreetList = function getstreetList(areacode) {
 
         }
         else {
-            utils.alert(e.RspMsg);
+            utils.alert(data.RspMsg);
         }
     });
 }
@@ -72,11 +72,12 @@ project.getcommounityList = function getcommounityList(areacode, streetcode) {
 
         }
         else {
-            utils.alert(e.RspMsg);
+            utils.alert(data.RspMsg);
         }
     });
 }
 
+//刷新待办案卷列表
 project.GetDelProjectList = function GetDelProjectList(table) {
 
     var json = {
@@ -98,8 +99,20 @@ project.GetDelProjectList = function GetDelProjectList(table) {
 
 }
 
+//获取当前页面操作按钮
+project.GetFlowNodePower = function GetFlowNodePower(callback) {
+    utils.httpClient("/account/GetFlowNodePower", "post", null, function (data) {
+        if (data.RspCode == 1) {
+            callback(data.RspData.nodepower);
+        } else {
+            utils.alert(data.RspMsg);
+        }
 
-project.initDelProjectTable = function (url) {
+    });
+}
+
+//获取代办案卷列表
+project.initDelProjectTable = function (modelcode) {
     var json = {
         AreaId: $("select[name='AreaId']").val(),
         StreetId: $("select[name='StreetId']").val(),
@@ -110,6 +123,20 @@ project.initDelProjectTable = function (url) {
         NodeId: 3,
         ButtonCode: 11100030,
     };
+
+    //查询当前页面的操作按钮
+    var optionNames = new Array();
+    project.GetFlowNodePower(function (data) {
+        $.each(data, function (index, item) {
+            if (item.ModelCode == modelcode) {
+                $.each(item.ChildPowers, function (i, k) {
+                    optionNames.push(k);
+                })
+            }
+        })
+    })
+
+
     var url = '/project/GetDelProjectList';
     var parm = "?AreaId=" + json.AreaId + "&StreetId=" + json.StreetId + "&SquareId=" + json.SquareId + "&startTime=" + json.startTime + "&endTime=" + json.endTime + "&Projcode=" + json.Projcode + "&NodeId=" + json.NodeId + "&ButtonCode=" + json.ButtonCode;
 
@@ -126,20 +153,22 @@ project.initDelProjectTable = function (url) {
                "bSort": false,
                "bProcessing": true,
                "columns": [
-                  { "data": "TimeState", "sWidth": "5%", "mRender": function (data, type, full) {
-                      if (data==0) {
-                          return "正常办理";
+                  {
+                      "data": "TimeState", "sWidth": "5%", "mRender": function (data, type, full) {
+                          if (data == 0) {
+                              return "正常办理";
+                          }
+                          if (data == 1) {
+                              return "期限将至";
+                          }
+                          if (data == 2) {
+                              return "已经超期";
+                          }
+                          if (data == -1) {
+                              return "还没进入流程";
+                          }
                       }
-                      if (data == 1) {
-                          return "期限将至";
-                      }
-                      if (data == 2) {
-                          return "已经超期";
-                      }
-                      if (data == -1) {
-                          return "还没进入流程";
-                      }
-                  } },
+                  },
                   {
                       "data": "IsPress", "mRender": function (data, type, full) {
                           if (data) {
@@ -178,11 +207,15 @@ project.initDelProjectTable = function (url) {
                           html += '    <i class="ace-icon fa fa-caret-down icon-only bigger-120"></i>更多操作';
                           html += '  </button>';
                           html += '  <ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">';
-                          html += '  <li>';
-                          html += '    <a href="#" class="tooltip-info" data-rel="tooltip" title="View">';
-                          html += '  <span class="blue"><i class="ace-icon fa fa-search-plus bigger-120"></i> 批转</span>';
-                          html += ' </a>';
-                          html += ' </li>';
+
+                          $.each(optionNames, function (index, item) {
+                              html += '  <li onclick=project.operateProject("' + item.ButtonId + '","' + full.Projcode + '","' + item.ButtonCode + '","' + full.NodeId + '")>';
+                              html += '    <a href="#" class="tooltip-info" data-rel="tooltip" title="View">';
+                              html += '  <span class="blue"><i class="ace-icon fa fa-pencil bigger-130"></i> ' + item.ShowName + '</span>';
+                              html += ' </a>';
+                              html += ' </li>';
+                          })
+
                           html += '  </ul>';
                           html += '     </div>';
                           html += ' </div>';
@@ -199,16 +232,17 @@ project.initDelProjectTable = function (url) {
                    "sInfoFiltered": "(_MAX_)"
                }, fnDrawCallback: function () {
                    $("#projectlistTB td a").click(function (e) {
-                       utils.dialog(this, "案卷详情",600,700);
+                       utils.dialog(this, "案卷详情", 600, 700);
                    })
                    $(".projecttrace").click(function (e) {
-                       utils.dialog(this, "案卷流程", 600, 400);
+                       utils.dialog(this, "案卷流程", 800, 400);
                    })
                }
            });
     return oTable1;
 }
 
+//获取案卷明细
 project.getProjectDetail = function getProjectDetail(projectcode, year, isend, nodeid) {
 
     var json = {
@@ -226,5 +260,48 @@ project.getProjectDetail = function getProjectDetail(projectcode, year, isend, n
         else {
             utils.alert(data.RspMsg);
         }
+    });
+}
+
+//获取案卷流程
+project.getProjectTrace = function (projectcode, year, isend) {
+    var json = {
+        projcode: projectcode,
+        year: year,
+        isend: isend
+    };
+
+    utils.httpClient("project/ProjectTrace", "post", json, function (data) {
+        if (data.RspCode == 1) {
+            var html = template('projecttracetpl', data.RspData);
+            document.getElementById('projecttrace').innerHTML = html;
+        }
+        else {
+            utils.alert(data.RspMsg);
+        }
+    });
+
+}
+
+//跳转至案卷登记页
+project.operateProject = function operateProject(buttonid, projcode, buttoncode, nodeid) {
+    if (buttonid == "img_ajbl") {
+        var url = "/CallAcceptance/project/projectreport?projcode=" + projcode + "&buttoncode=" + buttoncode;
+        $(this).attr("data-url", url);
+        utils.dialog(this, "案卷上报", 600, 720);
+    }
+}
+
+project.projectReport = function projectReport() {
+
+    $('#projectreport').submit(function () {
+        utils.httpClient(this.action, this.method, $(this).serialize(), function (data) {
+            if (data.RspCode == 1) {
+
+            } else {
+                utils.alert(data.RspMsg);
+            }
+        });
+        return false;
     });
 }

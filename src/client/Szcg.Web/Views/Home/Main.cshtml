@@ -1,5 +1,6 @@
 ﻿@{
     Layout = null;
+    List<Szcg.Service.Model.FlowNodePower> powers = Model as List<Szcg.Service.Model.FlowNodePower>;
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +29,8 @@
     <![endif]-->
     <link rel="stylesheet" href="/content/assets/css/ace-skins.min.css" />
     <link rel="stylesheet" href="/content/assets/css/ace-rtl.min.css" />
+
+    <link rel="stylesheet" href="/content/themes/style.css" />
 
     <!--[if lte IE 9]>
       <link rel="stylesheet" href="/content/assets/css/ace-ie.min.css" />
@@ -439,103 +442,23 @@
                     <b class="arrow"></b>
 
                     <ul class="submenu">
-                        <li class="">
-                            <a data-url="callacceptance/project/reportlist" href="main.html#callacceptance/project/reportlist">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                举报栏
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a data-url="page/elements" href="main.html#page/elements">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                登记栏
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a data-url="page/buttons" href="main.html#page/buttons">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                核查栏
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a data-url="page/treeview" href="main.html#page/treeview">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                自办件
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a data-url="page/nestable-list" href="main.html#page/nestable-list">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                存档案卷
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a href="#" class="dropdown-toggle">
-                                <i class="menu-icon fa fa-caret-right"></i>
-
-                                查询箱
-                                <b class="arrow fa fa-angle-down"></b>
-                            </a>
-
-                            <b class="arrow"></b>
-
-                            <ul class="submenu">
-                                <li class="">
-                                    <a href="#">
-                                        <i class="menu-icon fa fa-leaf green"></i>
-                                        Item #1
+                        @if (powers != null && powers.Count > 0)
+                        {
+                            int index = 0;
+                            foreach (var power in powers)
+                            {
+                                <li >
+                                    <a data-url="callacceptance/project/reportlist?modelcode=@(power.ModelCode)" href="main.html#callacceptance/project/reportlist?modelcode=@(power.ModelCode)">
+                                        <i class="menu-icon fa fa-caret-right"></i>
+                                        @power.ShowName
                                     </a>
 
                                     <b class="arrow"></b>
                                 </li>
+                                index++;
+                            }
+                        }
 
-                                <li class="">
-                                    <a href="#" class="dropdown-toggle">
-                                        <i class="menu-icon fa fa-pencil orange"></i>
-
-                                        4th level
-                                        <b class="arrow fa fa-angle-down"></b>
-                                    </a>
-
-                                    <b class="arrow"></b>
-
-                                    <ul class="submenu">
-                                        <li class="">
-                                            <a href="#">
-                                                <i class="menu-icon fa fa-plus purple"></i>
-                                                Add Product
-                                            </a>
-
-                                            <b class="arrow"></b>
-                                        </li>
-
-                                        <li class="">
-                                            <a href="#">
-                                                <i class="menu-icon fa fa-eye pink"></i>
-                                                View Products
-                                            </a>
-
-                                            <b class="arrow"></b>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
                     </ul>
                 </li>
 
@@ -963,12 +886,6 @@
         </a>
     </div><!-- /.main-container -->
 
-
-
-    <div class="hide" id="dialog"></div>
-
-
-
     <!-- basic scripts -->
     <!--[if !IE]> -->
     <script type="text/javascript">
@@ -984,16 +901,18 @@
     <script type="text/javascript">
         if ('ontouchstart' in document.documentElement) document.write("<script src='/content/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
     </script>
+    <script src="/content/js/common.js"></script>
+    <script src="/content/js/app.js"></script>
     <script src="/content/assets/js/bootstrap.min.js"></script>
     <script src="/content/assets/js/jquery-ui.min.js"></script>
     <!-- ace scripts -->
     <script src="/content/assets/js/ace-elements.min.js"></script>
     <script src="/content/assets/js/ace.min.js"></script>
     <script type="text/javascript" src="~/Content/template.js"></script>
-    <script src="/content/js/common.js"></script>
+
     <script src="/content/js/project.js"></script>
-    <script src="/content/js/app.js"></script>
-  
+
+
     <script type="text/javascript">
         //Load content via ajax
         jQuery(function ($) {

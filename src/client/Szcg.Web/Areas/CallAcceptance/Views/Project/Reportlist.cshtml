@@ -19,6 +19,7 @@
             </small>
         </h1>
     </div>*@<!-- /.page-header -->
+
 <div class="row">
     <div class="col-xs-12">
         <!-- PAGE CONTENT BEGINS -->
@@ -58,6 +59,10 @@
                         <button type="reset" class="btn btn-info btn-sm">
                             重置
                         </button>
+                        <a data-url="page/faq" href="main.html#page/faq" class="EditButton">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            FAQ
+                        </a>
                     </form>
 
                 </div>
@@ -136,7 +141,7 @@
             //日历控件初始化
             $('.input-daterange').datepicker({ autoclose: true, language: 'zh-CN', });
 
-            var table = project.initDelProjectTable();
+            var table = project.initDelProjectTable('@Request["modelcode"]');
 
             $("#query").click(function () {
                 project.GetDelProjectList(table);

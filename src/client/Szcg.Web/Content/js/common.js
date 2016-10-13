@@ -39,30 +39,30 @@ utils.dialog = function (obj, title, width, height) {
     if (url == undefined || url == "") return;
 
     $.get(url, function (data) {
+     
+        //$("#dialog").html(data);
 
-        $("#dialog").html(data);
-
-        var dialog = $("#dialog").removeClass('hide').dialog({
+        var dialog = $("<div>" + data + "</div>").appendTo("body").dialog({
             modal: true,
             width: width,
             height:height,
             title: "<div class='widget-header widget-header-small'><h4 class='smaller'> " + title + "</h4></div>",
             title_html: true,
             buttons: [
-                {
-                    text: "取消",
-                    "class": "btn btn-xs",
-                    click: function () {
-                        $(this).dialog("close");
-                    }
-                },
-                {
-                    text: "确定",
-                    "class": "btn btn-primary btn-xs",
-                    click: function () {
-                        $(this).dialog("close");
-                    }
-                }
+                //{
+                //    text: "取消",
+                //    "class": "btn btn-xs",
+                //    click: function () {
+                //        $(this).dialog("close");
+                //    }
+                //},
+                //{
+                //    text: "确定",
+                //    "class": "btn btn-primary btn-xs",
+                //    click: function () {
+                //        $(this).dialog("close");
+                //    }
+                //}
             ]
         });
     })
@@ -81,10 +81,10 @@ utils.alert = function (message, okcallback) {
         }
     }));
 
-    $("#dialog").html("<div style=\"text-align:center\">" + message + "</div>").removeClass('hide').dialog({
+    $("<div style=\"text-align:center\">" + message + "</div>").appendTo("body").dialog({
         resizable: false,
         modal: true,
-        title: "<div class='widget-header'><h4 class='smaller'><i class='ace-icon fa fa-exclamation-triangle red'></i> title</h4></div>",
+        title: "<div class='widget-header'><h4 class='smaller'><i class='ace-icon fa fa-exclamation-triangle red'></i>提醒</h4></div>",
         title_html: true,
         buttons: [
             {
@@ -114,7 +114,7 @@ utils.confirm = function (message, okcallback) {
         }
     }));
 
-    $("#dialog").html("<div style=\"text-align:center\">" + message + "</div>").removeClass('hide').dialog({
+    $("<div style=\"text-align:center\">" + message + "</div>").appendTo("body").dialog({
         resizable: false,
         modal: true,
         title: "<div class='widget-header'><h4 class='smaller'><i class='ace-icon fa fa-exclamation-triangle red'></i> title</h4></div>",
@@ -127,7 +127,6 @@ utils.confirm = function (message, okcallback) {
                     if (okcallback) {
                         okcallback();
                     }
-
                     $(this).dialog("close");
                 }
             }

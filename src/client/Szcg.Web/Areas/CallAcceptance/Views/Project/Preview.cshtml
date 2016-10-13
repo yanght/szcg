@@ -2,239 +2,175 @@
     Layout = null;
 }
 <div id="projectdetail">
+    <script type="text/template" id="projectdetailtpl">
+        <div class="row">
+            <div class="profile-user-info profile-user-info-striped">
+                <div class="profile-info-row">
+                    <div class="profile-info-name"> 处理类型：</div>
+                    <div class="profile-info-value">
+                        <span class="editable editable-click">直属中队</span>
+                    </div>
+                </div>
+                <div class="profile-info-row">
+                    <div class="profile-info-name"> 派发时间： </div>
+                    <div class="profile-info-value">
+                        <span class="editable editable-click">{{RacTime}} </span>
+                    </div>
+                    <div class="profile-info-name"> 受理时间： </div>
+                    <div class="profile-info-value">
+                        <span class="editable editable-click">{{StartDate}} </span>
+                    </div>
+                </div>
+                <div class="profile-info-row">
+                    <div class="profile-info-name"> 终止时间： </div>
+                    <div class="profile-info-value">
+                        <span class="editable editable-click">{{EndTime}}</span>
+                    </div>
+                    <div class="profile-info-name"> 剩余时间： </div>
+                    <div class="profile-info-value">
+                        <span class="editable editable-click">{{LimitTime}}</span>
+                    </div>
+                </div>
+                <div class="profile-info-row">
+                    <div class="profile-info-name"> 问题来源： </div>
+                    <div class="profile-info-value">
+                        <span class="editable editable-click">{{ProbSourceName}} </span>
+                    </div>
+                    <div class="profile-info-name"> 问题分类： </div>
+                    <div class="profile-info-value">
+                        <span class="editable editable-click">{{ProbClassName}} </span>
+                    </div>
+                </div>
+                <div class="profile-info-row">
+                    <div class="profile-info-name"> 大类： </div>
+                    <div class="profile-info-value">
+                        <span class="editable editable-click">{{BigClassName}} </span>
+                    </div>
+                    <div class="profile-info-name"> 小类： </div>
+                    <div class="profile-info-value">
+                        <span class="editable editable-click">{{SmallClassName}}</span>
+                    </div>
+                </div>
+                <div class="profile-info-row">
+                    <div class="profile-info-name"> 监督员： </div>
+                    <div class="profile-info-value">
+                        <span class="editable editable-click">{{Collecters[0].CollName}} </span>
+                    </div>
+                    <div class="profile-info-name"> 城管通号： </div>
+                    <div class="profile-info-value">
+                        <span class="editable editable-click">{{Collecters[0].Mobile}}</span>
+                    </div>
+                </div>
+                <div class="profile-info-row">
+                    <div class="profile-info-name"> 所属街道： </div>
+                    <div class="profile-info-value">
+                        <span class="editable editable-click"> {{Street}}</span>
+                    </div>
+                    <div class="profile-info-name"> 所属社区： </div>
+                    <div class="profile-info-value">
+                        <span class="editable editable-click">{{Square}}</span>
+                    </div>
+                </div>
+                <div class="profile-info-row">
+                    <div class="profile-info-name"> 案卷号： </div>
+                    <div class="profile-info-value">
+                        <span class="editable editable-click">{{ProjName}} </span>
+                    </div>
+                    <div class="profile-info-name"> XY坐标： </div>
+                    <div class="profile-info-value">
+                        <span class="editable editable-click">{{Longitude}} </span>
+                        <span class="editable editable-click">{{Latitude}} </span>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-user-info profile-user-info-striped">
+                <div class="profile-info-row">
+                    <div class="profile-info-name"> 事发位置： </div>
+                    <div class="profile-info-value">
+                        <span class="editable editable-click">{{Address}}</span>
+                    </div>
+                </div>
+                <div class="profile-info-row">
+                    <div class="profile-info-name"> 情况描述： </div>
+                    <div class="profile-info-value">
+                        <span class="editable editable-click"> {{ProbDesc}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 widget-container-col ui-sortable">
+                <!-- #section:custom/widget-box -->
+                <div class="widget-box ui-sortable-handle">
+                    <div class="widget-header">
+                        <h5 class="widget-title">处理前</h5>
+                    </div>
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div class="row">
+                                <div class="col-xs-12  center">
+                                    <div>
+                                        <!-- #section:pages/profile.picture -->
+                                        <span class="profile-picture">
+                                            <img id="avatar" class="editable img-responsive editable-click editable-empty" alt="Alex's Avatar" src="/content/assets/avatars/profile-pic.jpg" width="200" height="200" />
+                                        </span>
+                                        <!-- /section:pages/profile.picture -->
+                                        <div class="space-4"></div>
+                                        <div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
+                                            <div class="inline position-relative">
+                                                <a href="#" class="user-title-label dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="ace-icon fa fa-circle light-green"></i>
+                                                    &nbsp;
+                                                    <span class="white">Alex M. Doe</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /section:custom/widget-box -->
+            </div>
+            <div class="col-xs-12 col-sm-6 widget-container-col ui-sortable">
+                <!-- #section:custom/widget-box -->
+                <div class="widget-box ui-sortable-handle">
+                    <div class="widget-header">
+                        <h5 class="widget-title">处理后</h5>
+                    </div>
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div class="row">
+                                <div class="col-xs-12  center">
+                                    <div>
+                                        <!-- #section:pages/profile.picture -->
+                                        <span class="profile-picture">
+                                            <img id="avatar" class="editable img-responsive editable-click editable-empty" alt="Alex's Avatar" src="/content/assets/avatars/profile-pic.jpg" width="200" height="200" />
+                                        </span>
+                                        <!-- /section:pages/profile.picture -->
+                                        <div class="space-4"></div>
+                                        <div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
+                                            <div class="inline position-relative">
+                                                <a href="#" class="user-title-label dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="ace-icon fa fa-circle light-green"></i>
+                                                    &nbsp;
+                                                    <span class="white">Alex M. Doe</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /section:custom/widget-box -->
+            </div>
+        </div>
+    </script>
 </div>
-<script type="text/template" id="projectdetailtpl">
-    <div class="row">
-        <div class="profile-user-info profile-user-info-striped">
-            <div class="profile-info-row">
-                <div class="profile-info-name"> 处理类型：</div>
-                <div class="profile-info-value">
-                    <span class="editable editable-click">直属中队</span>
-                </div>
-            </div>
-            <div class="profile-info-row">
-                <div class="profile-info-name"> 派发时间： </div>
-                <div class="profile-info-value">
-                    <span class="editable editable-click">{{RacTime}} </span>
-                </div>
-                <div class="profile-info-name"> 受理时间： </div>
-                <div class="profile-info-value">
-                    <span class="editable editable-click">{{StartDate}} </span>
-                </div>
-            </div>
-            <div class="profile-info-row">
-                <div class="profile-info-name"> 终止时间： </div>
-                <div class="profile-info-value">
-                    <span class="editable editable-click">{{EndTime}}</span>
-                </div>
-                <div class="profile-info-name"> 剩余时间： </div>
-                <div class="profile-info-value">
-                    <span class="editable editable-click">{{LimitTime}}</span>
-                </div>
-            </div>
-            <div class="profile-info-row">
-                <div class="profile-info-name"> 问题来源： </div>
-                <div class="profile-info-value">
-                    <span class="editable editable-click">{{ProbSourceName}} </span>
-                </div>
-                <div class="profile-info-name"> 问题分类： </div>
-                <div class="profile-info-value">
-                    <span class="editable editable-click">{{ProbClassName}} </span>
-                </div>
-            </div>
-            <div class="profile-info-row">
-                <div class="profile-info-name"> 大类： </div>
-                <div class="profile-info-value">
-                    <span class="editable editable-click">{{BigClassName}} </span>
-                </div>
-                <div class="profile-info-name"> 小类： </div>
-                <div class="profile-info-value">
-                    <span class="editable editable-click">{{SmallClassName}}</span>
-                </div>
-            </div>
-            <div class="profile-info-row">
-                <div class="profile-info-name"> 监督员： </div>
-                <div class="profile-info-value">
-                    <span class="editable editable-click">{{Collecters[0].CollName}} </span>
-                </div>
-                <div class="profile-info-name"> 城管通号： </div>
-                <div class="profile-info-value">
-                    <span class="editable editable-click">{{Collecters[0].Mobile}}</span>
-                </div>
-            </div>
-            <div class="profile-info-row">
-                <div class="profile-info-name"> 所属街道： </div>
-                <div class="profile-info-value">
-                    <span class="editable editable-click"> {{Street}}</span>
-                </div>
-                <div class="profile-info-name"> 所属社区： </div>
-                <div class="profile-info-value">
-                    <span class="editable editable-click">{{Square}}</span>
-                </div>
-            </div>
-            <div class="profile-info-row">
-                <div class="profile-info-name"> 案卷号： </div>
-                <div class="profile-info-value">
-                    <span class="editable editable-click">{{ProjName}} </span>
-                </div>
-                <div class="profile-info-name"> XY坐标： </div>
-                <div class="profile-info-value">
-                    <span class="editable editable-click">{{Longitude}} </span>
-                    <span class="editable editable-click">{{Latitude}} </span>
-                </div>
-            </div>
-        </div>
-        <div class="profile-user-info profile-user-info-striped">
-            <div class="profile-info-row">
-                <div class="profile-info-name"> 事发位置： </div>
-                <div class="profile-info-value">
-                    <span class="editable editable-click">{{Address}}</span>
-                </div>
-            </div>
-            <div class="profile-info-row">
-                <div class="profile-info-name"> 情况描述： </div>
-                <div class="profile-info-value">
-                    <span class="editable editable-click"> {{ProbDesc}}</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12 col-sm-6 widget-container-col ui-sortable">
-            <!-- #section:custom/widget-box -->
-            <div class="widget-box ui-sortable-handle">
-                <div class="widget-header">
-                    <h5 class="widget-title">处理前</h5>
-                </div>
 
-                <div class="widget-body">
-                    <div class="widget-main">
-                        <div class="row">
-                            <div class="col-xs-12  center">
-                                <div>
-                                    <!-- #section:pages/profile.picture -->
-                                    <span class="profile-picture">
-                                        <img id="avatar" class="editable img-responsive editable-click editable-empty" alt="Alex's Avatar" src="/content/assets/avatars/profile-pic.jpg" width="200" height="200" />
-                                    </span>
-
-                                    <!-- /section:pages/profile.picture -->
-                                    <div class="space-4"></div>
-
-                                    <div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
-                                        <div class="inline position-relative">
-                                            <a href="#" class="user-title-label dropdown-toggle" data-toggle="dropdown">
-                                                <i class="ace-icon fa fa-circle light-green"></i>
-                                                &nbsp;
-                                                <span class="white">Alex M. Doe</span>
-                                            </a>
-
-                                            <ul class="align-left dropdown-menu dropdown-caret dropdown-lighter">
-                                                <li class="dropdown-header"> Change Status </li>
-
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="ace-icon fa fa-circle green"></i>
-                                                        &nbsp;
-                                                        <span class="green">Available</span>
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="ace-icon fa fa-circle red"></i>
-                                                        &nbsp;
-                                                        <span class="red">Busy</span>
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="ace-icon fa fa-circle grey"></i>
-                                                        &nbsp;
-                                                        <span class="grey">Invisible</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- /section:custom/widget-box -->
-        </div>
-
-        <div class="col-xs-12 col-sm-6 widget-container-col ui-sortable">
-            <!-- #section:custom/widget-box -->
-            <div class="widget-box ui-sortable-handle">
-                <div class="widget-header">
-                    <h5 class="widget-title">处理后</h5>
-                </div>
-
-                <div class="widget-body">
-                    <div class="widget-main">
-                        <div class="row">
-                            <div class="col-xs-12  center">
-                                <div>
-                                    <!-- #section:pages/profile.picture -->
-                                    <span class="profile-picture">
-                                        <img id="avatar" class="editable img-responsive editable-click editable-empty" alt="Alex's Avatar" src="/content/assets/avatars/profile-pic.jpg" width="200" height="200" />
-                                    </span>
-
-                                    <!-- /section:pages/profile.picture -->
-                                    <div class="space-4"></div>
-
-                                    <div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
-                                        <div class="inline position-relative">
-                                            <a href="#" class="user-title-label dropdown-toggle" data-toggle="dropdown">
-                                                <i class="ace-icon fa fa-circle light-green"></i>
-                                                &nbsp;
-                                                <span class="white">Alex M. Doe</span>
-                                            </a>
-
-                                            <ul class="align-left dropdown-menu dropdown-caret dropdown-lighter">
-                                                <li class="dropdown-header"> Change Status </li>
-
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="ace-icon fa fa-circle green"></i>
-                                                        &nbsp;
-                                                        <span class="green">Available</span>
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="ace-icon fa fa-circle red"></i>
-                                                        &nbsp;
-                                                        <span class="red">Busy</span>
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="ace-icon fa fa-circle grey"></i>
-                                                        &nbsp;
-                                                        <span class="grey">Invisible</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- /section:custom/widget-box -->
-        </div>
-    </div>
-</script>
 <script type="text/javascript">
     project.getProjectDetail('@(Request["projectcode"])','@(Request["year"])','@(Request["isend"])','@(Request["nodeid"])');
 </script>

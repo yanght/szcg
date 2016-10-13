@@ -1,0 +1,163 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="row">
+    <div class="col-xs-12">
+
+        <div class="widget-box widget-color-blue ui-sortable-handle" style="opacity: 1; z-index: 0;">
+            <!-- #section:custom/widget-box.options -->
+            <div class="widget-header">
+                <h5 class="widget-title bigger lighter">
+                    <i class="ace-icon fa fa-pencil-square-o"></i>
+                    填写问题信息
+                </h5>
+            </div>
+
+            <!-- /section:custom/widget-box.options -->
+            <div class="widget-body">
+                <div class="widget-main ">
+                    <form class="form-horizontal input-line" role="form" name="projectreport" id="projectreport" method="post" action="/project/ProjectReport">
+                        <!-- #section:elements.form -->
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 流程类型： </label>
+                            <div class="col-sm-4">
+                                <select class="form-control" id="form-field-select-1">
+                                    <option value="AL">Alabama</option>
+                                </select>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="IsNeedFeedBack" id="IsNeedFeedBack" type="checkbox" class="ace">
+                                        <span class="lbl"> 是否需要向公众回复</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 案卷编号：</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" name="Projcode" id="Projcode" placeholder="" class="form-control" />
+                            </div>
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 举报时间：</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" name="" id="" placeholder="" readonly />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 举报人：</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" name="ReportName" id="ReportName" placeholder="" class="form-control" />
+                            </div>
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 回复电话：</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" name="ReportTel" id="ReportTel" placeholder="" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 处理部门：</label>
+
+                            <div class="col-sm-4">
+                                <select class="form-control" name="TargetDepartCode" id="TargetDepartCode">
+                                    <option value="AL">Alabama</option>
+                                </select>
+                            </div>
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 问题来源：</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" name="ProbSource" id="ProbSource" placeholder="" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 问题类型：</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" name="TypeName" id="TypeName" placeholder="" class="form-control" />
+                                <input type="hidden" name="TypeCode" id="TypeCode" value="1" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 大类：</label>
+
+                            <div class="col-sm-4">
+                                <select class="form-control" id="BigClass" name="BigClass">
+                                    <option value="AL">Alabama</option>
+                                </select>
+                            </div>
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 小类：</label>
+
+                            <div class="col-sm-4">
+                                <select class="form-control" id="SmallClass" name="SmallClass">
+                                    <option value="AL">Alabama</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 市/街道/社区：</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" id="Area" placeholder="" class="form-control" />
+                                <input type="hidden" name="AreaId" id="AreaId" value="" />
+                                <input type="hidden" name="StreetId" id="StreetId" value="" />
+                                <input type="hidden" name="SquareId" id="SquareId" value="" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1">事发位置：</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" name="Address" id="Address" placeholder="" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 问题描述：</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" name="ProbDesc" id="ProbDesc" placeholder="" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="clearfix  form-actions" style="margin:0px;">
+                            <div class="col-md-offset-3 col-md-9">
+                                <button class="btn btn-info" type="submit">
+                                    <i class="ace-icon fa fa-check bigger-110"></i>
+                                    保存
+                                </button>
+
+                                &nbsp; &nbsp; &nbsp;
+                                <button class="btn" type="button" onclick="$(this).dialog('close');">
+                                    <i class="ace-icon fa fa-undo bigger-110"></i>
+                                    取消
+                                </button>
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="NodeId" id="NodeId" value="2" />
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- PAGE CONTENT BEGINS -->
+
+    </div><!-- /.col -->
+</div><!-- /.row -->
+
+<script type="text/javascript">
+    project.projectReport();
+</script>

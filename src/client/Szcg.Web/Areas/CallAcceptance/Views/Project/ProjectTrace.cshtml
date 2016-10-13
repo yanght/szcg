@@ -2,108 +2,70 @@
     Layout = null;
 }
 
-<div class="row">
-    <div class="col-xs-12">
-        <table id="sample-table-1" class="table table-striped table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th class="center">
-                        <label class="position-relative">
-                            <input type="checkbox" class="ace" />
-                            <span class="lbl"></span>
-                        </label>
-                    </th>
-                    <th>Domain</th>
-                    <th>Price</th>
-                    <th class="hidden-480">Clicks</th>
+<div id="projecttrace">
+    <script type="text/template" id="projecttracetpl">
 
-                    <th>
-                        <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
-                        Update
-                    </th>
-                    <th class="hidden-480">Status</th>
+        <div class="row">
+            {{each projectTrace as item i}}
+            {{if i==0}}
+            <div class="profile-user-info profile-user-info-striped">
+                <div class="profile-info-row">
+                    <div class="profile-info-name"> 案卷号： </div>
 
-                    <th></th>
-                </tr>
-            </thead>
+                    <div class="profile-info-value">
+                        <span class="editable editable-click" id="username">{{item.ProjName}}</span>
+                    </div>
+                    <div class="profile-info-name"> 职能部门： </div>
 
-            <tbody>
-                <tr>
-                    <td class="center">
-                        <label class="position-relative">
-                            <input type="checkbox" class="ace" />
-                            <span class="lbl"></span>
-                        </label>
-                    </td>
+                    <div class="profile-info-value">
+                        <span class="editable editable-click" id="username">{{item.TargetDepartName}}</span>
+                    </div>
+                    <div class="profile-info-name"> 当前阶段： </div>
 
-                    <td>
-                        <a href="#">ace.com</a>
-                    </td>
-                    <td>$45</td>
-                    <td class="hidden-480">3,330</td>
-                    <td>Feb 12</td>
+                    <div class="profile-info-value">
+                        <span class="editable editable-click" id="username">{{item.ActionName}}</span>
+                    </div>
 
-                    <td class="hidden-480">
-                        <span class="label label-sm label-warning">Expiring</span>
-                    </td>
+                </div>
+            </div>
+            {{/if}}
+            {{/each}}
+        </div>
 
-                    <td>
-                        <div class="hidden-sm hidden-xs btn-group">
-                            <button class="btn btn-xs btn-success">
-                                <i class="ace-icon fa fa-check bigger-120"></i>
-                            </button>
+        <div class="row">
+            <div class="col-xs-12">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>经办人</th>
+                            <th>受理部门</th>
+                            <th class="hidden-480">阶段</th>
+                            <th>意见 </th>
+                            <th class="hidden-480">受理时间</th>
+                            <th>办理时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{each projectTrace as item i}}
+                        <tr>
+                            <td>{{item.UserName}}</td>
+                            <td>{{item.DepartName}}</td>
+                            <td class="hidden-480">{{item.ActionName}}</td>
+                            <td>{{item._Opinion}}</td>
+                            <td class="hidden-480">{{item.StartDate}}</td>
+                            <td>{{item.Cu_Date}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-                            <button class="btn btn-xs btn-info">
-                                <i class="ace-icon fa fa-pencil bigger-120"></i>
-                            </button>
-
-                            <button class="btn btn-xs btn-danger">
-                                <i class="ace-icon fa fa-trash-o bigger-120"></i>
-                            </button>
-
-                            <button class="btn btn-xs btn-warning">
-                                <i class="ace-icon fa fa-flag bigger-120"></i>
-                            </button>
-                        </div>
-
-                        <div class="hidden-md hidden-lg">
-                            <div class="inline position-relative">
-                                <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown" data-position="auto">
-                                    <i class="ace-icon fa fa-cog icon-only bigger-110"></i>
-                                </button>
-
-                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-                                    <li>
-                                        <a href="#" class="tooltip-info" data-rel="tooltip" title="View">
-                                            <span class="blue">
-                                                <i class="ace-icon fa fa-search-plus bigger-120"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
-                                            <span class="green">
-                                                <i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
-                                            <span class="red">
-                                                <i class="ace-icon fa fa-trash-o bigger-120"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-
-
-            </tbody>
-        </table>
-    </div>
+    </script>
 </div>
+
+
+
+<script type="text/javascript">
+    project.getProjectTrace('@(Request["projectcode"])', '@(Request["year"])', '@(Request["isend"])');
+</script>

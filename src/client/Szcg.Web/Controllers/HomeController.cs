@@ -9,6 +9,7 @@ using szcg.com.teamax.business.entity;
 using System.Web.Security;
 using Newtonsoft.Json;
 using Szcg.Service.Common;
+using Szcg.Service.Model;
 
 namespace Szcg.Web.Controllers
 {
@@ -25,13 +26,17 @@ namespace Szcg.Web.Controllers
 
         public ActionResult Main()
         {
-            return View();
+            IPermissionService svc = new PermissionService();
+
+            List<FlowNodePower> list = svc.GetFlowNodePower(UserInfo.CurrentRole.ToString(), string.Empty, UserInfo.CurrentSystemId);
+
+            return View(list);
         }
       
         [HttpPost]
         public ActionResult Index(string username, string password)
         {
-            ChageRole("21");
+            ChageRole("11");
             return View();
         }
 
@@ -49,10 +54,8 @@ namespace Szcg.Web.Controllers
             UserInfo.CurrentRole = int.Parse(strRoleId);
 
             UserInfo.ModelPowers = new PermissionService().GetUserModelPower(systemId, UserInfo.getUsercode());
-
-            string strModels = new PermissionService().GetUserModelPower(systemId, UserInfo.getUsercode());
-
-            ResetUserCookie(systemId, strModels);
+           
+            ResetUserCookie(systemId, UserInfo.ModelPowers);
         }
 
         #region ResetUserCookie：重新设置Forms 身份验证票证

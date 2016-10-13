@@ -28,6 +28,10 @@ namespace Szcg.Web.Areas.CallAcceptance.Controllers
         {
             return View();
         }
+        public ActionResult ProjectReport()
+        {
+            return View();
+        }
 
     }
 }

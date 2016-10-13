@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Szcg.Web.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
 
         IPermissionService svc = new PermissionService();
@@ -87,6 +87,22 @@ namespace Szcg.Web.Controllers
                 ajax.RspCode = 0;
                 return ajax;
             }
+
+            return ajax;
+        }
+
+        /// <summary>
+        /// 获取所选定角色的可控制模块和具体操作动作
+        /// </summary>
+        /// <param name="systemId">系统编号</param>
+        /// <returns></returns>
+        public AjaxFxRspJson GetFlowNodePower()
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+           
+            List<FlowNodePower> list = svc.GetFlowNodePower(UserInfo.CurrentRole.ToString(), string.Empty, UserInfo.CurrentSystemId);
+
+            ajax.RspData.Add("nodepower", JToken.FromObject(list));
 
             return ajax;
         }
