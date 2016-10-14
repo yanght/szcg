@@ -26,6 +26,8 @@ namespace Szcg.Web.Controllers
 
         public ActionResult Main()
         {
+            ChageRole("11");
+
             IPermissionService svc = new PermissionService();
 
             List<FlowNodePower> list = svc.GetFlowNodePower(UserInfo.CurrentRole.ToString(), string.Empty, UserInfo.CurrentSystemId);

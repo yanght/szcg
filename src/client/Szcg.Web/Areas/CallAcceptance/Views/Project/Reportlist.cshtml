@@ -59,10 +59,6 @@
                         <button type="reset" class="btn btn-info btn-sm">
                             重置
                         </button>
-                        <a data-url="page/faq" href="main.html#page/faq" class="EditButton">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            FAQ
-                        </a>
                     </form>
 
                 </div>
@@ -97,10 +93,7 @@
                                 <th>计时</th>
                                 <th>督办</th>
                                 <th class="hidden-480">来源</th>
-                                <th>
-                                    <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
-                                    案卷号
-                                </th>
+                                <th><i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i> 案卷号</th>
                                 <th>分类</th>
                                 <th>大类</th>
                                 <th>小类</th>
@@ -141,16 +134,13 @@
             //日历控件初始化
             $('.input-daterange').datepicker({ autoclose: true, language: 'zh-CN', });
 
-            var table = project.initDelProjectTable('@Request["modelcode"]');
+            var table = project.initDelProjectTable('@Request["modelcode"]', '@Request["buttoncode"]','@Request["nodeid"]');
 
             $("#query").click(function () {
                 project.GetDelProjectList(table);
             })
 
         });
-
-
-
 
         project.getareaList();
 

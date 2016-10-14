@@ -22,8 +22,7 @@ utils.httpClient = function (url, requestType, args, callback) {
 }
 
 //模态弹出框
-utils.dialog = function (obj, title, width, height) {
-
+utils.dialog = function (obj, title, width, height,callback) {
     //override dialog's title function to allow for HTML titles
     $.widget("ui.dialog", $.extend({}, $.ui.dialog.prototype, {
         _title: function (title) {
@@ -39,15 +38,16 @@ utils.dialog = function (obj, title, width, height) {
     if (url == undefined || url == "") return;
 
     $.get(url, function (data) {
-     
-        //$("#dialog").html(data);
 
-        var dialog = $("<div>" + data + "</div>").appendTo("body").dialog({
+        dialog = $("<div style='margin-bottom:20px;'>" + data + "</div>").appendTo("body").dialog({
             modal: true,
             width: width,
-            height:height,
+            height: height,
             title: "<div class='widget-header widget-header-small'><h4 class='smaller'> " + title + "</h4></div>",
             title_html: true,
+            close: function () {
+                $(this).dialog("destroy").remove();
+            },
             buttons: [
                 //{
                 //    text: "取消",
@@ -65,8 +65,11 @@ utils.dialog = function (obj, title, width, height) {
                 //}
             ]
         });
+        if (callback)
+        {
+            callback(dialog);
+        }        
     })
-
 }
 
 //确认提醒框
@@ -81,11 +84,16 @@ utils.alert = function (message, okcallback) {
         }
     }));
 
-    $("<div style=\"text-align:center\">" + message + "</div>").appendTo("body").dialog({
+    var diaDiv =$("<div style=\"text-align:center\">" + message + "</div>");
+
+    diaDiv.dialog({
         resizable: false,
         modal: true,
         title: "<div class='widget-header'><h4 class='smaller'><i class='ace-icon fa fa-exclamation-triangle red'></i>提醒</h4></div>",
         title_html: true,
+        close: function () {
+            $(this).dialog("destroy").remove();
+        },
         buttons: [
             {
                 html: "<i class='ace-icon fa fa-trash-o bigger-110'></i> 确定",
@@ -114,11 +122,17 @@ utils.confirm = function (message, okcallback) {
         }
     }));
 
-    $("<div style=\"text-align:center\">" + message + "</div>").appendTo("body").dialog({
+
+    var diaDiv = $("<div style=\"text-align:center\">" + message + "</div>");
+
+    diaDiv.dialog({
         resizable: false,
         modal: true,
         title: "<div class='widget-header'><h4 class='smaller'><i class='ace-icon fa fa-exclamation-triangle red'></i> title</h4></div>",
         title_html: true,
+        close: function () {
+            $(this).dialog("destroy").remove();
+        },
         buttons: [
             {
                 html: "<i class='ace-icon fa fa-trash-o bigger-110'></i> 确定",
@@ -146,6 +160,6 @@ utils.getFormatDate = function (str, fomat) {
     var d = eval('new ' + str.substr(1, str.length - 2));
     var ar_date = [d.getFullYear(), d.getMonth() + 1, d.getDate(), d.getHours(), d.getMinutes(), d.getSeconds()];
     for (var i = 0; i < ar_date.length; i++) ar_date[i] = dFormat(ar_date[i]);
-    return ar_date.slice(0, 3).join('-') +" "+ ar_date.slice(3, 6).join(':');
+    return ar_date.slice(0, 3).join('-') + " " + ar_date.slice(3, 6).join(':');
     function dFormat(i) { return i < 10 ? "0" + i.toString() : i; }
 }

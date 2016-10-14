@@ -447,8 +447,8 @@
                             int index = 0;
                             foreach (var power in powers)
                             {
-                                <li >
-                                    <a data-url="callacceptance/project/reportlist?modelcode=@(power.ModelCode)" href="main.html#callacceptance/project/reportlist?modelcode=@(power.ModelCode)">
+                                <li>
+                                    <a data-url="callacceptance/project/reportlist?modelcode=@(power.ModelCode)" href="main.html#callacceptance/project/reportlist?modelcode=@(power.ModelCode)&buttoncode=@(power.ButtonCode)&nodeid=@(power.NodeId)">
                                         <i class="menu-icon fa fa-caret-right"></i>
                                         @power.ShowName
                                     </a>
@@ -885,6 +885,11 @@
             <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
         </a>
     </div><!-- /.main-container -->
+
+
+    <div id="alertDiv"></div>
+    <div id="confirmDiv"></div>
+
 
     <!-- basic scripts -->
     <!--[if !IE]> -->

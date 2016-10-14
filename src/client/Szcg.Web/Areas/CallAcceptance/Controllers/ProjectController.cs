@@ -28,10 +28,24 @@ namespace Szcg.Web.Areas.CallAcceptance.Controllers
         {
             return View();
         }
-        public ActionResult ProjectReport()
+        public ActionResult ProjectReport(string projectcode, string year, string isend, string nodeid)
         {
             return View();
         }
 
+        public ActionResult SelectDepart()
+        {
+            return View();
+        }
+
+        public ActionResult SelectProjectClass()
+        {
+            return View();
+        }
+
+        public ActionResult SelectArea()
+        {
+            return View();
+        }
     }
 }

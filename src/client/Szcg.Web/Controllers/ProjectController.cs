@@ -10,6 +10,7 @@ using Szcg.Service.IBussiness;
 using Szcg.Service.Model;
 using Teamax.Common;
 using Szcg.Web;
+using Szcg.Web.Models;
 
 namespace Szcg.Web.Controllers
 {
@@ -33,6 +34,11 @@ namespace Szcg.Web.Controllers
         public AjaxFxRspJson ProjectReport(Szcg.Service.Model.Project project)
         {
             AjaxFxRspJson ajax = ValidateProject(project);
+
+            if (project.NodeId == 0)
+            {
+                project.NodeId = 2;
+            }
 
             if (ajax.RspCode == 0) return ajax;
 
@@ -788,6 +794,41 @@ namespace Szcg.Web.Controllers
 
         #region [ 区域相关 ]
 
+        public AjaxFxRspJson GetAreaTree()
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            List<TreeModel> treeModel = new List<TreeModel>();
+
+            List<Area> list_Area = svc.GetAreaList();
+
+            foreach (Area area in list_Area)
+            {
+                if (area.AreaName == "全部") continue;
+
+                treeModel.Add(new TreeModel() { id = area.AreaCode, name = area.AreaName, pId = "0", open = true });
+                List<Street> list_Street = svc.GetStreetList(area.AreaCode);
+
+                foreach (Street street in list_Street)
+                {
+                    if (street.StreetName == "全部") continue;
+                    treeModel.Add(new TreeModel() { id = street.StreetCode, name = street.StreetName, pId = area.AreaCode });
+                    List<Community> list_Community = svc.GetCommunityList(area.AreaCode, street.StreetCode);
+
+                    foreach (Community community in list_Community)
+                    {
+                        if (community.CommName == "全部") continue;
+                        treeModel.Add(new TreeModel() { id = community.CommCode, name = community.CommName, pId = street.StreetCode });
+                    }
+                }
+
+                // 
+            }
+            ajax.RspData.Add("areaTree", JToken.FromObject(treeModel));
+            return ajax;
+        }
+
+
         /// <summary>
         /// 获取区域列表
         /// </summary>
@@ -883,6 +924,61 @@ namespace Szcg.Web.Controllers
             List<ProjectSmallClass> smallclass = svc.GetSmallClassList(classType, bigclassCode);
 
             ajax.RspData.Add("smallclass", JToken.FromObject(smallclass));
+
+            return ajax;
+        }
+
+        #endregion
+
+        #region [ 获取大小类属性结构 ]
+
+        public AjaxFxRspJson GetProjectClassTree()
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            List<TreeModel> treemodel = new List<TreeModel>();
+
+            treemodel.Add(new TreeModel() { id = "0", pId = "-1", name = "部件", open = true });
+            treemodel.Add(new TreeModel() { id = "1", pId = "-1", name = "事件", open = true });
+
+            List<ProjectBigClass> bigclass_part = svc.GetBigClassList("0");
+            List<ProjectBigClass> bigclass_event = svc.GetBigClassList("1");
+
+            foreach (var item in bigclass_part)
+            {
+                if (item.Name != "全部")
+                {
+                    treemodel.Add(new TreeModel() { id = item.BigClassCode + "_" + 0, pId = "0", name = item.Name });
+                    List<ProjectSmallClass> smallclass = svc.GetSmallClassList("0", item.BigClassCode);
+                    foreach (var s_class in smallclass)
+                    {
+                        if (s_class.Name != "全部")
+                        {
+                            treemodel.Add(new TreeModel() { id = s_class.SmallCallCode, pId = item.BigClassCode + "_" + 0, name = s_class.Name });
+                        }
+                    }
+                }
+
+            }
+
+
+            foreach (var item in bigclass_event)
+            {
+                if (item.Name != "全部")
+                {
+                    treemodel.Add(new TreeModel() { id = item.BigClassCode + "_" + 1, pId = "1", name = item.Name });
+                    List<ProjectSmallClass> smallclass = svc.GetSmallClassList("1", item.BigClassCode);
+                    foreach (var s_class in smallclass)
+                    {
+                        if (s_class.Name != "全部")
+                        {
+                            treemodel.Add(new TreeModel() { id = s_class.SmallCallCode, pId = item.BigClassCode + "_" + 1, name = s_class.Name });
+                        }
+                    }
+                }
+            }
+
+            ajax.RspData.Add("projectclass", JToken.FromObject(treemodel));
 
             return ajax;
         }

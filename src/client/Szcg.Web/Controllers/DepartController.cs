@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using Szcg.Service.Bussiness;
 using Szcg.Service.IBussiness;
 using Szcg.Service.Model;
+using Szcg.Web.Models;
 using Teamax.Common;
 
 namespace Szcg.Web.Controllers
@@ -31,10 +32,23 @@ namespace Szcg.Web.Controllers
         public AjaxFxRspJson GetDepartList()
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+            List<TreeModel> tree = new List<TreeModel>();
 
             List<Depart> departs = svc.GetDepartList(UserInfo.getAreacode(), UserInfo.getDepartcode().ToString(), UserInfo.getUsercode().ToString());
 
-            ajax.RspData.Add("departs", JToken.FromObject(departs));
+            foreach (var item in departs)
+            {
+                TreeModel depart = new TreeModel()
+                {
+                    id = item.DepartCode,
+                    pId = item.ParentCode,
+                    name = item.DepartName
+                };
+                tree.Add(depart);
+            }
+
+
+            ajax.RspData.Add("departs", JToken.FromObject(tree));
 
             return ajax;
         }
@@ -172,7 +186,7 @@ namespace Szcg.Web.Controllers
         }
 
         #endregion
-                
+
         /// <summary>
         /// 检查部门名称字符合法性
         /// </summary>
