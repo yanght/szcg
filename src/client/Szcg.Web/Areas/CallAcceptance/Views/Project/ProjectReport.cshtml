@@ -2,11 +2,8 @@
     Layout = null;
 }
 
-
-
 <div class="row">
     <div class="col-xs-12">
-
         <div class="widget-box widget-color-blue ui-sortable-handle" style="opacity: 1; z-index: 0;">
             <!-- #section:custom/widget-box.options -->
             <div class="widget-header">
@@ -15,7 +12,6 @@
                     填写问题信息
                 </h5>
             </div>
-
             <!-- /section:custom/widget-box.options -->
             <div class="widget-body">
                 <div class="widget-main ">
@@ -29,7 +25,6 @@
                                         <select class="form-control" id="form-field-select-1">
                                             <option value="1">标准流程</option>
                                         </select>
-
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="checkbox">
@@ -44,70 +39,70 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 案卷编号：</label>
-
                                     <div class="col-sm-4">
                                         <input type="text" name="ProjName" id="ProjName" placeholder="" class="form-control" readonly value="{{ProjName}}" />
                                         <input type="hidden" name="Projcode" id="Projcode" value="{{Projcode}}" />
                                     </div>
                                     <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 举报时间：</label>
-
                                     <div class="col-sm-4">
+                                        {{if Projcode==null}}
                                         <input type="text" readonly class="form-control" value="@(DateTime.Now.ToString("yyyy-MM-dd hh:MM:ss"))" />
+                                        {{else}}
+                                        <input type="text" readonly class="form-control" value="{{StartDate}}" />
+                                        {{/if}}
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 举报人：</label>
-
                                     <div class="col-sm-4">
-                                        <input type="text" name="ReportName" id="ReportName" placeholder="" class="form-control" value="{{ReportName}}" />
+                                        <input type="text" name="ReportName" id="ReportName" placeholder="" class="form-control" value="{{ImpeachName}}" />
                                     </div>
                                     <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 回复电话：</label>
-
                                     <div class="col-sm-4">
-                                        <input type="text" name="ReportTel" id="ReportTel" placeholder="" class="form-control" value="{{ReportTel}}" />
+                                        <input type="text" name="ReportTel" id="ReportTel" placeholder="" class="form-control" value="{{ImpeachTel}}" />
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 处理部门：</label>
-
                                     <div class="col-sm-4">
                                         <span class="input-icon input-icon-right">
-                                            <input type="text" name="TargetDepartName" id="TargetDepartName" data-url="/callAcceptance/project/SelectDepart">
-                                            <input type="hidden" name="TargetDepartCode" id="TargetDepartCode" />
+                                            <input type="text" name="TargetDepartName" id="TargetDepartName" data-url="/callAcceptance/project/SelectDepart" value="{{TargetDepartName}}">
+                                            <input type="hidden" name="TargetDepartCode" id="TargetDepartCode" value="{{TargetDepartCode}}" />
                                             <i class="ace-icon fa fa-plus-circle bigger-120  blue"></i>
                                         </span>
                                     </div>
                                     <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 问题来源：</label>
-
                                     <div class="col-sm-4">
-                                        <input type="text" name="ProbSourceName" id="ProbSourceName" placeholder="" class="form-control" value="{{ProbSourceName}}" />+
-                                        <input type="hidden" id="ProbSource" name="ProbSource" value="{{ProbSource}}" />
+                                        <select class="form-control" id="ProbSource" name="ProbSource">
+                                            <option value="11">电话举报</option>
+                                        </select>
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 大小类：</label>
-
                                     <div class="col-sm-10">
                                         <span class="input-icon input-icon-right col-sm-12">
+                                            {{if Projcode==null}}
+                                            <input type="text" name="projectclass" id="projectclass" data-url="/callAcceptance/project/SelectProjectClass" class="form-control" value="" />
+                                            {{else}}
                                             <input type="text" name="projectclass" id="projectclass" data-url="/callAcceptance/project/SelectProjectClass" class="form-control" value="{{BigClassName}}/{{SmallClassName}}" />
+                                            {{/if}}
                                             <input type="hidden" name="BigClass" id="BigClass" value="{{BigClass}}" />
                                             <input type="hidden" name="SmallClass" id="SmallClass" value="{{SmallClass}}" />
                                             <i class="ace-icon fa fa-plus-circle bigger-120  blue"></i>
                                         </span>
                                     </div>
-
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 问题类型：</label>
-
                                     <div class="col-sm-10">
+                                        {{if Projcode==null}}
+                                        <input type="text" name="TypeName" id="TypeName" placeholder="" class="form-control" readonly value="" />
+                                        {{else}}
                                         <input type="text" name="TypeName" id="TypeName" placeholder="" class="form-control" readonly value="{{ProbClassName}}" />
+                                        {{/if}}
                                         {{if ProbClassName=="部件"}}
                                         <input type="hidden" name="TypeCode" id="TypeCode" value="0" />
                                         {{else}}
@@ -117,64 +112,62 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 市/街道/社区：</label>
-
                                     <div class="col-sm-10">
                                         <span class="input-icon input-icon-right col-sm-12">
+                                            {{if Projcode==null}}
+                                            <input type="text" name="areaName" id="areaName" class="form-control" data-url="/callAcceptance/project/SelectArea" value="">
+                                            {{else}}
                                             <input type="text" name="areaName" id="areaName" class="form-control" data-url="/callAcceptance/project/SelectArea" value="{{Area}}/{{Street}}/{{Square}}">
+                                            {{/if}}
                                             <i class="ace-icon fa fa-plus-circle bigger-120  blue"></i>
                                         </span>
                                         <input type="hidden" name="AreaId" id="AreaId" value="{{AreaId}}" />
-                                        <input type="hidden" name="StreetId" id="StreetId" value="{{331125001}}" />
-                                        <input type="hidden" name="SquareId" id="SquareId" value="{{331125001001}}" />
+                                        <input type="hidden" name="StreetId" id="StreetId" value="{{StreetId}}" />
+                                        <input type="hidden" name="SquareId" id="SquareId" value="{{SquareId}}" />
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1">事发位置：</label>
-
                                     <div class="col-sm-10">
                                         <input type="text" name="Address" id="Address" placeholder="" class="form-control" value="{{Address}}" />
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 问题描述：</label>
-
                                     <div class="col-sm-10">
                                         <input type="text" name="ProbDesc" id="ProbDesc" placeholder="" class="form-control" value="{{ProbDesc}}" />
                                     </div>
                                 </div>
-
                                 <input type="hidden" name="NodeId" id="NodeId" value="{{NodeId}}" />
-
+                                <input type="hidden" name="ButtonCode" id="ButtonCode" value="@(Request["buttoncode"])" />
+                                <input type="hidden" name="ModelCode" id="ModelCode" value="@(Request["mode"])" />
                             </script>
                         </div>
                         <div class="clearfix  form-actions" style="margin:0px;">
-                            <div class="col-md-offset-3 col-md-9">
+                            <div class="col-md-offset-1 col-md-12">
                                 <button class="btn btn-info" type="submit">
                                     <i class="ace-icon fa fa-check bigger-110"></i>
                                     保存
                                 </button>
-
                                 &nbsp; &nbsp; &nbsp;
-                                <button class="btn" type="button" onclick="$(this).dialog('close');">
+                                <button class="btn btn-info" type="button" id="projectPz">
+                                    <i class="ace-icon fa fa-check bigger-110"></i>
+                                    批转
+                                </button>
+                                &nbsp; &nbsp; &nbsp;
+                                <button class="btn" type="button" id="cancle">
                                     <i class="ace-icon fa fa-undo bigger-110"></i>
                                     取消
                                 </button>
                             </div>
                         </div>
 
-
                     </form>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
-
-
-
 
 
 <script type="text/javascript">

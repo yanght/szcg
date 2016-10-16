@@ -40,7 +40,7 @@ namespace Szcg.Web.Controllers
             {
                 TreeModel depart = new TreeModel()
                 {
-                    id = item.DepartCode,
+                    id = item.UserDefinedCode,
                     pId = item.ParentCode,
                     name = item.DepartName
                 };
@@ -48,6 +48,26 @@ namespace Szcg.Web.Controllers
             }
 
 
+            ajax.RspData.Add("departs", JToken.FromObject(tree));
+
+            return ajax;
+        }
+
+        public AjaxFxRspJson GetDutyDepartTree(string typecode="0")
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+            List<TreeModel> tree = new List<TreeModel>();
+            List<Depart> departs = svc.GetDutyDepart(UserInfo.getAreacode(), typecode);
+            foreach (var item in departs)
+            {
+                TreeModel depart = new TreeModel()
+                {
+                    id = item.UserDefinedCode,
+                    pId = item.ParentCode,
+                    name = item.DepartName
+                };
+                tree.Add(depart);
+            }
             ajax.RspData.Add("departs", JToken.FromObject(tree));
 
             return ajax;

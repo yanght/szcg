@@ -307,7 +307,14 @@ namespace Szcg.Service.Model
         /// 处理类型
         /// </summary>
         public int ProcessType { get; set; }
+        /// <summary>
+        /// 处理部门编码
+        /// </summary>
         public int TargetDepartCode { get; set; }
+        /// <summary>
+        /// 处理部门名称
+        /// </summary>
+        public string TargetDepartName { get; set; }
         /// <summary>
         /// 结果反馈的专业部门
         /// </summary>

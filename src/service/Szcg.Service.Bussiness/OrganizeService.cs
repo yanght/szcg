@@ -394,6 +394,48 @@ namespace Szcg.Service.Bussiness
         }
 
         /// <summary>
+        /// 获取职能部门列表
+        /// </summary>
+        /// <param name="areacode">区域编码</param>
+        /// <param name="typecode">案卷类型</param>
+        /// <returns></returns>
+        public List<Depart> GetDutyDepart(string areacode, string typecode)
+        {
+            string smallclass = "";
+            string strGreat = "0";
+            string streetcode = "";
+            string iSFristDepart = "1";
+            iSFristDepart = "1";//默认是显示主部门
+            //现行数据库中取出的type为True/False ,不符合1/0判定标准,暂做如下调整(WJ_add 07-10-29)
+            if (typecode.Equals("True"))
+                typecode = "1";
+            else
+                typecode = "0";
+            string strAreaCode = areacode;
+
+            if (smallclass != "" && typecode != "" || strGreat != "")
+            {
+                string strErr = "";
+                DataSet ds = bacgBL.business.Project.GetDutyDepart(strAreaCode, typecode, smallclass, "", out strErr);
+                if (strErr != "")
+                {
+                    //this.MessageBox(string.Format("加载数据出错！\\n{0}", strErr));
+                    //return;     
+                }
+                string StrWhere = "1=1";
+                if (iSFristDepart != "1")
+                    StrWhere = "parentcode<>0";
+                else
+                    StrWhere = "parentcode=0";// and area='330483'
+                ds.Tables[0].DefaultView.RowFilter = StrWhere;
+                DataTable dt = ds.Tables[0].DefaultView.ToTable();
+                List<Depart> list = ConvertDtHelper<Depart>.GetModelList(dt);
+                return list;
+            }
+            return new List<Depart>();
+        }
+
+        /// <summary>
         /// 检查部门名称是否存在
         /// </summary>
         /// <param name="parentDepartId">父级部门Id</param>

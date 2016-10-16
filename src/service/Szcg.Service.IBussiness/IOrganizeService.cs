@@ -85,6 +85,14 @@ namespace Szcg.Service.IBussiness
         List<Depart> GetDepartList(string areaCode, string departCode, string userCode);
 
         /// <summary>
+        /// 获取职能部门列表
+        /// </summary>
+        /// <param name="areacode">区域编码</param>
+        /// <param name="typecode">案卷类型</param>
+        /// <returns></returns>
+        List<Depart> GetDutyDepart(string areacode, string typecode);
+
+        /// <summary>
         /// 检查部门名称是否存在
         /// </summary>
         /// <param name="parentDepartId">父级部门Id</param>

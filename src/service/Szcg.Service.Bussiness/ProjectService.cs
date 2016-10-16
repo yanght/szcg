@@ -499,7 +499,7 @@ namespace Szcg.Service.Bussiness
             //prj.detailedclass = this.txt_khxzid.Value;
             prj.area = project.AreaId;
             prj.street = project.StreetId;
-            prj.square = project.StreetId;
+            prj.square = project.SquareId;
             prj.gridcode = project.GrideCode; //基础网格（单元网格）
             prj.WorkGrid = project.WorkGrid; //工作网格
             prj.address = project.Address;
@@ -521,6 +521,11 @@ namespace Szcg.Service.Bussiness
             //    psi.name = this.txt_PublicName.Text;
             //    psi.tel = this.txt_RetTel.Text;
             //}
+            psi.name = project.ReportName;
+            psi.tel = project.ReportTel;
+            psi.accept = userInfo.getUsercode().ToString();
+            psi.ip = "";
+
 
             bacgBL.business.Project.UpdateProject(prj, psi, out strErr);
             if (string.IsNullOrEmpty(strErr))
@@ -620,6 +625,22 @@ namespace Szcg.Service.Bussiness
             pt.DepartCode = userInfo.getDepartcode().ToString();
             pt._opinion = "普通案件，接线员批转";
             pt.returntracetag = "0";
+
+            //判断是否改变流程
+            //if (Convert.ToString(drpWrokFlowType.SelectedValue) == GetPageWorkFlowType(project.ButtonCode))
+            //{
+            //    //判断是否为一般案卷-- 需要修改DropAjlx.SelectedValue
+            //    if ("1" == "0")
+            //        pt.buttoncode = "11100003016";//pt.buttoncode = "11900003016";
+            //    else
+                   pt.buttoncode = project.ButtonCode;
+
+            //}
+            //else
+            //{
+                //如果改变了流程，获得对应流程开始节点的ButtonId
+               // pt.buttoncode = GetChangeFlowButtonId("8");
+            //}
 
             bacgBL.business.Project.ChangeProjectFlowNode(pt, out strErr);
             rtn = string.IsNullOrEmpty(strErr);

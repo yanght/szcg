@@ -77,8 +77,8 @@ project.getcommounityList = function getcommounityList(areacode, streetcode) {
     });
 }
 
-//刷新待办案卷列表
-project.GetDelProjectList = function GetDelProjectList(table) {
+//刷举报栏待办案卷列表
+project.GetDelProjectList = function GetDelProjectList(modelcode, buttoncode, nodeid, table) {
 
     var json = {
         AreaId: $("select[name='AreaId']").val(),
@@ -87,8 +87,8 @@ project.GetDelProjectList = function GetDelProjectList(table) {
         startTime: $("input[name='startTime']").val(),
         endTime: $("input[name='endTime']").val(),
         Projcode: $("input[name='Projcode']").val(),
-        NodeId: 3,
-        ButtonCode: 11100030,
+        NodeId: nodeid,
+        ButtonCode: buttoncode,
     };
     var url = '/project/GetDelProjectList';
     var parm = "?AreaId=" + json.AreaId + "&StreetId=" + json.StreetId + "&SquareId=" + json.SquareId + "&startTime=" + json.startTime + "&endTime=" + json.endTime + "&Projcode=" + json.Projcode + "&NodeId=" + json.NodeId + "&ButtonCode=" + json.ButtonCode;
@@ -99,19 +99,7 @@ project.GetDelProjectList = function GetDelProjectList(table) {
 
 }
 
-//获取当前页面操作按钮
-project.GetFlowNodePower = function GetFlowNodePower(callback) {
-    utils.httpClient("/account/GetFlowNodePower", "post", null, function (data) {
-        if (data.RspCode == 1) {
-            callback(data.RspData.nodepower);
-        } else {
-            utils.alert(data.RspMsg);
-        }
-
-    });
-}
-
-//获取代办案卷列表
+//获取举报栏代办案卷列表
 project.initDelProjectTable = function (modelcode, buttoncode, nodeid) {
     var json = {
         AreaId: $("select[name='AreaId']").val(),
@@ -210,7 +198,7 @@ project.initDelProjectTable = function (modelcode, buttoncode, nodeid) {
 
                           $.each(optionNames, function (index, item) {
                               html += '  <li onclick=project.operateProject("' + item.ButtonId + '","' + full.Projcode + '","' + item.ButtonCode + '","' + full.NodeId + '","' + full.StartYear + '","' + full.IsEnd + '")>';
-                              html += '    <a href="#" class="tooltip-info" data-rel="tooltip" title="View">';
+                              html += '    <a href="javascript:;" class="tooltip-info" data-rel="tooltip" title="View">';
                               html += '  <span class="blue"><i class="ace-icon fa fa-pencil bigger-130"></i> ' + item.ShowName + '</span>';
                               html += ' </a>';
                               html += ' </li>';
@@ -242,6 +230,18 @@ project.initDelProjectTable = function (modelcode, buttoncode, nodeid) {
     return oTable1;
 }
 
+//获取当前页面操作按钮
+project.GetFlowNodePower = function GetFlowNodePower(callback) {
+    utils.httpClient("/account/GetFlowNodePower", "post", null, function (data) {
+        if (data.RspCode == 1) {
+            callback(data.RspData.nodepower);
+        } else {
+            utils.alert(data.RspMsg);
+        }
+
+    });
+}
+
 
 //案卷上报
 project.projectReport = function projectReport(dialog) {
@@ -249,8 +249,10 @@ project.projectReport = function projectReport(dialog) {
     $('#projectreport').submit(function () {
         utils.httpClient(this.action, this.method, $(this).serialize(), function (data) {
             if (data.RspCode == 1) {
+                dialog.dialog("destroy").remove();
                 utils.alert("案卷上报成功!", function () {
-                    dialog.dialog("destroy").remove();
+                    var table = $('#projectlistTB').DataTable();
+                    table.ajax.reload();
                 });
             } else {
                 utils.alert(data.RspMsg);
@@ -258,6 +260,28 @@ project.projectReport = function projectReport(dialog) {
         });
         return false;
     });
+
+    $("#cancle").click(function () {
+        dialog.dialog("destroy").remove();
+    })
+}
+
+project.projectPz = function projectPz(dialog) {
+    $('#projectPz').click(function () {
+        utils.httpClient("/project/ProjectApproved", "post", $("#projectreport").serialize(), function (data) {
+            if (data.RspCode == 1) {
+                dialog.dialog("destroy").remove();
+                utils.alert("案卷批转成功!", function () {
+                    var table = $('#projectlistTB').DataTable();
+                    table.ajax.reload();
+                });
+            } else {
+                utils.alert(data.RspMsg);
+            }
+        });
+        return false;
+    });
+
 }
 
 
@@ -304,13 +328,29 @@ project.getProjectTrace = function (projectcode, year, isend) {
 
 //跳转至案卷登记页
 project.operateProject = function operateProject(buttonid, projcode, buttoncode, nodeid, year, isend) {
-    if (buttonid == "img_ajbl") {
-        var url = "/CallAcceptance/project/projectreport?projectcode=" + projcode + "&buttoncode=" + buttoncode + "&year=" + year + "&nodeid=" + nodeid + "&isend=" + isend;
-        $(this).attr("data-url", url);
-        utils.dialog(this, "案卷上报", 600, 720, function (dialog) {
-            project.projectReport(dialog);
-        });
+    switch (buttonid) {
+        case "img_ajbl":
+
+            var url = "/CallAcceptance/project/projectreport?projectcode=" + projcode + "&buttoncode=" + buttoncode + "&year=" + year + "&nodeid=" + nodeid + "&isend=" + isend;
+            $(this).attr("data-url", url);
+            utils.dialog(this, "案卷上报", 600, 720, function (dialog) {
+                project.projectReport(dialog);
+                project.projectPz(dialog);
+            });
+
+            break;
+        case "img_PZ":
+
+            var url = "/CallAcceptance/project/ProjectApprovedView?projectcode=" + projcode + "&buttoncode=" + buttoncode + "&year=" + year + "&nodeid=" + nodeid + "&isend=" + isend;
+            $(this).attr("data-url", url);
+            utils.dialog(this, "案卷批转", 600, 720, function (dialog) {
+                project.projectReport(dialog);
+                project.projectPz(dialog);
+            });
+
+            break;
     }
+
 }
 
 //获取案卷上报详情
@@ -344,7 +384,7 @@ project.getProjectReportDetail = function getProjectReportDetail(projectcode, ye
                             onClick: onClick
                         }
                     };
-                    utils.httpClient("/depart/getdepartlist", "post", null, function (data) {
+                    utils.httpClient("/depart/GetDutyDepartTree", "post", null, function (data) {
                         if (data.RspCode == 1) {
 
                             zNodes = data.RspData.departs;

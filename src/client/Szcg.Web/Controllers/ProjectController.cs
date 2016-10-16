@@ -101,25 +101,25 @@ namespace Szcg.Web.Controllers
 
         #region [ 受理员案卷批转 ]
 
-        [HttpPost]
-        public AjaxFxRspJson ProjectApproved(ProjectApprovedArgs args)
-        {
-            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
-            if (string.IsNullOrEmpty(args.Option))
-            {
-                ajax.RspCode = 0;
-                ajax.RspMsg = "请输入批转意见！";
-                return ajax;
-            }
+        //[HttpPost]
+        //public AjaxFxRspJson ProjectApproved(ProjectApprovedArgs args)
+        //{
+        //    AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+        //    if (string.IsNullOrEmpty(args.Option))
+        //    {
+        //        ajax.RspCode = 0;
+        //        ajax.RspMsg = "请输入批转意见！";
+        //        return ajax;
+        //    }
 
-            if (!svc.ProjectApproved(args))
-            {
-                ajax.RspCode = 0;
-                ajax.RspMsg = "受理员案卷批转失败！";
-                return ajax;
-            }
-            return ajax;
-        }
+        //    if (!svc.ProjectApproved(args))
+        //    {
+        //        ajax.RspCode = 0;
+        //        ajax.RspMsg = "受理员案卷批转失败！";
+        //        return ajax;
+        //    }
+        //    return ajax;
+        //}
 
         #endregion
 
