@@ -44,6 +44,7 @@ namespace Szcg.Service.Model
         /// 批转意见
         /// </summary>
         public string Option { get; set; }
+       
     }
 
     /// <summary>

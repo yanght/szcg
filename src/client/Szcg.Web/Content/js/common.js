@@ -22,7 +22,7 @@ utils.httpClient = function (url, requestType, args, callback) {
 }
 
 //模态弹出框
-utils.dialog = function (obj, title, width, height,callback) {
+utils.dialog = function (obj, title, width, height, buttons) {
     //override dialog's title function to allow for HTML titles
     $.widget("ui.dialog", $.extend({}, $.ui.dialog.prototype, {
         _title: function (title) {
@@ -48,29 +48,68 @@ utils.dialog = function (obj, title, width, height,callback) {
             close: function () {
                 $(this).dialog("destroy").remove();
             },
-            buttons: [
-                //{
-                //    text: "取消",
-                //    "class": "btn btn-xs",
-                //    click: function () {
-                //        $(this).dialog("close");
-                //    }
-                //},
-                //{
-                //    text: "确定",
-                //    "class": "btn btn-primary btn-xs",
-                //    click: function () {
-                //        $(this).dialog("close");
-                //    }
-                //}
-            ]
+            //buttons: [
+            //    {
+            //        text: "取消",
+            //        "class": "btn btn-xs",
+            //        click: function () {
+            //            $(this).dialog("close");
+            //        }
+            //    },
+            //    {
+            //        text: "确定",
+            //        "class": "btn btn-primary btn-xs",
+            //        click: function () {
+            //            $(this).dialog("close");
+            //        }
+            //    }
+            //]
         });
-        if (callback)
-        {
-            callback(dialog);
-        }        
     })
 }
+utils.dialog1 = function dialog1(obj, buttons) {
+    var url = $(obj).attr("data-url");
+
+    if (url == undefined || url == "") return;
+    $.get(url, function (data) {
+        bootbox.dialog({
+            message: data,
+            buttons:
+            {
+                "success":
+                 {
+                     "label": "<i class='ace-icon fa fa-check'></i> Success!",
+                     "className": "btn-sm btn-success",
+                     "callback": function () {
+
+                     }
+                 },
+                "danger":
+                {
+                    "label": "Danger!",
+                    "className": "btn-sm btn-danger",
+                    "callback": function () {
+                        //Example.show("uh oh, look out!");
+                    }
+                },
+                "click":
+                {
+                    "label": "Click ME!",
+                    "className": "btn-sm btn-primary",
+                    "callback": function () {
+                        //Example.show("Primary button");
+                    }
+                },
+                "button":
+                {
+                    "label": "Just a button...",
+                    "className": "btn-sm"
+                }
+            }
+        });
+    });
+}
+
 
 //确认提醒框
 utils.alert = function (message, okcallback) {
@@ -84,7 +123,7 @@ utils.alert = function (message, okcallback) {
         }
     }));
 
-    var diaDiv =$("<div style=\"text-align:center\">" + message + "</div>");
+    var diaDiv = $("<div style=\"text-align:center\">" + message + "</div>");
 
     diaDiv.dialog({
         resizable: false,
@@ -107,6 +146,25 @@ utils.alert = function (message, okcallback) {
             }
         ]
     });
+}
+
+utils.alert1 = function (message, callback) {
+    bootbox.dialog({
+        message: message,
+        buttons:
+        {
+            "success":
+             {
+                 "label": "<i class='ace-icon fa fa-check'></i> 确定",
+                 "className": "btn-sm btn-success",
+                 "callback": function () {
+                     if (callback)
+                         callback();
+                 }
+             }
+        }
+    });
+
 }
 
 //选择对话框

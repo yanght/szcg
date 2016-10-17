@@ -47,7 +47,7 @@ namespace Szcg.Web.Areas.CallAcceptance.Controllers
         {
             return View();
         }
-        public ActionResult ProjectApprovedView(string projectcode, string year, string isend, string nodeid,string action)
+        public ActionResult ProjectApprovedView(string projectcode, string year, string isend, string nodeid,string action,string buttoncode)
         {
             return View();
         }

@@ -712,7 +712,7 @@ namespace Szcg.Service.Bussiness
         /// </summary>
         /// <param name="args">批转参数</param>
         /// <returns></returns>
-        public bool ProjectApproved(ProjectApprovedArgs args)
+        public bool ProjectAcceptApproved(ProjectApprovedArgs args)
         {
             bacgDL.business.ProjectTraceInfo pt = new bacgDL.business.ProjectTraceInfo();
             pt.usercode = args.UserCode;

@@ -77,6 +77,112 @@ project.getcommounityList = function getcommounityList(areacode, streetcode) {
     });
 }
 
+//部门选择弹框
+project.initPropDepartTree = function initPropDepartTree(callback) {
+    $("#TargetDepartName").click(function () {
+
+        utils.dialog(this, "选择部门", 400, 550, function (dialog) {
+            var setting = {
+                view: {
+                    dblClickExpand: false,
+                    showLine: true
+                },
+                data: {
+                    simpleData: {
+                        enable: true
+                    }
+                },
+                callback: {
+                    onClick: callback
+                }
+            };
+            utils.httpClient("/depart/GetDutyDepartTree", "post", null, function (data) {
+                if (data.RspCode == 1) {
+
+                    zNodes = data.RspData.departs;
+
+                    var treeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+
+                } else {
+                    utils.alert(data.RspMsg);
+                }
+            });
+        });
+    });
+}
+
+//案卷大小类选择弹框
+project.initPropProjectClassTree = function initProjectClassTree(callback) {
+    $("#projectclass").click(function () {
+        utils.dialog(this, "选择大小类", 400, 550, function (dialog) {
+            var setting = {
+                view: {
+                    dblClickExpand: false,
+                    showLine: true
+                },
+                data: {
+                    simpleData: {
+                        enable: true
+                    }
+                },
+                callback: {
+                    onClick: callback
+                }
+            };
+            utils.httpClient("/project/GetProjectClassTree", "post", null, function (data) {
+                if (data.RspCode == 1) {
+
+                    zNodes = data.RspData.projectclass;
+
+                    var treeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+
+                } else {
+                    utils.alert(data.RspMsg);
+                }
+            });
+
+
+
+        });
+    })
+}
+
+//区域选择弹框
+project.initPropAreaTree = function initPropAreaTree(callback) {
+    $("#areaName").click(function () {
+
+        utils.dialog(this, "选择区域街道", 400, 550, function (dialog) {
+            var setting = {
+                view: {
+                    dblClickExpand: false,
+                    showLine: true
+                },
+                data: {
+                    simpleData: {
+                        enable: true
+                    }
+                },
+                callback: {
+                    onClick: callback
+                }
+            };
+            utils.httpClient("/project/GetAreaTree", "post", null, function (data) {
+                if (data.RspCode == 1) {
+
+                    zNodes = data.RspData.areaTree;
+
+                    var treeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+
+                } else {
+                    utils.alert(data.RspMsg);
+                }
+            });
+        });
+    })
+}
+
+
+
 //刷举报栏待办案卷列表
 project.GetDelProjectList = function GetDelProjectList(modelcode, buttoncode, nodeid, table) {
 
@@ -244,48 +350,51 @@ project.GetFlowNodePower = function GetFlowNodePower(callback) {
 
 
 //案卷上报
-project.projectReport = function projectReport(dialog) {
+project.projectReport = function projectReport() {
 
-    $('#projectreport').submit(function () {
-        utils.httpClient(this.action, this.method, $(this).serialize(), function (data) {
-            if (data.RspCode == 1) {
-                dialog.dialog("destroy").remove();
-                utils.alert("案卷上报成功!", function () {
-                    var table = $('#projectlistTB').DataTable();
-                    table.ajax.reload();
-                });
-            } else {
-                utils.alert(data.RspMsg);
-            }
-        });
-        return false;
+    utils.httpClient("/project/ProjectReport", "post", $("#projectreport").serialize(), function (data) {
+        if (data.RspCode == 1) {
+
+            utils.alert1("案卷上报成功!", function () {
+                var table = $('#projectlistTB').DataTable();
+                table.ajax.reload();
+            });
+
+        } else {
+            utils.alert1(data.RspMsg);
+        }
     });
+
 
     $("#cancle").click(function () {
         dialog.dialog("destroy").remove();
     })
 }
 
-project.projectPz = function projectPz(dialog) {
-    $('#projectPz').click(function () {
-        utils.httpClient("/project/ProjectApproved", "post", $("#projectreport").serialize(), function (data) {
-            if (data.RspCode == 1) {
-                dialog.dialog("destroy").remove();
-                utils.alert("案卷批转成功!", function () {
-                    var table = $('#projectlistTB').DataTable();
-                    table.ajax.reload();
-                });
-            } else {
-                utils.alert(data.RspMsg);
-            }
-        });
-        return false;
+project.projectPz = function projectPz() {
+    //$('#projectPz').click(function () {
+    utils.httpClient("/project/ProjectApproved", "post", $("#projectreport").serialize(), function (data) {
+        if (data.RspCode == 1) {
+            //  dialog.dialog("destroy").remove();
+            utils.alert1("案卷批转成功!", function () {
+                var table = $('#projectlistTB').DataTable();
+                table.ajax.reload();
+            });
+        } else {
+            utils.alert1(data.RspMsg);
+        }
     });
+    return false;
+    //});
+
+    //$("#cancle").click(function () {
+    //    dialog.dialog("destroy").remove();
+    //})
 
 }
 
 
-//获取案卷明细
+//查看案卷明细
 project.getProjectDetail = function getProjectDetail(projectcode, year, isend, nodeid) {
 
     var json = {
@@ -297,14 +406,62 @@ project.getProjectDetail = function getProjectDetail(projectcode, year, isend, n
 
     utils.httpClient("project/GetProjectDetail", "post", json, function (data) {
         if (data.RspCode == 1) {
-            var html = template('projectdetailtpl', data.RspData.project);
+            var html = template('projectdetailtpl', data.RspData);
             document.getElementById('projectdetail').innerHTML = html;
+
+            project.initPropDepartTree(function (e, treeId, treeNode) {
+                var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                zTree.expandNode(treeNode);
+                $("#departselected").click(function () {
+                    $("#TargetDepartName").val(treeNode.name);
+                    $("#TargetDepartCode").val(treeNode.id);
+                    dialog.dialog("destroy").remove();
+                });
+            });
+
+            $("#cancle").click(function () {
+                dialog.dialog("destroy").remove();
+            })
         }
         else {
             utils.alert(data.RspMsg);
         }
     });
 }
+
+//案卷登记批转详情
+project.getProjectDetailApproved = function getProjectDetailApproved(projectcode, year, isend, nodeid, action, buttoncode) {
+    var json = {
+        projcode: projectcode,
+        year: year,
+        isend: isend,
+        nodeid: nodeid,
+        action: action,
+        buttoncode: buttoncode
+    };
+
+    utils.httpClient("project/GetProjectDetail", "post", json, function (data) {
+        if (data.RspCode == 1) {
+            var html = template('projectapproveddetailtpl', data.RspData);
+            document.getElementById('projectapproveddetail').innerHTML = html;
+
+            project.initPropDepartTree(function (e, treeId, treeNode) {
+                var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                zTree.expandNode(treeNode);
+                $("#departselected").click(function () {
+                    $("#TargetDepartName").val(treeNode.name);
+                    $("#TargetDepartCode").val(treeNode.id);
+                    dialog.dialog("destroy").remove();
+                });
+            });
+
+        }
+        else {
+            utils.alert(data.RspMsg);
+        }
+    });
+}
+
 
 //获取案卷流程
 project.getProjectTrace = function (projectcode, year, isend) {
@@ -332,23 +489,129 @@ project.operateProject = function operateProject(buttonid, projcode, buttoncode,
         case "img_ajbl":
 
             var url = "/CallAcceptance/project/projectreport?projectcode=" + projcode + "&buttoncode=" + buttoncode + "&year=" + year + "&nodeid=" + nodeid + "&isend=" + isend;
-            $(this).attr("data-url", url);
-            utils.dialog(this, "案卷上报", 600, 720, function (dialog) {
-                project.projectReport(dialog);
-                project.projectPz(dialog);
+
+            //utils.dialog(this, "案卷上报", 600, 720, function () {
+            //    project.projectReport();
+            //    project.projectPz();
+            //});
+
+            $.get(url, function (data) {
+                bootbox.dialog({
+                    message: data,
+                    title: "案卷上报",
+                    buttons:
+                    {
+                        "save":
+                        {
+                            "label": "保存",
+                            "className": "btn-sm btn-primary",
+                            "callback": function () {
+                                project.projectReport();
+                            }
+                        },
+                        "approve":
+                          {
+                              "label": "批转",
+                              "className": "btn-sm btn-primary",
+                              "callback": function () {
+                                  project.projectPz();
+                              }
+                          },
+                        "button":
+                        {
+                            "label": "取消",
+                            "className": "btn-sm"
+                        }
+                    }
+                });
             });
 
             break;
+
+        case "imgZX":
+
+            var url = "/CallAcceptance/project/ProjectApprovedView?action=02&projectcode=" + projcode + "&buttoncode=" + buttoncode + "&year=" + year + "&nodeid=" + nodeid + "&isend=" + isend;
+            // $(this).attr("data-url", url);
+            // utils.dialog(this, "案卷批转", 600, 720);
+
+            $.get(url, function (data) {
+                bootbox.dialog({
+                    message: data,
+                    title: "案卷批转",
+                    buttons:
+                    {
+                        "success":
+                        {
+                            "label": "注销",
+                            "className": "btn-sm btn-primary",
+                            "callback": function () {
+
+                            }
+                        },
+                        "button":
+                        {
+                            "label": "取消",
+                            "className": "btn-sm"
+                        }
+                    }
+                });
+            });
+
+            break;
+
         case "img_PZ":
 
-            var url = "/CallAcceptance/project/ProjectApprovedView?projectcode=" + projcode + "&buttoncode=" + buttoncode + "&year=" + year + "&nodeid=" + nodeid + "&isend=" + isend;
-            $(this).attr("data-url", url);
-            utils.dialog(this, "案卷批转", 600, 720, function (dialog) {
-                project.projectReport(dialog);
-                project.projectPz(dialog);
+            var url = "/CallAcceptance/project/ProjectApprovedView?action=03&projectcode=" + projcode + "&buttoncode=" + buttoncode + "&year=" + year + "&nodeid=" + nodeid + "&isend=" + isend;
+            //$(this).attr("data-url", url);
+            //utils.dialog(this, "案卷批转", 600, 720, function () {
+            //    project.projectReport();
+            //    project.projectPz();
+            //});
+
+
+            $.get(url, function (data) {
+                bootbox.dialog({
+                    message: data,
+                    title: "案卷批转",
+                    buttons:
+                    {
+                        "approve":
+                        {
+                            "label": "批转",
+                            "className": "btn-sm btn-primary",
+                            "callback": function () {
+                                utils.httpClient("/project/ProjectAcceptApproved", "post", {
+                                    NodeId: nodeid,
+                                    ProjectCode: projcode,
+                                    CurrentBusiStatus: "03",
+                                    ButtonCode: buttoncode,
+                                    TargetDepartCode: $("#TargetDepartCode").val(),
+                                    Option: $("#Option").val(),
+                                }, function (data) {
+                                    if (data.RspCode == 1) {
+                                        dialog.dialog("destroy").remove();
+                                        utils.alert1("批转成功！", function () {
+                                            var table = $('#projectlistTB').DataTable();
+                                            table.ajax.reload();
+                                        });
+                                    } else {
+                                        utils.alert(data.RspMsg);
+                                    }
+                                })
+                            }
+                        },
+                        "button":
+                        {
+                            "label": "取消",
+                            "className": "btn-sm"
+                        }
+                    }
+                });
             });
 
             break;
+
+
     }
 
 }
@@ -367,160 +630,63 @@ project.getProjectReportDetail = function getProjectReportDetail(projectcode, ye
             var html = template('projectreportdetailtpl', data.RspData.project);
             document.getElementById('projectreportdetail').innerHTML = html;
 
-            $("#TargetDepartName").click(function () {
-
-                utils.dialog(this, "选择部门", 400, 550, function (dialog) {
-                    var setting = {
-                        view: {
-                            dblClickExpand: false,
-                            showLine: true
-                        },
-                        data: {
-                            simpleData: {
-                                enable: true
-                            }
-                        },
-                        callback: {
-                            onClick: onClick
-                        }
-                    };
-                    utils.httpClient("/depart/GetDutyDepartTree", "post", null, function (data) {
-                        if (data.RspCode == 1) {
-
-                            zNodes = data.RspData.departs;
-
-                            var treeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
-
-                        } else {
-                            utils.alert(data.RspMsg);
-                        }
-                    });
-
-                    function onClick(e, treeId, treeNode) {
-                        var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-                        zTree.expandNode(treeNode);
-                        $("#departselected").click(function () {
-                            $("#TargetDepartName").val(treeNode.name);
-                            $("#TargetDepartCode").val(treeNode.id);
-                            dialog.dialog("destroy").remove();
-                        });
-                    }
-
+            project.initPropDepartTree(function (e, treeId, treeNode) {
+                var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                zTree.expandNode(treeNode);
+                $("#departselected").click(function () {
+                    $("#TargetDepartName").val(treeNode.name);
+                    $("#TargetDepartCode").val(treeNode.id);
+                    dialog.dialog("destroy").remove();
                 });
             });
 
-            $("#projectclass").click(function () {
+            project.initPropProjectClassTree(function (e, treeId, treeNode) {
+                var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                zTree.expandNode(treeNode);
+                $("#departselected").click(function () {
 
-                utils.dialog(this, "选择大小类", 400, 550, function (dialog) {
-                    var setting = {
-                        view: {
-                            dblClickExpand: false,
-                            showLine: true
-                        },
-                        data: {
-                            simpleData: {
-                                enable: true
-                            }
-                        },
-                        callback: {
-                            onClick: onClick
-                        }
-                    };
-                    utils.httpClient("/project/GetProjectClassTree", "post", null, function (data) {
-                        if (data.RspCode == 1) {
+                    $("#projectclass").closest(".form-group").find("input").val("");
 
-                            zNodes = data.RspData.projectclass;
-
-                            var treeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
-
-                        } else {
-                            utils.alert(data.RspMsg);
-                        }
-                    });
-
-                    function onClick(e, treeId, treeNode) {
-
-                        var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-                        zTree.expandNode(treeNode);
-                        $("#departselected").click(function () {
-
-                            $("#projectclass").closest(".form-group").find("input").val("");
-
-                            if (treeNode.level == 0) {
-                                $("#TypeName").val(treeNode.name);
-                                $("#TypeCode").val(treeNode.id);
-                            } else if (treeNode.level == 1) {
-                                $("#TypeName").val(treeNode.getParentNode().name);
-                                $("#TypeCode").val(treeNode.getParentNode().id);
-                                $("#BigClass").val(treeNode.id.split('_')[0]);
-                                $("#projectclass").val(treeNode.getParentNode().name + "/" + treeNode.name);
-                            } else if (treeNode.level == 2) {
-                                $("#BigClass").val(treeNode.getParentNode().id.split('_')[0]);
-                                $("#SmallClass").val(treeNode.id);
-                                $("#TypeName").val(treeNode.getParentNode().getParentNode().name);
-                                $("#TypeCode").val(treeNode.getParentNode().getParentNode().id);
-                                $("#projectclass").val(treeNode.getParentNode().getParentNode().name + "/" + treeNode.getParentNode().name + "/" + treeNode.name);
-                            }
-                            dialog.dialog("destroy").remove();
-                        });
+                    if (treeNode.level == 0) {
+                        $("#TypeName").val(treeNode.name);
+                        $("#TypeCode").val(treeNode.id);
+                    } else if (treeNode.level == 1) {
+                        $("#TypeName").val(treeNode.getParentNode().name);
+                        $("#TypeCode").val(treeNode.getParentNode().id);
+                        $("#BigClass").val(treeNode.id.split('_')[0]);
+                        $("#projectclass").val(treeNode.getParentNode().name + "/" + treeNode.name);
+                    } else if (treeNode.level == 2) {
+                        $("#BigClass").val(treeNode.getParentNode().id.split('_')[0]);
+                        $("#SmallClass").val(treeNode.id);
+                        $("#TypeName").val(treeNode.getParentNode().getParentNode().name);
+                        $("#TypeCode").val(treeNode.getParentNode().getParentNode().id);
+                        $("#projectclass").val(treeNode.getParentNode().getParentNode().name + "/" + treeNode.getParentNode().name + "/" + treeNode.name);
                     }
-
+                    dialog.dialog("destroy").remove();
                 });
             })
 
-            $("#areaName").click(function () {
+            project.initPropAreaTree(function (e, treeId, treeNode) {
+                var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                zTree.expandNode(treeNode);
+                $("#departselected").click(function () {
 
-                utils.dialog(this, "选择区域街道", 400, 550, function (dialog) {
-                    var setting = {
-                        view: {
-                            dblClickExpand: false,
-                            showLine: true
-                        },
-                        data: {
-                            simpleData: {
-                                enable: true
-                            }
-                        },
-                        callback: {
-                            onClick: onClick
-                        }
-                    };
-                    utils.httpClient("/project/GetAreaTree", "post", null, function (data) {
-                        if (data.RspCode == 1) {
+                    $("#areaName").closest(".form-group").find("input").val("");
 
-                            zNodes = data.RspData.areaTree;
-
-                            var treeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
-
-                        } else {
-                            utils.alert(data.RspMsg);
-                        }
-                    });
-
-                    function onClick(e, treeId, treeNode) {
-                        var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-                        zTree.expandNode(treeNode);
-                        $("#departselected").click(function () {
-
-                            $("#areaName").closest(".form-group").find("input").val("");
-
-                            if (treeNode.level == 0) {
-                                $("#areaName").val(treeNode.name);
-                                $("#AreaId").val(treeNode.id);
-                            } else if (treeNode.level == 1) {
-                                $("#AreaId").val(treeNode.getParentNode().id);
-                                $("#StreetId").val(treeNode.id);
-                                $("#areaName").val(treeNode.getParentNode().name + "/" + treeNode.name);
-                            } else if (treeNode.level == 2) {
-                                $("#StreetId").val(treeNode.getParentNode().id);
-                                $("#SquareId").val(treeNode.id);
-                                $("#AreaId").val(treeNode.getParentNode().getParentNode().id);
-                                $("#areaName").val(treeNode.getParentNode().getParentNode().name + "/" + treeNode.getParentNode().name + "/" + treeNode.name);
-                            }
-                            dialog.dialog("destroy").remove();
-                        });
+                    if (treeNode.level == 0) {
+                        $("#areaName").val(treeNode.name);
+                        $("#AreaId").val(treeNode.id);
+                    } else if (treeNode.level == 1) {
+                        $("#AreaId").val(treeNode.getParentNode().id);
+                        $("#StreetId").val(treeNode.id);
+                        $("#areaName").val(treeNode.getParentNode().name + "/" + treeNode.name);
+                    } else if (treeNode.level == 2) {
+                        $("#StreetId").val(treeNode.getParentNode().id);
+                        $("#SquareId").val(treeNode.id);
+                        $("#AreaId").val(treeNode.getParentNode().getParentNode().id);
+                        $("#areaName").val(treeNode.getParentNode().getParentNode().name + "/" + treeNode.getParentNode().name + "/" + treeNode.name);
                     }
-
+                    dialog.dialog("destroy").remove();
                 });
             })
 

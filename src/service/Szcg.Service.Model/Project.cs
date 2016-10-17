@@ -359,7 +359,8 @@ namespace Szcg.Service.Model
         /// </summary>
         public List<ProjectCheckMessage> CollectorMessages { get; set; }
 
-        #endregion
+        #endregion    
+        
 
     }
 

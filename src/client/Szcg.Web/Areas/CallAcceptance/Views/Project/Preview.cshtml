@@ -14,74 +14,74 @@
                 <div class="profile-info-row">
                     <div class="profile-info-name"> 派发时间： </div>
                     <div class="profile-info-value">
-                        <span class="editable editable-click">{{RacTime}} </span>
+                        <span class="editable editable-click">{{project.RacTime}} </span>
                     </div>
                     <div class="profile-info-name"> 受理时间： </div>
                     <div class="profile-info-value">
-                        <span class="editable editable-click">{{StartDate}} </span>
+                        <span class="editable editable-click">{{project.StartDate}} </span>
                     </div>
                 </div>
                 <div class="profile-info-row">
                     <div class="profile-info-name"> 终止时间： </div>
                     <div class="profile-info-value">
-                        <span class="editable editable-click">{{EndTime}}</span>
+                        <span class="editable editable-click">{{project.EndTime}}</span>
                     </div>
                     <div class="profile-info-name"> 剩余时间： </div>
                     <div class="profile-info-value">
-                        <span class="editable editable-click">{{LimitTime}}</span>
+                        <span class="editable editable-click">{{project.LimitTime}}</span>
                     </div>
                 </div>
                 <div class="profile-info-row">
                     <div class="profile-info-name"> 问题来源： </div>
                     <div class="profile-info-value">
-                        <span class="editable editable-click">{{ProbSourceName}} </span>
+                        <span class="editable editable-click">{{project.ProbSourceName}} </span>
                     </div>
                     <div class="profile-info-name"> 问题分类： </div>
                     <div class="profile-info-value">
-                        <span class="editable editable-click">{{ProbClassName}} </span>
+                        <span class="editable editable-click">{{project.ProbClassName}} </span>
                     </div>
                 </div>
                 <div class="profile-info-row">
                     <div class="profile-info-name"> 大类： </div>
                     <div class="profile-info-value">
-                        <span class="editable editable-click">{{BigClassName}} </span>
+                        <span class="editable editable-click">{{project.BigClassName}} </span>
                     </div>
                     <div class="profile-info-name"> 小类： </div>
                     <div class="profile-info-value">
-                        <span class="editable editable-click">{{SmallClassName}}</span>
+                        <span class="editable editable-click">{{project.SmallClassName}}</span>
                     </div>
                 </div>
-                {{if Collecters.lenth>0}}
+                {{if project.Collecters.lenth>0}}
                 <div class="profile-info-row">
                     <div class="profile-info-name"> 监督员： </div>
                     <div class="profile-info-value">
-                        <span class="editable editable-click">{{Collecters[0].CollName}} </span>
+                        <span class="editable editable-click">{{project.Collecters[0].CollName}} </span>
                     </div>
                     <div class="profile-info-name"> 城管通号： </div>
                     <div class="profile-info-value">
-                        <span class="editable editable-click">{{Collecters[0].Mobile}}</span>
+                        <span class="editable editable-click">{{project.Collecters[0].Mobile}}</span>
                     </div>
                 </div>
                 {{/if}}
                 <div class="profile-info-row">
                     <div class="profile-info-name"> 所属街道： </div>
                     <div class="profile-info-value">
-                        <span class="editable editable-click"> {{Street}}</span>
+                        <span class="editable editable-click"> {{project.Street}}</span>
                     </div>
                     <div class="profile-info-name"> 所属社区： </div>
                     <div class="profile-info-value">
-                        <span class="editable editable-click">{{Square}}</span>
+                        <span class="editable editable-click">{{project.Square}}</span>
                     </div>
                 </div>
                 <div class="profile-info-row">
                     <div class="profile-info-name"> 案卷号： </div>
                     <div class="profile-info-value">
-                        <span class="editable editable-click">{{ProjName}} </span>
+                        <span class="editable editable-click">{{project.ProjName}} </span>
                     </div>
                     <div class="profile-info-name"> XY坐标： </div>
                     <div class="profile-info-value">
-                        <span class="editable editable-click">{{Longitude}} </span>
-                        <span class="editable editable-click">{{Latitude}} </span>
+                        <span class="editable editable-click">{{project.Longitude}} </span>
+                        <span class="editable editable-click">{{project.Latitude}} </span>
                     </div>
                 </div>
             </div>
@@ -89,13 +89,13 @@
                 <div class="profile-info-row">
                     <div class="profile-info-name"> 事发位置： </div>
                     <div class="profile-info-value">
-                        <span class="editable editable-click">{{Address}}</span>
+                        <span class="editable editable-click">{{project.Address}}</span>
                     </div>
                 </div>
                 <div class="profile-info-row">
                     <div class="profile-info-name"> 情况描述： </div>
                     <div class="profile-info-value">
-                        <span class="editable editable-click"> {{ProbDesc}}</span>
+                        <span class="editable editable-click"> {{project.ProbDesc}}</span>
                     </div>
                 </div>
             </div>
@@ -172,7 +172,6 @@
         </div>
     </script>
 </div>
-
 <script type="text/javascript">
-    project.getProjectDetail('@(Request["projectcode"])','@(Request["year"])','@(Request["isend"])','@(Request["nodeid"])');
+    project.getProjectDetail('@(Request["projectcode"])', '@(Request["year"])', '@(Request["isend"])', '@(Request["nodeid"])');
 </script>

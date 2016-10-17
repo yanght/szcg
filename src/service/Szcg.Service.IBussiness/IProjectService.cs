@@ -179,7 +179,7 @@ namespace Szcg.Service.IBussiness
         /// </summary>
         /// <param name="args">批转参数</param>
         /// <returns></returns>
-        bool ProjectApproved(ProjectApprovedArgs args);
+        bool ProjectAcceptApproved(ProjectApprovedArgs args);
 
         /// <summary>
         /// 值班长案卷立案

@@ -101,25 +101,30 @@ namespace Szcg.Web.Controllers
 
         #region [ 受理员案卷批转 ]
 
-        //[HttpPost]
-        //public AjaxFxRspJson ProjectApproved(ProjectApprovedArgs args)
-        //{
-        //    AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
-        //    if (string.IsNullOrEmpty(args.Option))
-        //    {
-        //        ajax.RspCode = 0;
-        //        ajax.RspMsg = "请输入批转意见！";
-        //        return ajax;
-        //    }
+        [HttpPost]
+        public AjaxFxRspJson ProjectAcceptApproved(ProjectApprovedArgs args)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+            if (string.IsNullOrEmpty(args.Option))
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "请输入批转意见！";
+                return ajax;
+            }
 
-        //    if (!svc.ProjectApproved(args))
-        //    {
-        //        ajax.RspCode = 0;
-        //        ajax.RspMsg = "受理员案卷批转失败！";
-        //        return ajax;
-        //    }
-        //    return ajax;
-        //}
+
+            args.UserCode = UserInfo.getUsercode().ToString();
+            args.DepartCode = UserInfo.getDepartcode().ToString();
+
+
+            if (!svc.ProjectAcceptApproved(args))
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "受理员案卷批转失败！";
+                return ajax;
+            }
+            return ajax;
+        }
 
         #endregion
 
@@ -786,6 +791,14 @@ namespace Szcg.Web.Controllers
 
 
             ajax.RspData.Add("project", JToken.FromObject(project));
+            if (Request["action"]!=null)
+            {
+                ajax.RspData.Add("action", JToken.FromObject(Request["action"]));
+            }
+            if (Request["buttoncode"] != null)
+            {
+                ajax.RspData.Add("buttoncode", JToken.FromObject(Request["buttoncode"]));
+            }  
 
             return ajax;
         }

@@ -1,81 +1,132 @@
 ﻿@{
     Layout = null;
 }
-<div id="projectdetail">
-    <script type="text/template" id="projectdetailtpl">
-        <div class="row">
-            <div class="profile-user-info profile-user-info-striped">
-                <div class="profile-info-row">
-                    <div class="profile-info-name"> 案卷编号： </div>
-                    <div class="profile-info-value">
-                        <span class="editable editable-click">{{ProjName}} </span>
+<div id="projectapproveddetail">
+    <script type="text/template" id="projectapproveddetailtpl">
+        <form>
+
+            <div class="row">
+                <div class="profile-user-info profile-user-info-striped">
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 案卷编号： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.ProjName}} </span>
+                        </div>
+                        <div class="profile-info-name"> 问题分类： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.ProbClassName}} </span>
+                        </div>
                     </div>
-                    <div class="profile-info-name"> 问题分类： </div>
-                    <div class="profile-info-value">
-                        <span class="editable editable-click">{{ProbClassName}} </span>
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 大类： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.BigClassName}}</span>
+                        </div>
+                        <div class="profile-info-name"> 小类： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.SmallClassName}}</span>
+                        </div>
+                    </div>
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 街道社区： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.Street}} /{{project.Square}}</span>
+                        </div>
+                        <div class="profile-info-name"> 工作网格： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click"></span>
+                        </div>
+                    </div>
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 监督员： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.BigClassName}} </span>
+                        </div>
+                        <div class="profile-info-name"> 上报时间： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.StartDate}}</span>
+                        </div>
                     </div>
                 </div>
-                <div class="profile-info-row">
-                    <div class="profile-info-name"> 大类： </div>
-                    <div class="profile-info-value">
-                        <span class="editable editable-click">{{BigClassName}}</span>
+                <div class="profile-user-info profile-user-info-striped">
+
+                    {{if "@Request["action"]"=="03"}}
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 派遣部门： </div>
+                        <div class="profile-info-value">
+                            <span class="input-icon input-icon-right">
+                                <input type="text" name="TargetDepartName" id="TargetDepartName" data-url="/callAcceptance/project/SelectDepart" value="{{project.TargetDepartName}}">
+                                <input type="hidden" name="TargetDepartCode" id="TargetDepartCode" value="{{project.TargetDepartCode}}" />
+                                <i class="ace-icon fa fa-plus-circle bigger-120  blue"></i>
+                            </span>
+                        </div>
                     </div>
-                    <div class="profile-info-name"> 小类： </div>
-                    <div class="profile-info-value">
-                        <span class="editable editable-click">{{SmallClassName}}</span>
+                    {{else}}
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 已派遣部门： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.TargetDepartName}}</span>
+                        </div>
                     </div>
-                </div>
-                <div class="profile-info-row">
-                    <div class="profile-info-name"> 街道社区： </div>
-                    <div class="profile-info-value">
-                        <span class="editable editable-click">{{Street}} /{{Square}}</span>
+                    {{/if}}
+
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 事发位置： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.Address}}</span>
+                        </div>
                     </div>
-                    <div class="profile-info-name"> 工作网格： </div>
-                    <div class="profile-info-value">
-                        <span class="editable editable-click"></span>
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 问题描述： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click"> {{project.ProbDesc}}</span>
+                        </div>
                     </div>
-                </div>
-                <div class="profile-info-row">
-                    <div class="profile-info-name"> 操作员： </div>
-                    <div class="profile-info-value">
-                        <span class="editable editable-click">{{BigClassName}} </span>
+                    <div class="profile-info-row">
+                        {{if action=="03"}}
+                        <div class="profile-info-name"> 批转意见： </div>
+                        {{else}}
+                        <div class="profile-info-name"> 注销意见： </div>
+                        {{/if}}
+
+                        <div class="profile-info-value">
+                            <textarea id="Option" name="Option" class="autosize-transition form-control"></textarea>
+                        </div>
                     </div>
-                    <div class="profile-info-name"> 上报时间： </div>
-                    <div class="profile-info-value">
-                        <span class="editable editable-click">{{StartDate}}</span>
-                    </div>
+
                 </div>
             </div>
-            <div class="profile-user-info profile-user-info-striped">
-                <div class="profile-info-row">
-                    <div class="profile-info-name"> 已派遣部门： </div>
-                    <div class="profile-info-value">
-                        <span class="editable editable-click"> {{TargetDepartName}}</span>
+
+            @*<div class=" widget-box transparent ui-sortable-handle">
+                <div class="widget-body">
+                    <div class="widget-main center">
+                        {{if action=="03"}}
+                        <button class="btn btn-info" type="button" id="AcceptApprove">
+                            <i class="ace-icon fa fa-check bigger-110"></i>
+                            批转
+                        </button>
+                        {{else}}
+                        <button class="btn btn-info" type="button" id="AcceptCancle">
+                            <i class="ace-icon fa fa-check bigger-110"></i>
+                            注销
+                        </button>
+                        {{/if}}
+
+                        <button class="btn btn-info" type="button" id="cancle">
+                            <i class="ace-icon fa fa-check bigger-110"></i>
+                            取消
+                        </button>
                     </div>
                 </div>
-                <div class="profile-info-row">
-                    <div class="profile-info-name"> 事发位置： </div>
-                    <div class="profile-info-value">
-                        <span class="editable editable-click">{{Address}}</span>
-                    </div>
-                </div>
-                <div class="profile-info-row">
-                    <div class="profile-info-name"> 问题描述： </div>
-                    <div class="profile-info-value">
-                        <span class="editable editable-click"> {{ProbDesc}}</span>
-                    </div>
-                </div>
-                <div class="profile-info-row">
-                    <div class="profile-info-name"> 意见： </div>
-                    <div class="profile-info-value">
-                       <textarea id="" name=""></textarea>
-                    </div>
-                </div>
-            </div>
-        </div>
-     
+            </div>*@
+            <input type="hidden" name="NodeId" id="NodeId" value="{{project.NodeId}}" />
+            <input type="hidden" name="ProjectCode" id="ProjectCode" value="{{project.Projcode}}" />
+            <input type="hidden" name="CurrentBusiStatus" id="CurrentBusiStatus" value="{{action}}" />
+            <input type="hidden" name="ButtonCode" id="ButtonCode" value="{{buttoncode}}" />
+        </form>
+
     </script>
 </div>
 <script type="text/javascript">
-    project.getProjectDetail('@(Request["projectcode"])','@(Request["year"])','@(Request["isend"])','@(Request["nodeid"])');
+    project.getProjectDetailApproved('@(Request["projectcode"])', '@(Request["year"])', '@(Request["isend"])', '@(Request["nodeid"])', '@(Request["action"])', '@(Request["buttoncode"])');
 </script>
