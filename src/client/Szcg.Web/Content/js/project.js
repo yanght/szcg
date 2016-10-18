@@ -81,7 +81,27 @@ project.getcommounityList = function getcommounityList(areacode, streetcode) {
 project.initPropDepartTree = function initPropDepartTree(callback) {
     $("#TargetDepartName").click(function () {
 
-        utils.dialog(this, "选择部门", 400, 550, function (dialog) {
+        $.get("/callAcceptance/project/SelectDepart", function (data) {
+            var dialog = bootbox.dialog({
+                message: data,
+                title: "选择部门",
+                className: "depart-modal",
+                buttons:
+                {
+                    "save":
+                    {
+                        "label": "选择",
+                        "className": "btn-sm btn-primary",
+                        "callback": callback
+                    },
+                    "button":
+                    {
+                        "label": "取消",
+                        "className": "btn-sm"
+                    }
+                }
+            });
+
             var setting = {
                 view: {
                     dblClickExpand: false,
@@ -93,7 +113,10 @@ project.initPropDepartTree = function initPropDepartTree(callback) {
                     }
                 },
                 callback: {
-                    onClick: callback
+                    onClick: function (e, treeId, treeNode) {
+                        var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                        zTree.expandNode(treeNode);
+                    }
                 }
             };
             utils.httpClient("/depart/GetDutyDepartTree", "post", null, function (data) {
@@ -108,13 +131,33 @@ project.initPropDepartTree = function initPropDepartTree(callback) {
                 }
             });
         });
+
     });
 }
 
 //案卷大小类选择弹框
 project.initPropProjectClassTree = function initProjectClassTree(callback) {
     $("#projectclass").click(function () {
-        utils.dialog(this, "选择大小类", 400, 550, function (dialog) {
+
+        $.get("/callAcceptance/project/SelectProjectClass", function (data) {
+            var dialog = bootbox.dialog({
+                message: data,
+                title: "选择大小类",
+                buttons:
+                {
+                    "save":
+                    {
+                        "label": "选择",
+                        "className": "btn-sm btn-primary",
+                        "callback": callback
+                    },
+                    "button":
+                    {
+                        "label": "取消",
+                        "className": "btn-sm"
+                    }
+                }
+            });
             var setting = {
                 view: {
                     dblClickExpand: false,
@@ -126,7 +169,10 @@ project.initPropProjectClassTree = function initProjectClassTree(callback) {
                     }
                 },
                 callback: {
-                    onClick: callback
+                    onClick: function (e, treeId, treeNode) {
+                        var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                        zTree.expandNode(treeNode);
+                    }
                 }
             };
             utils.httpClient("/project/GetProjectClassTree", "post", null, function (data) {
@@ -140,9 +186,6 @@ project.initPropProjectClassTree = function initProjectClassTree(callback) {
                     utils.alert(data.RspMsg);
                 }
             });
-
-
-
         });
     })
 }
@@ -151,7 +194,26 @@ project.initPropProjectClassTree = function initProjectClassTree(callback) {
 project.initPropAreaTree = function initPropAreaTree(callback) {
     $("#areaName").click(function () {
 
-        utils.dialog(this, "选择区域街道", 400, 550, function (dialog) {
+        $.get("/callAcceptance/project/SelectArea", function (data) {
+            var dialog = bootbox.dialog({
+                message: data,
+                title: "选择区域街道",
+                buttons:
+                {
+                    "save":
+                    {
+                        "label": "选择",
+                        "className": "btn-sm btn-primary",
+                        "callback": callback
+                    },
+                    "button":
+                    {
+                        "label": "取消",
+                        "className": "btn-sm"
+                    }
+                }
+            });
+
             var setting = {
                 view: {
                     dblClickExpand: false,
@@ -163,7 +225,10 @@ project.initPropAreaTree = function initPropAreaTree(callback) {
                     }
                 },
                 callback: {
-                    onClick: callback
+                    onClick: function (e, treeId, treeNode) {
+                        var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                        zTree.expandNode(treeNode);
+                    }
                 }
             };
             utils.httpClient("/project/GetAreaTree", "post", null, function (data) {
@@ -371,11 +436,12 @@ project.projectReport = function projectReport() {
     })
 }
 
+//案卷上报并批转至登记栏
 project.projectPz = function projectPz() {
-    //$('#projectPz').click(function () {
+
     utils.httpClient("/project/ProjectApproved", "post", $("#projectreport").serialize(), function (data) {
         if (data.RspCode == 1) {
-            //  dialog.dialog("destroy").remove();
+
             utils.alert1("案卷批转成功!", function () {
                 var table = $('#projectlistTB').DataTable();
                 table.ajax.reload();
@@ -385,11 +451,6 @@ project.projectPz = function projectPz() {
         }
     });
     return false;
-    //});
-
-    //$("#cancle").click(function () {
-    //    dialog.dialog("destroy").remove();
-    //})
 
 }
 
@@ -445,14 +506,15 @@ project.getProjectDetailApproved = function getProjectDetailApproved(projectcode
             var html = template('projectapproveddetailtpl', data.RspData);
             document.getElementById('projectapproveddetail').innerHTML = html;
 
-            project.initPropDepartTree(function (e, treeId, treeNode) {
+            project.initPropDepartTree(function () {
                 var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-                zTree.expandNode(treeNode);
-                $("#departselected").click(function () {
+                var nodes = zTree.getSelectedNodes();
+                if (nodes != null) {
+                    var treeNode = nodes[0];
                     $("#TargetDepartName").val(treeNode.name);
                     $("#TargetDepartCode").val(treeNode.id);
-                    dialog.dialog("destroy").remove();
-                });
+                }
+
             });
 
         }
@@ -486,14 +548,10 @@ project.getProjectTrace = function (projectcode, year, isend) {
 //跳转至案卷登记页
 project.operateProject = function operateProject(buttonid, projcode, buttoncode, nodeid, year, isend) {
     switch (buttonid) {
-        case "img_ajbl":
+
+        case "img_ajbl"://案卷上报
 
             var url = "/CallAcceptance/project/projectreport?projectcode=" + projcode + "&buttoncode=" + buttoncode + "&year=" + year + "&nodeid=" + nodeid + "&isend=" + isend;
-
-            //utils.dialog(this, "案卷上报", 600, 720, function () {
-            //    project.projectReport();
-            //    project.projectPz();
-            //});
 
             $.get(url, function (data) {
                 bootbox.dialog({
@@ -528,11 +586,9 @@ project.operateProject = function operateProject(buttonid, projcode, buttoncode,
 
             break;
 
-        case "imgZX":
+        case "imgZX"://平台受理员案卷注销
 
             var url = "/CallAcceptance/project/ProjectApprovedView?action=02&projectcode=" + projcode + "&buttoncode=" + buttoncode + "&year=" + year + "&nodeid=" + nodeid + "&isend=" + isend;
-            // $(this).attr("data-url", url);
-            // utils.dialog(this, "案卷批转", 600, 720);
 
             $.get(url, function (data) {
                 bootbox.dialog({
@@ -545,7 +601,23 @@ project.operateProject = function operateProject(buttonid, projcode, buttoncode,
                             "label": "注销",
                             "className": "btn-sm btn-primary",
                             "callback": function () {
-
+                                utils.httpClient("/project/ProjectAcceptApproved", "post", {
+                                    NodeId: nodeid,
+                                    ProjectCode: projcode,
+                                    CurrentBusiStatus: "02",
+                                    ButtonCode: buttoncode,
+                                    Option: $("#Option").val(),
+                                }, function (data) {
+                                    if (data.RspCode == 1) {
+                                        dialog.dialog("destroy").remove();
+                                        utils.alert1("案卷注销成功！", function () {
+                                            var table = $('#projectlistTB').DataTable();
+                                            table.ajax.reload();
+                                        });
+                                    } else {
+                                        utils.alert1(data.RspMsg);
+                                    }
+                                })
                             }
                         },
                         "button":
@@ -559,15 +631,9 @@ project.operateProject = function operateProject(buttonid, projcode, buttoncode,
 
             break;
 
-        case "img_PZ":
+        case "img_PZ"://平台受理员案卷批转
 
             var url = "/CallAcceptance/project/ProjectApprovedView?action=03&projectcode=" + projcode + "&buttoncode=" + buttoncode + "&year=" + year + "&nodeid=" + nodeid + "&isend=" + isend;
-            //$(this).attr("data-url", url);
-            //utils.dialog(this, "案卷批转", 600, 720, function () {
-            //    project.projectReport();
-            //    project.projectPz();
-            //});
-
 
             $.get(url, function (data) {
                 bootbox.dialog({
@@ -590,12 +656,57 @@ project.operateProject = function operateProject(buttonid, projcode, buttoncode,
                                 }, function (data) {
                                     if (data.RspCode == 1) {
                                         dialog.dialog("destroy").remove();
-                                        utils.alert1("批转成功！", function () {
+                                        utils.alert1("案卷批转成功！", function () {
                                             var table = $('#projectlistTB').DataTable();
                                             table.ajax.reload();
                                         });
                                     } else {
-                                        utils.alert(data.RspMsg);
+                                        utils.alert1(data.RspMsg);
+                                    }
+                                })
+                            }
+                        },
+                        "button":
+                        {
+                            "label": "取消",
+                            "className": "btn-sm"
+                        }
+                    }
+                });
+            });
+
+            break;
+
+        case "img_djht"://平台受理员问题回退
+
+            var url = "/CallAcceptance/project/ProjectApprovedView?action=04&projectcode=" + projcode + "&buttoncode=" + buttoncode + "&year=" + year + "&nodeid=" + nodeid + "&isend=" + isend;
+
+            $.get(url, function (data) {
+                bootbox.dialog({
+                    message: data,
+                    title: "案卷批转",
+                    buttons:
+                    {
+                        "approve":
+                        {
+                            "label": "回退",
+                            "className": "btn-sm btn-primary",
+                            "callback": function () {
+                                utils.httpClient("/project/ProjectAcceptApproved", "post", {
+                                    NodeId: nodeid,
+                                    ProjectCode: projcode,
+                                    CurrentBusiStatus: "04",
+                                    ButtonCode: buttoncode,
+                                    TargetDepartCode: $("#TargetDepartCode").val(),
+                                    Option: $("#Option").val(),
+                                }, function (data) {
+                                    if (data.RspCode == 1) {
+                                        utils.alert1("案卷回退成功！", function () {
+                                            var table = $('#projectlistTB').DataTable();
+                                            table.ajax.reload();
+                                        });
+                                    } else {
+                                        utils.alert1(data.RspMsg);
                                     }
                                 })
                             }
@@ -630,23 +741,22 @@ project.getProjectReportDetail = function getProjectReportDetail(projectcode, ye
             var html = template('projectreportdetailtpl', data.RspData.project);
             document.getElementById('projectreportdetail').innerHTML = html;
 
-            project.initPropDepartTree(function (e, treeId, treeNode) {
+            project.initPropDepartTree(function () {
                 var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-                zTree.expandNode(treeNode);
-                $("#departselected").click(function () {
+                var nodes = zTree.getSelectedNodes();
+                if (nodes != null) {
+                    var treeNode = nodes[0];
                     $("#TargetDepartName").val(treeNode.name);
                     $("#TargetDepartCode").val(treeNode.id);
-                    dialog.dialog("destroy").remove();
-                });
+                }
+
             });
 
-            project.initPropProjectClassTree(function (e, treeId, treeNode) {
+            project.initPropProjectClassTree(function () {
                 var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-                zTree.expandNode(treeNode);
-                $("#departselected").click(function () {
-
-                    $("#projectclass").closest(".form-group").find("input").val("");
-
+                var nodes = zTree.getSelectedNodes();
+                if (nodes != null) {
+                    var treeNode = nodes[0];
                     if (treeNode.level == 0) {
                         $("#TypeName").val(treeNode.name);
                         $("#TypeCode").val(treeNode.id);
@@ -662,15 +772,14 @@ project.getProjectReportDetail = function getProjectReportDetail(projectcode, ye
                         $("#TypeCode").val(treeNode.getParentNode().getParentNode().id);
                         $("#projectclass").val(treeNode.getParentNode().getParentNode().name + "/" + treeNode.getParentNode().name + "/" + treeNode.name);
                     }
-                    dialog.dialog("destroy").remove();
-                });
+                }
             })
 
-            project.initPropAreaTree(function (e, treeId, treeNode) {
+            project.initPropAreaTree(function () {
                 var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-                zTree.expandNode(treeNode);
-                $("#departselected").click(function () {
-
+                var nodes = zTree.getSelectedNodes();
+                if (nodes != null) {
+                    var treeNode = nodes[0];
                     $("#areaName").closest(".form-group").find("input").val("");
 
                     if (treeNode.level == 0) {
@@ -686,8 +795,7 @@ project.getProjectReportDetail = function getProjectReportDetail(projectcode, ye
                         $("#AreaId").val(treeNode.getParentNode().getParentNode().id);
                         $("#areaName").val(treeNode.getParentNode().getParentNode().name + "/" + treeNode.getParentNode().name + "/" + treeNode.name);
                     }
-                    dialog.dialog("destroy").remove();
-                });
+                }
             })
 
         }

@@ -50,7 +50,7 @@
                 </div>
                 <div class="profile-user-info profile-user-info-striped">
 
-                    {{if "@Request["action"]"=="03"}}
+                    {{if action=="03"}}
                     <div class="profile-info-row">
                         <div class="profile-info-name"> 派遣部门： </div>
                         <div class="profile-info-value">
@@ -85,8 +85,10 @@
                     <div class="profile-info-row">
                         {{if action=="03"}}
                         <div class="profile-info-name"> 批转意见： </div>
-                        {{else}}
+                        {{else if action=="02"}}
                         <div class="profile-info-name"> 注销意见： </div>
+                        {{else if action=="04"}}
+                        <div class="profile-info-name"> 回退意见： </div>
                         {{/if}}
 
                         <div class="profile-info-value">
@@ -97,28 +99,6 @@
                 </div>
             </div>
 
-            @*<div class=" widget-box transparent ui-sortable-handle">
-                <div class="widget-body">
-                    <div class="widget-main center">
-                        {{if action=="03"}}
-                        <button class="btn btn-info" type="button" id="AcceptApprove">
-                            <i class="ace-icon fa fa-check bigger-110"></i>
-                            批转
-                        </button>
-                        {{else}}
-                        <button class="btn btn-info" type="button" id="AcceptCancle">
-                            <i class="ace-icon fa fa-check bigger-110"></i>
-                            注销
-                        </button>
-                        {{/if}}
-
-                        <button class="btn btn-info" type="button" id="cancle">
-                            <i class="ace-icon fa fa-check bigger-110"></i>
-                            取消
-                        </button>
-                    </div>
-                </div>
-            </div>*@
             <input type="hidden" name="NodeId" id="NodeId" value="{{project.NodeId}}" />
             <input type="hidden" name="ProjectCode" id="ProjectCode" value="{{project.Projcode}}" />
             <input type="hidden" name="CurrentBusiStatus" id="CurrentBusiStatus" value="{{action}}" />

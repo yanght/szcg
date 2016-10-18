@@ -19,7 +19,6 @@
             </small>
         </h1>
     </div>*@<!-- /.page-header -->
-
 <div class="row">
     <div class="col-xs-12">
         <!-- PAGE CONTENT BEGINS -->
@@ -60,7 +59,6 @@
                             重置
                         </button>
                     </form>
-
                 </div>
             </div>
         </div>
@@ -80,7 +78,7 @@
                             案卷登记
                         </button>
                     }
-                    
+
                     <button class="btn btn-xs bigger btn-yellow dropdown-toggle" data-toggle="dropdown">
                         操作
                         <i class="ace-icon fa fa-chevron-down icon-on-right"></i>
@@ -135,21 +133,18 @@
         , null]
 
     ace.load_ajax_scripts(scripts, function () {
+
         //inline scripts related to this page
-        jQuery(function ($) {
 
-            //日历控件初始化
-            $('.input-daterange').datepicker({ autoclose: true, language: 'zh-CN', });
+        $('.input-daterange').datepicker({ autoclose: true, language: 'zh-CN', });
 
-            var table = project.initDelProjectTable('@Request["modelcode"]', '@Request["buttoncode"]','@Request["nodeid"]');
+        var table = project.initDelProjectTable('@Request["modelcode"]', '@Request["buttoncode"]', '@Request["nodeid"]');
 
-            $("#query").click(function () {
-                project.GetDelProjectList('@Request["modelcode"]', '@Request["buttoncode"]','@Request["nodeid"]',table);
-            })
-
-        });
-
-        project.getareaList();
+        $("#query").click(function () {
+            project.GetDelProjectList('@Request["modelcode"]', '@Request["buttoncode"]', '@Request["nodeid"]', table);
+        })
 
     });
+
+
 </script>

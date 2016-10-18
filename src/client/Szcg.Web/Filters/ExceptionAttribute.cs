@@ -32,7 +32,7 @@ namespace Szcg.Web.Filters
 
             //转向
             filterContext.ExceptionHandled = true;
-            //filterContext.Result = new RedirectResult("Error");
+           // filterContext.Result = new RedirectResult("/Home/Error");
         }
     }
 }

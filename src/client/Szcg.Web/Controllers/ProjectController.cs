@@ -108,7 +108,19 @@ namespace Szcg.Web.Controllers
             if (string.IsNullOrEmpty(args.Option))
             {
                 ajax.RspCode = 0;
-                ajax.RspMsg = "请输入批转意见！";
+                if (args.CurrentBusiStatus == "02")
+                {
+                    ajax.RspMsg = "请输入注销意见！";
+                }
+                if (args.CurrentBusiStatus == "03")
+                {
+                    ajax.RspMsg = "请输入批转意见！";
+                }
+                if (args.CurrentBusiStatus == "04")
+                {
+                    ajax.RspMsg = "请输入回退意见！";
+                }
+
                 return ajax;
             }
 
@@ -791,14 +803,14 @@ namespace Szcg.Web.Controllers
 
 
             ajax.RspData.Add("project", JToken.FromObject(project));
-            if (Request["action"]!=null)
+            if (Request["action"] != null)
             {
                 ajax.RspData.Add("action", JToken.FromObject(Request["action"]));
             }
             if (Request["buttoncode"] != null)
             {
                 ajax.RspData.Add("buttoncode", JToken.FromObject(Request["buttoncode"]));
-            }  
+            }
 
             return ajax;
         }

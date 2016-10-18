@@ -914,10 +914,11 @@
     <script src="/content/assets/js/ace-elements.min.js"></script>
     <script src="/content/assets/js/ace.min.js"></script>
     <script type="text/javascript" src="~/Content/template.js"></script>
-    <script src="content/assets/js/bootbox.min.js"></script>
+    <script src="/content/assets/js/bootbox.min.js"></script>
+
+    <script src="~/Content/assets/js/ace/ace.ajax-content.js"></script>
 
     <script src="/content/js/project.js"></script>
-
 
     <script type="text/javascript">
         //Load content via ajax
@@ -938,7 +939,7 @@
                         //for Ace PHP demo version convert "page/dashboard" to "?page=dashboard" and load it
                         return path + "?" + url.replace(/\//, "=");
                     },
-                    default_url: 'page/index'//default url
+                    default_url: 'callacceptance/project/reportlist?modelcode=11100028&buttoncode=11100028001&nodeid=2'//default url
                 }
                 ace.enable_ajax_content($, options)
             }

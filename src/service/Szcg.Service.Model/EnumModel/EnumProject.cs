@@ -17,4 +17,5 @@ namespace Szcg.Service.Model
         /// </summary>
         Event = 1
     }
+
 }

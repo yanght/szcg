@@ -56,6 +56,10 @@ namespace Szcg.Web.Controllers
 
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
+            if (UserInfo == null)
+            {
+                filterContext.Result = Redirect("/login");
+            }
             var methodInfo = ((ReflectedActionDescriptor)filterContext.ActionDescriptor).MethodInfo;
             foreach (var p in methodInfo.GetParameters())
             {

@@ -1081,6 +1081,8 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Main.cshtml" />
     <Content Include="Views\Home\elements.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

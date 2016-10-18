@@ -67,6 +67,7 @@ utils.dialog = function (obj, title, width, height, buttons) {
         });
     })
 }
+
 utils.dialog1 = function dialog1(obj, buttons) {
     var url = $(obj).attr("data-url");
 
@@ -81,7 +82,7 @@ utils.dialog1 = function dialog1(obj, buttons) {
                      "label": "<i class='ace-icon fa fa-check'></i> Success!",
                      "className": "btn-sm btn-success",
                      "callback": function () {
-
+                         return false;
                      }
                  },
                 "danger":
@@ -149,22 +150,22 @@ utils.alert = function (message, okcallback) {
 }
 
 utils.alert1 = function (message, callback) {
-    bootbox.dialog({
-        message: message,
-        buttons:
-        {
-            "success":
-             {
-                 "label": "<i class='ace-icon fa fa-check'></i> 确定",
-                 "className": "btn-sm btn-success",
-                 "callback": function () {
-                     if (callback)
-                         callback();
-                 }
-             }
-        }
-    });
-
+    //bootbox.dialog({
+    //    message: message,
+    //    buttons:
+    //    {
+    //        "success":
+    //         {
+    //             "label": "<i class='ace-icon fa fa-check'></i> 确定",
+    //             "className": "btn-sm btn-success",
+    //             "callback": function () {
+    //                 if (callback)
+    //                     callback();
+    //             }
+    //         }
+    //    }
+    //});
+    bootbox.alert(message, callback)
 }
 
 //选择对话框

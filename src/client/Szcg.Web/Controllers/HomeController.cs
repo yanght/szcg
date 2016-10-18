@@ -10,6 +10,7 @@ using System.Web.Security;
 using Newtonsoft.Json;
 using Szcg.Service.Common;
 using Szcg.Service.Model;
+using Newtonsoft.Json.Linq;
 
 namespace Szcg.Web.Controllers
 {
@@ -20,28 +21,69 @@ namespace Szcg.Web.Controllers
         {
             //throw new Exception("testq111");
             UserInfo user = UserInfo;
-          
+
             return View();
         }
 
         public ActionResult Main()
         {
-            ChageRole("11");
-
             IPermissionService svc = new PermissionService();
 
             List<FlowNodePower> list = svc.GetFlowNodePower(UserInfo.CurrentRole.ToString(), string.Empty, UserInfo.CurrentSystemId);
 
             return View(list);
         }
-      
+
         [HttpPost]
         public ActionResult Index(string username, string password)
         {
-            ChageRole("11");
+            //ChageRole("11");
             return View();
         }
 
+        /// <summary>
+        /// 检查权限，跳转至相应的系统
+        /// </summary>
+        /// <param name="systemId"></param>
+        /// <returns></returns>
+        public AjaxFxRspJson SelectSystem(string systemId)
+        {
+
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 0 };
+
+            if (string.IsNullOrEmpty(systemId))
+            {
+                ajax.RspMsg = "请输入系统Id";
+                return ajax;
+            }
+
+            if (UserInfo != null)
+            {
+                string[] strSysIds = UserInfo.getSystemid();
+                if (strSysIds.Contains(systemId))
+                {
+                    ChageRole(systemId);
+                    ajax.RspData.Add("url", JToken.FromObject("/main.html"));
+                    ajax.RspCode = 1;
+                    return ajax;
+                }
+                else
+                {
+                    ajax.RspMsg = "没有权限！";
+                    return ajax;
+                }
+            }
+            else
+            {
+                ajax.RspMsg = "获取用户信息失败！";
+                return ajax;
+            }
+        }
+
+        /// <summary>
+        /// 切换用户角色
+        /// </summary>
+        /// <param name="systemId">系统Id</param>
         public void ChageRole(string systemId)
         {
             string strRoleId = string.Empty;
@@ -56,7 +98,7 @@ namespace Szcg.Web.Controllers
             UserInfo.CurrentRole = int.Parse(strRoleId);
 
             UserInfo.ModelPowers = new PermissionService().GetUserModelPower(systemId, UserInfo.getUsercode());
-           
+
             ResetUserCookie(systemId, UserInfo.ModelPowers);
         }
 
@@ -118,6 +160,10 @@ namespace Szcg.Web.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+        public ActionResult Error()
+        {
             return View();
         }
 
