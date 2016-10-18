@@ -122,7 +122,8 @@
   <script src="/content/assets/js/excanvas.min.js"></script>
 <![endif]-->
 <script type="text/javascript">
-    var scripts = [null
+    $(function () {
+        var scripts = [null
 
         , "/content/assets/js/date-time/bootstrap-datepicker.min.js"
         , "/content/assets/js/date-time/bootstrap-timepicker.min.js"
@@ -132,19 +133,21 @@
 
         , null]
 
-    ace.load_ajax_scripts(scripts, function () {
+        ace.load_ajax_scripts(scripts, function () {
 
-        //inline scripts related to this page
+            //inline scripts related to this page
 
-        $('.input-daterange').datepicker({ autoclose: true, language: 'zh-CN', });
+            $('.input-daterange').datepicker({ autoclose: true, language: 'zh-CN', });
 
-        var table = project.initDelProjectTable('@Request["modelcode"]', '@Request["buttoncode"]', '@Request["nodeid"]');
+            var table = project.initDelProjectTable('@Request["modelcode"]', '@Request["buttoncode"]', '@Request["nodeid"]');
 
-        $("#query").click(function () {
-            project.GetDelProjectList('@Request["modelcode"]', '@Request["buttoncode"]', '@Request["nodeid"]', table);
-        })
+            $("#query").click(function () {
+                project.GetDelProjectList('@Request["modelcode"]', '@Request["buttoncode"]', '@Request["nodeid"]', table);
+            })
 
-    });
+        });
 
+    })
+    
 
 </script>

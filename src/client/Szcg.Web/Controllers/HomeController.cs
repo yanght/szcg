@@ -113,7 +113,7 @@ namespace Szcg.Web.Controllers
             {
                 string strModelPowers = string.Empty;
                 UserInfo userInfo = this.UserInfo;
-                userInfo.CurrentSystemId = SystemID;
+                userInfo.CurrentNodeID = SystemID;
 
                 string[] strsystemid = strModels.Split(',');
 
@@ -130,16 +130,15 @@ namespace Szcg.Web.Controllers
 
                 if (strModelPowers != "")
                 {
-                    userInfo._ModelPowers = strModelPowers.Substring(0, strModelPowers.Length - 1).Trim();
                     userInfo.ModelPowers = strModelPowers.Substring(0, strModelPowers.Length - 1).Trim();
                 }
 
                 string userdata = JsonConvert.SerializeObject(userInfo);
 
-                FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, this.UserInfo._username, DateTime.Now, DateTime.Now.AddHours(2), false, userdata);
+                FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, this.UserInfo._username, DateTime.Now, DateTime.Now.AddHours(2), false, "123");
                 HttpCookie cookie_ = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(ticket));
                 HttpContext.Response.Cookies.Add(cookie_);
-                Session["UserInfo"] = this.UserInfo;
+                Session["UserInfo"] = userInfo;
             }
             catch (Exception ex)
             {

@@ -246,8 +246,6 @@ project.initPropAreaTree = function initPropAreaTree(callback) {
     })
 }
 
-
-
 //刷举报栏待办案卷列表
 project.GetDelProjectList = function GetDelProjectList(modelcode, buttoncode, nodeid, table) {
 
@@ -413,7 +411,6 @@ project.GetFlowNodePower = function GetFlowNodePower(callback) {
     });
 }
 
-
 //案卷上报
 project.projectReport = function projectReport() {
 
@@ -453,7 +450,6 @@ project.projectPz = function projectPz() {
     return false;
 
 }
-
 
 //查看案卷明细
 project.getProjectDetail = function getProjectDetail(projectcode, year, isend, nodeid) {
@@ -523,7 +519,6 @@ project.getProjectDetailApproved = function getProjectDetailApproved(projectcode
         }
     });
 }
-
 
 //获取案卷流程
 project.getProjectTrace = function (projectcode, year, isend) {
