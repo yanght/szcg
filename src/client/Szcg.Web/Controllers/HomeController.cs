@@ -20,8 +20,6 @@ namespace Szcg.Web.Controllers
         public ActionResult Index()
         {
             //throw new Exception("testq111");
-            UserInfo user = UserInfo;
-
             return View();
         }
 
@@ -31,6 +29,21 @@ namespace Szcg.Web.Controllers
 
             List<FlowNodePower> list = svc.GetFlowNodePower(UserInfo.CurrentRole.ToString(), string.Empty, UserInfo.CurrentSystemId);
 
+            foreach (var power in list)
+            {
+                if (power.ButtonCode.Length == 11 && power.ButtonCode.Substring(9) == "01")
+                {
+                    if (power.ModelCode.StartsWith("27") || power.ModelCode.StartsWith("28"))
+                        power.ModelCode = "11" + power.ModelCode.Substring(2);
+                }
+
+                if (power.ButtonCode.Length == 11 && power.ButtonCode.Substring(0, 8) == power.ButtonCode.Substring(0, 8) && power.ButtonCode.Substring(9) != "01")
+                {
+                    string strButtoncode = power.ButtonCode;
+                    if (strButtoncode.StartsWith("27") || strButtoncode.StartsWith("28"))
+                        power.ButtonCode = "11" + strButtoncode.Substring(2);
+                }
+            }
             return View(list);
         }
 
@@ -133,9 +146,12 @@ namespace Szcg.Web.Controllers
                     userInfo.ModelPowers = strModelPowers.Substring(0, strModelPowers.Length - 1).Trim();
                 }
 
-                string userdata = JsonConvert.SerializeObject(userInfo);
+                // string userdata = JsonConvert.SerializeObject(_username = "测试员");
 
-                FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, this.UserInfo._username, DateTime.Now, DateTime.Now.AddHours(2), false, "123");
+
+                string userdata = string.Format("{0}${1}${2}${3}${4}${5}${6}${7}${8}${9}${10}${11}${12}${13}${14}", userInfo.getAreacode(), userInfo.CurrentNodeID, userInfo.CurrentSystemId, userInfo.getDepartcode(), userInfo.getDepartDefinedcode(), userInfo.getDepartname(), userInfo.getHcpower(), userInfo.CurrentRole, userInfo.getIs_ca(), userInfo.getLoginname(), userInfo.ModelPowers, string.Join(",", userInfo.getRole()), string.Join(",", userInfo.getSystemid()), userInfo.getUsercode(), userInfo.getUsername());
+
+                FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, this.UserInfo._username, DateTime.Now, DateTime.Now.AddHours(2), false, userdata);
                 HttpCookie cookie_ = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(ticket));
                 HttpContext.Response.Cookies.Add(cookie_);
                 Session["UserInfo"] = userInfo;

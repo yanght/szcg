@@ -121,19 +121,29 @@
 <!--[if lte IE 8]>
   <script src="/content/assets/js/excanvas.min.js"></script>
 <![endif]-->
+
+<script src="/content/assets/js/date-time/bootstrap-datepicker.min.js"></script>
+<script src="/content/assets/js/date-time/bootstrap-timepicker.min.js"></script>
+<script src="/content/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
+<script src="/content/assets/js/jquery.dataTables.min.js"></script>
+<script src="/content/assets/js/jquery.dataTables.bootstrap.js"></script>
+
 <script type="text/javascript">
+
     $(function () {
-        var scripts = [null
 
-        , "/content/assets/js/date-time/bootstrap-datepicker.min.js"
-        , "/content/assets/js/date-time/bootstrap-timepicker.min.js"
-        , "/content/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"
-        , "/content/assets/js/jquery.dataTables.min.js"
-        , "/content/assets/js/jquery.dataTables.bootstrap.js",
+     
+        //var scripts = [null
 
-        , null]
+        //, "/content/assets/js/date-time/bootstrap-datepicker.min.js"
+        //, "/content/assets/js/date-time/bootstrap-timepicker.min.js"
+        //, "/content/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"
+        //, "/content/assets/js/jquery.dataTables.min.js"
+        //, "/content/assets/js/jquery.dataTables.bootstrap.js",
 
-        ace.load_ajax_scripts(scripts, function () {
+        //, null]
+
+        ace.load_ajax_scripts([null], function () {
 
             //inline scripts related to this page
 
@@ -148,6 +158,6 @@
         });
 
     })
-    
+
 
 </script>

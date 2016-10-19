@@ -72,6 +72,15 @@ namespace Szcg.Web.Controllers
             return ajax;
         }
 
+        public ActionResult LoginOut()
+        {
+            HttpCookie cookie = HttpContext.Request.Cookies[FormsAuthentication.FormsCookieName];
+            cookie.Expires = DateTime.Now.AddDays(-1);
+            HttpContext.Response.Cookies.Add(cookie);
+            Session["UserInfo"] = null;
+            return RedirectToAction("Index");
+        }
+
         #endregion
 
     }

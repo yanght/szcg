@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -41,7 +42,24 @@ namespace Szcg.Web.Controllers
 
                     if (!string.IsNullOrEmpty(userdata))
                     {
-                        user = JsonConvert.DeserializeObject<UserInfo>(userdata);
+                        string[] arrs = userdata.Split('$');
+
+                        user.setAreacode(arrs[0]);
+                        user.CurrentNodeID = arrs[1];
+                        user.CurrentSystemId = arrs[2];
+                        user.setDepartcode(int.Parse(arrs[3]));
+                        user.setDepartDefinedcode(arrs[4]);
+                        user.setDepartname(arrs[5]);
+                        user.setHcpower(arrs[6]);
+                        user.CurrentRole = int.Parse(arrs[7]);
+                        user.setIs_ca(bool.Parse(arrs[8]));
+                        user.setLoginname(arrs[9]);
+                        user.ModelPowers = arrs[10];
+                        user.setRole(ArrayList.Adapter(arrs[11].Split(',')));
+                        user.setSystemid(ArrayList.Adapter(arrs[12].Split(',')));
+                        user.setUsercode(int.Parse(arrs[13]));
+                        user.setUsername(arrs[14]);
+
                         Session["UserInfo"] = user;
                     }
 

@@ -337,6 +337,7 @@ namespace Szcg.Service.Bussiness
             List<FlowNodePower> rtn = new List<FlowNodePower>();
 
             DataSet ds = bacgBL.business.Project.GetFlowNodePower(roleCode, modelCode, systemId, strErr);
+
             if (!string.IsNullOrEmpty(strErr))
             {
                 LoggerManager.Instance.logger.Error("案件立案批转异常：" + strErr);
@@ -344,9 +345,10 @@ namespace Szcg.Service.Bussiness
             if (ds != null && ds.Tables[0].Rows.Count > 0)
             {
                 List<FlowNodePower> list = ConvertDtHelper<FlowNodePower>.GetModelList(ds.Tables[0].Rows);
+
                 rtn = list.FindAll((x) =>
                 {
-                    return x.ButtonCode.Substring(x.ButtonCode.Length-2,2) == "01";
+                    return x.ButtonCode.Substring(x.ButtonCode.Length - 2, 2) == "01";
                 });
 
                 foreach (FlowNodePower nodepower in rtn)

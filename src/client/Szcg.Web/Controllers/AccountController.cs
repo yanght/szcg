@@ -96,11 +96,13 @@ namespace Szcg.Web.Controllers
         /// </summary>
         /// <param name="systemId">系统编号</param>
         /// <returns></returns>
-        public AjaxFxRspJson GetFlowNodePower()
+        public AjaxFxRspJson GetFlowNodePower(string modelcode)
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
-           
-            List<FlowNodePower> list = svc.GetFlowNodePower(UserInfo.CurrentRole.ToString(), string.Empty, UserInfo.CurrentSystemId);
+
+            modelcode = UserInfo.ModelPowers.Substring(0, 2) + modelcode.Substring(2).ToString();
+
+            List<FlowNodePower> list = svc.GetFlowNodePower(UserInfo.CurrentRole.ToString(), modelcode, UserInfo.CurrentSystemId);
 
             ajax.RspData.Add("nodepower", JToken.FromObject(list));
 

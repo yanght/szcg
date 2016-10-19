@@ -278,18 +278,18 @@ project.initDelProjectTable = function (modelcode, buttoncode, nodeid) {
         endTime: $("input[name='endTime']").val(),
         Projcode: $("input[name='Projcode']").val(),
         NodeId: nodeid,
-        ButtonCode: buttoncode,
+        ButtonCode: modelcode,
     };
 
     //查询当前页面的操作按钮
     var optionNames = new Array();
-    project.GetFlowNodePower(function (data) {
+    project.GetFlowNodePower(modelcode, function (data) {
         $.each(data, function (index, item) {
-            if (item.ModelCode == modelcode) {
+            //if (item.ModelCode == modelcode) {
                 $.each(item.ChildPowers, function (i, k) {
                     optionNames.push(k);
                 })
-            }
+            //}
         })
     })
 
@@ -400,8 +400,8 @@ project.initDelProjectTable = function (modelcode, buttoncode, nodeid) {
 }
 
 //获取当前页面操作按钮
-project.GetFlowNodePower = function GetFlowNodePower(callback) {
-    utils.httpClient("/account/GetFlowNodePower", "post", null, function (data) {
+project.GetFlowNodePower = function GetFlowNodePower(modelcode, callback) {
+    utils.httpClient("/account/GetFlowNodePower", "post", { modelcode: modelcode }, function (data) {
         if (data.RspCode == 1) {
             callback(data.RspData.nodepower);
         } else {
@@ -604,7 +604,6 @@ project.operateProject = function operateProject(buttonid, projcode, buttoncode,
                                     Option: $("#Option").val(),
                                 }, function (data) {
                                     if (data.RspCode == 1) {
-                                        dialog.dialog("destroy").remove();
                                         utils.alert1("案卷注销成功！", function () {
                                             var table = $('#projectlistTB').DataTable();
                                             table.ajax.reload();
@@ -650,7 +649,6 @@ project.operateProject = function operateProject(buttonid, projcode, buttoncode,
                                     Option: $("#Option").val(),
                                 }, function (data) {
                                     if (data.RspCode == 1) {
-                                        dialog.dialog("destroy").remove();
                                         utils.alert1("案卷批转成功！", function () {
                                             var table = $('#projectlistTB').DataTable();
                                             table.ajax.reload();
