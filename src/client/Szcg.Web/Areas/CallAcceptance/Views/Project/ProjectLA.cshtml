@@ -2,8 +2,8 @@
     Layout = null;
 }
 <form class="input-line">
-    <div id="projectdetailLA">
 
+    <div id="projectdetailLA">
         <script type="text/template" id="projectdetailLAtpl">
             <div class="row">
                 <div class="profile-user-info profile-user-info-striped">
@@ -39,7 +39,11 @@
                         </div>
                     </div>
                     <div class="profile-info-row">
+                        {{if project.ProbSource==1}}
                         <div class="profile-info-name"> 监督员： </div>
+                        {{else}}
+                        <div class="profile-info-name"> 操作员： </div>
+                        {{/if}}
                         <div class="profile-info-value">
                             <span class="editable editable-click">{{project.Operator}} </span>
                         </div>
@@ -87,7 +91,7 @@
                         <div class="profile-info-name"> 重新派遣： </div>
                         <div class="profile-info-value">
                             <span class="input-icon input-icon-right">
-                                <input type="text" name="TargetDepartName" id="TargetDepartName" data-url="/callAcceptance/project/SelectDepart" value="{{project.TargetDepartName}}">
+                                <input type="text" name="TargetDepartName" id="TargetDepartName" data-url="/callAcceptance/project/SelectDepart" value="">
                                 <input type="hidden" name="TargetDepartCode" id="TargetDepartCode" value="{{project.TargetDepartCode}}" />
                                 <i class="ace-icon fa fa-plus-circle bigger-120  blue"></i>
                             </span>
@@ -143,5 +147,7 @@
 </form>
 
 <script type="text/javascript">
-    project.getProjectDetailLA('0', '@(Request["projectcode"])', '@(Request["nodeid"])');
+
+    project.getProjectDetailLA('@Request["dotype"]', '@(Request["projectcode"])', '@(Request["nodeid"])');
+
 </script>
