@@ -1,0 +1,147 @@
+﻿@{
+    Layout = null;
+}
+<form class="input-line">
+    <div id="projectdetailLA">
+
+        <script type="text/template" id="projectdetailLAtpl">
+            <div class="row">
+                <div class="profile-user-info profile-user-info-striped">
+
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 案卷号： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.ProjName}} </span>
+                        </div>
+                        <div class="profile-info-name"> 问题分类： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.ProbClassName}} </span>
+                        </div>
+                    </div>
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 大类： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.BigClassName}}</span>
+                        </div>
+                        <div class="profile-info-name"> 小类： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.SmallClassName}}</span>
+                        </div>
+                    </div>
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 所属街道： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.Street}} </span>
+                        </div>
+                        <div class="profile-info-name"> 所属社区： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.Square}} </span>
+                        </div>
+                    </div>
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 监督员： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.Operator}} </span>
+                        </div>
+                        <div class="profile-info-name"> 上报时间： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.StartDate}}</span>
+                        </div>
+                    </div>
+
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 事发位置： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.Address}} </span>
+                        </div>
+                    </div>
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 立案类型： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">
+                                <select class="form-control" id="FilingType" name="FilingType">
+                                    {{each typelist as value }}
+                                    <option value="{{value.TypeCode}}">{{value.TypeName}}</option>
+                                    {{/each}}
+                                </select>
+                            </span>
+                        </div>
+                        <div class="profile-info-name"> 处理类型： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">
+                                <select class="form-control" id="ProcessType" name="ProcessType">
+                                    <option value="0">一级区域</option>
+                                    <option value="1">二级区域</option>
+                                </select>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 处理时间： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click" id="handlertime">{{project.HandlerTime}} </span>
+                        </div>
+                    </div>
+
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 重新派遣： </div>
+                        <div class="profile-info-value">
+                            <span class="input-icon input-icon-right">
+                                <input type="text" name="TargetDepartName" id="TargetDepartName" data-url="/callAcceptance/project/SelectDepart" value="{{project.TargetDepartName}}">
+                                <input type="hidden" name="TargetDepartCode" id="TargetDepartCode" value="{{project.TargetDepartCode}}" />
+                                <i class="ace-icon fa fa-plus-circle bigger-120  blue"></i>
+                            </span>
+                        </div>
+                        <div class="profile-info-name"> 已派遣部门： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.TargetDepartName}}</span>
+                        </div>
+                    </div>
+
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 部门手机： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.TargetDepartMobile}} </span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="profile-user-info profile-user-info-striped">
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 问题描述： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.ProbDesc}}</span>
+                        </div>
+                    </div>
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 受理员意见： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click"> {{project.LastOpinion}}</span>
+                        </div>
+                    </div>
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 值班长意见： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">
+                                <input type="text" class="form-control" />
+                            </span>
+                        </div>
+                    </div>
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 值班长： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{username}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" name="TypeCode" id="TypeCode" value="{{project.TypeCode}}" />
+            <input type="hidden" name="SmallClass" id="SmallClass" value="{{project.SmallClass}}" />
+        </script>
+    </div>
+
+</form>
+
+<script type="text/javascript">
+    project.getProjectDetailLA('0', '@(Request["projectcode"])', '@(Request["nodeid"])');
+</script>

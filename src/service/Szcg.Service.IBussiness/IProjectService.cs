@@ -108,6 +108,15 @@ namespace Szcg.Service.IBussiness
         Project GetProjectDetail(string projcode, int year, bool isEnd);
 
         /// <summary>
+        ///  从业务数据库中获取案件的部分主要信息 
+        /// </summary>
+        /// <param name="projcode">案卷编号</param>
+        /// <param name="nodeid">案卷节点Id</param>
+        /// <returns></returns>
+        Project GetProjectSomeInfo(string projcode, string nodeid);
+
+
+        /// <summary>
         /// 获取案卷流程
         /// </summary>
         /// <param name="projcode">案卷编号</param>
@@ -283,6 +292,16 @@ namespace Szcg.Service.IBussiness
         /// <returns></returns>
         bool ProjectDelete(string projcode, string deleteSign = "0");
 
+         /// <summary>
+        /// 获取处置时间和处置时间类型
+        /// </summary>
+        /// <param name="typecode">案卷事部件类型</param>
+        /// <param name="smallcode">小类编码</param>
+        /// <param name="typeVaue">立案类型</param>
+        /// <param name="processtype">处理类型</param>
+        /// <returns></returns>
+        string GetHandleTime(string typecode, string smallcode, string typeVaue, string processtype);
+
         #endregion
 
         #endregion
@@ -355,6 +374,14 @@ namespace Szcg.Service.IBussiness
         /// <param name="smallclass">小类实体</param>
         /// <returns></returns>
         ReturnValue InsertPartSmallClass(ProjectSmallClass smallclass);
+
+        /// <summary>
+        /// 获取小类事部件处理类型列表
+        /// </summary>
+        /// <param name="typecode">标识是事件还是部件</param>
+        /// <param name="smallcode">小类事部件编码</param>
+        /// <returns></returns>
+        List<ProjectClassType> GetTypeList(string typecode, string smallcode);
 
         #endregion
 

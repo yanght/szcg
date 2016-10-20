@@ -399,6 +399,62 @@ namespace Szcg.Service.Bussiness
         }
 
         /// <summary>
+        ///  从业务数据库中获取案件的部分主要信息 
+        /// </summary>
+        /// <param name="projcode">案卷编号</param>
+        /// <param name="IsQuerySource">是否要查询该案件相关的来源信息</param>
+        /// <returns></returns>
+        public Project GetProjectSomeInfo(string projcode, string nodeid)
+        {
+            Project project = new Project();
+
+            string strLastOpinion = string.Empty;
+
+            DataSet ds = bacgBL.business.Project.GetProjSomeInfo(projcode, nodeid, true, out strLastOpinion, out strErr);
+
+            if (strErr != "" || ds.Tables[0].Rows.Count == 0)
+            {
+                LoggerManager.Instance.logger.ErrorFormat("加载案卷详情出错，案卷编号:{0}  错误信息：{1}", projcode, strErr);
+                return null;
+            }
+
+            DataRow dr1 = ds.Tables[0].Rows[0];
+
+            project.Projcode = dr1["projcode"].ToString();
+
+            project.ProjName = dr1["projname"].ToString();
+            project.ProbSource = dr1["probsource"].ToString();
+
+            project.Square = dr1["square"].ToString();
+            project.Street = dr1["street"].ToString();//所属街道
+            project.BigClassName = dr1["bigclassname"].ToString();
+            project.AreaId = dr1["AreaID"].ToString();
+            project.StreetId = dr1["StreetID"].ToString();
+            project.ProbClassName = dr1["probclassName"].ToString();
+
+            project.Operator = dr1["username"].ToString();
+
+            project.StartDate = SqlDataConverter.ToDateTime(dr1["startdate"]);
+            project.Address = dr1["address"].ToString();
+            project.ProbDesc = dr1["probdesc"].ToString();
+            project.SmallClassName = dr1["smallclassname"].ToString();
+            project.TargetDepartCode = SqlDataConverter.ToInt32(dr1["TargetDepartCode"]);
+            project.TargetDepartMobile = dr1["Mobile"].ToString();
+            project.TargetDepartName = dr1["departname"].ToString();
+
+            if (ds.Tables.Count > 1 && ds.Tables[1].Rows.Count > 0)
+            {
+                project.Option = SqlDataConverter.ToString(ds.Tables[1].Rows[0]["_opinion"]);
+            }
+            project.IsGreat = dr1["isgreat"].ToString();
+            project.TypeCode = dr1["typecode"].ToString() == "True" ? "1" : "0";
+            project.SmallClass = dr1["smallclass"].ToString();
+            project.LastOpinion = strLastOpinion;
+            return project;
+
+        }
+
+        /// <summary>
         /// 获取案卷流程
         /// </summary>
         /// <param name="projcode">案卷编号</param>
@@ -633,13 +689,13 @@ namespace Szcg.Service.Bussiness
             //    if ("1" == "0")
             //        pt.buttoncode = "11100003016";//pt.buttoncode = "11900003016";
             //    else
-                   pt.buttoncode = project.ButtonCode;
+            pt.buttoncode = project.ButtonCode;
 
             //}
             //else
             //{
-                //如果改变了流程，获得对应流程开始节点的ButtonId
-               // pt.buttoncode = GetChangeFlowButtonId("8");
+            //如果改变了流程，获得对应流程开始节点的ButtonId
+            // pt.buttoncode = GetChangeFlowButtonId("8");
             //}
 
             bacgBL.business.Project.ChangeProjectFlowNode(pt, out strErr);
@@ -1337,6 +1393,32 @@ namespace Szcg.Service.Bussiness
             return rtn;
         }
 
+        /// <summary>
+        /// 获取处置时间和处置时间类型
+        /// </summary>
+        /// <param name="typecode">案卷事部件类型</param>
+        /// <param name="smallcode">小类编码</param>
+        /// <param name="typeVaue">立案类型</param>
+        /// <param name="processtype">处理类型</param>
+        /// <returns></returns>
+        public string GetHandleTime(string typecode, string smallcode, string typeVaue,string processtype)
+        {
+            DataTable dt = bacgBL.business.Project.GetTypeList(typecode, smallcode);
+            processtype = (int.Parse(processtype) + 1).ToString();
+            string departTime = dt.Select("detailclass=" + typeVaue)[0]["time" + processtype].ToString();
+            string departTimeType = dt.Select("detailclass=" + typeVaue)[0]["type" + processtype].ToString();
+            if (departTimeType == "0")
+                departTime = departTime + "工作时";
+            if (departTimeType == "1")
+                departTime = departTime + "紧急工作时";
+            if (departTimeType == "2")
+                departTime = departTime + "工作日";
+            if (departTimeType == "3")
+                departTime = departTime + "紧急工作日";
+
+            return departTime + "$" + departTimeType;
+        }
+
         #endregion
 
         #endregion
@@ -1878,6 +1960,33 @@ namespace Szcg.Service.Bussiness
                 return rtn;
             }
             return rtn;
+        }
+
+        /// <summary>
+        /// 获取小类事部件处理类型列表
+        /// </summary>
+        /// <param name="typecode">标识是事件还是部件</param>
+        /// <param name="smallcode">小类事部件编码</param>
+        /// <returns></returns>
+        public List<ProjectClassType> GetTypeList(string typecode, string smallcode)
+        {
+            List<ProjectClassType> list = new List<ProjectClassType>();
+
+            DataTable dt = bacgBL.business.Project.GetTypeList(typecode, smallcode);
+
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    ProjectClassType type = new ProjectClassType()
+                    {
+                        TypeName = SqlDataConverter.ToString(dr["typename"]),
+                        TypeCode = SqlDataConverter.ToString(dr["detailclass"])
+                    };
+                    list.Add(type);
+                }
+            }
+            return list;
         }
 
 

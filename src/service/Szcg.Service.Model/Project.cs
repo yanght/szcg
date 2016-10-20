@@ -290,8 +290,6 @@ namespace Szcg.Service.Model
         /// 案卷终止时间
         /// </summary>
         public string EndTime { get; set; }
-
-
         public string ImpeachName { get; set; }
         public string ImpeachTel { get; set; }
         /// <summary>
@@ -315,6 +313,11 @@ namespace Szcg.Service.Model
         /// 处理部门名称
         /// </summary>
         public string TargetDepartName { get; set; }
+        /// <summary>
+        /// 专业部门手机
+        /// </summary>
+        public string TargetDepartMobile { get; set; }
+
         /// <summary>
         /// 结果反馈的专业部门
         /// </summary>
@@ -359,9 +362,37 @@ namespace Szcg.Service.Model
         /// </summary>
         public List<ProjectCheckMessage> CollectorMessages { get; set; }
 
-        #endregion    
-        
+        #endregion
 
+
+        /// <summary>
+        /// 是否已发送核查指令
+        /// </summary>
+        public bool IsSendHCMessage { get; set; }
+        /// <summary>
+        /// 监督员描述
+        /// </summary>
+        public string VerifyDesc { get; set; }
+
+        /// <summary>
+        /// 回退意见
+        /// </summary>
+        public string Option { get; set; }
+
+        /// <summary>
+        /// 接线员批转意见
+        /// </summary>
+        public string LastOpinion { get; set; }
+
+        /// <summary>
+        /// 操作人
+        /// </summary>
+        public string Operator { get; set; }
+
+        /// <summary>
+        /// 处理时限
+        /// </summary>
+        public string HandlerTime { get; set; }
     }
 
     /// <summary>
@@ -691,6 +722,21 @@ namespace Szcg.Service.Model
         #endregion
 
 
+    }
+
+    /// <summary>
+    /// 事部件立案类型
+    /// </summary>
+    public class ProjectClassType
+    {
+        /// <summary>
+        /// 名称
+        /// </summary>
+        public string TypeName { get; set; }
+        /// <summary>
+        /// 编码
+        /// </summary>
+        public string TypeCode { get; set; }
     }
 
 }

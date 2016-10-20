@@ -33,6 +33,11 @@ namespace Szcg.Web.Areas.CallAcceptance.Controllers
             return View();
         }
 
+        public ActionResult ProjectLA()
+        {
+            return View();
+        }
+
         public ActionResult SelectDepart()
         {
             return View();
@@ -47,7 +52,7 @@ namespace Szcg.Web.Areas.CallAcceptance.Controllers
         {
             return View();
         }
-        public ActionResult ProjectApprovedView(string projectcode, string year, string isend, string nodeid,string action,string buttoncode)
+        public ActionResult ProjectApprovedView(string projectcode, string year, string isend, string nodeid, string action, string buttoncode)
         {
             return View();
         }

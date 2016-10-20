@@ -286,9 +286,9 @@ project.initDelProjectTable = function (modelcode, buttoncode, nodeid) {
     project.GetFlowNodePower(modelcode, function (data) {
         $.each(data, function (index, item) {
             //if (item.ModelCode == modelcode) {
-                $.each(item.ChildPowers, function (i, k) {
-                    optionNames.push(k);
-                })
+            $.each(item.ChildPowers, function (i, k) {
+                optionNames.push(k);
+            })
             //}
         })
     })
@@ -326,6 +326,9 @@ project.initDelProjectTable = function (modelcode, buttoncode, nodeid) {
                           }
                       }
                   },
+                   {
+                       "data": "IsLock", "sWidth": "5%"
+                   },
                   {
                       "data": "IsPress", "mRender": function (data, type, full) {
                           if (data) {
@@ -337,9 +340,25 @@ project.initDelProjectTable = function (modelcode, buttoncode, nodeid) {
                   },
                   { "data": "ProbSourceName", "sWidth": "5%" },
                   {
+                      "data": "PdaIoFlag", "sWidth": "5%", "mRender": function (data, type, full) {
+                          if (data == "01")
+                              return "已发送消息";
+                          if (data == "11")
+                              return "监督员正在核查";
+                          if (data == "21" || data == "31")
+                              return "已核查完毕";
+                          if (data == "01")
+                              return "已发送消息";
+                          return "未发消息";
+                      }
+                  },
+                  {
                       "data": "ProjName", "mRender": function (data, type, full) {
                           return '<a class="projectdetail" href="javascript:;" data-url="/callAcceptance/project/preview?projectcode=' + full.Projcode + '&year=' + full.StartYear + '&isend=' + full.IsEnd + '&nodeid=' + full.NodeId + '">' + data + '</a>';
                       }
+                  },
+                  {
+                      "data": "Telephonist", "sWidth": "5%"
                   },
                   { "data": "ProbClassName", "sWidth": "5%" },
                   { "data": "BigClassName" },
@@ -394,6 +413,24 @@ project.initDelProjectTable = function (modelcode, buttoncode, nodeid) {
                    $(".projecttrace").click(function (e) {
                        utils.dialog(this, "案卷流程", 800, 400);
                    })
+
+                   var table = oTable1.DataTable();
+
+                   if (table.data() == null || table.data().length == 0) return;
+
+                   var rowdate = table.data()[0];
+
+                   if (rowdate.NodeId != 2) {
+
+                       var column = table.column(6).visible(false);
+                   }
+                   if (rowdate.NodeId != 10 && rowdate.NodeId != 101 && rowdate.NodeId != 102) {
+
+                       var column = table.column(4).visible(false);
+                   }
+
+
+
                }
            });
     return oTable1;
@@ -476,8 +513,46 @@ project.getProjectDetail = function getProjectDetail(projectcode, year, isend, n
                 });
             });
 
-            $("#cancle").click(function () {
-                dialog.dialog("destroy").remove();
+        }
+        else {
+            utils.alert(data.RspMsg);
+        }
+    });
+}
+
+
+project.getProjectDetailLA = function getProjectDetailLA(dotype, projectcode, nodeid) {
+    var json = {
+        dotype: dotype,
+        projcode: projectcode,
+        nodeid: nodeid
+    };
+
+    utils.httpClient("project/GetProjectDetailLA", "post", json, function (data) {
+        if (data.RspCode == 1) {
+            var html = template('projectdetailLAtpl', data.RspData);
+            document.getElementById('projectdetailLA').innerHTML = html;
+
+            project.initPropDepartTree(function () {
+                var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                var nodes = zTree.getSelectedNodes();
+                if (nodes != null) {
+                    var treeNode = nodes[0];
+                    $("#TargetDepartName").val(treeNode.name);
+                    $("#TargetDepartCode").val(treeNode.id);
+                }
+
+            });
+
+            $("#FilingType").change(function () {
+                utils.httpClient("/project/GetProjectHandleTime", "post", { typecode: $("#TypeCode").val(), smallcode: $("#SmallClass").val(), filingType: $("#FilingType").val(), processtype: $("#ProcessType").val() }, function (data) {
+                    $("#handlertime").html(data.RspData.time.split('$')[0]);
+                })
+            })
+            $("#ProcessType").change(function () {
+                utils.httpClient("/project/GetProjectHandleTime", "post", { typecode: $("#TypeCode").val(), smallcode: $("#SmallClass").val(), filingType: $("#FilingType").val(), processtype: $("#ProcessType").val() }, function (data) {
+                    $("#handlertime").html(data.RspData.time.split('$')[0]);
+                })
             })
         }
         else {
@@ -702,6 +777,35 @@ project.operateProject = function operateProject(buttonid, projcode, buttoncode,
                                         utils.alert1(data.RspMsg);
                                     }
                                 })
+                            }
+                        },
+                        "button":
+                        {
+                            "label": "取消",
+                            "className": "btn-sm"
+                        }
+                    }
+                });
+            });
+
+            break;
+
+        case "img_la"://平台受理员问题回退
+
+            var url = "/CallAcceptance/project/ProjectLA?dotype=0&projectcode=" + projcode + "&nodeid=" + nodeid;
+
+            $.get(url, function (data) {
+                bootbox.dialog({
+                    message: data,
+                    title: "值班长立案",
+                    buttons:
+                    {
+                        "approve":
+                        {
+                            "label": "审核",
+                            "className": "btn-sm btn-primary",
+                            "callback": function () {
+
                             }
                         },
                         "button":

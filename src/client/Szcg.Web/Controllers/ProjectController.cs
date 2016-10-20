@@ -815,6 +815,42 @@ namespace Szcg.Web.Controllers
             return ajax;
         }
 
+        public AjaxFxRspJson GetProjectDetailLA(string dotype, string projcode, string nodeid)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+
+            if (string.IsNullOrEmpty(projcode))
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "请输入案卷编号！";
+                return ajax;
+            }
+
+            Szcg.Service.Model.Project project = svc.GetProjectSomeInfo(projcode, nodeid);
+
+            List<ProjectClassType> list = svc.GetTypeList(project.TypeCode, project.SmallClass);
+
+            project.HandlerTime = svc.GetHandleTime(project.TypeCode, project.SmallClass, list[0].TypeCode, "0").Split('$')[0];
+            ajax.RspData.Add("usercode", JToken.FromObject(UserInfo.getUsercode()));
+            ajax.RspData.Add("username", JToken.FromObject(UserInfo.getUsername()));
+            ajax.RspData.Add("project", JToken.FromObject(project));
+            ajax.RspData.Add("typelist", JToken.FromObject(list));
+
+            return ajax;
+        }
+
+        public AjaxFxRspJson GetProjectHandleTime(string typecode, string smallcode, string filingType, string processtype)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            string time = svc.GetHandleTime(typecode, smallcode, filingType, processtype);
+
+            ajax.RspData.Add("time", JToken.FromObject(time));
+
+            return ajax;
+        }
+
         #endregion
 
         #region [ 区域相关 ]
