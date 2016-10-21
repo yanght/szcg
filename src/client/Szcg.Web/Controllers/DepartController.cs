@@ -53,7 +53,7 @@ namespace Szcg.Web.Controllers
             return ajax;
         }
 
-        public AjaxFxRspJson GetDutyDepartTree(string typecode="0")
+        public AjaxFxRspJson GetDutyDepartTree(string typecode = "0")
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
             List<TreeModel> tree = new List<TreeModel>();
@@ -64,7 +64,8 @@ namespace Szcg.Web.Controllers
                 {
                     id = item.UserDefinedCode,
                     pId = item.ParentCode,
-                    name = item.DepartName
+                    name = item.DepartName,
+                    phone = string.IsNullOrEmpty(item.UserMobile) ? string.Empty : item.UserMobile.Split('$')[1]
                 };
                 tree.Add(depart);
             }

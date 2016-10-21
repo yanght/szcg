@@ -540,17 +540,18 @@ project.getProjectDetailLA = function getProjectDetailLA(dotype, projectcode, no
                     var treeNode = nodes[0];
                     $("#TargetDepartName").val(treeNode.name);
                     $("#TargetDepartCode").val(treeNode.id);
+                    $("#Mobile").val(treeNode.phone);
                 }
 
             });
 
             $("#FilingType").change(function () {
-                utils.httpClient("/project/GetProjectHandleTime", "post", { typecode: $("#TypeCode").val(), smallcode: $("#SmallClass").val(), filingType: $("#FilingType").val(), processtype: $("#ProcessType").val() }, function (data) {
+                utils.httpClient("/project/GetProjectHandleTime", "post", { typecode: $("#ProjectTypeCode").val(), smallcode: $("#SmallClassCode").val(), filingType: $("#FilingType").val(), processtype: $("#ProcessType").val() }, function (data) {
                     $("#handlertime").html(data.RspData.time.split('$')[0]);
                 })
             })
             $("#ProcessType").change(function () {
-                utils.httpClient("/project/GetProjectHandleTime", "post", { typecode: $("#TypeCode").val(), smallcode: $("#SmallClass").val(), filingType: $("#FilingType").val(), processtype: $("#ProcessType").val() }, function (data) {
+                utils.httpClient("/project/GetProjectHandleTime", "post", { typecode: $("#ProjectTypeCode").val(), smallcode: $("#SmallClassCode").val(), filingType: $("#FilingType").val(), processtype: $("#ProcessType").val() }, function (data) {
                     $("#handlertime").html(data.RspData.time.split('$')[0]);
                 })
             })
@@ -790,9 +791,11 @@ project.operateProject = function operateProject(buttonid, projcode, buttoncode,
 
             break;
 
-        case "img_la"://平台受理员问题回退
 
-            var url = "/CallAcceptance/project/ProjectLA?dotype=0&projectcode=" + projcode + "&nodeid=" + nodeid;
+
+        case "img_la"://值班长案卷立案
+
+            var url = "/CallAcceptance/project/ProjectLA?dotype=0&projectcode=" + projcode + "&buttoncode=" + buttoncode + "&nodeid=" + nodeid;
 
             $.get(url, function (data) {
                 bootbox.dialog({
@@ -805,7 +808,68 @@ project.operateProject = function operateProject(buttonid, projcode, buttoncode,
                             "label": "审核",
                             "className": "btn-sm btn-primary",
                             "callback": function () {
+                                utils.httpClient("/project/ProjectFiling", "post", {
+                                    ProjectCode: projcode,
+                                    ProjectTypeCode: $("#ProjectTypeCode").val(),
+                                    TargetDepartCode: $("#TargetDepartCode").val(),
+                                    SmallClassCode: $("#SmallClassCode").val(),
+                                    ProjectSource: $("#ProjectSource").val(),
+                                    FilingType: $("#FilingType").val(),
+                                    ProcessType: $("#ProcessType").val(),
+                                    Mobile: $("#Mobile").val(),
+                                    ButtonCode: buttoncode,
+                                    Option: $("#Option").val(),
+                                }, function (data) {
+                                    if (data.RspCode == 1) {
+                                        utils.alert1("案卷立案成功！", function () {
+                                            var table = $('#projectlistTB').DataTable();
+                                            table.ajax.reload();
+                                        });
+                                    } else {
+                                        utils.alert1(data.RspMsg);
+                                    }
+                                })
+                            }
+                        },
+                        "button":
+                        {
+                            "label": "取消",
+                            "className": "btn-sm"
+                        }
+                    }
+                });
+            });
 
+            break;
+        case "img_ht"://值班长案卷立案回退
+
+            var url = "/CallAcceptance/project/ProjectLA?dotype=2&projectcode=" + projcode + "&buttoncode=" + buttoncode + "&nodeid=" + nodeid;
+
+            $.get(url, function (data) {
+                bootbox.dialog({
+                    message: data,
+                    title: "值班长立案",
+                    buttons:
+                    {
+                        "approve":
+                        {
+                            "label": "回退",
+                            "className": "btn-sm btn-primary",
+                            "callback": function () {
+                                utils.httpClient("/project/ProjectFilingBack", "post", {
+                                    ProjectCode: projcode,
+                                    ButtonCode: buttoncode,
+                                    Option: $("#Option").val(),
+                                }, function (data) {
+                                    if (data.RspCode == 1) {
+                                        utils.alert1("案卷立案回退成功！", function () {
+                                            var table = $('#projectlistTB').DataTable();
+                                            table.ajax.reload();
+                                        });
+                                    } else {
+                                        utils.alert1(data.RspMsg);
+                                    }
+                                })
                             }
                         },
                         "button":
@@ -819,6 +883,185 @@ project.operateProject = function operateProject(buttonid, projcode, buttoncode,
 
             break;
 
+        case "img_bla"://值班长案卷立案删除
+
+            var url = "/CallAcceptance/project/ProjectLA?dotype=1&projectcode=" + projcode + "&buttoncode=" + buttoncode + "&nodeid=" + nodeid;
+
+            $.get(url, function (data) {
+                bootbox.dialog({
+                    message: data,
+                    title: "值班长立案",
+                    buttons:
+                    {
+                        "approve":
+                        {
+                            "label": "删除",
+                            "className": "btn-sm btn-primary",
+                            "callback": function () {
+                                utils.httpClient("/project/ProjectFilingDelete", "post", {
+                                    ProjectCode: projcode,
+                                    ButtonCode: buttoncode,
+                                    Option: $("#Option").val(),
+                                }, function (data) {
+                                    if (data.RspCode == 1) {
+                                        utils.alert1("案卷立案删除成功！", function () {
+                                            var table = $('#projectlistTB').DataTable();
+                                            table.ajax.reload();
+                                        });
+                                    } else {
+                                        utils.alert1(data.RspMsg);
+                                    }
+                                })
+                            }
+                        },
+                        "button":
+                        {
+                            "label": "取消",
+                            "className": "btn-sm"
+                        }
+                    }
+                });
+            });
+
+            break;
+
+
+
+        case "img_ajfp"://责任部门任务分派
+
+            var url = "/CallAcceptance/project/ProjectDispatch?dotype=0&projectcode=" + projcode + "&buttoncode=" + buttoncode + "&nodeid=" + nodeid;
+
+            $.get(url, function (data) {
+                bootbox.dialog({
+                    message: data,
+                    title: "任务分派",
+                    buttons:
+                    {
+                        "approve":
+                        {
+                            "label": "任务分派",
+                            "className": "btn-sm btn-primary",
+                            "callback": function () {
+                                utils.httpClient("/project/ProjectDispatch", "post", {
+                                    ProjectCode: projcode,
+                                    TargetDepartCode: $("#TargetDepartCode").val(),
+                                    strPQNode: "",
+                                    SuperviseName: "",
+                                    SuperviseContent: "",
+                                    Mobile: $("#Mobile").val(),
+                                    IsAcceptNote: "",
+                                    ButtonCode: buttoncode,
+                                    Option: $("#Option").val(),
+                                }, function (data) {
+                                    if (data.RspCode == 1) {
+                                        utils.alert1("任务分派成功！", function () {
+                                            var table = $('#projectlistTB').DataTable();
+                                            table.ajax.reload();
+                                        });
+                                    } else {
+                                        utils.alert1(data.RspMsg);
+                                    }
+                                })
+                            }
+                        },
+                        "button":
+                        {
+                            "label": "取消",
+                            "className": "btn-sm"
+                        }
+                    }
+                });
+            });
+
+            break;
+
+
+        case "imgJGFK"://责任部门结果反馈
+
+            var url = "/CallAcceptance/project/ProjectDispatchRevert?dotype=0&projectcode=" + projcode + "&buttoncode=" + buttoncode + "&nodeid=" + nodeid;
+
+            $.get(url, function (data) {
+                bootbox.dialog({
+                    message: data,
+                    title: "任务分派",
+                    buttons:
+                    {
+                        "approve":
+                        {
+                            "label": "结果反馈",
+                            "className": "btn-sm btn-primary",
+                            "callback": function () {
+                                utils.httpClient("/project/ProjectDispathRevert", "post", {
+                                    ProjectCode: projcode,
+                                    strPQNode: "1",
+                                    ButtonCode: buttoncode,
+                                    Option: $("#Option").val(),
+                                }, function (data) {
+                                    if (data.RspCode == 1) {
+                                        utils.alert1("结果反馈成功！", function () {
+                                            var table = $('#projectlistTB').DataTable();
+                                            table.ajax.reload();
+                                        });
+                                    } else {
+                                        utils.alert1(data.RspMsg);
+                                    }
+                                })
+                            }
+                        },
+                        "button":
+                        {
+                            "label": "取消",
+                            "className": "btn-sm"
+                        }
+                    }
+                });
+            });
+
+            break;
+
+        case "img_zybmht":
+            var url = "/CallAcceptance/project/ProjectDispatchRevert?dotype=1&projectcode=" + projcode + "&buttoncode=" + buttoncode + "&nodeid=" + nodeid;
+
+            $.get(url, function (data) {
+                bootbox.dialog({
+                    message: data,
+                    title: "任务分派",
+                    buttons:
+                    {
+                        "approve":
+                        {
+                            "label": "回退",
+                            "className": "btn-sm btn-primary",
+                            "callback": function () {
+                                utils.httpClient("/project/ProjectDispatchBack", "post", {
+                                    ProjectCode: projcode,
+                                    ButtonCode: buttoncode,
+                                    Option: $("#Option").val(),
+                                }, function (data) {
+                                    if (data.RspCode == 1) {
+                                        utils.alert1("部门回退成功！", function () {
+                                            var table = $('#projectlistTB').DataTable();
+                                            table.ajax.reload();
+                                        });
+                                    } else {
+                                        utils.alert1(data.RspMsg);
+                                    }
+                                })
+                            }
+                        },
+                        "button":
+                        {
+                            "label": "取消",
+                            "className": "btn-sm"
+                        }
+                    }
+                });
+            });
+
+            break;
+
+
+            break;
 
     }
 

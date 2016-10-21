@@ -35,6 +35,10 @@ namespace Szcg.Service.Model
         /// </summary>
         public string Mobile { get; set; }
         /// <summary>
+        /// 部门自定义编码$部门手机$是否接受短信$SJ_RoleCode
+        /// </summary>
+        public string UserMobile { get; set; }
+        /// <summary>
         /// 部门电话
         /// </summary>
         public string Tel { get; set; }
@@ -69,6 +73,6 @@ namespace Szcg.Service.Model
         /// <summary>
         /// 排序
         /// </summary>
-        public string  Sort { get; set; }
+        public string Sort { get; set; }
     }
 }

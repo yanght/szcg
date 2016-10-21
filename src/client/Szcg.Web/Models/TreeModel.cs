@@ -11,5 +11,6 @@ namespace Szcg.Web.Models
         public string pId { get; set; }
         public string name { get; set; }
         public bool open { get; set; }
+        public string phone { get; set; }
     }
 }

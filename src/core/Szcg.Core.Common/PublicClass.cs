@@ -1580,7 +1580,7 @@ namespace Teamax.Common
 		/// <returns></returns>
 		public static bool IsValidMobil(string Mobil)
 		{
-			return Regex.IsMatch(Mobil, @"^(\d)+[-]?(\d){6,12}$"); 
+            return Regex.IsMatch(Mobil, @"^(((13[0-9]{1})|(15[0-9]{1}))+\d{8})$"); 
 		}
 
 		/// <summary>

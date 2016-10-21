@@ -12,11 +12,9 @@
                         <a href="javascript:;" class="user-title-label" style="text-decoration:none;">
                             &nbsp;
                             {{if dotype==0}}
-                            <span class="white">城市问题处理表(值班长审核)</span>
+                            <span class="white">城市问题处理表(責任单位处理結果反馈)</span>
                             {{else if dotype==1}}
-                            <span class="white">城市问题处理表(值班长不立案)</span>
-                            {{else if dotype==2}}
-                            <span class="white">城市问题处理表(值班长立案回退)</span>
+                            <span class="white">城市问题处理表(責任单位回退)</span>
                             {{/if}}
                         </a>
                     </div>
@@ -25,6 +23,7 @@
 
             <div class="space"></div>
             <div class="row">
+
                 <div class="profile-user-info profile-user-info-striped">
 
                     <div class="profile-info-row">
@@ -57,6 +56,7 @@
                             <span class="editable editable-click">{{project.Square}} </span>
                         </div>
                     </div>
+
                     <div class="profile-info-row">
                         {{if project.ProbSource==1}}
                         <div class="profile-info-name"> 监督员： </div>
@@ -77,96 +77,56 @@
                         <div class="profile-info-value">
                             <span class="editable editable-click">{{project.Address}} </span>
                         </div>
-                    </div>
-                    <div class="profile-info-row">
-                        <div class="profile-info-name"> 立案类型： </div>
+                        <div class="profile-info-name"> 案件来源： </div>
                         <div class="profile-info-value">
-                            <span class="editable editable-click">
-                                <select class="form-control" id="FilingType" name="FilingType">
-                                    {{each typelist as value }}
-                                    <option value="{{value.TypeCode}}">{{value.TypeName}}</option>
-                                    {{/each}}
-                                </select>
-                            </span>
-                        </div>
-                        <div class="profile-info-name"> 处理类型： </div>
-                        <div class="profile-info-value">
-                            <span class="editable editable-click">
-                                <select class="form-control" id="ProcessType" name="ProcessType">
-                                    <option value="0">一级区域</option>
-                                    <option value="1">二级区域</option>
-                                </select>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="profile-info-row">
-                        <div class="profile-info-name"> 处理时间： </div>
-                        <div class="profile-info-value">
-                            <span class="editable editable-click" id="handlertime">{{project.HandlerTime}} </span>
-                        </div>
-                    </div>
-
-                    <div class="profile-info-row">
-                        <div class="profile-info-name"> 重新派遣： </div>
-                        <div class="profile-info-value">
-                            <span class="input-icon input-icon-right">
-                                <input type="text" name="TargetDepartName" id="TargetDepartName" data-url="/callAcceptance/project/SelectDepart" value="">
-                                <input type="hidden" name="TargetDepartCode" id="TargetDepartCode" value="{{project.TargetDepartCode}}" />
-                                <i class="ace-icon fa fa-plus-circle bigger-120  blue"></i>
-                            </span>
-                        </div>
-                        <div class="profile-info-name"> 已派遣部门： </div>
-                        <div class="profile-info-value">
-                            <span class="editable editable-click">{{project.TargetDepartName}}</span>
-                        </div>
-                    </div>
-
-                    <div class="profile-info-row">
-                        <div class="profile-info-name"> 部门手机： </div>
-                        <div class="profile-info-value">
-                            <span class="editable editable-click">
-                                <input type="text" id="Mobile" name="Mobile" class="form-control" value="{{project.TargetDepartMobile}}" />
-                            </span>
+                            <span class="editable editable-click">{{project.ProbSourceName}} </span>
                         </div>
                     </div>
 
                 </div>
+
+
                 <div class="profile-user-info profile-user-info-striped">
+
                     <div class="profile-info-row">
                         <div class="profile-info-name"> 问题描述： </div>
                         <div class="profile-info-value">
-                            <span class="editable editable-click">{{project.ProbDesc}}</span>
-                        </div>
-                    </div>
-                    <div class="profile-info-row">
-                        <div class="profile-info-name"> 受理员意见： </div>
-                        <div class="profile-info-value">
-                            <span class="editable editable-click"> {{project.LastOpinion}}</span>
-                        </div>
-                    </div>
-                    <div class="profile-info-row">
-                        <div class="profile-info-name"> 值班长意见： </div>
-                        <div class="profile-info-value">
                             <span class="editable editable-click">
-                                <input type="text" class="form-control" name="Option" id="Option" value="审核" />
+                                {{project.ProbDesc}}
                             </span>
                         </div>
                     </div>
                     <div class="profile-info-row">
-                        <div class="profile-info-name"> 值班长： </div>
+                        <div class="profile-info-name"> 派遣意见： </div>
                         <div class="profile-info-value">
-                            <span class="editable editable-click">{{username}}</span>
+                            <span class="editable editable-click">
+                                {{project.LastOpinion}}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 回复信息： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">
+                                {{if dotype==0}}
+                                <input type="text" class="form-control" name="Option" id="Option" value="处理完毕" />
+                                {{else if dotype==1}}
+                                <input type="text" class="form-control" name="Option" id="Option" value="此问题不属于我部门管辖范围，请重新派遣" />
+                                {{/if}}
+
+                            </span>
                         </div>
                     </div>
                 </div>
-            </div>
-            <input type="hidden" name="ProjectTypeCode" id="ProjectTypeCode" value="{{project.TypeCode}}" />
-            <input type="hidden" name="SmallClassCode" id="SmallClassCode" value="{{project.SmallClass}}" />
-            <input type="hidden" name="ProjectCode" id="ProjectCode" value="{{project.ProjectCode}}" />
-            <input type="hidden" name="ButtonCode" id="ButtonCode" value="@(Request["buttoncode"])" />
 
+                <input type="hidden" name="ProjectTypeCode" id="ProjectTypeCode" value="{{project.TypeCode}}" />
+                <input type="hidden" name="SmallClassCode" id="SmallClassCode" value="{{project.SmallClass}}" />
+                <input type="hidden" name="ProjectCode" id="ProjectCode" value="{{project.ProjectCode}}" />
+                <input type="hidden" name="ButtonCode" id="ButtonCode" value="@(Request["buttoncode"])" />
+            </div>
         </script>
-    </div>
+
 
 </form>
 

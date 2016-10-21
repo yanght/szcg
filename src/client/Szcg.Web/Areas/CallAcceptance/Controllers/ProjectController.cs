@@ -16,10 +16,12 @@ namespace Szcg.Web.Areas.CallAcceptance.Controllers
             return View();
         }
 
+        //待办案卷列表
         public ActionResult Reportlist()
         {
             return View();
         }
+        
         public ActionResult Preview(string projectcode, string year, string isend, string nodeid)
         {
             return View();
@@ -34,6 +36,14 @@ namespace Szcg.Web.Areas.CallAcceptance.Controllers
         }
 
         public ActionResult ProjectLA()
+        {
+            return View();
+        }
+        public ActionResult ProjectDispatch()
+        {
+            return View();
+        }
+        public ActionResult ProjectDispatchRevert()
         {
             return View();
         }

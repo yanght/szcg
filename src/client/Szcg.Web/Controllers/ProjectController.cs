@@ -154,7 +154,7 @@ namespace Szcg.Web.Controllers
                 return ajax;
             }
 
-            if (!string.IsNullOrEmpty(args.Mobile) && PublicClass.IsValidMobil(args.Mobile))
+            if (!string.IsNullOrEmpty(args.Mobile) && !PublicClass.IsValidMobil(args.Mobile))
             {
                 ajax.RspCode = 0;
                 ajax.RspMsg = "请输入正确的手机号码！";
@@ -234,7 +234,7 @@ namespace Szcg.Web.Controllers
 
         #endregion
 
-        #region [ 指挥中心案卷派遣 ]
+        #region [ 责任单位案卷派遣 ]
 
         [HttpPost]
         public AjaxFxRspJson ProjectDispatch(ProjectDispatchArgs args)
@@ -263,10 +263,32 @@ namespace Szcg.Web.Controllers
 
         #endregion
 
-        #region [ 指挥中心案卷派遣回退 ]
+        #region [ 责任单位案卷派遣回退 ]
 
         [HttpPost]
         public AjaxFxRspJson ProjectDispatchBack(ProjectDispatchArgs args)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            args.UserCode = UserInfo.getUsercode().ToString();
+            args.DepartCode = UserInfo.getDepartcode().ToString();
+
+            if (!svc.ProjectDispatchBack(args))
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "案卷派遣回退失败！";
+                return ajax;
+            }
+
+            return ajax;
+        }
+
+        #endregion
+
+        #region [ 责任单位案卷结果反馈 ]
+
+        [HttpPost]
+        public AjaxFxRspJson ProjectDispatchRevert(ProjectDispatchArgs args)
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
@@ -836,6 +858,7 @@ namespace Szcg.Web.Controllers
             ajax.RspData.Add("username", JToken.FromObject(UserInfo.getUsername()));
             ajax.RspData.Add("project", JToken.FromObject(project));
             ajax.RspData.Add("typelist", JToken.FromObject(list));
+            ajax.RspData.Add("dotype", JToken.FromObject(dotype));
 
             return ajax;
         }

@@ -126,7 +126,7 @@ namespace Szcg.Web.Controllers
             {
                 string strModelPowers = string.Empty;
                 UserInfo userInfo = this.UserInfo;
-                userInfo.CurrentNodeID = SystemID;
+                userInfo.CurrentSystemId = SystemID;
 
                 string[] strsystemid = strModels.Split(',');
 

@@ -226,6 +226,13 @@ namespace Szcg.Service.IBussiness
         bool ProjectDispatchBack(ProjectDispatchArgs args);
 
         /// <summary>
+        /// 案卷结果反馈
+        /// </summary>
+        /// <param name="args">批转参数</param>
+        /// <returns></returns>
+        bool ProjectDispathRevert(ProjectDispatchArgs args);
+
+        /// <summary>
         /// 案卷任务核查
         /// </summary>
         /// <param name="args">批转参数</param>
@@ -292,7 +299,7 @@ namespace Szcg.Service.IBussiness
         /// <returns></returns>
         bool ProjectDelete(string projcode, string deleteSign = "0");
 
-         /// <summary>
+        /// <summary>
         /// 获取处置时间和处置时间类型
         /// </summary>
         /// <param name="typecode">案卷事部件类型</param>

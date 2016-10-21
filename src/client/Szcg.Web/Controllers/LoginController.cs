@@ -54,7 +54,11 @@ namespace Szcg.Web.Controllers
                 return ajax;
             }
 
-            string userdata = JsonConvert.SerializeObject(userInfo);
+           // string userdata = JsonConvert.SerializeObject(userInfo);
+
+            string userdata = string.Format("{0}${1}${2}${3}${4}${5}${6}${7}${8}${9}${10}${11}${12}${13}${14}", userInfo.getAreacode(), userInfo.CurrentNodeID, userInfo.CurrentSystemId, userInfo.getDepartcode(), userInfo.getDepartDefinedcode(), userInfo.getDepartname(), userInfo.getHcpower(), userInfo.CurrentRole, userInfo.getIs_ca(), userInfo.getLoginname(), userInfo.ModelPowers, string.Join(",", userInfo.getRole()), string.Join(",", userInfo.getSystemid()), userInfo.getUsercode(), userInfo.getUsername());
+
+
             try
             {
                 FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, userName, DateTime.Now, DateTime.Now.AddHours(2), false, userdata);

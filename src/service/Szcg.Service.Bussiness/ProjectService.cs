@@ -898,7 +898,7 @@ namespace Szcg.Service.Bussiness
                 }
             }
 
-            return false;
+            return true;
         }
 
         /// <summary>
@@ -1028,6 +1028,43 @@ namespace Szcg.Service.Bussiness
 
                 }
             }
+            return true;
+        }
+
+        /// <summary>
+        /// 案卷结果反馈
+        /// </summary>
+        /// <param name="args">批转参数</param>
+        /// <returns></returns>
+        public bool ProjectDispathRevert(ProjectDispatchArgs args)
+        {
+            string strErr = "";
+            bacgDL.business.ProjectTraceInfo pt = new bacgDL.business.ProjectTraceInfo();
+            pt.usercode = args.UserCode;
+            pt.projcode = args.ProjectCode;
+            if (args.strPQNode == "1")
+            {
+                pt.PreNodeId = "8";
+                pt.CurrentBusiStatus = "00";
+            }
+            else if (args.strPQNode == "2")
+            {
+                pt.PreNodeId = "8";
+                pt.CurrentBusiStatus = "02";
+            }
+            pt.DepartCode = args.DepartCode;
+            pt._opinion = args.Option;
+            pt.actionname = "结果反馈";
+            pt.returntracetag = "0";
+            //modi by yaoch on 2012-10-16
+            pt.buttoncode = args.ButtonCode == "11100039019" ? "11100034019" : args.ButtonCode;
+            bacgBL.business.Project.Project_FK(pt, out strErr);
+            if (strErr != "")
+            {
+                LoggerManager.Instance.logger.ErrorFormat("案卷结果反馈失败:错误信息:{0}", strErr);
+                return false;
+            }
+
             return true;
         }
 
@@ -1401,7 +1438,7 @@ namespace Szcg.Service.Bussiness
         /// <param name="typeVaue">立案类型</param>
         /// <param name="processtype">处理类型</param>
         /// <returns></returns>
-        public string GetHandleTime(string typecode, string smallcode, string typeVaue,string processtype)
+        public string GetHandleTime(string typecode, string smallcode, string typeVaue, string processtype)
         {
             DataTable dt = bacgBL.business.Project.GetTypeList(typecode, smallcode);
             processtype = (int.Parse(processtype) + 1).ToString();
