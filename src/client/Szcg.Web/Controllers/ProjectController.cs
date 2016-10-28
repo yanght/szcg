@@ -314,10 +314,13 @@ namespace Szcg.Web.Controllers
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
+            args.UserCode = UserInfo.getUsercode().ToString();
+            args.DepartCode = UserInfo.getDepartcode().ToString();
+
             if (!svc.ProjectCheck(args))
             {
                 ajax.RspCode = 0;
-                ajax.RspMsg = "案卷任务核失败！";
+                ajax.RspMsg = "案卷任务核查失败！";
                 return ajax;
             }
 
@@ -332,6 +335,9 @@ namespace Szcg.Web.Controllers
         public AjaxFxRspJson ProjectCheckBack(ProjectApprovedArgs args)
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            args.UserCode = UserInfo.getUsercode().ToString();
+            args.DepartCode = UserInfo.getDepartcode().ToString();
 
             if (!svc.ProjectCheckBack(args))
             {
@@ -351,6 +357,9 @@ namespace Szcg.Web.Controllers
         public AjaxFxRspJson ProjectSendCheckMessage(ProjectCheckArgs args)
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 0 };
+
+            args.UserCode = UserInfo.getUsercode().ToString();
+            args.DepartCode = UserInfo.getDepartcode().ToString();
 
             if (string.IsNullOrEmpty(args.CollectorCode))
             {
@@ -377,6 +386,9 @@ namespace Szcg.Web.Controllers
         public AjaxFxRspJson ProjectCheckSuccess(ProjectApprovedArgs args)
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            args.UserCode = UserInfo.getUsercode().ToString();
+            args.DepartCode = UserInfo.getDepartcode().ToString();
 
             string ioFlag = svc.GetIoFlag(args.ProjectCode);
             if (string.IsNullOrEmpty(ioFlag))
@@ -411,6 +423,9 @@ namespace Szcg.Web.Controllers
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
+            args.UserCode = UserInfo.getUsercode().ToString();
+            args.DepartCode = UserInfo.getDepartcode().ToString();
+
             string ioFlag = svc.GetIoFlag(args.ProjectCode);
             if (string.IsNullOrEmpty(ioFlag))
             {
@@ -444,6 +459,9 @@ namespace Szcg.Web.Controllers
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
+            args.UserCode = UserInfo.getUsercode().ToString();
+            args.DepartCode = UserInfo.getDepartcode().ToString();
+
             if (!svc.ProjectClosed(args))
             {
                 ajax.RspCode = 0;
@@ -462,6 +480,9 @@ namespace Szcg.Web.Controllers
         public AjaxFxRspJson ProjectClosedBack(ProjectClosedArgs args)
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            args.UserCode = UserInfo.getUsercode().ToString();
+            args.DepartCode = UserInfo.getDepartcode().ToString();
 
             if (!svc.ProjectClosedBack(args))
             {
@@ -834,6 +855,37 @@ namespace Szcg.Web.Controllers
                 ajax.RspData.Add("buttoncode", JToken.FromObject(Request["buttoncode"]));
             }
 
+            return ajax;
+        }
+
+        public AjaxFxRspJson GetProjectDetailWithCollecter(string dotype, string projcode, string nodeid)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+
+            if (string.IsNullOrEmpty(projcode))
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "请输入案卷编号！";
+                return ajax;
+            }
+
+            Szcg.Service.Model.Project project = svc.GetProjectSomeInfo(projcode, nodeid);
+
+            List<ProjectClassType> list = svc.GetTypeList(project.TypeCode, project.SmallClass);
+
+            List<Collecter> list1 = new Collecterservice().GetCollecters(project.StreetId, projcode);
+
+       
+
+            project.HandlerTime = svc.GetHandleTime(project.TypeCode, project.SmallClass, list[0].TypeCode, "0").Split('$')[0];
+            ajax.RspData.Add("usercode", JToken.FromObject(UserInfo.getUsercode()));
+            ajax.RspData.Add("username", JToken.FromObject(UserInfo.getUsername()));
+            ajax.RspData.Add("project", JToken.FromObject(project));
+            ajax.RspData.Add("typelist", JToken.FromObject(list));
+            ajax.RspData.Add("dotype", JToken.FromObject(dotype));
+            ajax.RspData.Add("collecters", JToken.FromObject(list1));
+            ajax.RspData.Add("reccontent", JToken.FromObject(svc.GetProjHcResult(projcode)));
             return ajax;
         }
 

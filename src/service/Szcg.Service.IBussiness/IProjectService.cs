@@ -149,6 +149,13 @@ namespace Szcg.Service.IBussiness
         /// <returns></returns>
         string GetIoFlag(string projcode);
 
+        /// <summary>
+        /// 获取案件的核查结果 
+        /// </summary>
+        /// <param name="projectcode">案卷编号</param>
+        /// <returns></returns>
+        string GetProjHcResult(string projectcode);
+
         #region 案卷批转
 
         /// <summary>

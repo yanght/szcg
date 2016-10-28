@@ -1028,6 +1028,8 @@
     <Content Include="Areas\CallAcceptance\Views\Project\ProjectLA.cshtml" />
     <Content Include="Areas\CallAcceptance\Views\Project\ProjectDispatch.cshtml" />
     <Content Include="Areas\CallAcceptance\Views\Project\ProjectDispatchRevert.cshtml" />
+    <Content Include="Areas\CallAcceptance\Views\Project\ProjectCheckMessage.cshtml" />
+    <Content Include="Areas\CallAcceptance\Views\Project\ProjectCheck.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />

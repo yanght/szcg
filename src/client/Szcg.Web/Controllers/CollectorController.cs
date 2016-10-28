@@ -34,6 +34,17 @@ namespace Szcg.Web.Controllers
             return ajax;
         }
 
+        public AjaxFxRspJson GetCheckCollecters(string streetcode, string projcode)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            List<Collecter> list = svc.GetCollecters(streetcode, projcode);
+
+            ajax.RspData.Add("collecters", JToken.FromObject(list));
+
+            return ajax;
+        }
+
         #endregion
 
         #region [ 添加监督员 ]

@@ -400,7 +400,7 @@ project.initDelProjectTable = function (modelcode, buttoncode, nodeid) {
                   }
                ],
                "oLanguage": {
-                   "sProcessing":"正在处理.....",
+                   "sProcessing": "正在处理.....",
                    'sSearch': '数据筛选:',
                    "sLengthMenu": "每页显示 _MENU_ 项记录",
                    "sZeroRecords": "没有符合条件的数据...",
@@ -569,6 +569,56 @@ project.getProjectDetailLA = function getProjectDetailLA(dotype, projectcode, no
     });
 }
 
+project.getProjectDetailWithCollecter = function getProjectDetailWithCollecter(dotype, projectcode, nodeid) {
+    var json = {
+        dotype: dotype,
+        projcode: projectcode,
+        nodeid: nodeid
+    };
+
+    utils.httpClient("project/GetProjectDetailWithCollecter", "post", json, function (data) {
+        if (data.RspCode == 1) {
+            var html = template('projectdetailLAtpl', data.RspData);
+            document.getElementById('projectdetailLA').innerHTML = html;
+
+            var table =
+           $('#collecterTb')
+           .DataTable({
+               "iDisplayLength": 5, //每页显示10条记录
+               "dom": 'frtp',
+               "sZeroRecords": "对不起，查询不到相关数据！",
+               "sEmptyTable": "表中无数据存在！",
+               "oLanguage": {
+                   "sSearch": "搜索",
+                   "oPaginate": {
+                       "sFirst": "首页",
+                       "sPrevious": "前一页",
+                       "sNext": "后一页",
+                       "sLast": "尾页"
+                   }
+               }
+           });
+            $('#collecterTb tbody').on('click', 'tr', function () {
+                if ($(this).hasClass('selected')) {
+                    $(this).removeClass('selected');
+                }
+                else {
+                    table.$('tr.selected').removeClass('selected');
+                    $(this).addClass('selected');
+                }
+
+                $("#Mobile").val($(this).attr("_mobile"));
+                $("#CollecterCode").val($(this).attr("_collcode"));
+
+            });
+
+        }
+        else {
+            utils.alert(data.RspMsg);
+        }
+    });
+}
+
 //案卷登记批转详情
 project.getProjectDetailApproved = function getProjectDetailApproved(projectcode, year, isend, nodeid, action, buttoncode) {
     var json = {
@@ -621,6 +671,18 @@ project.getProjectTrace = function (projectcode, year, isend) {
         }
     });
 
+}
+
+project.getCollecters = function getCollecters(projcode, street) {
+    utils.httpClient("collector/GetCheckCollecters", "post", { streetcode: street, projcode: projcode }, function (data) {
+        if (data.RspCode == 1) {
+            var html = template('collecterlisttpl', data.RspData);
+            document.getElementById('collecterlist').innerHTML = html;
+        }
+        else {
+            utils.alert(data.RspMsg);
+        }
+    });
 }
 
 //跳转至案卷登记页
@@ -798,8 +860,6 @@ project.operateProject = function operateProject(buttonid, projcode, buttoncode,
 
             break;
 
-
-
         case "img_la"://值班长案卷立案
 
             var url = "/CallAcceptance/project/ProjectLA?dotype=0&projectcode=" + projcode + "&buttoncode=" + buttoncode + "&nodeid=" + nodeid;
@@ -848,6 +908,7 @@ project.operateProject = function operateProject(buttonid, projcode, buttoncode,
             });
 
             break;
+
         case "img_ht"://值班长案卷立案回退
 
             var url = "/CallAcceptance/project/ProjectLA?dotype=2&projectcode=" + projcode + "&buttoncode=" + buttoncode + "&nodeid=" + nodeid;
@@ -932,8 +993,6 @@ project.operateProject = function operateProject(buttonid, projcode, buttoncode,
 
             break;
 
-
-
         case "img_ajfp"://责任部门任务分派
 
             var url = "/CallAcceptance/project/ProjectDispatch?dotype=0&projectcode=" + projcode + "&buttoncode=" + buttoncode + "&nodeid=" + nodeid;
@@ -981,7 +1040,6 @@ project.operateProject = function operateProject(buttonid, projcode, buttoncode,
             });
 
             break;
-
 
         case "imgJGFK"://责任部门结果反馈
 
@@ -1067,6 +1125,89 @@ project.operateProject = function operateProject(buttonid, projcode, buttoncode,
 
             break;
 
+        case "img_fhczl":
+
+            var url = "/CallAcceptance/project/ProjectCheckMessage?projectcode=" + projcode + "&buttoncode=" + buttoncode + "&nodeid=" + nodeid;
+
+            $.get(url, function (data) {
+                bootbox.dialog({
+                    message: data,
+                    title: "发送核查指令",
+                    buttons:
+                    {
+                        "approve":
+                        {
+                            "label": "发送",
+                            "className": "btn-sm btn-primary",
+                            "callback": function () {
+                                utils.httpClient("/project/ProjectSendCheckMessage", "post", {
+                                    ProjectCode: projcode,
+                                    ButtonCode: buttoncode,
+                                    CollectorCode: $("#CollecterCode").val(),
+                                    Message: $("#Option").val(),
+                                }, function (data) {
+                                    if (data.RspCode == 1) {
+                                        utils.alert1("发送成功！", function () {
+                                            var table = $('#projectlistTB').DataTable();
+                                            table.ajax.reload();
+                                        });
+                                    } else {
+                                        utils.alert1(data.RspMsg);
+                                    }
+                                })
+                            }
+                        },
+                        "button":
+                        {
+                            "label": "取消",
+                            "className": "btn-sm"
+                        }
+                    }
+                });
+            });
+
+            break;
+
+        case "img_hcss":
+
+            var url = "/CallAcceptance/project/ProjectCheck?CL_IsType=0&projectcode=" + projcode + "&buttoncode=" + buttoncode + "&nodeid=" + nodeid;
+
+            $.get(url, function (data) {
+                bootbox.dialog({
+                    message: data,
+                    title: "发送核查指令",
+                    buttons:
+                    {
+                        "approve":
+                        {
+                            "label": "发送",
+                            "className": "btn-sm btn-primary",
+                            "callback": function () {
+                                utils.httpClient("/project/ProjectSendCheckMessage", "post", {
+                                    ProjectCode: projcode,
+                                    ButtonCode: buttoncode,
+                                    CollectorCode: $("#CollecterCode").val(),
+                                    Message: $("#Option").val(),
+                                }, function (data) {
+                                    if (data.RspCode == 1) {
+                                        utils.alert1("发送成功！", function () {
+                                            var table = $('#projectlistTB').DataTable();
+                                            table.ajax.reload();
+                                        });
+                                    } else {
+                                        utils.alert1(data.RspMsg);
+                                    }
+                                })
+                            }
+                        },
+                        "button":
+                        {
+                            "label": "取消",
+                            "className": "btn-sm"
+                        }
+                    }
+                });
+            });
 
             break;
 

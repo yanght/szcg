@@ -1,0 +1,153 @@
+﻿@{
+    Layout = null;
+}
+<form class="input-line">
+
+    <div id="projectdetailLA">
+        <script type="text/template" id="projectdetailLAtpl">
+
+            <div class="row center">
+                <div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right center">
+                    <div class="inline position-relative">
+                        <a href="javascript:;" class="user-title-label" style="text-decoration:none;">
+                            &nbsp;
+                            <span class="white">城市问题处理表(操作员问题核查)</span>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space"></div>
+
+            <div class="row">
+
+                <div class="profile-user-info profile-user-info-striped">
+
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 案卷号： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.ProjName}} </span>
+                        </div>
+                        <div class="profile-info-name"> 问题分类： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.ProbClassName}} </span>
+                        </div>
+                    </div>
+                   
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 监督员： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.Operator}} </span>
+                        </div>
+                        <div class="profile-info-name"> 上报时间： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.StartDate}} </span>
+                        </div>
+                    </div>
+
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 大类： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.BigClassName}} </span>
+                        </div>
+                        <div class="profile-info-name"> 小类： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.SmallClassName}} </span>
+                        </div>
+                    </div>
+
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 所属街道： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.Street}} </span>
+                        </div>
+                        <div class="profile-info-name"> 所属社区： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.Square}} </span>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="profile-user-info profile-user-info-striped">
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 问题描述： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.ProbDesc}} </span>
+                        </div>
+                    </div>
+
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 责任单位反馈结果： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.LastOpinion}} </span>
+                        </div>
+                    </div>
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 监督员核查结果： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">{{project.reccontent}} </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="profile-user-info profile-user-info-striped">
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> 批转意见： </div>
+                        <div class="profile-info-value">
+                            <span class="editable editable-click">
+                                <input type="text" class="form-control" name="Option" id="Option" value="" />
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="profile-user-info profile-user-info-striped">
+                    <table class="table  table-bordered" id="collecterTb">
+                        <thead class="thin-border-bottom">
+                            <tr>
+                                <th>是否在岗</th>
+                                <th>监督员姓名</th>
+                                <th>PDA号码</th>
+                                <th>所属网格</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {{each collecters as value }}
+                            <tr _collcode="{{value.CollCode}}" _mobile="{{value.Mobile}}">
+                                <td>{{#value.IsGuardName}}</td>
+                                <td>{{value.CollName}}</td>
+                                <td>{{value.Mobile}}</td>
+                                <td>{{value.GridCode}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <input type="hidden" name="ProjectTypeCode" id="ProjectTypeCode" value="{{project.TypeCode}}" />
+            <input type="hidden" name="SmallClassCode" id="SmallClassCode" value="{{project.SmallClass}}" />
+            <input type="hidden" name="ProjectCode" id="ProjectCode" value="{{project.ProjectCode}}" />
+            <input type="hidden" name="ButtonCode" id="ButtonCode" value="@(Request["buttoncode"])" />
+            <input type="hidden" name="CollecterCode" id="CollecterCode" value="" />
+            <input type="hidden" name="Mobile" id="Mobile" value="" />
+        </script>
+    </div>
+
+</form>
+
+
+
+
+<script type="text/javascript">
+
+    project.getProjectDetailWithCollecter('@Request["dotype"]', '@(Request["projectcode"])', '@(Request["nodeid"])');
+
+</script>

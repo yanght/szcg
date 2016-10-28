@@ -120,5 +120,9 @@ namespace Szcg.Service.Model
         /// </summary>
         public string IMEI { get; set; }
         public string PowerFlag { get; set; }
+        /// <summary>
+        /// 是否在岗
+        /// </summary>
+        public string IsGuardName { get; set; }
     }
 }

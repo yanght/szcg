@@ -1456,6 +1456,16 @@ namespace Szcg.Service.Bussiness
             return departTime + "$" + departTimeType;
         }
 
+        /// <summary>
+        /// 获取案件的核查结果 
+        /// </summary>
+        /// <param name="projectcode">案卷编号</param>
+        /// <returns></returns>
+        public string GetProjHcResult(string projectcode)
+        {
+            return bacgBL.business.Project.GetProjHcResult(projectcode, out strErr); //监督员核查结果
+        }
+
         #endregion
 
         #endregion
