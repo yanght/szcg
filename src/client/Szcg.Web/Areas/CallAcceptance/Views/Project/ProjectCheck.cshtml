@@ -106,30 +106,6 @@
 
                 </div>
 
-                <div class="profile-user-info profile-user-info-striped">
-                    <table class="table  table-bordered" id="collecterTb">
-                        <thead class="thin-border-bottom">
-                            <tr>
-                                <th>是否在岗</th>
-                                <th>监督员姓名</th>
-                                <th>PDA号码</th>
-                                <th>所属网格</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            {{each collecters as value }}
-                            <tr _collcode="{{value.CollCode}}" _mobile="{{value.Mobile}}">
-                                <td>{{#value.IsGuardName}}</td>
-                                <td>{{value.CollName}}</td>
-                                <td>{{value.Mobile}}</td>
-                                <td>{{value.GridCode}}</td>
-                            </tr>
-                            {{/each}}
-                        </tbody>
-                    </table>
-                </div>
-
             </div>
 
             <input type="hidden" name="ProjectTypeCode" id="ProjectTypeCode" value="{{project.TypeCode}}" />

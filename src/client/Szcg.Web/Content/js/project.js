@@ -687,6 +687,7 @@ project.getCollecters = function getCollecters(projcode, street) {
 
 //跳转至案卷登记页
 project.operateProject = function operateProject(buttonid, projcode, buttoncode, nodeid, year, isend) {
+
     switch (buttonid) {
 
         case "img_ajbl"://案卷上报
@@ -1084,7 +1085,7 @@ project.operateProject = function operateProject(buttonid, projcode, buttoncode,
 
             break;
 
-        case "img_zybmht":
+        case "img_zybmht"://专业部门回退
             var url = "/CallAcceptance/project/ProjectDispatchRevert?dotype=1&projectcode=" + projcode + "&buttoncode=" + buttoncode + "&nodeid=" + nodeid;
 
             $.get(url, function (data) {
@@ -1125,7 +1126,7 @@ project.operateProject = function operateProject(buttonid, projcode, buttoncode,
 
             break;
 
-        case "img_fhczl":
+        case "img_fhczl"://发送核查信息
 
             var url = "/CallAcceptance/project/ProjectCheckMessage?projectcode=" + projcode + "&buttoncode=" + buttoncode + "&nodeid=" + nodeid;
 
@@ -1168,29 +1169,28 @@ project.operateProject = function operateProject(buttonid, projcode, buttoncode,
 
             break;
 
-        case "img_hcss":
+        case "img_hcss"://核查属实
 
             var url = "/CallAcceptance/project/ProjectCheck?CL_IsType=0&projectcode=" + projcode + "&buttoncode=" + buttoncode + "&nodeid=" + nodeid;
 
             $.get(url, function (data) {
                 bootbox.dialog({
                     message: data,
-                    title: "发送核查指令",
+                    title: "核查通过",
                     buttons:
                     {
                         "approve":
                         {
-                            "label": "发送",
+                            "label": "通过",
                             "className": "btn-sm btn-primary",
                             "callback": function () {
-                                utils.httpClient("/project/ProjectSendCheckMessage", "post", {
+                                utils.httpClient("/project/ProjectCheckSuccess", "post", {
                                     ProjectCode: projcode,
                                     ButtonCode: buttoncode,
-                                    CollectorCode: $("#CollecterCode").val(),
-                                    Message: $("#Option").val(),
+                                    Option: $("#Option").val(),
                                 }, function (data) {
                                     if (data.RspCode == 1) {
-                                        utils.alert1("发送成功！", function () {
+                                        utils.alert1("核查成功！", function () {
                                             var table = $('#projectlistTB').DataTable();
                                             table.ajax.reload();
                                         });
@@ -1211,8 +1211,48 @@ project.operateProject = function operateProject(buttonid, projcode, buttoncode,
 
             break;
 
-    }
+        case "img_hcbss"://核查不属实
 
+            var url = "/CallAcceptance/project/ProjectCheck?CL_IsType=1&projectcode=" + projcode + "&buttoncode=" + buttoncode + "&nodeid=" + nodeid;
+
+            $.get(url, function (data) {
+                bootbox.dialog({
+                    message: data,
+                    title: "核查不通过",
+                    buttons:
+                    {
+                        "approve":
+                        {
+                            "label": "不通过",
+                            "className": "btn-sm btn-primary",
+                            "callback": function () {
+                                utils.httpClient("/project/ProjectCheckFailed", "post", {
+                                    ProjectCode: projcode,
+                                    ButtonCode: buttoncode,
+                                    Option: $("#Option").val(),
+                                }, function (data) {
+                                    if (data.RspCode == 1) {
+                                        utils.alert1("核查成功！", function () {
+                                            var table = $('#projectlistTB').DataTable();
+                                            table.ajax.reload();
+                                        });
+                                    } else {
+                                        utils.alert1(data.RspMsg);
+                                    }
+                                })
+                            }
+                        },
+                        "button":
+                        {
+                            "label": "取消",
+                            "className": "btn-sm"
+                        }
+                    }
+                });
+            });
+
+            break;
+    }
 }
 
 //获取案卷上报详情
