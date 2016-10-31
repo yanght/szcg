@@ -53,6 +53,17 @@ namespace Szcg.Web.Controllers
             return ajax;
         }
 
+        public AjaxFxRspJson GetDepartListByAreaCode()
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            List<Depart> list = svc.GetDepartList(UserInfo.getAreacode());
+
+            ajax.RspData.Add("departs", JToken.FromObject(list));
+
+            return ajax;
+        }
+
         public AjaxFxRspJson GetDutyDepartTree(string typecode = "0")
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };

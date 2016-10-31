@@ -29,11 +29,11 @@ namespace Szcg.Service.Model
         /// <summary>
         /// 街道
         /// </summary>
-        public string Street { get; set; }
+        public string StreetId { get; set; }
         /// <summary>
         /// 区域
         /// </summary>
-        public string Square { get; set; }
+        public string SquareId { get; set; }
         /// <summary>
         /// 受理时间开始
         /// </summary>
@@ -53,7 +53,7 @@ namespace Szcg.Service.Model
         /// <summary>
         /// 案卷所属区域
         /// </summary>
-        public string AreaCode { get; set; }
+        public string AreaId { get; set; }
         /// <summary>
         /// 巡查员编码
         /// </summary>

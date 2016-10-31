@@ -22,6 +22,23 @@ namespace Szcg.Web.Areas.CallAcceptance.Controllers
             return View();
         }
 
+        //自办件
+        public ActionResult ProjectSelfList()
+        {
+            return View();
+        }
+
+        //存档案卷
+        public ActionResult ProjectCDList()
+        {
+            return View();
+        }
+
+        public ActionResult ProjectQuery()
+        {
+            return View();
+        }
+
         public ActionResult Preview(string projectcode, string year, string isend, string nodeid)
         {
             return View();
@@ -54,6 +71,11 @@ namespace Szcg.Web.Areas.CallAcceptance.Controllers
         }
 
         public ActionResult ProjectCheck()
+        {
+            return View();
+        }
+
+        public ActionResult ProjectEnd()
         {
             return View();
         }

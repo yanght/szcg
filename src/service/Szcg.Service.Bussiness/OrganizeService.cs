@@ -336,6 +336,33 @@ namespace Szcg.Service.Bussiness
         }
 
         /// <summary>
+        /// 获取职能部门列表
+        /// </summary>
+        /// <param name="areaCode">区域编码</param>
+        /// <returns></returns>
+        public List<Depart> GetDepartList(string areaCode)
+        {
+            DataSet ds = bacgBL.business.Project.GetDepartList(areaCode, out strErr);
+
+            List<Depart> list = new List<Depart>();
+
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    Depart depart = new Depart()
+                    {
+                        UserDefinedCode = dr["UserDefinedCode"].ToString(),
+                        DepartName = dr["departname"].ToString()
+                    };
+                    list.Add(depart);
+                }
+            }
+
+            return list;
+        }
+
+        /// <summary>
         /// 获取部门列表
         /// </summary>
         /// <param name="areaCode">区域编码</param>

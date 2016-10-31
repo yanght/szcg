@@ -201,6 +201,7 @@ utils.confirm = function (message, okcallback) {
                         okcallback();
                     }
                     $(this).dialog("close");
+                    return true;
                 }
             }
             ,
@@ -209,6 +210,7 @@ utils.confirm = function (message, okcallback) {
                 "class": "btn btn-xs",
                 click: function () {
                     $(this).dialog("close");
+                    return false;
                 }
             }
         ]

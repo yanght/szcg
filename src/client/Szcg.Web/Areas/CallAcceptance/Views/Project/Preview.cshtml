@@ -3,12 +3,27 @@
 }
 <div id="projectdetail">
     <script type="text/template" id="projectdetailtpl">
+        <div class="row center">
+            <button type="button" class="btn btn-sm btn-primary btn-white btn-round">
+                <i class="ace-icon fa fa-map-marker bigger-150 middle orange2"></i>
+                <span>定位 </span>
+            </button>
+            <button type="button" class="btn btn-sm btn-primary btn-white btn-round">
+                <i class="ace-icon fa  fa-adjust bigger-150 middle orange2"></i>
+                <span>新旧对照 </span>
+            </button>
+            <button type="button" class="btn btn-sm btn-primary btn-white btn-round">
+                <i class="ace-icon fa  fa-pencil-square-o bigger-150 middle orange2"></i>
+                <span>消息发送 </span>
+            </button>
+        </div>
+        <div class="space-4"></div>
         <div class="row">
             <div class="profile-user-info profile-user-info-striped">
                 <div class="profile-info-row">
                     <div class="profile-info-name"> 处理类型：</div>
                     <div class="profile-info-value">
-                        <span class="editable editable-click">直属中队</span>
+                        <span class="editable editable-click">{{project.TargetDepartName}}</span>
                     </div>
                 </div>
                 <div class="profile-info-row">
@@ -100,6 +115,7 @@
                 </div>
             </div>
         </div>
+        {{if  project.ProjectFiles.length>0}}
         <div class="row">
             <div class="col-xs-12 col-sm-6 widget-container-col ui-sortable">
                 <!-- #section:custom/widget-box -->
@@ -111,22 +127,29 @@
                         <div class="widget-main">
                             <div class="row">
                                 <div class="col-xs-12  center">
-                                    <div>
+                                    <div style="position:relative;">
+                                        <span class="prev" style="position:absolute;left:0px;top:100px;cursor:pointer;"><i class="ace-icon fa fa-arrow-left blue icon-on-left"></i></span>
+                                        <span class="next" style="position:absolute;right:0px;top:100px;cursor:pointer;"><i class="ace-icon fa fa-arrow-right blue icon-on-right"></i></span>
                                         <!-- #section:pages/profile.picture -->
-                                        <span class="profile-picture">
-                                            <img id="avatar" class="editable img-responsive editable-click editable-empty" alt="Alex's Avatar" src="/content/assets/avatars/profile-pic.jpg" width="200" height="200" />
+                                        <span class="profile-picture" style="width:210px;height:200px;overflow:hidden;">
+                                            {{each project.ProjectFiles as pic}}
+                                            {{if pic.FileState==0}}
+                                            <a href="{{pic.FilePath}}" target="_blank">
+                                                <img src="{{pic.FilePath}}" width="200" height="200" />
+                                            </a>
+                                            {{/if}}
+                                            {{/each}}
+
                                         </span>
                                         <!-- /section:pages/profile.picture -->
                                         <div class="space-4"></div>
-                                        <div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
-                                            <div class="inline position-relative">
-                                                <a href="#" class="user-title-label dropdown-toggle" data-toggle="dropdown">
-                                                    <i class="ace-icon fa fa-circle light-green"></i>
-                                                    &nbsp;
-                                                    <span class="white">Alex M. Doe</span>
-                                                </a>
-                                            </div>
-                                        </div>
+                                        @*<div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
+                                                <div class="inline position-relative">
+                                                    <a href="#" class="user-title-label dropdown-toggle" data-toggle="dropdown">
+                                                        <span class="white">Alex M. Doe</span>
+                                                    </a>
+                                                </div>
+                                            </div>*@
                                     </div>
                                 </div>
                             </div>
@@ -145,22 +168,28 @@
                         <div class="widget-main">
                             <div class="row">
                                 <div class="col-xs-12  center">
-                                    <div>
+                                    <div style="position:relative;">
+                                        <span class="prev" style="position:absolute;left:0px;top:100px;cursor:pointer;"><i class="ace-icon fa fa-arrow-left blue icon-on-left"></i></span>
+                                        <span class="next" style="position:absolute;right:0px;top:100px;cursor:pointer;"><i class="ace-icon fa fa-arrow-right blue icon-on-right"></i></span>
                                         <!-- #section:pages/profile.picture -->
-                                        <span class="profile-picture">
-                                            <img id="avatar" class="editable img-responsive editable-click editable-empty" alt="Alex's Avatar" src="/content/assets/avatars/profile-pic.jpg" width="200" height="200" />
+                                        <span class="profile-picture" style="width:210px;height:200px;overflow:hidden;">
+                                            {{each project.ProjectFiles as pic}}
+                                            {{if pic.FileState==1}}
+                                            <a href="{{pic.FilePath}}" target="_blank">
+                                                <img src="{{pic.FilePath}}" width="200" height="200" />
+                                            </a>
+                                            {{/if}}
+                                            {{/each}}
                                         </span>
                                         <!-- /section:pages/profile.picture -->
                                         <div class="space-4"></div>
-                                        <div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
-                                            <div class="inline position-relative">
-                                                <a href="#" class="user-title-label dropdown-toggle" data-toggle="dropdown">
-                                                    <i class="ace-icon fa fa-circle light-green"></i>
-                                                    &nbsp;
-                                                    <span class="white">Alex M. Doe</span>
-                                                </a>
-                                            </div>
-                                        </div>
+                                        @*<div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
+                                                <div class="inline position-relative">
+                                                    <a href="#" class="user-title-label dropdown-toggle" data-toggle="dropdown">
+                                                        <span class="white">Alex M. Doe</span>
+                                                    </a>
+                                                </div>
+                                            </div>*@
                                     </div>
                                 </div>
                             </div>
@@ -170,6 +199,8 @@
                 <!-- /section:custom/widget-box -->
             </div>
         </div>
+        {{/if}}
+
     </script>
 </div>
 <script type="text/javascript">

@@ -44,6 +44,8 @@
     <![endif]-->
     <!-- ace settings handler -->
     <script src="/content/assets/js/ace-extra.min.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lte IE 8]>
@@ -455,14 +457,38 @@
                             foreach (var power in powers)
                             {
                                 <li>
-                                    <a data-url="callacceptance/project/reportlist?modelcode=@(power.ModelCode)" href="main.html#callacceptance/project/reportlist?modelcode=@(power.ModelCode)&buttoncode=@(power.ButtonCode)&nodeid=@(power.Property)">
-                                        <i class="menu-icon fa fa-caret-right"></i>
-                                        @power.ShowName
-                                    </a>
+                                    @if (power.ShowName == "自办件")
+                                    {
+                                        <a data-url="callacceptance/project/ProjectSelfList?modelcode=@(power.ModelCode)" href="main.html#callacceptance/project/ProjectSelfList?modelcode=@(power.ModelCode)&buttoncode=@(power.ButtonCode)&nodeid=@(power.Property)">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            @power.ShowName
+                                        </a>
+                                    }
+                                    else if (power.ShowName == "存档案卷")
+                                    {
+                                        <a data-url="callacceptance/project/ProjectCDList?modelcode=@(power.ModelCode)" href="main.html#callacceptance/project/ProjectCDList?modelcode=@(power.ModelCode)&buttoncode=@(power.ButtonCode)&nodeid=@(power.Property)">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            @power.ShowName
+                                        </a>
+                                    }
+                                    else if (power.ShowName == "查询箱")
+                                    {
+                                        <a data-url="callacceptance/project/ProjectQuery?modelcode=@(power.ModelCode)" href="main.html#callacceptance/project/ProjectQuery?modelcode=@(power.ModelCode)&buttoncode=@(power.ButtonCode)&nodeid=@(power.Property)">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            @power.ShowName
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a data-url="callacceptance/project/reportlist?modelcode=@(power.ModelCode)" href="main.html#callacceptance/project/reportlist?modelcode=@(power.ModelCode)&buttoncode=@(power.ButtonCode)&nodeid=@(power.Property)">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            @power.ShowName
+                                        </a>
+                                    }
 
                                     <b class="arrow"></b>
                                 </li>
-                                index++;
+                                    index++;
                             }
                         }
 
