@@ -206,13 +206,13 @@ namespace Szcg.Service.Bussiness
                 , args.ProbClass
                 , args.BigClass
                 , args.SmallClass
-                , args.Street
-                , args.Square
+                , args.StreetId
+                , args.SquareId
                 , args.StartTime
                 , args.EndTime
                 , args.Projcode
                 , args.Address
-                , args.AreaCode
+                , args.AreaId
                 , args.CollCode
                 , args.Telephonist
                 , args.TargetDepartCode

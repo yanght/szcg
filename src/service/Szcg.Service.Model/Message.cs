@@ -17,11 +17,11 @@ namespace Szcg.Service.Model
         /// <summary>
         /// 系统Id
         /// </summary>
-        public int SystemId { get; set; }
+        public string SystemId { get; set; }
         /// <summary>
         /// 发件人
         /// </summary>
-        public int Go_User { get; set; }
+        public string Go_User { get; set; }
         /// <summary>
         /// 收件人
         /// </summary>
@@ -33,7 +33,7 @@ namespace Szcg.Service.Model
         /// <summary>
         /// 是否已读
         /// </summary>
-        public bool IsRead { get; set; }
+        public string IsRead { get; set; }
         /// <summary>
         /// 消息标题
         /// </summary>

@@ -77,6 +77,7 @@ project.getcommounityList = function getcommounityList(areacode, streetcode) {
     });
 }
 
+//初始化职能部门列表
 project.initDepartList = function initDepartList() {
     utils.httpClient("/depart/GetDepartListByAreaCode", "post", null, function (data) {
         if (data.RspCode == 1) {
@@ -149,6 +150,56 @@ project.initPropDepartTree = function initPropDepartTree(callback) {
             });
         });
 
+    });
+}
+
+//初始化大小类选择
+project.initProjectClass = function initProjectClass() {
+    $("#ProbClass").change(function () {
+        var classType = $(this).val();
+        utils.httpClient("/project/GetBigClassList", "post", { classType: classType }, function (data) {
+            if (classType == "") {
+                $("#BigClass").html("<option value=''>全部</option>");
+                $("#SmallClass").html("<option value=''>全部</option>");
+            }
+            if (data.RspCode == 1) {
+                var source = '{{each bigclass as value i}}'
+               + '  <option value="{{value.BigClassCode}}">{{value.Name}}</option>'
+               + '{{/each}}';
+
+                var render = template.compile(source);
+
+                var html = render(data.RspData);
+
+                $("select[name='BigClass']").html(html);
+
+                $("select[name='BigClass']").change(function () {
+                    var bigclass = $(this).val();
+                    if (bigclass == "") {
+                        $("select[name='SmallClass']").html("<option>全部</option>");
+                    }
+                    project.initSmallClass(classType, bigclass);
+                })
+            }
+        });
+    })
+}
+
+//初始化小类选择
+project.initSmallClass = function initSmallClass(classType, bigclassCode) {
+    utils.httpClient("/project/GetSmallClassList", "post", { classType: classType, bigclassCode: bigclassCode }, function (data) {
+        if (data.RspCode == 1) {
+            var source = '{{each smallclass as value i}}'
+           + '  <option value="{{value.SmallCallCode}}">{{value.Name}}</option>'
+           + '{{/each}}';
+
+            var render = template.compile(source);
+
+            var html = render(data.RspData);
+
+            $("select[name='SmallClass']").html(html);
+
+        }
     });
 }
 
@@ -431,6 +482,9 @@ project.initDelProjectTable = function (modelcode, buttoncode, nodeid) {
                        "sLast": " 最后一页 "
                    }
                }, fnDrawCallback: function () {
+
+                   $("#projectlistTB").attr("width", "100%");
+
                    $(".projectdetail").click(function (e) {
                        utils.dialog(this, "案卷详情", 600, 700);
                    })
@@ -493,7 +547,7 @@ project.initSelfProjectTable = function () {
     var parm = "?startTime=" + json.startTime + "&endTime=" + json.endTime + "&Projcode=" + json.Projcode + "&Depart=" + json.Depart;
 
     var oTable1 =
-           $('#projectselflistTB')
+           $('#projectlistTB')
            .dataTable({
                "bServerSide": true,
                'bPaginate': true, //是否分页
@@ -588,6 +642,9 @@ project.initSelfProjectTable = function () {
                        "sLast": " 最后一页 "
                    }
                }, fnDrawCallback: function () {
+
+                   $("#projectlistTB").attr("width", "100%");
+
                    $(".projectdetail").click(function (e) {
                        utils.dialog(this, "案卷详情", 600, 700);
                    })
@@ -617,8 +674,6 @@ project.initSelfProjectTable = function () {
     return oTable1;
 
 }
-
-
 
 //刷新自办件待办案卷列表
 project.GetCDProjectList = function GetSelfProjectList(table) {
@@ -652,7 +707,7 @@ project.initCDProjectTable = function () {
 
 
     var oTable1 =
-           $('#projectcdlistTB')
+           $('#projectlistTB')
            .dataTable({
                "bServerSide": true,
                'bPaginate': true, //是否分页
@@ -712,7 +767,6 @@ project.initCDProjectTable = function () {
                   { "data": "BigClassName" },
                   { "data": "SmallClassName" },
                   { "data": "StartDate", "mRender": function (data, type, full) { return utils.getFormatDate(data, "yyyy-mm-dd HH:MM:ss") } },
-                  { "data": "SteptDate", "mRender": function (data, type, full) { return utils.getFormatDate(data, "yyyy-mm-dd HH:MM:ss") } },
                   { "data": "Street" },
                   { "data": "Square" },
                   { "data": "ProbDesc" },
@@ -747,6 +801,9 @@ project.initCDProjectTable = function () {
                        "sLast": " 最后一页 "
                    }
                }, fnDrawCallback: function () {
+
+                   $("#projectlistTB").attr("width", "100%");
+
                    $(".projectdetail").click(function (e) {
                        utils.dialog(this, "案卷详情", 600, 700);
                    })
@@ -757,6 +814,7 @@ project.initCDProjectTable = function () {
                    var table = oTable1.DataTable();
                    table.column(0).visible(false);
                    table.column(1).visible(false);
+                   table.column(4).visible(false);
                    table.column(6).visible(false);
                    //if (table.data() == null || table.data().length == 0) return;
 
@@ -776,8 +834,6 @@ project.initCDProjectTable = function () {
     return oTable1;
 
 }
-
-
 
 //刷新自办件待办案卷列表
 project.GetQueryProjectList = function GetQueryProjectList(table) {
@@ -871,7 +927,7 @@ project.initQueryProjectTable = function () {
 
 
     var oTable1 =
-           $('#projectcdlistTB')
+           $('#projectlistTB')
            .dataTable({
                "bServerSide": true,
                'bPaginate': true, //是否分页
@@ -930,11 +986,10 @@ project.initQueryProjectTable = function () {
                   { "data": "ProbClassName", "sWidth": "5%" },
                   { "data": "BigClassName" },
                   { "data": "SmallClassName" },
-                  { "data": "StartDate", "mRender": function (data, type, full) { return utils.getFormatDate(data, "yyyy-mm-dd HH:MM:ss") } },
-                  { "data": "SteptDate", "mRender": function (data, type, full) { return utils.getFormatDate(data, "yyyy-mm-dd HH:MM:ss") } },
                   { "data": "Street" },
                   { "data": "Square" },
                   { "data": "ProbDesc" },
+                    { "data": "StartDate", "mRender": function (data, type, full) { return utils.getFormatDate(data, "yyyy-mm-dd HH:MM:ss") } },
                   {
                       "mRender": function (data, type, full) {
                           var html = '';
@@ -966,6 +1021,9 @@ project.initQueryProjectTable = function () {
                        "sLast": " 最后一页 "
                    }
                }, fnDrawCallback: function () {
+
+                   $("#projectlistTB").attr("width", "100%");
+
                    $(".projectdetail").click(function (e) {
                        utils.dialog(this, "案卷详情", 600, 700);
                    })
@@ -976,6 +1034,8 @@ project.initQueryProjectTable = function () {
                    var table = oTable1.DataTable();
                    table.column(0).visible(false);
                    table.column(1).visible(false);
+                   table.column(2).visible(false);
+                   table.column(4).visible(false);
                    table.column(6).visible(false);
                    //if (table.data() == null || table.data().length == 0) return;
 
@@ -995,7 +1055,6 @@ project.initQueryProjectTable = function () {
     return oTable1;
 
 }
-
 
 //获取当前页面操作按钮
 project.GetFlowNodePower = function GetFlowNodePower(modelcode, callback) {
@@ -1084,6 +1143,66 @@ project.getProjectDetail = function getProjectDetail(projectcode, year, isend, n
                 $(this).closest("div").find(".profile-picture").prepend(lastpic);
             })
 
+            $("#sendmessage").click(function () {
+
+                var url = "/CallAcceptance/project/ProjectSendMessage?collcode=" + $(this).attr("collcode") + "&collname=" + $(this).attr("collname");
+
+                $.get(url, function (data) {
+
+                    dialog = $("<div style='margin-bottom:20px;'>" + data + "</div>").appendTo("body").dialog({
+                        modal: true,
+                        title: "<div class='widget-header widget-header-small'><h4 class='smaller'>向监督员发送消息</h4></div>",
+                        title_html: true,
+                        width: 400,
+                        height: 300,
+                        buttons: [
+                            {
+                                text: "发送",
+                                "class": "btn btn-primary btn-xs",
+                                click: function () {
+                                    var _title = $("#title").val();
+                                    var _msgcontent = $("#msgcontent").val();
+                                    var _collname = $("#collname").val();
+                                    var _collcode = $("#collcode").val();
+
+                                    if (_collname.length == 0 || _collcode.length == 0) {
+                                        utils.alert("发送对象不允许为空!"); return false;
+                                    }
+                                    if (_title.length == 0 || _msgcontent.length == 0) {
+                                        utils.alert("消息主题与消息内容不允许为空!"); return false;
+                                    }
+
+                                    var json = {
+                                        collname: _collname,
+                                        title: _title,
+                                        msgcontent: _msgcontent,
+                                        collcode: _collcode
+                                    };
+
+                                    utils.httpClient("/message/SendPDAMsg", "POST", json, function (data) {
+                                        if (data.RspCode == 1) {
+                                            utils.alert("消息发送成功！");
+                                        }
+                                        else {
+                                            utils.alert1(data.RspMsg);
+                                        }
+                                    });
+
+                                    $(this).dialog("close");
+                                }
+                            },
+                             {
+                                 text: "取消",
+                                 "class": "btn btn-xs",
+                                 click: function () {
+                                     $(this).dialog("close");
+                                 }
+                             }
+                        ]
+                    });
+                });
+            })
+
         }
         else {
             utils.alert(data.RspMsg);
@@ -1164,14 +1283,17 @@ project.getProjectDetailWithCollecter = function getProjectDetailWithCollecter(d
             $('#collecterTb tbody').on('click', 'tr', function () {
                 if ($(this).hasClass('selected')) {
                     $(this).removeClass('selected');
+                    $("#Mobile").val("");
+                    $("#CollecterCode").val("");
                 }
                 else {
                     table.$('tr.selected').removeClass('selected');
                     $(this).addClass('selected');
+                    $("#Mobile").val($(this).attr("_mobile"));
+                    $("#CollecterCode").val($(this).attr("_collcode"));
                 }
 
-                $("#Mobile").val($(this).attr("_mobile"));
-                $("#CollecterCode").val($(this).attr("_collcode"));
+
 
             });
 
@@ -1816,8 +1938,8 @@ project.operateProject = function operateProject(buttonid, projcode, buttoncode,
                                         }
 
                                         utils.httpClient("/project/ProjectSendCheckMessage", "post", {
-                                            ProjectCode: projcode,
                                             ButtonCode: buttoncode,
+                                            ProjectCode: projcode,
                                             CollectorCode: $("#CollecterCode").val(),
                                             Message: $("#Option").val(),
                                         }, function (data) {
@@ -2165,3 +2287,113 @@ project.getProjectReportDetail = function getProjectReportDetail(projectcode, ye
     });
 }
 
+
+
+
+//刷新站内业务消息列表
+project.GetMessageList = function GetSelfProjectList(table) {
+
+    var json = {
+        userName: $("input[name='userName']").val(),
+        beginTime: $("input[name='beginTime']").val(),
+        endTime: $("input[name='endTime']").val(),
+    };
+
+    var url = '/message/GetMessageList';
+    var parm = "?userName=" + json.userName + "&beginTime=" + json.beginTime + "&endTime=" + json.endTime;
+
+    var oSettings = table.fnSettings();
+    oSettings.ajax.url = url + parm;
+    table.fnDraw();
+
+}
+
+//获取站内业务消息列表
+project.initMessageTable = function () {
+
+    var json = {
+        userName: $("input[name='userName']").val(),
+        beginTime: $("input[name='beginTime']").val(),
+        endTime: $("input[name='endTime']").val(),
+    };
+
+    var url = '/message/GetMessageList';
+    var parm = "?userName=" + json.userName + "&beginTime=" + json.beginTime + "&endTime=" + json.endTime;
+
+
+    var oTable1 =
+           $('#messagelistTB')
+           .dataTable({
+               "bServerSide": true,
+               'bPaginate': true, //是否分页
+               "iDisplayLength": 10, //每页显示10条记录
+               "ajax": {
+                   "url": url + parm
+               },
+               'bFilter': false, //是否使用内置的过滤功能
+               "bSort": false,
+               "bProcessing": true,
+               "columns": [
+                  { "data": "MsgTitle" },
+                  { "data": "UserName" },
+                  { "data": "DepartName" },
+                  { "data": "MsgContent" },
+                  { "data": "Cu_Date", "mRender": function (data, type, full) { return utils.getFormatDate(data, "yyyy-mm-dd HH:MM:ss") } },
+                  {
+                      "mRender": function (data, type, full) {
+                          var html = '';
+                          html += '   <div class="hidden-md ">';
+                          html += '   <a href="javascript:;" class="tooltip-info" data-rel="tooltip" title="View">';
+                          html += ' <span class="blue projecttrace"><i class="ace-icon fa fa-location-arrow  bigger-120"></i>回复</span>';
+                          html += ' </a>';
+                          html += '   <a href="javascript:;" class="tooltip-info" data-rel="tooltip" title="View">';
+                          html += ' <span class="blue messagedetail" data-url="/CallAcceptance/message/MessageDetail?id=' + full.Id + '&type=' + full.MsgType + '"><i class="ace-icon fa fa-search-plus bigger-120"></i>查看详情</span>';
+                          html += ' </a>';
+                          html += '   <a href="javascript:;" class="tooltip-info" data-rel="tooltip" title="View">';
+                          html += ' <span class="blue projecttrace"><i class="ace-icon fa fa-search-plus bigger-120"></i>消息删除</span>';
+                          html += ' </a>';
+                          html += ' </div>';
+                          return html;
+                      }
+                  }
+               ],
+               "oLanguage": {
+                   "sProcessing": "正在处理.....",
+                   'sSearch': '数据筛选:',
+                   "sLengthMenu": "每页显示 _MENU_ 项记录",
+                   "sZeroRecords": "没有符合条件的数据...",
+                   "sInfo": "当前数据为从第 _START_ 到第 _END_ 项数据；总共有 _TOTAL_ 项记录",
+                   "sInfoEmpty": "显示 0 至 0 共 0 项",
+                   "sInfoFiltered": "(_MAX_)",
+                   "oPaginate": {
+                       "sFirst": "第一页",
+                       "sPrevious": " 上一页 ",
+                       "sNext": " 下一页 ",
+                       "sLast": " 最后一页 "
+                   }
+               }, fnDrawCallback: function () {
+                   $(".messagedetail").click(function (e) {
+                       utils.dialog(this, "消息详情", 400, 400);
+                   })
+               }
+           });
+    return oTable1;
+
+}
+
+project.getMessageDetail = function (msgId, messageType) {
+    utils.httpClient("/message/GetMessageInfo", "post", { messageId: msgId, type: messageType }, function (data) {
+
+        if (data.RspCode == 1) {
+
+            var html = template('messagedetailtpl', data.RspData.message);
+
+            document.getElementById('messagedetail').innerHTML = html;
+
+
+        } else {
+            utils.alert(data.RspMsg);
+        }
+
+    });
+}

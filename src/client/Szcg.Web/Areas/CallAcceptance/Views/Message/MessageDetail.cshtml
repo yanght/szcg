@@ -1,0 +1,61 @@
+﻿@{
+    Layout = null;
+}
+<div id="messagedetail">
+    <script type="text/template" id="messagedetailtpl">
+
+        <div class="space-4"></div>
+
+        <div class="row">
+            <div class="profile-user-info profile-user-info-striped">
+                <div class="profile-info-row">
+                    <div class="profile-info-name"> 消息主题：</div>
+                    <div class="profile-info-value">
+                        <span class="editable editable-click">{{MsgTitle}}</span>
+                    </div>
+                </div>
+                <div class="profile-info-row">
+                    <div class="profile-info-name"> 消息类型： </div>
+                    <div class="profile-info-value">
+                        {{if MsgType==1}}
+                        <span class="editable editable-click"> 业务消息 </span>
+                        {{else}}
+                        <span class="editable editable-click">其他消息 </span>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="profile-info-row">
+                    <div class="profile-info-name"> 发送人： </div>
+                    <div class="profile-info-value">
+                        <span class="editable editable-click">{{UserName}}</span>
+                    </div>
+                </div>
+                <div class="profile-info-row">
+                    <div class="profile-info-name"> 发送人所属部门： </div>
+                    <div class="profile-info-value">
+                        <span class="editable editable-click">{{DepartName}} </span>
+                    </div>
+
+                </div>
+                <div class="profile-info-row">
+                    <div class="profile-info-name"> 发送时间： </div>
+                    <div class="profile-info-value">
+                        <span class="editable editable-click">{{Cu_Date}} </span>
+                    </div>
+
+                </div>
+
+                <div class="profile-info-row">
+                    <div class="profile-info-name"> 消息内容： </div>
+                    <div class="profile-info-value">
+                        <span class="editable editable-click">{{MsgContent}} </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </script>
+</div>
+<script type="text/javascript">
+    project.getMessageDetail('@(Request["id"])', '@Request["type"]');
+</script>

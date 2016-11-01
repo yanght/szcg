@@ -41,6 +41,24 @@ namespace Szcg.Service.Bussiness
         }
 
         /// <summary>
+        /// 向监督员PDA发送WEB消息
+        /// </summary>
+        /// <param name="collcode">监督员编号</param>
+        /// <param name="msgcontent">消息主题</param>
+        /// <param name="title">消息内容</param>
+        /// <param name="usercode">用户编号</param>
+        /// <returns></returns>
+        public bool SendPDAMsg(string collcode, string msgcontent, string title, string usercode)
+        {
+            bacgBL.business.collecter.SendPDAMsg(collcode, msgcontent, title, usercode, out strErr);
+            if (!string.IsNullOrEmpty(strErr))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
         /// 获取用户群组
         /// </summary>
         /// <param name="userCode">当前用户编码</param>
@@ -126,7 +144,7 @@ namespace Szcg.Service.Bussiness
 
             int rowCount = 0;
 
-            DataSet ds = bacgBL.business.MyMessage.GetMsgList(userCode, int.Parse(pageInfo.CurrentPage), int.Parse(pageInfo.PageSize), "asc", "to_user", userName, beginTime, endTime,
+            DataSet ds = bacgBL.business.MyMessage.GetMsgList(userCode, int.Parse(pageInfo.CurrentPage), int.Parse(pageInfo.PageSize), pageInfo.Order, pageInfo.Field, userName, beginTime, endTime,
                                                               ref rowCount, ref pageCount, ref strErr);
             pageInfo.PageCount = pageCount.ToString();
 

@@ -22,7 +22,7 @@ utils.httpClient = function (url, requestType, args, callback) {
 }
 
 //模态弹出框
-utils.dialog = function (obj, title, width, height, buttons) {
+utils.dialog = function (obj, title, width, height, okcallback, canclecallback) {
     //override dialog's title function to allow for HTML titles
     $.widget("ui.dialog", $.extend({}, $.ui.dialog.prototype, {
         _title: function (title) {
@@ -48,22 +48,28 @@ utils.dialog = function (obj, title, width, height, buttons) {
             close: function () {
                 $(this).dialog("destroy").remove();
             },
-            //buttons: [
-            //    {
-            //        text: "取消",
-            //        "class": "btn btn-xs",
-            //        click: function () {
-            //            $(this).dialog("close");
-            //        }
-            //    },
-            //    {
-            //        text: "确定",
-            //        "class": "btn btn-primary btn-xs",
-            //        click: function () {
-            //            $(this).dialog("close");
-            //        }
-            //    }
-            //]
+            buttons: [
+                {
+                    text: "确定",
+                    "class": "btn btn-primary btn-xs",
+                    click: function () {
+                        if (okcallback) {
+                            okcallback();
+                        }
+                        $(this).dialog("close");
+                    }
+                },
+                 {
+                     text: "取消",
+                     "class": "btn btn-xs",
+                     click: function () {
+                         if (canclecallback) {
+                             canclecallback();
+                         }
+                         $(this).dialog("close");
+                     }
+                 }
+            ]
         });
     })
 }

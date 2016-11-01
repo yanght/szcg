@@ -356,7 +356,7 @@ namespace Szcg.Web.Controllers
         [HttpPost]
         public AjaxFxRspJson ProjectSendCheckMessage(ProjectCheckArgs args)
         {
-            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 0 };
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
             args.UserCode = UserInfo.getUsercode().ToString();
             args.DepartCode = UserInfo.getDepartcode().ToString();
@@ -697,7 +697,7 @@ namespace Szcg.Web.Controllers
                 return Json(ajax);
             }
 
-            return Json(new { draw = Request["draw"], recordsTotal = pageInfo.RowCount, recordsFiltered = pageInfo.RowCount, data = list }, JsonRequestBehavior.AllowGet);
+            return Json(new { draw = Request["draw"], recordsTotal = pageInfo.RowCount, recordsFiltered = pageInfo.RowCount, data = list == null ? new List<Project>() : list }, JsonRequestBehavior.AllowGet);
         }
 
         #endregion
@@ -752,7 +752,7 @@ namespace Szcg.Web.Controllers
             if (rtn.ReturnState)
             {
                 list = rtn.ReturnObj as List<Szcg.Service.Model.Project>;
-                ajax.RspData.Add("projectList", JToken.FromObject(list));
+                //ajax.RspData.Add("projectList", JToken.FromObject(list));
             }
             else
             {
@@ -761,7 +761,7 @@ namespace Szcg.Web.Controllers
                 return Json(ajax);
             }
 
-            return Json(new { draw = Request["draw"], recordsTotal = pageInfo.RowCount, recordsFiltered = pageInfo.RowCount, data = list }, JsonRequestBehavior.AllowGet);
+            return Json(new { draw = Request["draw"], recordsTotal = pageInfo.RowCount, recordsFiltered = pageInfo.RowCount, data = list == null ? new List<Project>() : list }, JsonRequestBehavior.AllowGet);
         }
 
         #endregion
@@ -818,25 +818,54 @@ namespace Szcg.Web.Controllers
 
         #region [ 获取查询箱案卷列表 ]
 
-        public AjaxFxRspJson QueryProjectList(ProjectQueryArgs args, PageInfo pageInfo)
+        public JsonResult QueryProjectList(ProjectQueryArgs args, PageInfo pageInfo)
         {
+            if (args.AreaId == "全部") args.AreaId = "";
+            if (args.StreetId == "全部") args.StreetId = "";
+            if (args.SquareId == "全部") args.SquareId = "";
+
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            if (UserInfo == null)
+            {
+                ajax.RspMsg = "用户未登录！";
+                ajax.RspCode = 0;
+                return Json(ajax);
+            }
+
+            int currentpage = int.Parse(Request["start"]);
+            int pagesize = int.Parse(Request["length"]);
+
+            if (currentpage != 0)
+            {
+                currentpage = (currentpage / pagesize) + 1;
+            }
+            else
+            {
+                currentpage = 1;
+            }
+
+            pageInfo.PageSize = Request["length"];
+            pageInfo.CurrentPage = currentpage.ToString();
+            pageInfo.Field = "projcode";
+            pageInfo.Order = "desc";
 
             ReturnValue rtn = svc.QueryProjectList(args, pageInfo);
 
+            List<Szcg.Service.Model.Project> list = new List<Project>();
             if (rtn.ReturnState)
             {
-                List<Szcg.Service.Model.Project> list = rtn.ReturnObj as List<Szcg.Service.Model.Project>;
-                ajax.RspData.Add("projectList", JToken.FromObject(list));
+                list = rtn.ReturnObj as List<Szcg.Service.Model.Project>;
+                //ajax.RspData.Add("projectList", JToken.FromObject(list));
             }
             else
             {
                 ajax.RspMsg = rtn.ErrorMsg;
                 ajax.RspCode = 0;
-                return ajax;
+                return Json(ajax);
             }
 
-            return ajax;
+            return Json(new { draw = Request["draw"], recordsTotal = pageInfo.RowCount, recordsFiltered = pageInfo.RowCount, data = list==null? new List<Project>():list }, JsonRequestBehavior.AllowGet);
         }
 
         #endregion

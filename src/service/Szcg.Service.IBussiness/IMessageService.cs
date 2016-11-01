@@ -23,6 +23,16 @@ namespace Szcg.Service.IBussiness
         bool InsertGroupMessage(Szcg.Service.Model.Message message);
 
         /// <summary>
+        /// 向监督员PDA发送WEB消息
+        /// </summary>
+        /// <param name="collcode">监督员编号</param>
+        /// <param name="msgcontent">消息主题</param>
+        /// <param name="title">消息内容</param>
+        /// <param name="usercode">用户编号</param>
+        /// <returns></returns>
+        bool SendPDAMsg(string collcode, string msgcontent, string title, string usercode);
+
+        /// <summary>
         /// 获取用户群组
         /// </summary>
         /// <param name="userCode">当前用户编码</param>

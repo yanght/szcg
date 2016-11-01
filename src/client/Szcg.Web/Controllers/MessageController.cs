@@ -77,6 +77,36 @@ namespace Szcg.Web.Controllers
 
         #endregion
 
+        [HttpPost]
+        public AjaxFxRspJson SendPDAMsg(string collcode, string collname, string msgcontent, string title)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            if (string.IsNullOrEmpty(collname))
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "发送对象不能为空！";
+                return ajax;
+            }
+
+            if (string.IsNullOrEmpty(msgcontent) || string.IsNullOrEmpty(title))
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "消息主题与消息内容不允许为空！";
+                return ajax;
+            }
+
+            if (!svc.SendPDAMsg(collcode, msgcontent, title, UserInfo.getUsercode().ToString()))
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "向监督员发送消息失败！";
+                return ajax;
+            }
+
+            return ajax;
+        }
+
+
         #region [ 获取群组用户 ]
 
         public AjaxFxRspJson GetGroupUser(int groupId)
@@ -172,17 +202,39 @@ namespace Szcg.Web.Controllers
 
         #region [ 获取站内信息列表 ]
 
-        public AjaxFxRspJson GetMessageList(string userName, string beginTime, string endTime, string currentPage)
+        public JsonResult GetMessageList(string userName, string beginTime, string endTime, string currentPage)
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
-            PageInfo pageinfo = new PageInfo() { CurrentPage = currentPage, PageSize = "10" };
+            if (UserInfo == null)
+            {
+                ajax.RspMsg = "用户未登录！";
+                ajax.RspCode = 0;
+                return Json(ajax);
+            }
 
-            List<Message> list = svc.GetMessageList(this.UserInfo.getUsercode(), userName, beginTime, endTime, pageinfo);
+            int currentpage = int.Parse(Request["start"]);
+            int pagesize = int.Parse(Request["length"]);
 
-            ajax.RspData.Add("list", JToken.FromObject(list));
+            if (currentpage != 0)
+            {
+                currentpage = (currentpage / pagesize) + 1;
+            }
+            else
+            {
+                currentpage = 1;
+            }
+            PageInfo pageInfo = new PageInfo();
+            pageInfo.PageSize = Request["length"];
+            pageInfo.CurrentPage = currentpage.ToString();
+            pageInfo.Field = "to_user";
+            pageInfo.Order = "asc";
 
-            return ajax;
+            List<Message> list = svc.GetMessageList(this.UserInfo.getUsercode(), userName, beginTime, endTime, pageInfo);
+
+           // ajax.RspData.Add("list", JToken.FromObject(list));
+
+            return Json(new { draw = Request["draw"], recordsTotal = pageInfo.RowCount, recordsFiltered = pageInfo.RowCount, data = list == null ? new List<Message>() : list }, JsonRequestBehavior.AllowGet);
         }
 
         #endregion
