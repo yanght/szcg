@@ -31,7 +31,22 @@ namespace Szcg.Web.Areas.CallAcceptance.Controllers
             return View();
         }
 
-        public ActionResult MessageDetail(string id,string type)
+        public ActionResult MessageDetail(string id, string type, string option)
+        {
+            return View();
+        }
+
+        public ActionResult CreateMessage()
+        {
+            return View();
+        }
+
+        public ActionResult SendMobileMessage()
+        {
+            return View();
+        }
+
+        public ActionResult MessageGroupTree()
         {
             return View();
         }

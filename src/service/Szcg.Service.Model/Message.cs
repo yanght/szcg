@@ -25,7 +25,7 @@ namespace Szcg.Service.Model
         /// <summary>
         /// 收件人
         /// </summary>
-        public int To_User { get; set; }
+        public string  To_User { get; set; }
         /// <summary>
         /// 发送时间
         /// </summary>

@@ -106,5 +106,8 @@ namespace Szcg.Service.IBussiness
         /// <param name="departName">部门名称</param>
         /// <returns></returns>
         bool CheckDepartName(string parentDepartId, string departName);
+
+        
+
     }
 }

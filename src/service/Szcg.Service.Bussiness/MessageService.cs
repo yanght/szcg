@@ -1,4 +1,6 @@
 ﻿using bacgBL.business.group;
+using bacgBL.business.wdxxmanage;
+using bacgBL.web.szbase.purview;
 using bacgDL.business;
 using DBbase.business.group;
 using System;
@@ -26,7 +28,26 @@ namespace Szcg.Service.Bussiness
         /// <returns></returns>
         public bool InsertMessage(Message message)
         {
-            int index = gm.InsertBusinessMsg(message.Go_User.ToString(), message.To_User.ToString(), message.MsgTitle, message.MsgContent);
+            int index = gm.InsertBusinessMsgs(message.Go_User.ToString(), message.To_User.ToString(), message.MsgTitle, message.MsgContent, "", message.MsgType);
+            return index > 0;
+        }
+
+        /// <summary>
+        /// 回复消息
+        /// </summary>
+        /// <param name="message">消息实体</param>
+        /// <returns></returns>
+        public bool ReplayMessage(Message message)
+        {
+            int index = -1;
+            if (message.MsgType == "4")
+            {
+                index = new wdxx().InsertBusinessMsg(message.Go_User.ToString(), message.To_User.ToString(), message.MsgTitle, message.MsgContent, message.Id.ToString(), "5", ref strErr);
+            }
+            else
+            {
+                index = new wdxx().InsertBusinessMsg(message.Go_User.ToString(), message.To_User.ToString(), message.MsgTitle, message.MsgContent, ref strErr);
+            }
             return index > 0;
         }
 
@@ -274,5 +295,86 @@ namespace Szcg.Service.Bussiness
             }
             return index > 0;
         }
+
+        /// <summary>
+        /// 删除消息
+        /// </summary>
+        /// <param name="id">消息Id</param>
+        /// <returns></returns>
+        public bool DeleteMsg(string id)
+        {
+            bacgBL.business.MyMessage.DeleteMsg(id, ref strErr);
+            if (string.IsNullOrEmpty(strErr)) return true;
+            return false;
+        }
+
+        /// <summary>
+        /// 获取消息部门树
+        /// </summary>
+        /// <param name="areacode">区域编码</param>
+        /// <param name="departcode">当前用户部门编码</param>
+        /// <returns></returns>
+
+        public List<Depart> GetUserTreeList(string areacode, string departcode)
+        {
+            List<Depart> departs = new List<Depart>();
+
+            Purviews bl = new Purviews();
+
+            ArrayList list = bl.GetUserTreeList(areacode, "0", ref strErr);
+
+            if (list != null & list.Count > 0)
+            {
+                foreach (var item in list)
+                {
+                    bacgBL.web.szbase.entity.TreeSuruct ts = (bacgBL.web.szbase.entity.TreeSuruct)item;
+
+                    Depart depart = new Depart()
+                    {
+                        DepartCode = ts.code,
+                        DepartName = ts.text,
+                        ParentCode = ts.pcode,
+                        Memo = ts.tag
+                    };
+
+                    departs.Add(depart);
+                }
+            }
+
+            return departs;
+        }
+
+        /// <summary>
+        ///  获取人员树信息（部门，人员）
+        /// </summary>
+        /// <param name="areacode">区域编码</param>
+        /// <returns></returns>
+        public List<Depart> GetUserPhoneTreeList(string areacode)
+        {
+            List<Depart> departs = new List<Depart>();
+            Purviews bl = new Purviews();
+            ArrayList list = bl.GetUserPhoneTreeList(areacode, ref strErr);
+            if (list != null & list.Count > 0)
+            {
+                foreach (var item in list)
+                {
+                    bacgBL.web.szbase.entity.TreeSuruct ts = (bacgBL.web.szbase.entity.TreeSuruct)item;
+
+                    Depart depart = new Depart()
+                    {
+                        DepartCode = ts.code,
+                        DepartName = ts.text,
+                        ParentCode = ts.pcode,
+                        Memo = ts.text
+                    };
+
+                    departs.Add(depart);
+                }
+            }
+
+            return departs;
+        }
+
+
     }
 }

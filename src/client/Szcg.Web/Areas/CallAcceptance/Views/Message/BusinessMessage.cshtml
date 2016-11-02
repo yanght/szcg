@@ -51,10 +51,10 @@
                     </a>
                 </div>
                 <div class="widget-toolbar no-border">
-                    <button class="btn btn-xs bigger btn-yellow">
+                    <button class="btn btn-xs bigger btn-yellow" id="createMessage">
                         新建消息
                     </button>
-                    <button class="btn btn-xs bigger btn-yellow">
+                    <button class="btn btn-xs bigger btn-yellow" id="sendMessage">
                         短信发送
                     </button>
                 </div>
@@ -64,6 +64,7 @@
                     <table id="messagelistTB" class="table table-striped table-bordered table-hover">
                         <thead>
                             <tr>
+                                <th>消息状态</th>
                                 <th>消息主题</th>
                                 <th>发送人</th>
                                 <th>所属部门</th>

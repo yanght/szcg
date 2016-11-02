@@ -1042,6 +1042,9 @@
     <Content Include="Areas\CallAcceptance\Views\Message\OtherMessage.cshtml" />
     <Content Include="Areas\CallAcceptance\Views\Message\WarningMessage.cshtml" />
     <Content Include="Areas\CallAcceptance\Views\Message\MessageDetail.cshtml" />
+    <Content Include="Areas\CallAcceptance\Views\Message\CreateMessage.cshtml" />
+    <Content Include="Areas\CallAcceptance\Views\Message\MessageGroupTree.cshtml" />
+    <Content Include="Areas\CallAcceptance\Views\Message\SendMobileMessage.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />

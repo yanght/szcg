@@ -11,51 +11,64 @@
                 <div class="profile-info-row">
                     <div class="profile-info-name"> 消息主题：</div>
                     <div class="profile-info-value">
-                        <span class="editable editable-click">{{MsgTitle}}</span>
+                        <span class="editable editable-click">{{message.MsgTitle}}</span>
+                        <input type="hidden" name="MsgTitle" id="MsgTitle" value="{{message.MsgTitle}}" />
                     </div>
                 </div>
                 <div class="profile-info-row">
                     <div class="profile-info-name"> 消息类型： </div>
                     <div class="profile-info-value">
-                        {{if MsgType==1}}
+                        {{if message.MsgType==1}}
                         <span class="editable editable-click"> 业务消息 </span>
                         {{else}}
                         <span class="editable editable-click">其他消息 </span>
                         {{/if}}
+                        <input type="hidden" name="MsgType" id="MsgType" value="{{message.MsgType}}" />
                     </div>
                 </div>
                 <div class="profile-info-row">
                     <div class="profile-info-name"> 发送人： </div>
                     <div class="profile-info-value">
-                        <span class="editable editable-click">{{UserName}}</span>
+                        <span class="editable editable-click">{{message.UserName}}</span>
+                        <input type="hidden" name="UserName" id="UserName" value="{{message.UserName}}" />
+                        <input type="hidden" name="Go_User" id="Go_User" value="{{message.Go_User}}" />
                     </div>
                 </div>
                 <div class="profile-info-row">
                     <div class="profile-info-name"> 发送人所属部门： </div>
                     <div class="profile-info-value">
-                        <span class="editable editable-click">{{DepartName}} </span>
+                        <span class="editable editable-click">{{message.DepartName}} </span>
                     </div>
 
                 </div>
                 <div class="profile-info-row">
                     <div class="profile-info-name"> 发送时间： </div>
                     <div class="profile-info-value">
-                        <span class="editable editable-click">{{Cu_Date}} </span>
+                        <span class="editable editable-click">{{message.Cu_Date}} </span>
                     </div>
 
                 </div>
-
+                {{if option=="replay"}}
+                <div class="profile-info-row">
+                    <div class="profile-info-name"> 回复内容： </div>
+                    <div class="profile-info-value">
+                        <textarea name="MsgContent" id="MsgContent" class="autosize-transition form-control"></textarea>
+                    </div>
+                </div>
+                {{else}}
                 <div class="profile-info-row">
                     <div class="profile-info-name"> 消息内容： </div>
                     <div class="profile-info-value">
-                        <span class="editable editable-click">{{MsgContent}} </span>
+                        <span class="editable editable-click">{{message.MsgContent}} </span>
                     </div>
                 </div>
+                {{/if}}
+
 
             </div>
         </div>
     </script>
 </div>
 <script type="text/javascript">
-    project.getMessageDetail('@(Request["id"])', '@Request["type"]');
+    project.getMessageDetail('@(Request["id"])', '1', '@Request["option"]');
 </script>

@@ -17,6 +17,13 @@ namespace Szcg.Service.IBussiness
         bool InsertMessage(Szcg.Service.Model.Message message);
 
         /// <summary>
+        /// 回复消息
+        /// </summary>
+        /// <param name="message">消息实体</param>
+        /// <returns></returns>
+        bool ReplayMessage(Szcg.Service.Model.Message message);
+
+        /// <summary>
         /// 发送群组站内消息
         /// </summary>
         /// <returns></returns>
@@ -112,5 +119,27 @@ namespace Szcg.Service.IBussiness
         /// <returns></returns>
         bool SetPDAMessageIsRead(string messageId);
 
+        /// <summary>
+        /// 删除消息
+        /// </summary>
+        /// <param name="id">消息Id</param>
+        /// <returns></returns>
+        bool DeleteMsg(string id);
+
+        /// <summary>
+        /// 获取短信部门树
+        /// </summary>
+        /// <param name="areacode">区域编码</param>
+        /// <param name="departcode">当前用户部门编码</param>
+        /// <returns></returns>
+
+        List<Depart> GetUserTreeList(string areacode, string departcode);
+
+        /// <summary>
+        ///  获取人员树信息（部门，人员）
+        /// </summary>
+        /// <param name="areacode">区域编码</param>
+        /// <returns></returns>
+        List<Depart> GetUserPhoneTreeList(string areacode);
     }
 }
