@@ -141,5 +141,22 @@ namespace Szcg.Service.IBussiness
         /// <param name="areacode">区域编码</param>
         /// <returns></returns>
         List<Depart> GetUserPhoneTreeList(string areacode);
+
+        /// <summary>
+        /// 获得用户树形结构的信息
+        /// </summary>
+        /// <param name="usercode">用户代码</param>
+        ///// <param name="GroupType">组类型</param>
+        /// <param name="strErr">错误返回信息</param>
+        /// <returns></returns>
+        List<Depart> GetGroupTreeList2(int usercode);
+
+        /// <summary>
+        /// 发送手机短信
+        /// </summary>
+        /// <param name="mobiles">手机号码列表多个','分隔</param>
+        /// <param name="content">短信内容</param>
+        /// <returns></returns>
+        bool SendMobileMessage(string mobiles, string content);
     }
 }

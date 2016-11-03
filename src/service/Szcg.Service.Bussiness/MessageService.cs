@@ -217,7 +217,7 @@ namespace Szcg.Service.Bussiness
             int rowCount = 0;
 
             DataSet ds = bacgBL.business.MyMessage.GetOtherMsgList(userCode, areaCode, int.Parse(pageInfo.CurrentPage),
-                                                    int.Parse(pageInfo.PageSize), userName, collName, beginTime, endTime, "asc", "to_user", ref rowCount, ref pageCount, ref strErr);
+                                                    int.Parse(pageInfo.PageSize), userName, collName, beginTime, endTime,pageInfo.Order, pageInfo.Field, ref rowCount, ref pageCount, ref strErr);
             pageInfo.PageCount = pageCount.ToString();
 
             pageInfo.RowCount = rowCount.ToString();
@@ -314,7 +314,6 @@ namespace Szcg.Service.Bussiness
         /// <param name="areacode">区域编码</param>
         /// <param name="departcode">当前用户部门编码</param>
         /// <returns></returns>
-
         public List<Depart> GetUserTreeList(string areacode, string departcode)
         {
             List<Depart> departs = new List<Depart>();
@@ -373,6 +372,67 @@ namespace Szcg.Service.Bussiness
             }
 
             return departs;
+        }
+
+        /// <summary>
+        /// 获得用户树形结构的信息
+        /// </summary>
+        /// <param name="usercode">用户代码</param>
+        ///// <param name="GroupType">组类型</param>
+        /// <param name="strErr">错误返回信息</param>
+        /// <returns></returns>
+        public List<Depart> GetGroupTreeList2(int usercode)
+        {
+            List<Depart> departs = new List<Depart>();
+
+            bacgBL.business.group.BUSINESS_GroupManagers bl = new bacgBL.business.group.BUSINESS_GroupManagers();
+
+            ArrayList list = bl.GetGroupTreeList2(usercode, ref strErr);
+
+            if (list != null & list.Count > 0)
+            {
+                foreach (var item in list)
+                {
+                    bacgBL.web.szbase.entity.TreeSuruct ts = (bacgBL.web.szbase.entity.TreeSuruct)item;
+
+                    Depart depart = new Depart()
+                    {
+                        DepartCode = ts.code,
+                        DepartName = ts.text,
+                        ParentCode = ts.pcode
+                    };
+
+                    departs.Add(depart);
+                }
+            }
+            return departs;
+        }
+
+        /// <summary>
+        /// 发送手机短信
+        /// </summary>
+        /// <param name="mobiles">手机号码列表多个','分隔</param>
+        /// <param name="content">短信内容</param>
+        /// <returns></returns>
+        public bool SendMobileMessage(string mobiles, string content)
+        {
+            bacgBL.business.Message bl = new bacgBL.business.Message();
+
+            int strErr = -1;
+
+            if (mobiles.Contains(","))
+            {
+                string[] sth = mobiles.Split(',');
+                for (int i = 0; i < sth.Length; i++)
+                {
+                    strErr = bacgBL.Pub.TxMsgClass.ShortMessage(sth[i], content);
+                }
+            }
+            else
+            {
+                strErr = bacgBL.Pub.TxMsgClass.ShortMessage(mobiles, content);
+            }
+            return strErr ==0;
         }
 
 

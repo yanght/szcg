@@ -41,7 +41,7 @@ namespace Szcg.Web.Controllers
             }
 
 
-            if (message.To_User =="")
+            if (message.To_User == "")
             {
                 ajax.Method = "请选择收件人";
                 ajax.RspCode = 0;
@@ -80,6 +80,9 @@ namespace Szcg.Web.Controllers
             return ajax;
         }
 
+        #endregion
+
+        #region [ 回复站内消息 ]
 
         public AjaxFxRspJson ReplayMessage(Message message)
         {
@@ -131,6 +134,8 @@ namespace Szcg.Web.Controllers
 
         #endregion
 
+        #region [ 向监督员发送PDA消息 ]
+
         [HttpPost]
         public AjaxFxRspJson SendPDAMsg(string collcode, string collname, string msgcontent, string title)
         {
@@ -160,6 +165,7 @@ namespace Szcg.Web.Controllers
             return ajax;
         }
 
+        #endregion
 
         #region [ 获取群组用户 ]
 
@@ -296,17 +302,40 @@ namespace Szcg.Web.Controllers
 
         #region [ 获取其他消息列表 ]
 
-        public AjaxFxRspJson GetOtherMessageList(string userName, string collName, string beginTime, string endTime, string currentPage)
+        public JsonResult GetOtherMessageList(string userName, string collName, string beginTime, string endTime, string currentPage)
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
-            PageInfo pageinfo = new PageInfo() { CurrentPage = currentPage, PageSize = "10" };
+            if (UserInfo == null)
+            {
+                ajax.RspMsg = "用户未登录！";
+                ajax.RspCode = 0;
+                return Json(ajax);
+            }
 
-            List<Message> list = svc.GetOtherMessageList(this.UserInfo.getUsercode().ToString(), this.UserInfo.getAreacode(), userName, collName, beginTime, endTime, pageinfo);
+            int currentpage = int.Parse(Request["start"]);
+            int pagesize = int.Parse(Request["length"]);
 
-            ajax.RspData.Add("list", JToken.FromObject(list));
+            if (currentpage != 0)
+            {
+                currentpage = (currentpage / pagesize) + 1;
+            }
+            else
+            {
+                currentpage = 1;
+            }
+            PageInfo pageInfo = new PageInfo();
+            pageInfo.PageSize = Request["length"];
+            pageInfo.CurrentPage = currentpage.ToString();
+            pageInfo.Field = "id";
+            pageInfo.Order = "desc";
 
-            return ajax;
+            List<Message> list = svc.GetOtherMessageList(this.UserInfo.getUsercode().ToString(), this.UserInfo.getAreacode(), userName, collName, beginTime, endTime, pageInfo);
+
+            //ajax.RspData.Add("list", JToken.FromObject(list));
+
+            return Json(new { draw = Request["draw"], recordsTotal = pageInfo.RowCount, recordsFiltered = pageInfo.RowCount, data = list == null ? new List<Message>() : list }, JsonRequestBehavior.AllowGet);
+            
         }
 
         #endregion
@@ -348,6 +377,8 @@ namespace Szcg.Web.Controllers
 
         #endregion
 
+        #region [ 获取业务消息个人群组 ]
+
         public AjaxFxRspJson GetUserTreeList()
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
@@ -368,6 +399,10 @@ namespace Szcg.Web.Controllers
 
             return ajax;
         }
+
+        #endregion
+
+        #region [ 获取业务消息公共群组 ]
 
         public AjaxFxRspJson GetUserGroupList()
         {
@@ -412,6 +447,10 @@ namespace Szcg.Web.Controllers
             return ajax;
         }
 
+        #endregion
+
+        #region [ 获取手机短信个人列表 ]
+
         public AjaxFxRspJson GetUserPhoneTreeList()
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
@@ -423,8 +462,14 @@ namespace Szcg.Web.Controllers
                 {
                     id = item.DepartCode,
                     pId = item.ParentCode,
-                    name = item.DepartName
+                    name = item.DepartName,
                 };
+
+                if (item.DepartCode != "aaaa" && item.DepartCode.Contains("aaaa"))
+                {
+                    depart.phone = item.DepartCode.Replace("aaaa", "");
+                }
+
                 tree.Add(depart);
             }
 
@@ -432,5 +477,77 @@ namespace Szcg.Web.Controllers
 
             return ajax;
         }
+
+        #endregion
+
+        #region [ 获取手机短信群组 ]
+
+        public AjaxFxRspJson GetGroupTreeList2()
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+            List<TreeModel> tree = new List<TreeModel>();
+            List<Depart> list = svc.GetGroupTreeList2(UserInfo.getUsercode());
+            foreach (var item in list)
+            {
+                TreeModel depart = new TreeModel()
+                {
+                    id = item.DepartCode,
+                    pId = item.ParentCode,
+                    name = item.DepartName
+                };
+
+                if (item.DepartCode != "aaaa" && item.DepartCode.Contains("aaaa"))
+                {
+                    depart.phone = item.DepartCode.Replace("aaaa", "");
+                }
+
+
+                tree.Add(depart);
+            }
+
+            ajax.RspData.Add("groups", JToken.FromObject(tree));
+
+            return ajax;
+        }
+
+        #endregion
+
+        #region [ 发送手机短信 ]
+
+        public AjaxFxRspJson SendMobileMessage(string mobiles, string content)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            if (string.IsNullOrEmpty(mobiles))
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "请选择短信收件人！";
+                return ajax;
+            }
+            if (string.IsNullOrEmpty(content))
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "请输入短信内容！";
+                return ajax;
+            }
+            if (content.Length > 300)
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "短信只能发送,300个字符,150个汉字,请确认字数！";
+                return ajax;
+            }
+
+            if (!svc.SendMobileMessage(mobiles, content))
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "短信发送失败！";
+                return ajax;
+            }
+
+            return ajax;
+        }
+
+        #endregion
+
     }
 }
