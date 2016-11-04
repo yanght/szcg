@@ -55,6 +55,10 @@ namespace Szcg.Service.Model
         /// </summary>
         public string StreetName { get; set; }
         /// <summary>
+        /// 区域名称
+        /// </summary>
+        public string AreaName { get; set; }
+        /// <summary>
         /// 城管通版本
         /// </summary>
         public string Version { get; set; }
@@ -124,5 +128,9 @@ namespace Szcg.Service.Model
         /// 是否在岗
         /// </summary>
         public string IsGuardName { get; set; }
+        /// <summary>
+        /// GPS状态是否在线
+        /// </summary>
+        public string IsGPS { get; set; }
     }
 }

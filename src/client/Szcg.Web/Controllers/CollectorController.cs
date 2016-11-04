@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using bacgDL.business;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ using Szcg.Service.Model;
 
 namespace Szcg.Web.Controllers
 {
-    public class CollectorController : Controller
+    public class CollectorController : BaseController
     {
         ICollecterservice svc = new Collecterservice();
         //
@@ -21,7 +22,7 @@ namespace Szcg.Web.Controllers
             return View();
         }
 
-        #region [ 获取监督员列表 ]
+        #region [ 获取指定区域所有监督员列表 ]
 
         public AjaxFxRspJson GetCollecters(CollectorQueryArgs args)
         {
@@ -33,6 +34,54 @@ namespace Szcg.Web.Controllers
 
             return ajax;
         }
+
+        #endregion
+
+        #region [ 获取监督员列表 ]
+
+        public JsonResult GetCollecterList(string streetcode, string gridcode, string name, string loginname, string collmobile, string isguard)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            if (UserInfo == null)
+            {
+                ajax.RspMsg = "用户未登录！";
+                ajax.RspCode = 0;
+                return Json(ajax);
+            }
+
+            int currentpage = int.Parse(Request["start"]);
+
+            int pagesize = int.Parse(Request["length"]);
+
+            if (currentpage != 0)
+            {
+                currentpage = (currentpage / pagesize) + 1;
+            }
+            else
+            {
+                currentpage = 1;
+            }
+
+            PageInfo pageInfo = new PageInfo();
+
+            pageInfo.PageSize = Request["length"];
+
+            pageInfo.CurrentPage = currentpage.ToString();
+
+            pageInfo.Field = "collcode";
+
+            pageInfo.Order = "asc";
+
+            List<Collecter> list = svc.GetCollectereList(streetcode, gridcode, name, loginname, collmobile, isguard, pageInfo);
+
+            return Json(new { draw = Request["draw"], recordsTotal = pageInfo.RowCount, recordsFiltered = pageInfo.RowCount, data = list == null ? new List<Collecter>() : list }, JsonRequestBehavior.AllowGet);
+
+        }
+
+        #endregion
+
+        #region [ 获取核查案卷监督员列表 ]
 
         public AjaxFxRspJson GetCheckCollecters(string streetcode, string projcode)
         {

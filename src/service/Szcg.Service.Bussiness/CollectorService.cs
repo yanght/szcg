@@ -1,5 +1,6 @@
 ﻿using bacgBL.business;
 using bacgBL.web.szbase.collecter;
+using bacgDL.business;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -131,7 +132,7 @@ namespace Szcg.Service.Bussiness
         }
 
         /// <summary>
-        /// 获取监督员列表
+        /// 获取指定区域所有监督员列表
         /// </summary>
         /// <param name="CollectorQueryArgs">监督员查询参数</param>
         /// <returns></returns>
@@ -158,6 +159,38 @@ namespace Szcg.Service.Bussiness
                 }
             }
             return Collecters;
+        }
+
+
+        /// <summary>
+        /// 获取监督员列表
+        /// </summary>
+        /// <param name="streetcode">街道编码</param>
+        /// <param name="gridcode">网格编码</param>
+        /// <param name="name">监督员姓名</param>
+        /// <param name="loginname">登录名</param>
+        /// <param name="collmobile">城管通号</param>
+        /// <param name="isguard">在岗状态（0：不在岗  1：在岗）</param>
+        /// <param name="pageInfo"></param>
+        /// <returns></returns>
+        public List<Collecter> GetCollectereList(string streetcode, string gridcode, string name, string loginname, string collmobile, string isguard, PageInfo pageInfo)
+        {
+            List<Collecter> list = new List<Collecter>();
+
+            int totalRows = 0; int totalPages = 0;
+
+            DataSet ds = bacgBL.business.collecter.GetCollectereList(streetcode, gridcode, name, loginname, collmobile, isguard, int.Parse(pageInfo.CurrentPage), int.Parse(pageInfo.PageSize), ref totalRows, ref totalPages, pageInfo.Order, pageInfo.Field, ref strErr);
+
+            pageInfo.RowCount = totalRows.ToString();
+
+            pageInfo.PageCount = totalPages.ToString();
+
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                list = ConvertDtHelper<Collecter>.GetModelList(ds.Tables[0]);
+            }
+
+            return list;
         }
 
         /// <summary>

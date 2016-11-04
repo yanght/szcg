@@ -205,7 +205,7 @@ namespace Szcg.Service.Bussiness
         /// <param name="userName">发件人姓名</param>
         /// <param name="collName">监督员姓名</param>
         /// <param name="beginTime">发件时间开始</param>
-        /// <param name="endTime"><发件时间结束/param>
+        /// <param name="endTime">发件时间结束</param>
         /// <param name="pageInfo">分页信息</param>
         /// <returns></returns>
         public List<Message> GetOtherMessageList(string userCode, string areaCode, string userName, string collName, string beginTime, string endTime, PageInfo pageInfo)

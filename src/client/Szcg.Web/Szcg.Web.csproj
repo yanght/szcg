@@ -186,6 +186,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\CallAcceptance\Controllers\CollecterController.cs" />
     <Compile Include="Areas\CallAcceptance\Controllers\MessageController.cs" />
     <Compile Include="Areas\CallAcceptance\Controllers\ProjectController.cs" />
     <Compile Include="Controllers\AppraiseController.cs" />
@@ -1045,6 +1046,7 @@
     <Content Include="Areas\CallAcceptance\Views\Message\CreateMessage.cshtml" />
     <Content Include="Areas\CallAcceptance\Views\Message\MessageGroupTree.cshtml" />
     <Content Include="Areas\CallAcceptance\Views\Message\SendMobileMessage.cshtml" />
+    <Content Include="Areas\CallAcceptance\Views\Collecter\Index.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />

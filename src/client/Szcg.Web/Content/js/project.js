@@ -2614,8 +2614,7 @@ project.initMessageTable = function () {
 
 }
 
-
-
+//获取站内其他消息列表
 project.GetOtherMessageList = function GetSelfProjectList(table) {
 
     var json = {
@@ -2625,7 +2624,7 @@ project.GetOtherMessageList = function GetSelfProjectList(table) {
         endTime: $("input[name='endTime']").val(),
     };
 
-    var url = '/message/GetMessageList';
+    var url = '/message/GetOtherMessageList';
     var parm = "?userName=" + json.userName + "&beginTime=" + json.beginTime + "&endTime=" + json.endTime + "&collName=" + json.collName;
 
     var oSettings = table.fnSettings();
@@ -2634,7 +2633,7 @@ project.GetOtherMessageList = function GetSelfProjectList(table) {
 
 }
 
-//获取站内业务消息列表
+//获取站内其他消息列表
 project.initOtherMessageTable = function () {
 
     var json = {
@@ -2942,7 +2941,6 @@ project.initOtherMessageTable = function () {
 
 }
 
-
 //获取消息详情
 project.getMessageDetail = function (msgId, messageType, option) {
 
@@ -3050,7 +3048,7 @@ project.messageGroupTree = function messageGroupTree(callback) {
     })
 }
 
-
+//手机短信消息群组树
 project.mobileMessageGroupTree = function mobileMessageGroupTree(callback) {
     $("#selectgroup").click(function () {
         var url = "";
@@ -3117,3 +3115,318 @@ project.mobileMessageGroupTree = function mobileMessageGroupTree(callback) {
 
     })
 }
+
+
+
+//获取监督员列表
+project.GetCollecterList = function GetSelfProjectList(table) {
+
+    var json = {
+        streetcode: $("select[name='streetcode']").val(),
+        gridcode: $("input[name='gridcode']").val(),
+        name: $("input[name='name']").val(),
+        loginname: $("input[name='loginname']").val(),
+        collmobile: $("input[name='collmobile']").val(),
+        isguard: $("select[name='isguard']").val(),
+    };
+
+    var url = '/collector/GetCollecterList';
+    var parm = "?streetcode=" + json.streetcode + "&gridcode=" + json.gridcode + "&name=" + json.name + "&loginname=" + json.loginname + "&collmobile=" + json.collmobile + "&isguard=" + json.isguard;
+
+    var oSettings = table.fnSettings();
+    oSettings.ajax.url = url + parm;
+    table.fnDraw();
+
+}
+
+//初始化监督员列表
+project.initCollecterTable = function () {
+    var json = {
+        streetcode: $("select[name='streetcode']").val(),
+        gridcode: $("input[name='gridcode']").val(),
+        name: $("input[name='name']").val(),
+        loginname: $("input[name='loginname']").val(),
+        collmobile: $("input[name='collmobile']").val(),
+        isguard: $("select[name='isguard']").val(),
+    };
+
+    var url = '/collector/GetCollecterList';
+    var parm = "?streetcode=" + json.streetcode + "&gridcode=" + json.gridcode + "&name=" + json.name + "&loginname=" + json.loginname + "&collmobile=" + json.collmobile + "&isguard=" + json.isguard;
+
+
+    var oTable1 =
+           $('#collecterlistTB')
+           .dataTable({
+               "bServerSide": true,
+               'bPaginate': true, //是否分页
+               "iDisplayLength": 10, //每页显示10条记录
+               "ajax": {
+                   "url": url + parm
+               },
+               'bFilter': false, //是否使用内置的过滤功能
+               "bSort": false,
+               "bProcessing": true,
+               "columns": [
+
+                  { "data": "Id", "mRender": function () { return '<div class="checkbox"><label><input name="form-field-checkbox" type="checkbox" class="ace"><span class="lbl"> </span></label></div>' } },
+                  { "data": "IsGuard" },
+                  { "data": "IsGPS" },
+                  { "data": "CollCode" },
+                  { "data": "CollName" },
+                  { "data": "GridCode" },
+                  { "data": "Mobile" },
+                  { "data": "LoginName" },
+                  { "data": "StreetName" },
+                  { "data": "CommName" },
+                  { "data": "Version" }
+               ],
+               "oLanguage": {
+                   "sProcessing": "正在处理.....",
+                   'sSearch': '数据筛选:',
+                   "sLengthMenu": "每页显示 _MENU_ 项记录",
+                   "sZeroRecords": "没有符合条件的数据...",
+                   "sInfo": "当前数据为从第 _START_ 到第 _END_ 项数据；总共有 _TOTAL_ 项记录",
+                   "sInfoEmpty": "显示 0 至 0 共 0 项",
+                   "sInfoFiltered": "(_MAX_)",
+                   "oPaginate": {
+                       "sFirst": "第一页",
+                       "sPrevious": " 上一页 ",
+                       "sNext": " 下一页 ",
+                       "sLast": " 最后一页 "
+                   }
+               }, fnDrawCallback: function () {
+
+                   $(".messagedetail").click(function (e) {
+                       utils.dialog(this, "消息详情", 400, 400);
+                   })
+
+                   $(".messagereplay").click(function () {
+
+                       var url = "/CallAcceptance/message/MessageDetail?id=" + $(this).attr("id") + "&type=" + $(this).attr("type") + "&option=replay";
+
+                       $.get(url, function (data) {
+                           bootbox.dialog({
+                               message: data,
+                               title: "消息回复",
+                               buttons:
+                               {
+                                   "success":
+                                   {
+                                       "label": "回复",
+                                       "className": "btn-sm btn-primary",
+                                       "callback": function () {
+
+                                           if ($("#MsgContent").val().length == 0) {
+                                               utils.alert("请填写回复内容！"); return false;
+                                           }
+
+                                           utils.httpClient("/message/ReplayMessage", "post", {
+                                               MsgType: 1,
+                                               To_User: $("#Go_User").val(),
+                                               MsgTitle: $("#MsgTitle").val(),
+                                               MsgContent: $("#MsgContent").val(),
+                                           }, function (data) {
+                                               if (data.RspCode == 1) {
+                                                   utils.alert1("回复成功！");
+                                                   var table = $('#messagelistTB').DataTable();
+                                                   table.ajax.reload();
+                                               } else {
+                                                   utils.alert1(data.RspMsg);
+                                               }
+                                           })
+                                       }
+                                   },
+                                   "button":
+                                   {
+                                       "label": "取消",
+                                       "className": "btn-sm"
+                                   }
+                               }
+                           });
+                       });
+
+                   })
+
+                   $(".messagedelete").click(function () {
+                       if (window.confirm("确定要删除吗？")) {
+                           project.deleteMessage($(this).attr("id"));
+                       }
+                   })
+
+                   $("#createMessage").click(function () {
+
+                       var url = "/CallAcceptance/message/CreateMessage";
+
+                       $.get(url, function (data) {
+                           bootbox.dialog({
+                               message: data,
+                               title: "发送平台内Web消息",
+                               buttons:
+                               {
+                                   "success":
+                                   {
+                                       "label": "发送",
+                                       "className": "btn-sm btn-primary",
+                                       "callback": function () {
+                                           if ($("#To_User").val().length == 0) {
+                                               utils.alert("请选择收件人！"); return false;
+                                           }
+                                           if ($("#MsgTitle").val().length == 0) {
+                                               utils.alert("请填写消息主题！"); return false;
+                                           }
+                                           if ($("#MsgContent").val().length == 0) {
+                                               utils.alert("请填写消息内容！"); return false;
+                                           }
+
+                                           var json = {
+                                               MsgType: $("input[name='MsgType']:checked").val(),
+                                               To_User: $("#To_User").val(),
+                                               MsgTitle: $("#MsgTitle").val(),
+                                               MsgContent: $("#MsgContent").val()
+                                           };
+
+                                           utils.httpClient("/message/SendMessage", "POST", json, function (data) {
+                                               if (data.RspCode == 1) {
+                                                   utils.alert("发送成功！");
+                                                   var table = $('#messagelistTB').DataTable();
+                                                   table.ajax.reload();
+                                               }
+                                               else {
+                                                   utils.alert(data.RspMsg);
+                                               }
+                                           });
+                                       }
+                                   },
+                                   "button":
+                                   {
+                                       "label": "取消",
+                                       "className": "btn-sm"
+                                   }
+                               }
+                           });
+
+                           //初始化群组树
+                           project.messageGroupTree(function () {
+                               var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                               var nodes = zTree.getCheckedNodes(true);
+                               if (nodes != null) {
+                                   if ($("input[name='MsgType']:checked").val() == "1") {
+                                       var names = ""; var codes = "";
+                                       $.each(nodes, function (index, item) {
+                                           if (item.id.indexOf("aaaa") >= 0) {
+                                               names += item.name + ",";
+                                               codes += item.id.replace("aaaa", "") + ",";
+                                           }
+                                       })
+
+                                       $("#toUserName").val(names.substring(0, names.length - 1));
+                                       $("#To_User").val(codes.substring(0, codes.length - 1));
+                                   } else {
+                                       var groupname = ""; var groupcodes = "";
+                                       $.each(nodes, function (index, item) {
+                                           if (item.level == 2) {
+                                               groupname += item.name + ",";
+                                               groupcodes += item.id + ",";
+                                           }
+                                       })
+                                       $("#toUserName").val(groupname.substring(0, groupname.length - 1));
+                                       $("#To_User").val(groupcodes.substring(0, groupcodes.length - 1));
+                                   }
+                               }
+                           });
+
+                           //清空已选内容
+                           $("input[name='MsgType']").change(function () {
+                               $("#toUserName").val("");
+                               $("#To_User").val("");
+                           })
+
+                       });
+
+                   })
+
+                   $("#sendMessage").click(function () {
+                       var url = "/CallAcceptance/message/SendMobileMessage";
+                       $.get(url, function (data) {
+                           bootbox.dialog({
+                               message: data,
+                               title: "发送手机短消息",
+                               buttons:
+                               {
+                                   "success":
+                                   {
+                                       "label": "发送",
+                                       "className": "btn-sm btn-primary",
+                                       "callback": function () {
+                                           if ($("#To_User").val().length == 0) {
+                                               utils.alert("请选择收件人！"); return false;
+                                           }
+
+                                           if ($("#MsgContent").val().length == 0) {
+                                               utils.alert("请填写短信内容！"); return false;
+                                           }
+
+                                           var json = {
+                                               mobiles: $("#To_User").val(),
+                                               content: $("#MsgContent").val()
+                                           };
+
+                                           utils.httpClient("/message/SendMobileMessage", "POST", json, function (data) {
+                                               if (data.RspCode == 1) {
+                                                   utils.alert("发送成功！");
+                                                   var table = $('#messagelistTB').DataTable();
+                                                   table.ajax.reload();
+                                               }
+                                               else {
+                                                   utils.alert(data.RspMsg);
+                                               }
+                                           });
+                                       }
+                                   },
+                                   "button":
+                                   {
+                                       "label": "取消",
+                                       "className": "btn-sm"
+                                   }
+                               }
+                           });
+
+                           project.mobileMessageGroupTree(function () {
+                               var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                               var nodes = zTree.getCheckedNodes(true);
+                               if (nodes != null) {
+                                   // if ($("input[name='MsgType']:checked").val() == "1") {
+                                   var names = ""; var codes = "";
+                                   $.each(nodes, function (index, item) {
+                                       if (item.phone != null && item.phone != "") {
+                                           names += item.name + ",";
+                                           codes += item.phone + ",";
+                                       }
+                                   })
+
+                                   $("#toUserName").val(codes.substring(0, codes.length - 1));
+                                   $("#To_User").val(codes.substring(0, codes.length - 1));
+                                   //} else {
+                                   //    var groupname = ""; var groupcodes = "";
+                                   //    $.each(nodes, function (index, item) {
+                                   //        if (item.level == 2) {
+                                   //            groupname += item.name + ",";
+                                   //            groupcodes += item.id + ",";
+                                   //        }
+                                   //    })
+                                   //    $("#toUserName").val(groupname.substring(0, groupname.length - 1));
+                                   //    $("#To_User").val(groupcodes.substring(0, groupcodes.length - 1));
+                                   //}
+                               }
+                           });
+
+                       });
+                   })
+               }
+           });
+    return oTable1;
+
+}
+
+
+
