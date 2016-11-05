@@ -206,13 +206,13 @@ namespace Szcg.Service.Bussiness
                 , args.ProbClass
                 , args.BigClass
                 , args.SmallClass
-                , args.Street
-                , args.Square
+                , args.StreetId
+                , args.SquareId
                 , args.StartTime
                 , args.EndTime
                 , args.Projcode
                 , args.Address
-                , args.AreaCode
+                , args.AreaId
                 , args.CollCode
                 , args.Telephonist
                 , args.TargetDepartCode
@@ -438,7 +438,7 @@ namespace Szcg.Service.Bussiness
             project.Address = dr1["address"].ToString();
             project.ProbDesc = dr1["probdesc"].ToString();
             project.SmallClassName = dr1["smallclassname"].ToString();
-            project.TargetDepartCode = SqlDataConverter.ToInt32(dr1["TargetDepartCode"]);
+            project.TargetDepartCode = SqlDataConverter.ToString(dr1["TargetDepartCode"]);
             project.TargetDepartMobile = dr1["Mobile"].ToString();
             project.TargetDepartName = dr1["departname"].ToString();
 
@@ -450,6 +450,23 @@ namespace Szcg.Service.Bussiness
             project.TypeCode = dr1["typecode"].ToString() == "True" ? "1" : "0";
             project.SmallClass = dr1["smallclass"].ToString();
             project.LastOpinion = strLastOpinion;
+
+
+            if (ds.Tables.Count >= 5)
+            {
+                if (ds.Tables[3].Rows.Count > 0)
+                {
+                    project.DoDepartName = ds.Tables[3].Rows[0]["departname"].ToString(); //职能部门
+                    project.DoUserName = ds.Tables[3].Rows[0]["userName"].ToString(); //经办人
+                    project.DoMessage = ds.Tables[3].Rows[0]["_opinion"].ToString(); //职能部门结果反馈
+                }
+
+                if (ds.Tables[4].Rows.Count > 0)
+                {
+                    project.Reccontent = ds.Tables[4].Rows[0]["_opinion"].ToString(); //核查结果
+                }
+            }
+
             return project;
 
         }
@@ -515,7 +532,7 @@ namespace Szcg.Service.Bussiness
             prj.withDept = "0";
             prj.groupid = project.AreaId;
             prj.probdesc = project.ProbDesc;
-            prj.IsNeedFeedBack = project.IsNeedFeedBack ? "1" : "0";
+            prj.IsNeedFeedBack = project.IsNeedFeedBack;
             prj.departcode = project.TargetDepartCode.ToString();
             prj.strCityName = System.Configuration.ConfigurationManager.AppSettings["strTitle"] == null ? "" : System.Configuration.ConfigurationManager.AppSettings["strTitle"];
 
@@ -562,7 +579,7 @@ namespace Szcg.Service.Bussiness
             prj.isgreat = project.IsGreat;//是否重大案件
             prj.withDept = "0";//案件派发部门类型
             prj.probdesc = project.ProbDesc;
-            prj.IsNeedFeedBack = project.IsNeedFeedBack ? "1" : "0";
+            prj.IsNeedFeedBack = project.IsNeedFeedBack;
             prj.departcode = project.TargetDepartCode.ToString();
 
             bacgDL.business.ProjectSourceInfo psi = new bacgDL.business.ProjectSourceInfo();

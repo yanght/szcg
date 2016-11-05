@@ -21,21 +21,11 @@
             <div class="widget-body">
                 <div class="widget-main">
                     <form class="form-inline">
-                        <label>区域：</label>
-                        <select class="form-control" name="AreaId">
-                            <option value="">全部</option>
-                        </select>
-                        <label>街道：</label>
-                        <select class="form-control" name="StreetId">
-                            <option value="">全部</option>
-                        </select>
-                        <label>社区：</label>
-                        <select class="form-control" name="SquareId">
-                            <option value="">全部</option>
-                        </select>
                         <label>案卷号：</label>
                         <input type="text" class="form-control" placeholder="" name="Projcode">
-                        <label>上报时间：</label>
+                        <label>职能部门：</label>
+                        <select class="form-control" name="Depart" id="Depart"></select>
+                        <label>办理时间：</label>
                         <div class="input-daterange input-group" data-date-format="yyyy-mm-dd">
                             <input type="text" class="input-sm form-control" name="startTime">
                             <span class="input-group-addon">
@@ -56,19 +46,13 @@
         <!--案卷列表-->
         <div class="widget-box widget-color-blue">
             <div class="widget-header">
-                <h5 class="widget-title">待办案卷列表</h5>
+                <h5 class="widget-title">自办件案卷列表</h5>
                 <div class="widget-toolbar">
                     <a href="#" data-action="collapse">
                         <i class="1 ace-icon fa fa-chevron-up bigger-125"></i>
                     </a>
                 </div>
                 <div class="widget-toolbar no-border">
-                    @if (Request["nodeid"] == "2")
-                    {
-                        <button onclick="project.operateProject('img_ajbl','@Request["buttoncode"]')" class="btn btn-xs bigger btn-yellow">
-                            案卷登记
-                        </button>
-                    }
 
                     <button class="btn btn-xs bigger btn-yellow dropdown-toggle" data-toggle="dropdown">
                         操作
@@ -96,7 +80,8 @@
                                 <th>分类</th>
                                 <th>大类</th>
                                 <th>小类</th>
-                                <th>时间</th>
+                                <th>案卷受理时间</th>
+                                <th>当前步骤派发时间</th>
                                 <th>街道</th>
                                 <th>社区</th>
                                 <th>描述</th>
@@ -126,7 +111,7 @@
 
     $(function () {
 
-     
+
         //var scripts = [null
 
         //, "/content/assets/js/date-time/bootstrap-datepicker.min.js"
@@ -139,17 +124,17 @@
 
         ace.load_ajax_scripts([null], function () {
 
-            project.getareaList();
-       
+            project.initDepartList();
+
 
             //inline scripts related to this page
 
             $('.input-daterange').datepicker({ autoclose: true, language: 'zh-CN', });
 
-            var table = project.initDelProjectTable('@Request["modelcode"]', '@Request["buttoncode"]', '@Request["nodeid"]');
+            var table = project.initSelfProjectTable();
 
             $("#query").click(function () {
-                project.GetDelProjectList('@Request["modelcode"]', '@Request["buttoncode"]', '@Request["nodeid"]', table);
+                project.GetSelfProjectList(table);
             })
 
         });

@@ -76,6 +76,13 @@ namespace Szcg.Service.IBussiness
         Depart GetDepartInfo(string departId);
 
         /// <summary>
+        /// 获取职能部门列表
+        /// </summary>
+        /// <param name="areaCode"></param>
+        /// <returns></returns>
+        List<Depart> GetDepartList(string areaCode);
+
+        /// <summary>
         /// 获取部门列表
         /// </summary>
         /// <param name="areaCode">区域编码</param>
@@ -99,5 +106,8 @@ namespace Szcg.Service.IBussiness
         /// <param name="departName">部门名称</param>
         /// <returns></returns>
         bool CheckDepartName(string parentDepartId, string departName);
+
+        
+
     }
 }

@@ -33,11 +33,11 @@ namespace Szcg.Service.Model
         /// <summary>
         /// 
         /// </summary>
-        public int FileNum { get; set; }
+        public string FileNum { get; set; }
         /// <summary>
         /// 超时状态
         /// </summary>
-        public int TimeState { get; set; }
+        public string TimeState { get; set; }
         /// <summary>
         /// 样式
         /// </summary>
@@ -246,20 +246,20 @@ namespace Szcg.Service.Model
         /// <summary>
         /// 是否回退
         /// </summary>
-        public bool IsReturned { get; set; }
+        public string IsReturned { get; set; }
         /// <summary>
         /// 是否督办
         /// </summary>
-        public bool IsPress { get; set; }
+        public string IsPress { get; set; }
         /// <summary>
         /// 是否是重大案卷
         /// </summary>
         public string IsGreat { get; set; }
-        public bool IsTransaction { get; set; }
+        public string IsTransaction { get; set; }
         /// <summary>
         /// 是否需要向公众反馈
         /// </summary>
-        public bool IsNeedFeedBack { get; set; }
+        public string IsNeedFeedBack { get; set; }
         /// <summary>
         /// 是否手工录入的案卷
         /// </summary>
@@ -267,11 +267,11 @@ namespace Szcg.Service.Model
         /// <summary>
         /// /职能部门处置时限
         /// </summary>
-        public int DepartTime { get; set; }
+        public string DepartTime { get; set; }
         /// <summary>
         /// 职能部门处置时限类型
         /// </summary>
-        public int DepartTimeType { get; set; }
+        public string DepartTimeType { get; set; }
         public DateTime TraceTime { get; set; }
 
         /// <summary>
@@ -299,16 +299,16 @@ namespace Szcg.Service.Model
         /// <summary>
         /// PDA 核查状态
         /// </summary>
-        public int IoFlag { get; set; }
-        public int ProcessTypeId { get; set; }
+        public string IoFlag { get; set; }
+        public string ProcessTypeId { get; set; }
         /// <summary>
         /// 处理类型
         /// </summary>
-        public int ProcessType { get; set; }
+        public string ProcessType { get; set; }
         /// <summary>
         /// 处理部门编码
         /// </summary>
-        public int TargetDepartCode { get; set; }
+        public string TargetDepartCode { get; set; }
         /// <summary>
         /// 处理部门名称
         /// </summary>
@@ -321,10 +321,29 @@ namespace Szcg.Service.Model
         /// <summary>
         /// 结果反馈的专业部门
         /// </summary>
-        public int DoDepartCode { get; set; }
-        public int PdaIoFlag { get; set; }
-        public int DeptProjectState { get; set; }
-        public int DepartType { get; set; }
+        public string DoDepartCode { get; set; }
+        /// <summary>
+        /// 职能部门名称
+        /// </summary>
+        public string DoDepartName { get; set; }
+        /// <summary>
+        /// 专业部门处理人员
+        /// </summary>
+        public string DoUserName { get; set; }
+        /// <summary>
+        /// 职能部门结果反馈
+        /// </summary>
+        public string DoMessage { get; set; }
+
+
+        public string PdaIoFlag { get; set; }
+        public string DeptProjectState { get; set; }
+        public string DepartType { get; set; }
+        /// <summary>
+        /// 核查结果
+        /// </summary>
+        public string Reccontent { get; set; }
+
         /// <summary>
         /// 阶段
         /// </summary>

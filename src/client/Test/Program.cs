@@ -66,8 +66,8 @@ namespace Test
                 SmallClass = "0101",
                 IsGreat = "0",
                 ProbDesc = "违章搭建",
-                IsNeedFeedBack = false,
-                TargetDepartCode = userinfo.getDepartcode(),
+                IsNeedFeedBack = "0",
+                TargetDepartCode = userinfo.getDepartcode().ToString(),
                 ReportName = "yannis",
 
             };

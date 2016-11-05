@@ -3,8 +3,8 @@
 }
 <form class="input-line">
 
-    <div id="projectdetailLA">
-        <script type="text/template" id="projectdetailLAtpl">
+    <div id="projectdetailwithcollecterLA">
+        <script type="text/template" id="projectdetailwithcollecterLAtpl">
 
             <div class="row center">
                 <div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right center">
@@ -157,5 +157,9 @@
 <script type="text/javascript">
 
     project.getProjectDetailWithCollecter('@Request["dotype"]', '@(Request["projectcode"])', '@(Request["nodeid"])');
+
+    $(function () {
+        $("form").validate();
+    })
 
 </script>

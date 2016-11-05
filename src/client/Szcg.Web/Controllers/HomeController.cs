@@ -116,6 +116,7 @@ namespace Szcg.Web.Controllers
         }
 
         #region ResetUserCookie：重新设置Forms 身份验证票证
+
         /// <summary>
         /// 重新设置Forms 身份验证票证
         /// </summary>
@@ -162,6 +163,7 @@ namespace Szcg.Web.Controllers
             }
 
         }
+
         #endregion
 
         public ActionResult About()
@@ -177,6 +179,7 @@ namespace Szcg.Web.Controllers
 
             return View();
         }
+
         public ActionResult Error()
         {
             return View();

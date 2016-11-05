@@ -17,10 +17,27 @@ namespace Szcg.Service.IBussiness
         bool InsertMessage(Szcg.Service.Model.Message message);
 
         /// <summary>
+        /// 回复消息
+        /// </summary>
+        /// <param name="message">消息实体</param>
+        /// <returns></returns>
+        bool ReplayMessage(Szcg.Service.Model.Message message);
+
+        /// <summary>
         /// 发送群组站内消息
         /// </summary>
         /// <returns></returns>
         bool InsertGroupMessage(Szcg.Service.Model.Message message);
+
+        /// <summary>
+        /// 向监督员PDA发送WEB消息
+        /// </summary>
+        /// <param name="collcode">监督员编号</param>
+        /// <param name="msgcontent">消息主题</param>
+        /// <param name="title">消息内容</param>
+        /// <param name="usercode">用户编号</param>
+        /// <returns></returns>
+        bool SendPDAMsg(string collcode, string msgcontent, string title, string usercode);
 
         /// <summary>
         /// 获取用户群组
@@ -102,5 +119,44 @@ namespace Szcg.Service.IBussiness
         /// <returns></returns>
         bool SetPDAMessageIsRead(string messageId);
 
+        /// <summary>
+        /// 删除消息
+        /// </summary>
+        /// <param name="id">消息Id</param>
+        /// <returns></returns>
+        bool DeleteMsg(string id);
+
+        /// <summary>
+        /// 获取短信部门树
+        /// </summary>
+        /// <param name="areacode">区域编码</param>
+        /// <param name="departcode">当前用户部门编码</param>
+        /// <returns></returns>
+
+        List<Depart> GetUserTreeList(string areacode, string departcode);
+
+        /// <summary>
+        ///  获取人员树信息（部门，人员）
+        /// </summary>
+        /// <param name="areacode">区域编码</param>
+        /// <returns></returns>
+        List<Depart> GetUserPhoneTreeList(string areacode);
+
+        /// <summary>
+        /// 获得用户树形结构的信息
+        /// </summary>
+        /// <param name="usercode">用户代码</param>
+        ///// <param name="GroupType">组类型</param>
+        /// <param name="strErr">错误返回信息</param>
+        /// <returns></returns>
+        List<Depart> GetGroupTreeList2(int usercode);
+
+        /// <summary>
+        /// 发送手机短信
+        /// </summary>
+        /// <param name="mobiles">手机号码列表多个','分隔</param>
+        /// <param name="content">短信内容</param>
+        /// <returns></returns>
+        bool SendMobileMessage(string mobiles, string content);
     }
 }

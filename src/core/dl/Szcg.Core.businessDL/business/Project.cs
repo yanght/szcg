@@ -64,9 +64,9 @@ namespace bacgDL.business
         #endregion
 
         #region GetCDProjList：获取存档案件的案件列表
+
         /// <summary>
         /// 获取存档案件的案件列表
-
         /// </summary>
         /// <param name="prj">案件结构体</param>
         /// <param name="times1">查询时间，从：</param>

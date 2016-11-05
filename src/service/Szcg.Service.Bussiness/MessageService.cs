@@ -1,4 +1,6 @@
 ﻿using bacgBL.business.group;
+using bacgBL.business.wdxxmanage;
+using bacgBL.web.szbase.purview;
 using bacgDL.business;
 using DBbase.business.group;
 using System;
@@ -26,7 +28,26 @@ namespace Szcg.Service.Bussiness
         /// <returns></returns>
         public bool InsertMessage(Message message)
         {
-            int index = gm.InsertBusinessMsg(message.Go_User.ToString(), message.To_User.ToString(), message.MsgTitle, message.MsgContent);
+            int index = gm.InsertBusinessMsgs(message.Go_User.ToString(), message.To_User.ToString(), message.MsgTitle, message.MsgContent, "", message.MsgType);
+            return index > 0;
+        }
+
+        /// <summary>
+        /// 回复消息
+        /// </summary>
+        /// <param name="message">消息实体</param>
+        /// <returns></returns>
+        public bool ReplayMessage(Message message)
+        {
+            int index = -1;
+            if (message.MsgType == "4")
+            {
+                index = new wdxx().InsertBusinessMsg(message.Go_User.ToString(), message.To_User.ToString(), message.MsgTitle, message.MsgContent, message.Id.ToString(), "5", ref strErr);
+            }
+            else
+            {
+                index = new wdxx().InsertBusinessMsg(message.Go_User.ToString(), message.To_User.ToString(), message.MsgTitle, message.MsgContent, ref strErr);
+            }
             return index > 0;
         }
 
@@ -38,6 +59,24 @@ namespace Szcg.Service.Bussiness
         {
             int index = gm.InsertGroupMsg(message.Go_User.ToString(), message.To_User.ToString(), message.MsgTitle, message.MsgContent);
             return index > 0;
+        }
+
+        /// <summary>
+        /// 向监督员PDA发送WEB消息
+        /// </summary>
+        /// <param name="collcode">监督员编号</param>
+        /// <param name="msgcontent">消息主题</param>
+        /// <param name="title">消息内容</param>
+        /// <param name="usercode">用户编号</param>
+        /// <returns></returns>
+        public bool SendPDAMsg(string collcode, string msgcontent, string title, string usercode)
+        {
+            bacgBL.business.collecter.SendPDAMsg(collcode, msgcontent, title, usercode, out strErr);
+            if (!string.IsNullOrEmpty(strErr))
+            {
+                return false;
+            }
+            return true;
         }
 
         /// <summary>
@@ -126,7 +165,7 @@ namespace Szcg.Service.Bussiness
 
             int rowCount = 0;
 
-            DataSet ds = bacgBL.business.MyMessage.GetMsgList(userCode, int.Parse(pageInfo.CurrentPage), int.Parse(pageInfo.PageSize), "asc", "to_user", userName, beginTime, endTime,
+            DataSet ds = bacgBL.business.MyMessage.GetMsgList(userCode, int.Parse(pageInfo.CurrentPage), int.Parse(pageInfo.PageSize), pageInfo.Order, pageInfo.Field, userName, beginTime, endTime,
                                                               ref rowCount, ref pageCount, ref strErr);
             pageInfo.PageCount = pageCount.ToString();
 
@@ -166,7 +205,7 @@ namespace Szcg.Service.Bussiness
         /// <param name="userName">发件人姓名</param>
         /// <param name="collName">监督员姓名</param>
         /// <param name="beginTime">发件时间开始</param>
-        /// <param name="endTime"><发件时间结束/param>
+        /// <param name="endTime">发件时间结束</param>
         /// <param name="pageInfo">分页信息</param>
         /// <returns></returns>
         public List<Message> GetOtherMessageList(string userCode, string areaCode, string userName, string collName, string beginTime, string endTime, PageInfo pageInfo)
@@ -178,7 +217,7 @@ namespace Szcg.Service.Bussiness
             int rowCount = 0;
 
             DataSet ds = bacgBL.business.MyMessage.GetOtherMsgList(userCode, areaCode, int.Parse(pageInfo.CurrentPage),
-                                                    int.Parse(pageInfo.PageSize), userName, collName, beginTime, endTime, "asc", "to_user", ref rowCount, ref pageCount, ref strErr);
+                                                    int.Parse(pageInfo.PageSize), userName, collName, beginTime, endTime,pageInfo.Order, pageInfo.Field, ref rowCount, ref pageCount, ref strErr);
             pageInfo.PageCount = pageCount.ToString();
 
             pageInfo.RowCount = rowCount.ToString();
@@ -256,5 +295,146 @@ namespace Szcg.Service.Bussiness
             }
             return index > 0;
         }
+
+        /// <summary>
+        /// 删除消息
+        /// </summary>
+        /// <param name="id">消息Id</param>
+        /// <returns></returns>
+        public bool DeleteMsg(string id)
+        {
+            bacgBL.business.MyMessage.DeleteMsg(id, ref strErr);
+            if (string.IsNullOrEmpty(strErr)) return true;
+            return false;
+        }
+
+        /// <summary>
+        /// 获取消息部门树
+        /// </summary>
+        /// <param name="areacode">区域编码</param>
+        /// <param name="departcode">当前用户部门编码</param>
+        /// <returns></returns>
+        public List<Depart> GetUserTreeList(string areacode, string departcode)
+        {
+            List<Depart> departs = new List<Depart>();
+
+            Purviews bl = new Purviews();
+
+            ArrayList list = bl.GetUserTreeList(areacode, "0", ref strErr);
+
+            if (list != null & list.Count > 0)
+            {
+                foreach (var item in list)
+                {
+                    bacgBL.web.szbase.entity.TreeSuruct ts = (bacgBL.web.szbase.entity.TreeSuruct)item;
+
+                    Depart depart = new Depart()
+                    {
+                        DepartCode = ts.code,
+                        DepartName = ts.text,
+                        ParentCode = ts.pcode,
+                        Memo = ts.tag
+                    };
+
+                    departs.Add(depart);
+                }
+            }
+
+            return departs;
+        }
+
+        /// <summary>
+        ///  获取人员树信息（部门，人员）
+        /// </summary>
+        /// <param name="areacode">区域编码</param>
+        /// <returns></returns>
+        public List<Depart> GetUserPhoneTreeList(string areacode)
+        {
+            List<Depart> departs = new List<Depart>();
+            Purviews bl = new Purviews();
+            ArrayList list = bl.GetUserPhoneTreeList(areacode, ref strErr);
+            if (list != null & list.Count > 0)
+            {
+                foreach (var item in list)
+                {
+                    bacgBL.web.szbase.entity.TreeSuruct ts = (bacgBL.web.szbase.entity.TreeSuruct)item;
+
+                    Depart depart = new Depart()
+                    {
+                        DepartCode = ts.code,
+                        DepartName = ts.text,
+                        ParentCode = ts.pcode,
+                        Memo = ts.text
+                    };
+
+                    departs.Add(depart);
+                }
+            }
+
+            return departs;
+        }
+
+        /// <summary>
+        /// 获得用户树形结构的信息
+        /// </summary>
+        /// <param name="usercode">用户代码</param>
+        ///// <param name="GroupType">组类型</param>
+        /// <param name="strErr">错误返回信息</param>
+        /// <returns></returns>
+        public List<Depart> GetGroupTreeList2(int usercode)
+        {
+            List<Depart> departs = new List<Depart>();
+
+            bacgBL.business.group.BUSINESS_GroupManagers bl = new bacgBL.business.group.BUSINESS_GroupManagers();
+
+            ArrayList list = bl.GetGroupTreeList2(usercode, ref strErr);
+
+            if (list != null & list.Count > 0)
+            {
+                foreach (var item in list)
+                {
+                    bacgBL.web.szbase.entity.TreeSuruct ts = (bacgBL.web.szbase.entity.TreeSuruct)item;
+
+                    Depart depart = new Depart()
+                    {
+                        DepartCode = ts.code,
+                        DepartName = ts.text,
+                        ParentCode = ts.pcode
+                    };
+
+                    departs.Add(depart);
+                }
+            }
+            return departs;
+        }
+
+        /// <summary>
+        /// 发送手机短信
+        /// </summary>
+        /// <param name="mobiles">手机号码列表多个','分隔</param>
+        /// <param name="content">短信内容</param>
+        /// <returns></returns>
+        public bool SendMobileMessage(string mobiles, string content)
+        {
+            bacgBL.business.Message bl = new bacgBL.business.Message();
+
+            int strErr = -1;
+
+            if (mobiles.Contains(","))
+            {
+                string[] sth = mobiles.Split(',');
+                for (int i = 0; i < sth.Length; i++)
+                {
+                    strErr = bacgBL.Pub.TxMsgClass.ShortMessage(sth[i], content);
+                }
+            }
+            else
+            {
+                strErr = bacgBL.Pub.TxMsgClass.ShortMessage(mobiles, content);
+            }
+            return strErr ==0;
+        }
+
+
     }
 }

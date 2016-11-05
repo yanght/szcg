@@ -1,0 +1,51 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="row">
+    <div class="profile-user-info profile-user-info-striped">
+        <div class="profile-info-row">
+            <div class="profile-info-name"> 发送对象：</div>
+            <div class="profile-info-value">
+                <div class="input-group">
+
+                    <label>
+                        <input name="MsgType" type="radio" class="ace" value="1" checked="checked">
+                        <span class="lbl"> 个人发送</span>
+                    </label>
+
+                    <label>
+                        <input name="MsgType" type="radio" class="ace" value="0">
+                        <span class="lbl"> 群组发送</span>
+                    </label>
+
+                </div>
+            </div>
+        </div>
+        <div class="profile-info-row">
+            <div class="profile-info-name"> 短消息接收号码：</div>
+            <div class="profile-info-value">
+                <div class="input-group">
+                    <input class="form-control input-mask-product" type="text" id="toUserName" readonly>
+                    <input type="hidden" name="To_User" id="To_User">
+                    <span class="input-group-addon" style="cursor:pointer;" id="selectgroup">
+                        <i class="ace-icon fa fa-search"></i>
+                        选取
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="profile-info-row">
+            <div class="profile-info-name"> 消息内容：</div>
+            <div class="profile-info-value">
+                <textarea name="MsgContent" id="MsgContent" class="autosize-transition form-control"></textarea>
+            </div>
+        </div>
+        <div class="profile-info-name"> </div>
+        <div class="profile-info-value">
+            每日最大短信发送量15条。已输入字符：0，剩余字符：300 
+        </div>
+    </div>
+   
+</div>
+

@@ -32,6 +32,7 @@ namespace Szcg.Web.Controllers
         public AjaxFxRspJson GetDepartList()
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
             List<TreeModel> tree = new List<TreeModel>();
 
             List<Depart> departs = svc.GetDepartList(UserInfo.getAreacode(), UserInfo.getDepartcode().ToString(), UserInfo.getUsercode().ToString());
@@ -47,8 +48,18 @@ namespace Szcg.Web.Controllers
                 tree.Add(depart);
             }
 
-
             ajax.RspData.Add("departs", JToken.FromObject(tree));
+
+            return ajax;
+        }
+
+        public AjaxFxRspJson GetDepartListByAreaCode()
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            List<Depart> list = svc.GetDepartList(UserInfo.getAreacode());
+
+            ajax.RspData.Add("departs", JToken.FromObject(list));
 
             return ajax;
         }

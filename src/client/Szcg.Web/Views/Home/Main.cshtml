@@ -44,6 +44,8 @@
     <![endif]-->
     <!-- ace settings handler -->
     <script src="/content/assets/js/ace-extra.min.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lte IE 8]>
@@ -455,14 +457,38 @@
                             foreach (var power in powers)
                             {
                                 <li>
-                                    <a data-url="callacceptance/project/reportlist?modelcode=@(power.ModelCode)" href="main.html#callacceptance/project/reportlist?modelcode=@(power.ModelCode)&buttoncode=@(power.ButtonCode)&nodeid=@(power.Property)">
-                                        <i class="menu-icon fa fa-caret-right"></i>
-                                        @power.ShowName
-                                    </a>
+                                    @if (power.ShowName == "自办件")
+                                    {
+                                        <a data-url="callacceptance/project/ProjectSelfList?modelcode=@(power.ModelCode)" href="main.html#callacceptance/project/ProjectSelfList?modelcode=@(power.ModelCode)&buttoncode=@(power.ButtonCode)&nodeid=@(power.Property)">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            @power.ShowName
+                                        </a>
+                                    }
+                                    else if (power.ShowName == "存档案卷")
+                                    {
+                                        <a data-url="callacceptance/project/ProjectCDList?modelcode=@(power.ModelCode)" href="main.html#callacceptance/project/ProjectCDList?modelcode=@(power.ModelCode)&buttoncode=@(power.ButtonCode)&nodeid=@(power.Property)">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            @power.ShowName
+                                        </a>
+                                    }
+                                    else if (power.ShowName == "查询箱")
+                                    {
+                                        <a data-url="callacceptance/project/ProjectQuery?modelcode=@(power.ModelCode)" href="main.html#callacceptance/project/ProjectQuery?modelcode=@(power.ModelCode)&buttoncode=@(power.ButtonCode)&nodeid=@(power.Property)">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            @power.ShowName
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a data-url="callacceptance/project/reportlist?modelcode=@(power.ModelCode)" href="main.html#callacceptance/project/reportlist?modelcode=@(power.ModelCode)&buttoncode=@(power.ButtonCode)&nodeid=@(power.Property)">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            @power.ShowName
+                                        </a>
+                                    }
 
                                     <b class="arrow"></b>
                                 </li>
-                                index++;
+                                    index++;
                             }
                         }
 
@@ -473,7 +499,6 @@
                     <a href="#" class="dropdown-toggle">
                         <i class="menu-icon fa fa-list"></i>
                         <span class="menu-text"> 我的消息 </span>
-
                         <b class="arrow fa fa-angle-down"></b>
                     </a>
 
@@ -481,20 +506,25 @@
 
                     <ul class="submenu">
                         <li class="">
-                            <a data-url="page/tables" href="main.html#page/tables">
+                            <a data-url="callacceptance/message/businessmessage" href="main.html#callacceptance/message/businessmessage">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 业务消息
                             </a>
-
                             <b class="arrow"></b>
                         </li>
 
                         <li class="">
-                            <a data-url="page/jqgrid" href="main.html#page/jqgrid">
+                            <a data-url="callacceptance/message/othermessage" href="main.html#callacceptance/message/othermessage">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 其他消息
                             </a>
-
+                            <b class="arrow"></b>
+                        </li>
+                        <li class="">
+                            <a data-url="callacceptance/message/warningmessage" href="main.html#callacceptance/message/warningmessage">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                智能报警
+                            </a>
                             <b class="arrow"></b>
                         </li>
                     </ul>
@@ -504,7 +534,6 @@
                     <a href="#" class="dropdown-toggle">
                         <i class="menu-icon fa fa-pencil-square-o"></i>
                         <span class="menu-text"> 监督员管理 </span>
-
                         <b class="arrow fa fa-angle-down"></b>
                     </a>
 
@@ -512,38 +541,50 @@
 
                     <ul class="submenu">
                         <li class="">
-                            <a data-url="page/form-elements" href="main.html#page/form-elements">
+                            <a data-url="callacceptance/collecter/Index" href="main.html#callacceptance/collecter/Index">
                                 <i class="menu-icon fa fa-caret-right"></i>
-                                Form Elements
+                                监督员管理
                             </a>
-
                             <b class="arrow"></b>
                         </li>
 
                         <li class="">
                             <a data-url="page/form-wizard" href="main.html#page/form-wizard">
                                 <i class="menu-icon fa fa-caret-right"></i>
-                                Wizard &amp; Validation
+                                工作任务统计
                             </a>
-
                             <b class="arrow"></b>
                         </li>
 
                         <li class="">
                             <a data-url="page/wysiwyg" href="main.html#page/wysiwyg">
                                 <i class="menu-icon fa fa-caret-right"></i>
-                                Wysiwyg &amp; Markdown
+                               已核查（超时）
                             </a>
-
                             <b class="arrow"></b>
                         </li>
 
                         <li class="">
                             <a data-url="page/dropzone" href="main.html#page/dropzone">
                                 <i class="menu-icon fa fa-caret-right"></i>
-                                Dropzone File Upload
+                                已核查
                             </a>
+                            <b class="arrow"></b>
+                        </li>
 
+                        <li class="">
+                            <a data-url="page/dropzone" href="main.html#page/dropzone">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                待核查
+                            </a>
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a data-url="page/dropzone" href="main.html#page/dropzone">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                未核查
+                            </a>
                             <b class="arrow"></b>
                         </li>
                     </ul>
@@ -554,7 +595,6 @@
                         <i class="menu-icon fa fa-list-alt"></i>
                         <span class="menu-text"> 知识库与公文栏 </span>
                     </a>
-
                     <b class="arrow"></b>
                 </li>
 
@@ -564,16 +604,13 @@
 
                         <span class="menu-text">
                             意见征集与反馈
-
                             <!-- #section:basics/sidebar.layout.badge -->
                             <span class="badge badge-transparent tooltip-error" title="2 Important Events">
                                 <i class="ace-icon fa fa-exclamation-triangle red bigger-130"></i>
                             </span>
-
                             <!-- /section:basics/sidebar.layout.badge -->
                         </span>
                     </a>
-
                     <b class="arrow"></b>
                 </li>
 
