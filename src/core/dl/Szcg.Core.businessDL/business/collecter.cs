@@ -47,7 +47,7 @@ namespace bacgDL.business
 
                 string sql1 = string.Format(@"   INSERT INTO [m_pdamsg_android]([fromcollcode],[tocollcode],[title],[msgcontent],[state],[senddate],[receivedate])  
                                                 values({0},{1},'{2}','{3}',{4},{5},{6}) ",
-                              0, collcode, msgtitle, msgcontent, 0, "getdate()", "NULL");
+                              0, code, msgtitle, msgcontent, 0, "getdate()", "NULL");
 
 
                 this.ExecuteNonQuery(sql+sql1);

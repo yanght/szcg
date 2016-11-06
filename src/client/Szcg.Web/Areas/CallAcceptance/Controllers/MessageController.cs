@@ -46,6 +46,16 @@ namespace Szcg.Web.Areas.CallAcceptance.Controllers
             return View();
         }
 
+        public ActionResult SendMessageToJdy()
+        {
+            return View();
+        }
+
+        public ActionResult SendMobileMessageToJdy()
+        {
+            return View();
+        }
+
         public ActionResult MessageGroupTree()
         {
             return View();

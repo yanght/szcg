@@ -1,0 +1,24 @@
+﻿@{
+    Layout = null;
+}
+
+<form class="form-horizontal">
+
+    <div class="form-group">
+        <label class="col-xs-12 col-sm-3 control-label no-padding-right">短信内容</label>
+        <div class="col-xs-12 col-sm-9">
+            <span class="block">
+                <textarea class="form-control" id="msgcontent" name="msgcontent"></textarea>
+            </span>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label class="col-xs-12 col-sm-3 control-label no-padding-right"></label>
+        <div class="profile-info-value">
+            已输入字符：0，剩余字符：300
+        </div>
+    </div>
+    <input type="hidden" name="phones" id="phones" value="@(Request["phones"])" />
+
+</form>

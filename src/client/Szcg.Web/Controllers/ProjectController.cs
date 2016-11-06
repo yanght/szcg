@@ -865,7 +865,7 @@ namespace Szcg.Web.Controllers
                 return Json(ajax);
             }
 
-            return Json(new { draw = Request["draw"], recordsTotal = pageInfo.RowCount, recordsFiltered = pageInfo.RowCount, data = list==null? new List<Project>():list }, JsonRequestBehavior.AllowGet);
+            return Json(new { draw = Request["draw"], recordsTotal = pageInfo.RowCount, recordsFiltered = pageInfo.RowCount, data = list == null ? new List<Project>() : list }, JsonRequestBehavior.AllowGet);
         }
 
         #endregion
@@ -916,6 +916,57 @@ namespace Szcg.Web.Controllers
             }
 
             return ajax;
+        }
+
+        #endregion
+
+        #region [ 获取监督员已核查案卷 ]
+
+        public JsonResult GetCheckProjectList(string StreetId, string LoginName, string CollName, string Mobile, string startTime, string endTime, string hcFlag)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            if (UserInfo == null)
+            {
+                ajax.RspMsg = "用户未登录！";
+                ajax.RspCode = 0;
+                return Json(ajax);
+            }
+
+            int currentpage = int.Parse(Request["start"]);
+            int pagesize = int.Parse(Request["length"]);
+
+            if (currentpage != 0)
+            {
+                currentpage = (currentpage / pagesize) + 1;
+            }
+            else
+            {
+                currentpage = 1;
+            }
+
+            PageInfo pageInfo = new PageInfo();
+            pageInfo.PageSize = Request["length"];
+            pageInfo.CurrentPage = currentpage.ToString();
+            pageInfo.Field = "案卷号";
+            pageInfo.Order = "asc";
+
+            ReturnValue rtn = svc.GetCheckProjectList(StreetId, LoginName, CollName, Mobile, startTime, endTime, hcFlag,UserInfo.getHcpower(), pageInfo);
+
+            List<Szcg.Service.Model.CollecterProject> list = new List<CollecterProject>();
+
+            if (rtn.ReturnState)
+            {
+                list = rtn.ReturnObj as List<Szcg.Service.Model.CollecterProject>;
+            }
+            else
+            {
+                ajax.RspMsg = rtn.ErrorMsg;
+                ajax.RspCode = 0;
+                return Json(ajax);
+            }
+
+            return Json(new { draw = Request["draw"], recordsTotal = pageInfo.RowCount, recordsFiltered = pageInfo.RowCount, data = list == null ? new List<CollecterProject>() : list }, JsonRequestBehavior.AllowGet);
         }
 
         #endregion

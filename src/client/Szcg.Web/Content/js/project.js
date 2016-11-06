@@ -657,18 +657,6 @@ project.initSelfProjectTable = function () {
                    table.column(0).visible(false);
                    table.column(1).visible(false);
                    table.column(6).visible(false);
-                   //if (table.data() == null || table.data().length == 0) return;
-
-                   //var rowdate = table.data()[0];
-
-                   //if (rowdate.NodeId != 2) {
-
-                   //    var column = table.column(6).visible(false);
-                   //}
-                   //if (rowdate.NodeId != 10 && rowdate.NodeId != 101 && rowdate.NodeId != 102) {
-
-                   //    var column = table.column(4).visible(false);
-                   //}
 
                }
            });
@@ -3168,8 +3156,16 @@ project.initCollecterTable = function () {
                "bProcessing": true,
                "columns": [
 
-                  { "data": "Id", "mRender": function () { return '<div class="checkbox"><label><input name="form-field-checkbox" type="checkbox" class="ace"><span class="lbl"> </span></label></div>' } },
-                  { "data": "IsGuard" },
+                  { "data": "CollCode", "mRender": function (data, type, full) { return '<div class="checkbox"><label><input name="collecter" type="checkbox" class="ace" value="' + data + ',' + full.CollName + ',' + full.Mobile + '"><span class="lbl"> </span></label></div>' } },
+                  {
+                      "data": "IsGuard", "mRender": function (data, type, full) {
+                          if (data == 0) {
+                              return "离线";
+                          } else {
+                              return "在线";
+                          }
+                      }
+                  },
                   { "data": "IsGPS" },
                   { "data": "CollCode" },
                   { "data": "CollName" },
@@ -3196,231 +3192,49 @@ project.initCollecterTable = function () {
                    }
                }, fnDrawCallback: function () {
 
-                   $(".messagedetail").click(function (e) {
-                       utils.dialog(this, "消息详情", 400, 400);
-                   })
-
-                   $(".messagereplay").click(function () {
-
-                       var url = "/CallAcceptance/message/MessageDetail?id=" + $(this).attr("id") + "&type=" + $(this).attr("type") + "&option=replay";
-
-                       $.get(url, function (data) {
-                           bootbox.dialog({
-                               message: data,
-                               title: "消息回复",
-                               buttons:
-                               {
-                                   "success":
-                                   {
-                                       "label": "回复",
-                                       "className": "btn-sm btn-primary",
-                                       "callback": function () {
-
-                                           if ($("#MsgContent").val().length == 0) {
-                                               utils.alert("请填写回复内容！"); return false;
-                                           }
-
-                                           utils.httpClient("/message/ReplayMessage", "post", {
-                                               MsgType: 1,
-                                               To_User: $("#Go_User").val(),
-                                               MsgTitle: $("#MsgTitle").val(),
-                                               MsgContent: $("#MsgContent").val(),
-                                           }, function (data) {
-                                               if (data.RspCode == 1) {
-                                                   utils.alert1("回复成功！");
-                                                   var table = $('#messagelistTB').DataTable();
-                                                   table.ajax.reload();
-                                               } else {
-                                                   utils.alert1(data.RspMsg);
-                                               }
-                                           })
-                                       }
-                                   },
-                                   "button":
-                                   {
-                                       "label": "取消",
-                                       "className": "btn-sm"
-                                   }
-                               }
-                           });
-                       });
-
-                   })
-
-                   $(".messagedelete").click(function () {
-                       if (window.confirm("确定要删除吗？")) {
-                           project.deleteMessage($(this).attr("id"));
+                   $('#collecterlistTB tbody').on('click', 'tr', function () {
+                       if ($(this).hasClass("selected")) {
+                           $(this).removeClass("selected");
                        }
-                   })
+                       else {
+                           $(this).addClass("selected").siblings().removeClass("selected");
+                       }
+                   });
 
-                   $("#createMessage").click(function () {
+                   $("#jdymessage").click(function () {
+                       var collecters = new Array();
 
-                       var url = "/CallAcceptance/message/CreateMessage";
+                       var checkboxs = $("#collecterlistTB").find("input[name='collecter']:checked");
 
-                       $.get(url, function (data) {
-                           bootbox.dialog({
-                               message: data,
-                               title: "发送平台内Web消息",
-                               buttons:
-                               {
-                                   "success":
-                                   {
-                                       "label": "发送",
-                                       "className": "btn-sm btn-primary",
-                                       "callback": function () {
-                                           if ($("#To_User").val().length == 0) {
-                                               utils.alert("请选择收件人！"); return false;
-                                           }
-                                           if ($("#MsgTitle").val().length == 0) {
-                                               utils.alert("请填写消息主题！"); return false;
-                                           }
-                                           if ($("#MsgContent").val().length == 0) {
-                                               utils.alert("请填写消息内容！"); return false;
-                                           }
+                       $.each(checkboxs, function (index, item) {
+                           var collecter = {};
+                           collecter.collcode = $(item).val().split(',')[0];
+                           collecter.collname = $(item).val().split(',')[1];
+                           collecter.mobile = $(item).val().split(',')[2];
+                           collecters.push(collecter);
+                       })
 
-                                           var json = {
-                                               MsgType: $("input[name='MsgType']:checked").val(),
-                                               To_User: $("#To_User").val(),
-                                               MsgTitle: $("#MsgTitle").val(),
-                                               MsgContent: $("#MsgContent").val()
-                                           };
-
-                                           utils.httpClient("/message/SendMessage", "POST", json, function (data) {
-                                               if (data.RspCode == 1) {
-                                                   utils.alert("发送成功！");
-                                                   var table = $('#messagelistTB').DataTable();
-                                                   table.ajax.reload();
-                                               }
-                                               else {
-                                                   utils.alert(data.RspMsg);
-                                               }
-                                           });
-                                       }
-                                   },
-                                   "button":
-                                   {
-                                       "label": "取消",
-                                       "className": "btn-sm"
-                                   }
-                               }
-                           });
-
-                           //初始化群组树
-                           project.messageGroupTree(function () {
-                               var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-                               var nodes = zTree.getCheckedNodes(true);
-                               if (nodes != null) {
-                                   if ($("input[name='MsgType']:checked").val() == "1") {
-                                       var names = ""; var codes = "";
-                                       $.each(nodes, function (index, item) {
-                                           if (item.id.indexOf("aaaa") >= 0) {
-                                               names += item.name + ",";
-                                               codes += item.id.replace("aaaa", "") + ",";
-                                           }
-                                       })
-
-                                       $("#toUserName").val(names.substring(0, names.length - 1));
-                                       $("#To_User").val(codes.substring(0, codes.length - 1));
-                                   } else {
-                                       var groupname = ""; var groupcodes = "";
-                                       $.each(nodes, function (index, item) {
-                                           if (item.level == 2) {
-                                               groupname += item.name + ",";
-                                               groupcodes += item.id + ",";
-                                           }
-                                       })
-                                       $("#toUserName").val(groupname.substring(0, groupname.length - 1));
-                                       $("#To_User").val(groupcodes.substring(0, groupcodes.length - 1));
-                                   }
-                               }
-                           });
-
-                           //清空已选内容
-                           $("input[name='MsgType']").change(function () {
-                               $("#toUserName").val("");
-                               $("#To_User").val("");
-                           })
-
-                       });
+                       project.sendMessageToJdy(collecters);
 
                    })
 
-                   $("#sendMessage").click(function () {
-                       var url = "/CallAcceptance/message/SendMobileMessage";
-                       $.get(url, function (data) {
-                           bootbox.dialog({
-                               message: data,
-                               title: "发送手机短消息",
-                               buttons:
-                               {
-                                   "success":
-                                   {
-                                       "label": "发送",
-                                       "className": "btn-sm btn-primary",
-                                       "callback": function () {
-                                           if ($("#To_User").val().length == 0) {
-                                               utils.alert("请选择收件人！"); return false;
-                                           }
+                   $("#jdymobilemessage").click(function () {
 
-                                           if ($("#MsgContent").val().length == 0) {
-                                               utils.alert("请填写短信内容！"); return false;
-                                           }
+                       var collecters = new Array();
 
-                                           var json = {
-                                               mobiles: $("#To_User").val(),
-                                               content: $("#MsgContent").val()
-                                           };
+                       var checkboxs = $("#collecterlistTB").find("input[name='collecter']:checked");
 
-                                           utils.httpClient("/message/SendMobileMessage", "POST", json, function (data) {
-                                               if (data.RspCode == 1) {
-                                                   utils.alert("发送成功！");
-                                                   var table = $('#messagelistTB').DataTable();
-                                                   table.ajax.reload();
-                                               }
-                                               else {
-                                                   utils.alert(data.RspMsg);
-                                               }
-                                           });
-                                       }
-                                   },
-                                   "button":
-                                   {
-                                       "label": "取消",
-                                       "className": "btn-sm"
-                                   }
-                               }
-                           });
+                       $.each(checkboxs, function (index, item) {
+                           var collecter = {};
+                           collecter.collcode = $(item).val().split(',')[0];
+                           collecter.collname = $(item).val().split(',')[1];
+                           collecter.mobile = $(item).val().split(',')[2];
+                           collecters.push(collecter);
+                       })
 
-                           project.mobileMessageGroupTree(function () {
-                               var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-                               var nodes = zTree.getCheckedNodes(true);
-                               if (nodes != null) {
-                                   // if ($("input[name='MsgType']:checked").val() == "1") {
-                                   var names = ""; var codes = "";
-                                   $.each(nodes, function (index, item) {
-                                       if (item.phone != null && item.phone != "") {
-                                           names += item.name + ",";
-                                           codes += item.phone + ",";
-                                       }
-                                   })
+                       project.senMobileMessageToJdy(collecters);
 
-                                   $("#toUserName").val(codes.substring(0, codes.length - 1));
-                                   $("#To_User").val(codes.substring(0, codes.length - 1));
-                                   //} else {
-                                   //    var groupname = ""; var groupcodes = "";
-                                   //    $.each(nodes, function (index, item) {
-                                   //        if (item.level == 2) {
-                                   //            groupname += item.name + ",";
-                                   //            groupcodes += item.id + ",";
-                                   //        }
-                                   //    })
-                                   //    $("#toUserName").val(groupname.substring(0, groupname.length - 1));
-                                   //    $("#To_User").val(groupcodes.substring(0, groupcodes.length - 1));
-                                   //}
-                               }
-                           });
 
-                       });
                    })
                }
            });
@@ -3428,5 +3242,312 @@ project.initCollecterTable = function () {
 
 }
 
+project.sendMessageToJdy = function (collecters) {
+    if (collecters == null || collecters.length == 0) {
+        utils.alert("请选择监督员"); return false;
+    }
+    var collcodes = '';
+    var collnames = '';
+    $.each(collecters, function (index, item) {
+        collcodes += item.collcode + ",";
+        collnames += item.collname + ",";
+    })
 
 
+    var url = "/CallAcceptance/message/SendMessageToJdy?collcodes=" + collcodes.substring(0, collcodes.length - 1) + "&collnames=" + collnames.substring(0, collnames.length - 1);
+
+    $.get(url, function (data) {
+        bootbox.dialog({
+            message: data,
+            title: "向监督员发送消息",
+            buttons:
+            {
+                "success":
+                {
+                    "label": "发送",
+                    "className": "btn-sm btn-primary",
+                    "callback": function () {
+
+                        if ($("#title").val().length == 0) {
+                            utils.alert("请填写消息主题！"); return false;
+                        }
+
+                        if ($("#msgcontent").val().length == 0) {
+                            utils.alert("请填写消息内容！"); return false;
+                        }
+
+                        var json = {
+                            collcode: $("#collcode").val(),
+                            msgcontent: $("#msgcontent").val(),
+                            title: $("#title").val()
+                        };
+
+                        utils.httpClient("/message/SendPDAMsg", "POST", json, function (data) {
+                            if (data.RspCode == 1) {
+                                utils.alert("发送成功！");
+                                var table = $('#collecterlistTB').DataTable();
+                                table.ajax.reload();
+                            }
+                            else {
+                                utils.alert(data.RspMsg);
+                            }
+                        });
+                    }
+                },
+                "button":
+                {
+                    "label": "取消",
+                    "className": "btn-sm"
+                }
+            }
+        });
+    });
+
+}
+
+project.senMobileMessageToJdy = function (collecters) {
+    if (collecters == null || collecters.length == 0) {
+        utils.alert("请选择监督员"); return false;
+    }
+    var mobiles = '';
+    $.each(collecters, function (index, item) {
+        if (item.mobile != '') {
+            mobiles += item.mobile + ",";
+        }
+    })
+
+    var url = "/CallAcceptance/message/SendMobileMessageToJdy?phones=" + mobiles.substring(0, mobiles.length - 1);
+
+    $.get(url, function (data) {
+        bootbox.dialog({
+            message: data,
+            title: "向监督员发送短信",
+            buttons:
+            {
+                "success":
+                {
+                    "label": "发送",
+                    "className": "btn-sm btn-primary",
+                    "callback": function () {
+
+                        if (mobiles.length == 0) {
+                            utils.alert("没有可用手机号码！"); return false;
+                        }
+
+                        if ($("#msgcontent").val().length == 0) {
+                            utils.alert("请填写短信内容！"); return false;
+                        }
+
+                        var json = {
+                            mobiles: $("#phones").val(),
+                            content: $("#msgcontent").val()
+                        };
+
+                        utils.httpClient("/message/SendMobileMessage", "POST", json, function (data) {
+                            if (data.RspCode == 1) {
+                                utils.alert("发送成功！");
+                                var table = $('#collecterlistTB').DataTable();
+                                table.ajax.reload();
+                            }
+                            else {
+                                utils.alert(data.RspMsg);
+                            }
+                        });
+                    }
+                },
+                "button":
+                {
+                    "label": "取消",
+                    "className": "btn-sm"
+                }
+            }
+        });
+    });
+
+}
+
+
+
+//获取监督员工作任务统计列表
+project.GetCollecterTaskList = function GetSelfProjectList(table) {
+
+    var json = {
+        StreetId: $("select[name='StreetId']").val(),
+        Projcode: $("input[name='Projcode']").val(),
+        Name: $("input[name='Name']").val(),
+        Type: $("select[name='Type']").val(),
+        beginTime: $("input[name='beginTime']").val(),
+        endTime: $("input[name='endTime']").val()
+    };
+
+    var url = '/Collector/GetTaskStat';
+    var parm = "?StreetId=" + json.StreetId + "&Projcode=" + json.Projcode + "&Name=" + json.Name + "&Type=" + json.Type + "&beginTime=" + json.beginTime + "&endTime=" + json.endTime;
+
+    var oSettings = table.fnSettings();
+    // oSettings.ajax.url = url + parm;
+    table.fnDraw();
+
+}
+
+//获取监督员工作任务统计列表
+project.initCollecterTaskTable = function () {
+
+    var json = {
+        StreetId: $("select[name='StreetId']").val(),
+        Projcode: $("input[name='Projcode']").val(),
+        Name: $("input[name='Name']").val(),
+        Type: $("select[name='Type']").val(),
+        beginTime: $("input[name='beginTime']").val(),
+        endTime: $("input[name='endTime']").val()
+    };
+
+    var url = '/Collector/GetTaskStat';
+    var parm = "?StreetId=" + json.StreetId + "&Projcode=" + json.Projcode + "&Name=" + json.Name + "&Type=" + json.Type + "&beginTime=" + json.beginTime + "&endTime=" + json.endTime;
+
+    utils.httpClient(url + parm, "POST", json, function (data) {
+        if (data.RspCode == 1) {
+            //if (data.RspData.tasks.length > 0) {
+
+            var source = '{{each tasks as value i}}';
+            source += ' <tr role="row"> <td>{{value.CollName}}</td>  <td><a class="projectdetail" href="javascript:;" data-url="/callAcceptance/project/preview?projectcode={{value.Projcode}}&year={{value.StartYear}}&IsEnd={{value.IsEnd}}">{{value.Projcode}}</a></td>   <td>{{value.StreetName}}</td> <td>{{value.ProbSource}}</td> <td>{{value.NodeId3}}</td>  <td>{{value.NodeId6}}</td>  <td>{{value.NodeId7}}</td> <td>{{value.PdaFlg01}}</td> <td>{{value.PdaFlg21}}</td>  <td>{{value.PdaFlg12}}</td> <td>{{value.Beizhu}}</td><td><div class="hidden-md ">   <a href="javascript:;" class="tooltip-info" data-rel="tooltip" title="View"> <span class="blue projecttrace" data-url="/callAcceptance/project/projecttrace?projectcode={{value.Projcode}}&year={{value.StartYear}}&isend={{value.IsEnd}}"><i class="ace-icon fa fa-search-plus bigger-120"></i>案卷流程</span> </a>   <div class="inline position-relative">     </div> </div></td></tr>';
+            source += '{{/each}}';
+
+            var render = template.compile(source);
+
+            var html = render(data.RspData);
+
+            $("#collectertaskTB").find("tbody").html(html);
+            $("#taskmessage").html(data.RspData.message);
+
+            $(".projectdetail").click(function (e) {
+                utils.dialog(this, "案卷详情", 600, 700);
+            })
+            $(".projecttrace").click(function (e) {
+                utils.dialog(this, "案卷流程", 800, 400);
+            })
+
+        }
+    });
+}
+
+
+
+//刷新举报栏待办案卷列表
+project.GetCheckProjectList = function GetDelProjectList(table) {
+
+    var json = {
+        StreetId: $("select[name='StreetId']").val(),
+        LoginName: $("input[name='LoginName']").val(),
+        CollName: $("input[name='CollName']").val(),
+        Mobile: $("input[name='Mobile']").val(),
+        startTime: $("input[name='startTime']").val(),
+        endTime: $("input[name='endTime']").val(),
+        hcFlag: $("input[name='hcFlag']").val(),
+    };
+    var url = '/project/GetCheckProjectList';
+    var parm = "?StreetId=" + json.StreetId + "&LoginName=" + json.LoginName + "&CollName=" + json.CollName + "&Mobile=" + json.Mobile + "&startTime=" + json.startTime + "&endTime=" + json.endTime + "&hcFlag=" + json.hcFlag;
+
+    oSettings = table.fnSettings();
+    oSettings.ajax.url = url + parm;
+    table.fnDraw();
+
+}
+
+//获取举报栏代办案卷列表
+project.initCheckProjectTable = function (hcFlag) {
+
+    var json = {
+        StreetId: $("select[name='StreetId']").val(),
+        LoginName: $("input[name='LoginName']").val(),
+        CollName: $("input[name='CollName']").val(),
+        Mobile: $("input[name='Mobile']").val(),
+        startTime: $("input[name='startTime']").val(),
+        endTime: $("input[name='endTime']").val(),
+        hcFlag: $("input[name='hcFlag']").val(),
+    };
+    var url = '/project/GetCheckProjectList';
+    var parm = "?StreetId=" + json.StreetId + "&LoginName=" + json.LoginName + "&CollName=" + json.CollName + "&Mobile=" + json.Mobile + "&startTime=" + json.startTime + "&endTime=" + json.endTime + "&hcFlag=" + json.hcFlag;
+
+
+    var oTable1 =
+           $('#projectlistTB')
+           .dataTable({
+               "bServerSide": true,
+               'bPaginate': true, //是否分页
+               "iDisplayLength": 10, //每页显示10条记录
+               "ajax": {
+                   "url": url + parm
+               },
+               'bFilter': false, //是否使用内置的过滤功能
+               "bSort": false,
+               "bProcessing": true,
+               "columns": [
+                  { "data": "Number" },
+                  { "data": "LoginName" },
+                  { "data": "Name" },
+                  { "data": "Mobile" },
+                  { "data": "Projcode", "mRender": function (data, type, full) { return '<a class="projectdetail" href="javascript:;" data-url="/callAcceptance/project/preview?projectcode=' + full.Projcode + '&year=' + full.StartYear + '&isend=' + full.IsEnd + '">' + data + '</a>'; } },
+                  { "data": "SmallClass" },
+                  { "data": "PFTime" },
+                  { "data": "CheckTime" },
+                  { "data": "IsDelay" },
+                  { "data": "Square" },
+                  { "data": "Address" },
+                  { "data": "CheckState" },
+                  { "data": "Remark" },
+                   {
+                       "mRender": function (data, type, full) {
+                           var html = '';
+                           html += '   <div class="hidden-md ">';
+                           html += '   <a href="javascript:;" class="tooltip-info" data-rel="tooltip" title="View">';
+                           html += ' <span class="blue projecttrace" data-url="/callAcceptance/project/projecttrace?projectcode=' + full.Projcode + '&year=' + full.StartYear + '&isend=' + full.IsEnd + '"><i class="ace-icon fa fa-search-plus bigger-120"></i>案卷流程</span>';
+                           html += ' </a>';
+                           html += '   <div class="inline position-relative">';
+
+
+                           html += '     </div>';
+                           html += ' </div>';
+                           return html;
+                       }
+                   }
+               ],
+               "oLanguage": {
+                   "sProcessing": "正在处理.....",
+                   'sSearch': '数据筛选:',
+                   "sLengthMenu": "每页显示 _MENU_ 项记录",
+                   "sZeroRecords": "没有符合条件的数据...",
+                   "sInfo": "当前数据为从第 _START_ 到第 _END_ 项数据；总共有 _TOTAL_ 项记录",
+                   "sInfoEmpty": "显示 0 至 0 共 0 项",
+                   "sInfoFiltered": "(_MAX_)",
+                   "oPaginate": {
+                       "sFirst": "第一页",
+                       "sPrevious": " 上一页 ",
+                       "sNext": " 下一页 ",
+                       "sLast": " 最后一页 "
+                   }
+               }, fnDrawCallback: function () {
+
+                   $(".projectdetail").click(function (e) {
+                       utils.dialog(this, "案卷详情", 600, 700);
+                   })
+
+                   $(".projecttrace").click(function (e) {
+                       utils.dialog(this, "案卷流程", 800, 400);
+                   })
+
+                   var table = oTable1.DataTable();
+                   if (hcFlag == 0) {
+                       table.column(3).visible(false);
+                       table.column(6).visible(false);
+                   }
+
+                   if (hcFlag == 1) {
+                       table.column(7).visible(false);
+                       table.column(8).visible(false);
+                       table.column(11).visible(false);
+                   }
+
+               }
+           });
+    return oTable1;
+}

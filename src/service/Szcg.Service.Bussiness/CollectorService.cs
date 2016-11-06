@@ -238,5 +238,39 @@ namespace Szcg.Service.Bussiness
             }
             return collecters;
         }
+
+        /// <summary>
+        /// 获取监督员工作任务统计
+        /// </summary>
+        /// <param name="projcode">案卷编号</param>
+        /// <param name="streetId">街道编码</param>
+        /// <param name="name">监督员姓名</param>
+        /// <param name="type">案卷类型（1：普通案卷  1：快速上报案卷）</param>
+        /// <param name="hcpower">用户核查权限</param>
+        /// <param name="beginTime">开始时间</param>
+        /// <param name="endTime">结束时间</param>
+        /// <param name="message">统计信息描述</param>
+        /// <returns></returns>
+        public List<CollecterTask> GetTaskStat(string projcode, string streetId, string name, string type, string hcpower, DateTime beginTime, DateTime endTime, out string message)
+        {
+            message = string.Empty;
+
+            List<CollecterTask> list = new List<CollecterTask>();
+
+            DataSet ds = bacgBL.business.collecter.GetTaskStat(projcode, streetId, name, type, beginTime, endTime, hcpower, ref strErr);
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                list = ConvertDtHelper<CollecterTask>.GetModelList(ds.Tables[0]);
+            }
+
+            if (ds.Tables.Count > 1)
+            {
+                message = string.Format("{0},{1},{2},{3},{4},{5}", ds.Tables[1].Rows[0][0].ToString(), ds.Tables[1].Rows[1][0].ToString(), ds.Tables[1].Rows[2][0].ToString(), ds.Tables[1].Rows[3][0].ToString(), ds.Tables[1].Rows[4][0].ToString(), ds.Tables[1].Rows[5][0].ToString());
+            }
+
+            return list;
+        }
+
+
     }
 }

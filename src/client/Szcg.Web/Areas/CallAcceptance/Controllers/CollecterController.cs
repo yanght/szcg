@@ -16,5 +16,15 @@ namespace Szcg.Web.Areas.CallAcceptance.Controllers
             return View();
         }
 
+        public ActionResult WorkStatistics()
+        {
+            return View();
+        }
+
+        public ActionResult CheckProjectList()
+        {
+            return View();
+        }
+
     }
 }

@@ -1047,6 +1047,10 @@
     <Content Include="Areas\CallAcceptance\Views\Message\MessageGroupTree.cshtml" />
     <Content Include="Areas\CallAcceptance\Views\Message\SendMobileMessage.cshtml" />
     <Content Include="Areas\CallAcceptance\Views\Collecter\Index.cshtml" />
+    <Content Include="Areas\CallAcceptance\Views\Message\SendMessageToJdy.cshtml" />
+    <Content Include="Areas\CallAcceptance\Views\Message\SendMobileMessageToJdy.cshtml" />
+    <Content Include="Areas\CallAcceptance\Views\Collecter\WorkStatistics.cshtml" />
+    <Content Include="Areas\CallAcceptance\Views\Collecter\CheckProjectList.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />

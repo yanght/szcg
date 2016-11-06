@@ -43,6 +43,8 @@
     <Compile Include="Archive.cs" />
     <Compile Include="Area.cs" />
     <Compile Include="Collecter.cs" />
+    <Compile Include="CollecterProject.cs" />
+    <Compile Include="CollecterTask.cs" />
     <Compile Include="Depart.cs" />
     <Compile Include="EnumModel\EnumErrorCode.cs" />
     <Compile Include="EnumModel\EnumNode.cs" />

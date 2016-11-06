@@ -98,6 +98,21 @@ namespace Szcg.Service.IBussiness
         ReturnValue GetDeleteProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string startTime, string endTime, string userName, int deleteTimeType);
 
         /// <summary>
+        /// 获取监督员核查案卷列表
+        /// </summary>
+        /// <param name="street">区域编码</param>
+        /// <param name="loginname">监督员登录名</param>
+        /// <param name="collname">监督员姓名</param>
+        /// <param name="mobile">城管通号吗</param>
+        /// <param name="begin">开始时间</param>
+        /// <param name="end">结束时间</param>
+        /// <param name="hcFlag">核查状态</param>
+        /// <param name="hcPower">核查权限</param>
+        /// <param name="pageInfo">分页信息</param>
+        /// <returns></returns>
+        ReturnValue GetCheckProjectList(string street, string loginname, string collname, string mobile, string begin, string end, string hcFlag, string hcPower, PageInfo pageInfo);
+
+        /// <summary>
         /// 获取案件信息
         /// </summary>
         /// <param name="projcode">案卷编号</param>

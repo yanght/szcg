@@ -141,7 +141,7 @@ namespace Szcg.Web.Controllers
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
-            if (string.IsNullOrEmpty(collname))
+            if (string.IsNullOrEmpty(collcode))
             {
                 ajax.RspCode = 0;
                 ajax.RspMsg = "发送对象不能为空！";

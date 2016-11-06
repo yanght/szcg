@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -138,5 +139,60 @@ namespace Szcg.Web.Controllers
 
         #endregion
 
+        public AjaxFxRspJson GetTaskStat(string Projcode, string StreetId, string Name, string Type, string beginTime, string endTime)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            if (UserInfo == null)
+            {
+                ajax.RspMsg = "用户未登录！";
+                ajax.RspCode = 0;
+                return ajax;
+            }
+
+            string message = string.Empty;
+
+            DateTime begin = new DateTime();
+            DateTime end = new DateTime();
+            CultureInfo culture = new CultureInfo("zh-CN");
+            string time = DateTime.Today.AddDays(-1).ToString("yyyy-MM-dd");
+
+            if (beginTime != "")
+            {
+                begin = Convert.ToDateTime(beginTime, culture);
+            }
+            else
+            {
+                string day = time + " 00:00:00";
+                begin = Convert.ToDateTime(day, culture);
+                beginTime = day;
+            }
+
+            if (endTime != "")
+            {
+                end = Convert.ToDateTime(endTime, culture);
+            }
+            else
+            {
+                string day = time + " 23:59:59";
+                end = Convert.ToDateTime(day, culture);
+                endTime = day;
+            }
+
+            if (begin > end)
+            {
+                DateTime dtTmp = begin;
+                begin = end;
+                end = dtTmp;
+            }
+
+            List<CollecterTask> list = svc.GetTaskStat(Projcode, StreetId, Name, Type, string.Empty, begin, end, out message);
+
+            ajax.RspData.Add("tasks", JToken.FromObject(list));
+
+            ajax.RspData.Add("message", JToken.FromObject(message));
+
+            return ajax;
+        }
     }
 }

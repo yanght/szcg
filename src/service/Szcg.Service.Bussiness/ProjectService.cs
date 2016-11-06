@@ -311,6 +311,80 @@ namespace Szcg.Service.Bussiness
         }
 
         /// <summary>
+        /// 获取监督员核查案卷列表
+        /// </summary>
+        /// <param name="street">区域编码</param>
+        /// <param name="loginname">监督员登录名</param>
+        /// <param name="collname">监督员姓名</param>
+        /// <param name="mobile">城管通号吗</param>
+        /// <param name="begin">开始时间</param>
+        /// <param name="end">结束时间</param>
+        /// <param name="hcFlag">核查状态</param>
+        /// <param name="hcPower">核查权限</param>
+        /// <param name="pageInfo">分页信息</param>
+        /// <returns></returns>
+        public ReturnValue GetCheckProjectList(string street, string loginname, string collname, string mobile, string begin, string end, string hcFlag, string hcPower, PageInfo pageInfo)
+        {
+            ReturnValue rtn = new ReturnValue() { ReturnState = true };
+
+            List<Model.CollecterProject> list = new List<CollecterProject>();
+
+            int totalRows = 0, totalPages = 0;
+            if (string.IsNullOrEmpty(begin))
+            {
+                string strTime = DateTime.Today.AddDays(0).ToString("yyyy-MM-dd");
+                begin = strTime + " 00:00:00";
+            }
+            DataSet ds = bacgBL.business.collecter.GetCollectQueryStat(street, loginname, collname, mobile, DateTime.Parse(begin), DateTime.Parse(end), hcFlag,
+                                                          int.Parse(pageInfo.CurrentPage), int.Parse(pageInfo.PageSize), ref totalRows, ref totalPages,
+                                                           pageInfo.Order, pageInfo.Field, hcPower, ref strErr);
+            pageInfo.RowCount = totalRows.ToString();
+            pageInfo.PageCount = totalPages.ToString();
+
+            if (!string.IsNullOrEmpty(strErr))
+            {
+                LoggerManager.Instance.logger.Error("获取监督员已核查案卷列表异常 错误信息：" + strErr);
+                rtn.ErrorMsg = strErr;
+                rtn.ReturnState = false;
+                return rtn;
+            }
+
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    CollecterProject project = new CollecterProject();
+
+                    project.Address = SqlDataConverter.ToString(dr["地址"]);
+                    project.CheckState = SqlDataConverter.ToString(dr["核查情况"]);
+                    project.CheckTime = SqlDataConverter.ToString(dr["核查时间"]);
+                    project.IsDelay = SqlDataConverter.ToString(dr["是否超时"]);
+                    project.IsEnd = SqlDataConverter.ToString(dr["IsEnd"]);
+                    project.LoginName = SqlDataConverter.ToString(dr["登陆名"]);
+                    project.Mobile = SqlDataConverter.ToString(dr["城管通号"]);
+                    project.Name = SqlDataConverter.ToString(dr["姓名"]);
+                    project.Number = SqlDataConverter.ToString(dr["序号"]);
+                    project.PFTime = SqlDataConverter.ToString(dr["派发时间"]);
+                    project.ProbSource = SqlDataConverter.ToString(dr["Probsource"]);
+                    project.Proj = SqlDataConverter.ToString(dr["案卷编号"]);
+                    project.Projcode = SqlDataConverter.ToString(dr["案卷编号"]);
+                    project.Remark = SqlDataConverter.ToString(dr["备注"]);
+                    project.SmallClass = SqlDataConverter.ToString(dr["小类"]);
+                    project.StartYear = SqlDataConverter.ToString(dr["StartYear"]);
+                    project.Square = SqlDataConverter.ToString(dr["社区"]);
+                    project.StreetId = SqlDataConverter.ToString(dr["StreetID"]);
+
+                    list.Add(project);
+                }
+
+                rtn.ReturnObj = list;
+            }
+
+            return rtn;
+        }
+
+
+        /// <summary>
         /// 获取案件信息
         /// </summary>
         /// <param name="projcode">案卷编号</param>
