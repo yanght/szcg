@@ -10,7 +10,8 @@
 
           DEBUG：调用DEBUG()方法以及级别高于它的所有方法都会纪录日志
 
-          ...
+          ......
+          
           OFF： 不记录任何日志
 
           限制等级： All<DEBUG<INFO<WARN<ERROR<FATAL<OFF
