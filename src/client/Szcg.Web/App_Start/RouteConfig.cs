@@ -16,7 +16,8 @@ namespace Szcg.Web
             routes.MapRoute(
                name: "main",
                url: "main.html",
-               defaults: new { controller = "Home", action = "Main" }
+               defaults: new { controller = "Home", action = "Main" },
+               namespaces: new[] { "Szcg.Web.Controllers" }
            );
 
             //  routes.MapRoute(

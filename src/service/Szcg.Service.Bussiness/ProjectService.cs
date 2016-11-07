@@ -1446,6 +1446,54 @@ namespace Szcg.Service.Bussiness
         }
 
         /// <summary>
+        /// 还原问题归档案卷
+        /// </summary>
+        /// <param name="projcode">案卷编号</param>
+        /// <param name="userCode">当前操作用户编号</param>
+        /// <param name="departCode">当前操作用户部门编号</param>
+        /// <param name="startdate">开始时间</param>
+        /// <returns></returns>
+        public bool RollBackGDProject(string projcode, string userCode, string departCode, string startdate)
+        {
+            bacgDL.business.ProjectTraceInfo pt = new bacgDL.business.ProjectTraceInfo();
+            pt.projcode = projcode;
+            pt.actionname = "归档还原案件";
+            pt.PreNodeId = "";
+            pt.CurrentNodeId = "";
+            pt.CurrentBusiStatus = "";
+            pt.usercode = userCode;
+            pt.DepartCode = departCode;
+            pt._opinion = "还原案件";
+            pt.returntracetag = "0";
+
+            string strErr = "";
+            bacgBL.business.Project.RollBackGDProject(pt, startdate, out strErr);
+            if (strErr != "")
+            {
+                LoggerManager.Instance.logger.ErrorFormat("归档还原案件异常 案卷编号:{0} 错误信息:{1}", projcode, strErr);
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// 删除归档案卷
+        /// </summary>
+        /// <param name="projcode">案卷编号</param>
+        /// <returns></returns>
+        public bool DeleteGDProject(string projcode)
+        {
+            string strErr = "";
+            bacgBL.business.Project.DeleteGDProject(projcode, out strErr);
+            if (strErr != "")
+            {
+                LoggerManager.Instance.logger.ErrorFormat("归档还原案件异常 案卷编号:{0} 错误信息:{1}", projcode, strErr);
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
         /// 物理删除案卷信息
         /// </summary>
         /// <param name="projcode">案卷编号</param>

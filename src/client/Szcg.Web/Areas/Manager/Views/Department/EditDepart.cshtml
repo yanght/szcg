@@ -1,0 +1,152 @@
+﻿@{
+    Layout = null;
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="widget-box widget-color-blue ui-sortable-handle" style="opacity: 1; z-index: 0;">
+            <!-- #section:custom/widget-box.options -->
+            <div class="widget-header">
+                <h5 class="widget-title bigger lighter">
+                    <i class="ace-icon fa fa-pencil-square-o"></i>
+                    填写部门信息
+                </h5>
+            </div>
+            <!-- /section:custom/widget-box.options -->
+            <div class="widget-body">
+                <div class="widget-main ">
+                    <form class="form-horizontal input-line" role="form" name="depart" id="depart" method="post" action="/manager/department/EditDepart">
+                        <!-- #section:elements.form -->
+                        <div id="departdetail">
+                            <script type="text/template" id="departdetailtpl">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 部门名称：</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="DepartName" id="DepartName" placeholder="" class="form-control" value="{{depart.DepartName}}" />
+                                        <input type="hidden" name="Projcode" id="Projcode" value="{{depart.UserDefinedCode}}" />
+                                    </div>
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 上级部门：</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="ParentDepartName" id="ParentDepartName" value="{{depart.ParentDepartName}}" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 负责人：</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="Principal" id="Principal" placeholder="" class="form-control" value="{{depart.Principal}}" />
+                                    </div>
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 手机：</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="Mobile" id="Mobile" placeholder="" class="form-control" value="{{depart.Mobile}}" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 所属区域：</label>
+                                    <div class="col-sm-4">
+                                        <select class="form-control" name="AreaId" id="AreaId">
+                                           
+                                        </select>
+                                    </div>
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 电话：</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="Tel" id="Tel" placeholder="" class="form-control" value="{{depart.Tel}}" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 专业性质：</label>
+                                    <div class="col-sm-4">
+                                        <select class="form-control" id="DutyId" name="DutyId">
+                                            {{if depart.IsDuty==0}}
+                                            <option value="0" selected="selected">监督指挥中心</option>
+                                            <option value="1">职能部门</option>
+                                            <option value="2">非职能部门</option>
+                                            {{/if}}
+                                            {{if depart.IsDuty==1}}
+                                            <option value="0">监督指挥中心</option>
+                                            <option value="1" selected="selected">职能部门</option>
+                                            <option value="2">非职能部门</option>
+                                            {{/if}}
+                                            {{if depart.IsDuty==2}}
+                                            <option value="0">监督指挥中心</option>
+                                            <option value="1">职能部门</option>
+                                            <option value="2" selected="selected">非职能部门</option>
+                                            {{/if}}
+                                        </select>
+                                    </div>
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 地址：</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="DepartAddress" id="DepartAddress" placeholder="" class="form-control" value="{{depart.DepartAddress}}" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 是否接受派遣短信：</label>
+                                    <div class="col-sm-4">
+                                        <select class="form-control" id="IsAcceptNote" name="IsAcceptNote">
+                                            {{if depart.IsAcceptNote==0}}
+                                            <option value="True">是</option>
+                                            <option value="False" selected="selected">否</option>
+                                            {{/if}}
+                                            {{if depart.IsAcceptNote==1}}
+                                            <option value="True" selected="selected">是</option>
+                                            <option value="False">否</option>
+                                            {{/if}}
+                                        </select>
+                                    </div>
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 每日短信接收量：</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="Max_NoteNum" id="Max_NoteNum" placeholder="" class="form-control" value="{{depart.Max_NoteNum}}" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 是否市局部门：</label>
+                                    <div class="col-sm-4">
+                                        <select class="form-control" id="IsSJ" name="IsSJ">
+                                            {{if depart.IsSJ==0}}
+                                            <option value="True">是</option>
+                                            <option value="False" selected="selected">否</option>
+                                            {{/if}}
+                                            {{if depart.IsSJ==1}}
+                                            <option value="True" selected="selected">是</option>
+                                            <option value="False">否</option>
+                                            {{/if}}
+                                        </select>
+                                    </div>
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 是否不参与评价：</label>
+                                    <div class="col-sm-4">
+                                        <select class="form-control" id="NoAppraise" name="NoAppraise">
+                                            {{if depart.NoAppraise=="False"}}
+                                            <option value="True">是</option>
+                                            <option value="False" selected="selected">否</option>
+                                            {{/if}}
+                                            {{if depart.NoAppraise=="True"}}
+                                            <option value="True" selected="selected">是</option>
+                                            <option value="False">否</option>
+                                            {{/if}}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 市局职能部门：</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="RoleName" id="RoleName" placeholder="" class="form-control" value="{{depart.RoleName}}" />
+                                    </div>
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 排序号：</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="Sort" id="Sort" placeholder="" class="form-control" value="{{depart.Sort}}" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 备注：</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="Memo" id="Memo" placeholder="" class="form-control" value="{{depart.Memo}}" />
+                                    </div>
+                                </div>
+
+                            </script>
+                        </div>
+                        <input type="hidden" name="DepartCode" id="DepartCode" value="@(Request["departId"])" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,12 +1,12 @@
 ﻿var project = {};
 
 //区域列表
-project.getareaList = function getareaList() {
+project.getareaList = function getareaList(callback) {
     utils.httpClient("/project/GetAreaList", "post", null, function (data) {
         if (data.RspCode == 1) {
             var source = '{{each areas as value i}}'
-                 + '  <option value="{{value.AreaCode}}">{{value.AreaName}}</option>'
-                 + '{{/each}}';
+            + '  <option value="{{value.AreaCode}}">{{value.AreaName}}</option>'
+            + '{{/each}}';
 
             var render = template.compile(source);
 
@@ -21,7 +21,9 @@ project.getareaList = function getareaList() {
                 }
                 project.getstreetList(area);
             })
-
+            if (callback) {
+                callback();
+            }
         }
         else {
             utils.alert(e.RspMsg);
@@ -805,18 +807,6 @@ project.initCDProjectTable = function () {
                    table.column(1).visible(false);
                    table.column(4).visible(false);
                    table.column(6).visible(false);
-                   //if (table.data() == null || table.data().length == 0) return;
-
-                   //var rowdate = table.data()[0];
-
-                   //if (rowdate.NodeId != 2) {
-
-                   //    var column = table.column(6).visible(false);
-                   //}
-                   //if (rowdate.NodeId != 10 && rowdate.NodeId != 101 && rowdate.NodeId != 102) {
-
-                   //    var column = table.column(4).visible(false);
-                   //}
 
                }
            });
@@ -1026,19 +1016,296 @@ project.initQueryProjectTable = function () {
                    table.column(2).visible(false);
                    table.column(4).visible(false);
                    table.column(6).visible(false);
-                   //if (table.data() == null || table.data().length == 0) return;
 
-                   //var rowdate = table.data()[0];
+               }
+           });
+    return oTable1;
 
-                   //if (rowdate.NodeId != 2) {
+}
 
-                   //    var column = table.column(6).visible(false);
-                   //}
-                   //if (rowdate.NodeId != 10 && rowdate.NodeId != 101 && rowdate.NodeId != 102) {
+//刷新问题归档案卷列表
+project.GetGDProjectList = function GetGDProjectList(table) {
 
-                   //    var column = table.column(4).visible(false);
-                   //}
+    var json = {
+        StreetId: $("select[name='StreetId']").val(),
+        Projcode: $("input[name='Projcode']").val(),
+        startTime: $("input[name='startTime']").val(),
+        endTime: $("input[name='endTime']").val()
+    };
 
+    var url = '/Project/GetGDProjectList';
+    var parm = "?StreetId=" + json.StreetId
+        + "&Projcode=" + json.Projcode
+        + "&startTime=" + json.startTime
+        + "&endTime=" + json.endTime
+    ;
+
+    var oSettings = table.fnSettings();
+    oSettings.ajax.url = url + parm;
+    table.fnDraw();
+
+}
+
+//获取问题归档案卷列表
+project.initGDProjectTable = function () {
+
+    var json = {
+        StreetId: $("select[name='StreetId']").val(),
+        Projcode: $("input[name='Projcode']").val(),
+        startTime: $("input[name='startTime']").val(),
+        endTime: $("input[name='endTime']").val()
+    };
+
+    var url = '/Project/GetGDProjectList';
+    var parm = "?StreetId=" + json.StreetId
+        + "&Projcode=" + json.Projcode
+        + "&startTime=" + json.startTime
+        + "&endTime=" + json.endTime
+    ;
+
+    var oTable1 =
+           $('#projectlistTB')
+           .dataTable({
+               "bServerSide": true,
+               'bPaginate': true, //是否分页
+               "iDisplayLength": 10, //每页显示10条记录
+               "ajax": {
+                   "url": url + parm
+               },
+               'bFilter': false, //是否使用内置的过滤功能
+               "bSort": false,
+               "bProcessing": true,
+               "columns": [
+                  { "data": "ProjName", "mRender": function (data, type, full) { return '<a class="projectdetail" href="javascript:;" data-url="/callAcceptance/project/preview?projectcode=' + full.Projcode + '&year=' + full.StartYear + '&isend=' + full.IsEnd + '&nodeid=' + full.NodeId + '">' + data + '</a>'; } },
+                  { "data": "ProbClassName" },
+                  { "data": "ProbDesc" },
+                  { "data": "BigClassName" },
+                  { "data": "SmallClassName" },
+                  { "data": "StartDate", "mRender": function (data, type, full) { return utils.getFormatDate(data, "yyyy-mm-dd HH:MM:ss") } },
+                  {
+                      "mRender": function (data, type, full) {
+                          var html = '';
+                          html += '   <div class="hidden-md ">';
+                          html += '   <a href="javascript:;" class="tooltip-info" data-rel="tooltip" title="View">';
+                          html += ' <span class="blue projecttrace" data-url="/callAcceptance/project/projecttrace?projectcode=' + full.Projcode + '&year=' + full.StartYear + '&isend=' + full.IsEnd + '"><i class="ace-icon fa fa-search-plus bigger-120"></i>案卷流程</span>';
+                          html += ' </a>';
+                          html += '   <a href="javascript:;" class="tooltip-info" data-rel="tooltip" title="View">';
+                          html += ' <span class="blue rollbackproject" projectcode="' + full.Projcode + '"   startdate="' + full.StartDate + '"><i class="ace-icon fa fa-undo bigger-120"></i>还原</span>';
+                          html += ' </a>';
+                          html += '   <a href="javascript:;" class="tooltip-info" data-rel="tooltip" title="View">';
+                          html += ' <span class="blue deleteproject"  projectcode="' + full.Projcode + '" ><i class="ace-icon fa fa-trash-o bigger-120"></i>删除</span>';
+                          html += ' </a>';
+
+                          html += ' </div>';
+                          return html;
+                      }
+                  }
+               ],
+               "oLanguage": {
+                   "sProcessing": "正在处理.....",
+                   'sSearch': '数据筛选:',
+                   "sLengthMenu": "每页显示 _MENU_ 项记录",
+                   "sZeroRecords": "没有符合条件的数据...",
+                   "sInfo": "当前数据为从第 _START_ 到第 _END_ 项数据；总共有 _TOTAL_ 项记录",
+                   "sInfoEmpty": "显示 0 至 0 共 0 项",
+                   "sInfoFiltered": "(_MAX_)",
+                   "oPaginate": {
+                       "sFirst": "第一页",
+                       "sPrevious": " 上一页 ",
+                       "sNext": " 下一页 ",
+                       "sLast": " 最后一页 "
+                   }
+               }, fnDrawCallback: function () {
+
+                   $(".projectdetail").click(function (e) {
+                       utils.dialog(this, "案卷详情", 600, 700);
+                   })
+                   $(".projecttrace").click(function (e) {
+                       utils.dialog(this, "案卷流程", 800, 400);
+                   })
+
+                   //还原案卷
+                   $(".rollbackproject").click(function () {
+                       if (window.confirm("确定要还原吗？")) {
+                           var projcode = $(this).attr("projectcode");
+                           var startdate = $(this).attr("startdate");
+                           startdate = utils.getFormatDate(startdate, "yyyy-mm-dd HH:MM:ss")
+
+                           utils.httpClient("/project/RollBackGDProject", "POST", { projcode: projcode, startdate: startdate }, function (data) {
+                               if (data.RspCode == 1) {
+                                   utils.alert("还原成功!");
+                                   var table = $('#projectlistTB').DataTable();
+                                   table.ajax.reload();
+                               } else {
+                                   utils.alert(data.RspMsg);
+                               }
+                           })
+                       }
+
+                   })
+
+                   //删除案卷
+                   $(".deleteproject").click(function () {
+                       if (window.confirm("确定要删除吗？")) {
+                           var projcode = $(this).attr("projectcode");
+                           utils.httpClient("/project/DeleteGDProject", "POST", { projcode: projcode }, function (data) {
+                               if (data.RspCode == 1) {
+                                   utils.alert("删除成功!");
+                                   var table = $('#projectlistTB').DataTable();
+                                   table.ajax.reload();
+                               } else {
+                                   utils.alert(data.RspMsg);
+                               }
+                           })
+                       }
+
+                   })
+               }
+           });
+    return oTable1;
+
+}
+
+//刷新回收站案卷列表
+project.GetDeleteProjectList = function GetDeleteProjectList(table) {
+
+    var json = {
+        StreetId: $("select[name='StreetId']").val(),
+        Projcode: $("input[name='Projcode']").val(),
+        startTime: $("input[name='startTime']").val(),
+        endTime: $("input[name='endTime']").val(),
+        userName: $("input[name='userName']").val(),
+    };
+
+    var url = '/Project/GetDeleteProjectList';
+    var parm = "?StreetId=" + json.StreetId
+        + "&Projcode=" + json.Projcode
+        + "&startTime=" + json.startTime
+        + "&endTime=" + json.endTime
+       + "&userName=" + json.userName
+    ;
+
+    var oSettings = table.fnSettings();
+    oSettings.ajax.url = url + parm;
+    table.fnDraw();
+
+}
+
+//获取回收站案卷列表
+project.initDeleteProjectTable = function () {
+
+    var json = {
+        StreetId: $("select[name='StreetId']").val(),
+        Projcode: $("input[name='Projcode']").val(),
+        startTime: $("input[name='startTime']").val(),
+        endTime: $("input[name='endTime']").val(),
+        userName: $("input[name='userName']").val(),
+    };
+
+    var url = '/Project/GetDeleteProjectList';
+    var parm = "?StreetId=" + json.StreetId
+        + "&Projcode=" + json.Projcode
+        + "&startTime=" + json.startTime
+        + "&endTime=" + json.endTime
+       + "&userName=" + json.userName
+    ;
+
+    var oTable1 =
+           $('#projectlistTB')
+           .dataTable({
+               "bServerSide": true,
+               'bPaginate': true, //是否分页
+               "iDisplayLength": 10, //每页显示10条记录
+               "ajax": {
+                   "url": url + parm
+               },
+               'bFilter': false, //是否使用内置的过滤功能
+               "bSort": false,
+               "bProcessing": true,
+               "columns": [
+                  { "data": "ProjName", "mRender": function (data, type, full) { return '<a class="projectdetail" href="javascript:;" data-url="/callAcceptance/project/preview?projectcode=' + full.Projcode + '&year=' + full.StartYear + '&isend=' + full.IsEnd + '&nodeid=' + full.NodeId + '">' + data + '</a>'; } },
+                  { "data": "UserName" },
+                  { "data": "_Option" },
+                  { "data": "ProbClassName" },
+                  { "data": "BigClassName" },
+                  { "data": "SmallClassName" },
+                  { "data": "ProbDesc" },
+                  { "data": "Cu_Date" },
+                  {
+                      "mRender": function (data, type, full) {
+                          var html = '';
+                          html += '   <div class="hidden-md ">';
+                          html += '   <a href="javascript:;" class="tooltip-info" data-rel="tooltip" title="View">';
+                          html += ' <span class="blue projecttrace" data-url="/callAcceptance/project/projecttrace?projectcode=' + full.Projcode + '&year=' + full.StartYear + '&isend=' + full.IsEnd + '"><i class="ace-icon fa fa-search-plus bigger-120"></i>案卷流程</span>';
+                          html += ' </a>';
+                          html += '   <a href="javascript:;" class="tooltip-info" data-rel="tooltip" title="View">';
+                          html += ' <span class="blue rollbackproject" projectcode="' + full.Projcode + '"   startdate="' + full.StartDate + '"><i class="ace-icon fa fa-undo bigger-120"></i>还原</span>';
+                          html += ' </a>';
+                          html += '   <a href="javascript:;" class="tooltip-info" data-rel="tooltip" title="View">';
+                          html += ' <span class="blue deleteproject"  projectcode="' + full.Projcode + '" ><i class="ace-icon fa fa-trash-o bigger-120"></i>删除</span>';
+                          html += ' </a>';
+
+                          html += ' </div>';
+                          return html;
+                      }
+                  }
+               ],
+               "oLanguage": {
+                   "sProcessing": "正在处理.....",
+                   'sSearch': '数据筛选:',
+                   "sLengthMenu": "每页显示 _MENU_ 项记录",
+                   "sZeroRecords": "没有符合条件的数据...",
+                   "sInfo": "当前数据为从第 _START_ 到第 _END_ 项数据；总共有 _TOTAL_ 项记录",
+                   "sInfoEmpty": "显示 0 至 0 共 0 项",
+                   "sInfoFiltered": "(_MAX_)",
+                   "oPaginate": {
+                       "sFirst": "第一页",
+                       "sPrevious": " 上一页 ",
+                       "sNext": " 下一页 ",
+                       "sLast": " 最后一页 "
+                   }
+               }, fnDrawCallback: function () {
+
+                   $(".projectdetail").click(function (e) {
+                       utils.dialog(this, "案卷详情", 600, 700);
+                   })
+                   $(".projecttrace").click(function (e) {
+                       utils.dialog(this, "案卷流程", 800, 400);
+                   })
+
+                   //还原案卷
+                   $(".rollbackproject").click(function () {
+                       if (window.confirm("确定要还原吗？")) {
+                           var projcode = $(this).attr("projectcode");
+                           utils.httpClient("/project/ProjectRollBack", "POST", { projcode: projcode }, function (data) {
+                               if (data.RspCode == 1) {
+                                   utils.alert("还原成功!");
+                                   var table = $('#projectlistTB').DataTable();
+                                   table.ajax.reload();
+                               } else {
+                                   utils.alert(data.RspMsg);
+                               }
+                           })
+                       }
+
+                   })
+
+                   //删除案卷
+                   $(".deleteproject").click(function () {
+                       if (window.confirm("确定要删除吗？")) {
+                           var projcode = $(this).attr("projectcode");
+                           utils.httpClient("/project/ProjectDelete", "POST", { projcode: projcode }, function (data) {
+                               if (data.RspCode == 1) {
+                                   utils.alert("删除成功!");
+                                   var table = $('#projectlistTB').DataTable();
+                                   table.ajax.reload();
+                               } else {
+                                   utils.alert(data.RspMsg);
+                               }
+                           })
+                       }
+
+                   })
                }
            });
     return oTable1;
@@ -3104,8 +3371,6 @@ project.mobileMessageGroupTree = function mobileMessageGroupTree(callback) {
     })
 }
 
-
-
 //获取监督员列表
 project.GetCollecterList = function GetSelfProjectList(table) {
 
@@ -3242,6 +3507,7 @@ project.initCollecterTable = function () {
 
 }
 
+//向监督员发送PDA消息
 project.sendMessageToJdy = function (collecters) {
     if (collecters == null || collecters.length == 0) {
         utils.alert("请选择监督员"); return false;
@@ -3305,6 +3571,7 @@ project.sendMessageToJdy = function (collecters) {
 
 }
 
+//向监督员发送手机短信
 project.senMobileMessageToJdy = function (collecters) {
     if (collecters == null || collecters.length == 0) {
         utils.alert("请选择监督员"); return false;
@@ -3365,8 +3632,6 @@ project.senMobileMessageToJdy = function (collecters) {
     });
 
 }
-
-
 
 //获取监督员工作任务统计列表
 project.GetCollecterTaskList = function GetSelfProjectList(table) {
@@ -3429,8 +3694,6 @@ project.initCollecterTaskTable = function () {
         }
     });
 }
-
-
 
 //刷新举报栏待办案卷列表
 project.GetCheckProjectList = function GetDelProjectList(table) {
@@ -3551,3 +3814,5 @@ project.initCheckProjectTable = function (hcFlag) {
            });
     return oTable1;
 }
+
+

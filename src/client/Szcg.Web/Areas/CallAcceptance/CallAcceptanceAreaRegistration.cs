@@ -14,6 +14,7 @@ namespace Szcg.Web.Areas.CallAcceptance
 
         public override void RegisterArea(AreaRegistrationContext context)
         {
+          
             context.MapRoute(
                 "CallAcceptance_default",
                 "CallAcceptance/{controller}/{action}/{id}",

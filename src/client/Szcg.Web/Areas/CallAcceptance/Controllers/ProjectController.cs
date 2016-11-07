@@ -40,6 +40,18 @@ namespace Szcg.Web.Areas.CallAcceptance.Controllers
             return View();
         }
 
+        //问题归档
+        public ActionResult ProjectGDList()
+        {
+            return View();
+        }
+
+        //回收站
+        public ActionResult ProjectRecycleList()
+        {
+            return View();
+        }
+
         //案卷详情
         public ActionResult Preview(string projectcode, string year, string isend, string nodeid)
         {

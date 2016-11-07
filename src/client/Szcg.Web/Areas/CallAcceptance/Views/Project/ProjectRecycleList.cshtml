@@ -1,0 +1,136 @@
+﻿@{
+    Layout = null;
+}
+<title>Form Elements - Ace Admin</title>
+<link rel="stylesheet" href="/content/assets/css/jquery-ui.custom.min.css" />
+<link rel="stylesheet" href="/content/assets/css/chosen.css" />
+<link rel="stylesheet" href="/content/assets/css/datepicker.css" />
+<link rel="stylesheet" href="/content/assets/css/bootstrap-timepicker.css" />
+<link rel="stylesheet" href="/content/assets/css/daterangepicker.css" />
+<link rel="stylesheet" href="/content/assets/css/bootstrap-datetimepicker.css" />
+<link rel="stylesheet" href="/content/assets/css/colorpicker.css" />
+
+<div class="row">
+    <div class="col-xs-12">
+        <!-- PAGE CONTENT BEGINS -->
+        <!--查询条件-->
+        <div class="widget-box widget-color-blue">
+            <div class="widget-header">
+                <h5 class="widget-title">查询条件</h5>
+            </div>
+            <div class="widget-body">
+                <div class="widget-main">
+                    <form class="form-inline">
+                        <label>区域：</label>
+                        <select class="form-control" name="AreaId" id="AreaId">
+                            <option value="">全部</option>
+                        </select>
+
+                        <label>街道：</label>
+                        <select class="form-control" name="StreetId" id="StreetId">
+                            <option value="">全部</option>
+                        </select>
+
+                        <label>案卷号：</label>
+                        <input type="text" class="form-control" placeholder="" name="Projcode" id="Projcode">
+
+                        <label>删除人：</label>
+                        <input type="text" class="form-control" placeholder="" name="userName" id="userName">
+
+                        <label>删除时间：</label>
+                        <div class="input-daterange input-group" data-date-format="yyyy-mm-dd">
+                            <input type="text" class="input-sm form-control" name="startTime">
+                            <span class="input-group-addon">
+                                至
+                            </span>
+                            <input type="text" class="input-sm form-control" name="endTime" value="@(DateTime.Now.ToString("yyyy-MM-dd"))">
+                        </div>
+                        <button type="button" class="btn btn-info btn-sm" id="query">
+                            查询
+                        </button>
+                        <button type="reset" class="btn btn-info btn-sm">
+                            重置
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--案卷列表-->
+        <div class="widget-box widget-color-blue">
+            <div class="widget-header">
+                <h5 class="widget-title">回收站案卷列表</h5>
+                <div class="widget-toolbar">
+                    <a href="#" data-action="collapse">
+                        <i class="1 ace-icon fa fa-chevron-up bigger-125"></i>
+                    </a>
+                </div>
+                <div class="widget-toolbar no-border">
+
+                    <button class="btn btn-xs bigger btn-yellow dropdown-toggle" data-toggle="dropdown">
+                        操作
+                        <i class="ace-icon fa fa-chevron-down icon-on-right"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
+                        <li>
+                            <a href="#">导出电子表格</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="widget-body">
+                <div class="widget-main">
+                    <table id="projectlistTB" class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>案卷号</th>
+                                <th>删除人</th>
+                                <th>删除原因</th>
+                                <th>分类</th>
+                                <th>大类</th>
+                                <th>小类</th>
+                                <th>问题描述</th>
+                                <th>删除时间</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- PAGE CONTENT ENDS -->
+    </div><!-- /.col -->
+</div><!-- /.row -->
+<!-- page specific plugin scripts -->
+<!--[if lte IE 8]>
+  <script src="/content/assets/js/excanvas.min.js"></script>
+<![endif]-->
+
+<script src="/content/assets/js/date-time/bootstrap-datepicker.min.js"></script>
+<script src="/content/assets/js/date-time/bootstrap-timepicker.min.js"></script>
+<script src="/content/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
+<script src="/content/assets/js/jquery.dataTables.min.js"></script>
+<script src="/content/assets/js/jquery.dataTables.bootstrap.js"></script>
+
+<script type="text/javascript">
+
+    $(function () {
+        ace.load_ajax_scripts([null], function () {
+
+            project.getareaList();
+            //inline scripts related to this page
+
+            $('.input-daterange').datepicker({ autoclose: true, language: 'zh-CN', });
+
+            var table = project.initDeleteProjectTable();
+
+            $("#query").click(function () {
+                project.GetDeleteProjectList(table);
+            })
+
+        });
+
+    })
+
+
+</script>

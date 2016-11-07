@@ -498,7 +498,7 @@ namespace Szcg.Web.Controllers
 
         #region [ 回收站案卷还原 ]
 
-        public AjaxFxRspJson ProjectRollBack(string projcode, string userCode, string departCode)
+        public AjaxFxRspJson ProjectRollBack(string projcode)
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
@@ -515,6 +515,39 @@ namespace Szcg.Web.Controllers
         }
 
         #endregion
+
+        public AjaxFxRspJson RollBackGDProject(string projcode, string startdate)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            bool rtn = svc.RollBackGDProject(projcode, this.UserInfo.getUsercode().ToString(), this.UserInfo.getDepartcode().ToString(), startdate);
+
+            if (!rtn)
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "问题归档案卷还原失败！";
+                return ajax;
+            }
+
+            return ajax;
+        }
+
+        public AjaxFxRspJson DeleteGDProject(string projcode)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            bool rtn = svc.DeleteGDProject(projcode);
+
+            if (!rtn)
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "问题归档案卷删除失败！";
+                return ajax;
+            }
+
+            return ajax;
+
+        }
 
         #region [ 案卷物理删除 ]
 
@@ -872,50 +905,112 @@ namespace Szcg.Web.Controllers
 
         #region [ 获取归档案卷列表 ]
 
-        public AjaxFxRspJson GetGDProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string startTime, string endTime)
+        public JsonResult GetGDProjectList(Project project, PageInfo pageInfo, string startTime, string endTime)
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
-            ReturnValue rtn = svc.GetGDProjectList(projectInfo, pageInfo, startTime, endTime);
+            if (UserInfo == null)
+            {
+                ajax.RspMsg = "用户未登录！";
+                ajax.RspCode = 0;
+                return Json(ajax);
+            }
 
+
+            ProjectInfo projInfo = new ProjectInfo()
+            {
+                street = project.StreetId,
+                projcode = project.Projcode
+            };
+
+            int currentpage = int.Parse(Request["start"]);
+            int pagesize = int.Parse(Request["length"]);
+
+            if (currentpage != 0)
+            {
+                currentpage = (currentpage / pagesize) + 1;
+            }
+            else
+            {
+                currentpage = 1;
+            }
+
+            pageInfo.PageSize = Request["length"];
+            pageInfo.CurrentPage = currentpage.ToString();
+            pageInfo.Field = "projcode";
+            pageInfo.Order = "desc";
+
+            ReturnValue rtn = svc.GetGDProjectList(projInfo, pageInfo, startTime, endTime);
+            List<Szcg.Service.Model.Project> list = rtn.ReturnObj as List<Szcg.Service.Model.Project>;
             if (rtn.ReturnState)
             {
-                List<Szcg.Service.Model.Project> list = rtn.ReturnObj as List<Szcg.Service.Model.Project>;
-                ajax.RspData.Add("projectList", JToken.FromObject(list));
+                list = rtn.ReturnObj as List<Szcg.Service.Model.Project>;
+                //ajax.RspData.Add("projectList", JToken.FromObject(list));
             }
             else
             {
                 ajax.RspMsg = rtn.ErrorMsg;
                 ajax.RspCode = 0;
-                return ajax;
+                return Json(ajax);
             }
 
-            return ajax;
+            return Json(new { draw = Request["draw"], recordsTotal = pageInfo.RowCount, recordsFiltered = pageInfo.RowCount, data = list == null ? new List<Project>() : list }, JsonRequestBehavior.AllowGet);
         }
 
         #endregion
 
         #region [ 获取回收站案卷列表 ]
 
-        public AjaxFxRspJson GetDeleteProjectList(ProjectInfo projectInfo, PageInfo pageInfo, string startTime, string endTime, string userName, int deleteTimeType)
+        public JsonResult GetDeleteProjectList(Project project, PageInfo pageInfo, string startTime, string endTime, string userName, int deleteTimeType)
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
-            ReturnValue rtn = svc.GetDeleteProjectList(projectInfo, pageInfo, startTime, endTime, userName, deleteTimeType);
+            if (UserInfo == null)
+            {
+                ajax.RspMsg = "用户未登录！";
+                ajax.RspCode = 0;
+                return Json(ajax);
+            }
 
+            ProjectInfo projInfo = new ProjectInfo()
+            {
+                street = project.StreetId,
+                projcode = project.Projcode
+               
+            };
+
+            int currentpage = int.Parse(Request["start"]);
+            int pagesize = int.Parse(Request["length"]);
+
+            if (currentpage != 0)
+            {
+                currentpage = (currentpage / pagesize) + 1;
+            }
+            else
+            {
+                currentpage = 1;
+            }
+
+            pageInfo.PageSize = Request["length"];
+            pageInfo.CurrentPage = currentpage.ToString();
+            pageInfo.Field = "projcode";
+            pageInfo.Order = "desc";
+
+            ReturnValue rtn = svc.GetDeleteProjectList(projInfo, pageInfo, startTime, endTime, userName, deleteTimeType);
+
+            List<Szcg.Service.Model.Project> list = rtn.ReturnObj as List<Szcg.Service.Model.Project>;
             if (rtn.ReturnState)
             {
-                List<Szcg.Service.Model.Project> list = rtn.ReturnObj as List<Szcg.Service.Model.Project>;
-                ajax.RspData.Add("projectList", JToken.FromObject(list));
+                list = rtn.ReturnObj as List<Szcg.Service.Model.Project>;
             }
             else
             {
                 ajax.RspMsg = rtn.ErrorMsg;
                 ajax.RspCode = 0;
-                return ajax;
+                return Json(ajax);
             }
 
-            return ajax;
+            return Json(new { draw = Request["draw"], recordsTotal = pageInfo.RowCount, recordsFiltered = pageInfo.RowCount, data = list == null ? new List<Project>() : list }, JsonRequestBehavior.AllowGet);
         }
 
         #endregion
@@ -951,7 +1046,7 @@ namespace Szcg.Web.Controllers
             pageInfo.Field = "案卷号";
             pageInfo.Order = "asc";
 
-            ReturnValue rtn = svc.GetCheckProjectList(StreetId, LoginName, CollName, Mobile, startTime, endTime, hcFlag,UserInfo.getHcpower(), pageInfo);
+            ReturnValue rtn = svc.GetCheckProjectList(StreetId, LoginName, CollName, Mobile, startTime, endTime, hcFlag, UserInfo.getHcpower(), pageInfo);
 
             List<Szcg.Service.Model.CollecterProject> list = new List<CollecterProject>();
 

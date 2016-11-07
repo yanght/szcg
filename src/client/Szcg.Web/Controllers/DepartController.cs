@@ -53,6 +53,17 @@ namespace Szcg.Web.Controllers
             return ajax;
         }
 
+        public AjaxFxRspJson GetDepartListView()
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            List<Depart> departs = svc.GetDepartList(UserInfo.getAreacode(), UserInfo.getDepartcode().ToString(), UserInfo.getUsercode().ToString());
+
+            ajax.RspData.Add("departs", JToken.FromObject(departs));
+
+            return ajax;
+        }
+
         public AjaxFxRspJson GetDepartListByAreaCode()
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
@@ -87,6 +98,17 @@ namespace Szcg.Web.Controllers
 
         #endregion
 
+        public AjaxFxRspJson GetDepartInfo(string departId)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            Depart depart = svc.GetDepartInfo(departId);
+
+            ajax.RspData.Add("depart", JToken.FromObject(depart));
+
+            return ajax;
+        }
+
         #region [ 添加部门 ]
 
         [HttpPost]
@@ -97,18 +119,26 @@ namespace Szcg.Web.Controllers
         /// <returns></returns>
         public AjaxFxRspJson InsertDepart(Depart depart)
         {
-
+            bool rtn = false;
             AjaxFxRspJson ajax = CheckDepart(depart);
 
             if (ajax.RspCode == 0)
             {
                 return ajax;
             }
+            if (string.IsNullOrEmpty(depart.DepartCode))
+            {
+                rtn = svc.InsertDepart(depart);
+            }
+            else
+            {
+                rtn = svc.UpdateDepart(depart);
+            }
 
-            if (!svc.InsertDepart(depart))
+            if (!rtn)
             {
                 ajax.RspCode = 0;
-                ajax.RspMsg = "添加部门失败!";
+                ajax.RspMsg = "编辑部门失败!";
                 return ajax;
             }
 
@@ -177,20 +207,20 @@ namespace Szcg.Web.Controllers
                 return ajax;
             }
 
-            if (depart.DepartAddress.Length > 512)
+            if (depart.DepartAddress != null && depart.DepartAddress.Length > 512)
             {
                 ajax.RspCode = 0;
                 ajax.RspMsg = "地址长度不能超过512个字符!";
                 return ajax;
             }
 
-            if (depart.Memo.Length > 127)
+            if (!string.IsNullOrEmpty(depart.Memo) && depart.Memo.Length > 127)
             {
                 ajax.RspCode = 0;
                 ajax.RspMsg = "备注长度不能超过127个字符!";
                 return ajax;
             }
-            if (!string.IsNullOrEmpty(depart.Mobile) && PublicClass.IsValidMobil(depart.Mobile))
+            if (!string.IsNullOrEmpty(depart.Mobile) && !PublicClass.IsValidMobil(depart.Mobile))
             {
                 ajax.RspCode = 0;
                 ajax.RspMsg = "请输入正确的手机号码!";
@@ -207,7 +237,7 @@ namespace Szcg.Web.Controllers
                 }
             }
 
-            if (!svc.CheckDepartName(depart.ParentCode, depart.DepartName))
+            if (!string.IsNullOrEmpty(depart.ParentCode) && !svc.CheckDepartName(depart.ParentCode, depart.DepartName))
             {
                 ajax.RspCode = 0;
                 ajax.RspMsg = "部门名称存在重复!";

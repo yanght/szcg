@@ -61,6 +61,7 @@ namespace Szcg.Web.Controllers
         /// <returns></returns>
         public AjaxFxRspJson SelectSystem(string systemId)
         {
+            string rtnurl = "/main.html";
 
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 0 };
 
@@ -76,7 +77,13 @@ namespace Szcg.Web.Controllers
                 if (strSysIds.Contains(systemId))
                 {
                     ChageRole(systemId);
-                    ajax.RspData.Add("url", JToken.FromObject("/main.html"));
+
+                    if (systemId == "10")
+                    {
+                        rtnurl = "/manager/main.html";
+                    }
+
+                    ajax.RspData.Add("url", JToken.FromObject(rtnurl));
                     ajax.RspCode = 1;
                     return ajax;
                 }

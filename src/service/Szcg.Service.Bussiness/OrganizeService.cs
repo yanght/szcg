@@ -312,6 +312,7 @@ namespace Szcg.Service.Bussiness
             if (ds != null && ds.Tables.Count > 0)
             {
                 DataRow dr = ds.Tables[0].Rows[0];
+                depart.DepartCode = SqlDataConverter.ToString(dr["departcode"]);
                 depart.DepartName = SqlDataConverter.ToString(dr["departname"]);
                 depart.ParentDepartName = SqlDataConverter.ToString(dr["parentdepartname"]);
                 depart.Memo = SqlDataConverter.ToString(dr["memo"]);

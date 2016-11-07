@@ -25,10 +25,16 @@ namespace Szcg.Service.Model
         /// </summary>
         public string ParentDepartName { get; set; }
         /// <summary>
-        /// 区域编码
+        /// 区域
         /// </summary>
         public string Area { get; set; }
-
+        /// <summary>
+        /// 区域编码
+        /// </summary>
+        public string AreaId { get; set; }
+        /// <summary>
+        /// 负责人
+        /// </summary>
         public string Principal { get; set; }
         /// <summary>
         /// 部门手机
@@ -62,6 +68,9 @@ namespace Szcg.Service.Model
         /// 是否接受信息
         /// </summary>
         public int IsAcceptNote { get; set; }
+        /// <summary>
+        /// 是否是市局
+        /// </summary>
         public int IsSJ { get; set; }
         public string SJ_RoleCode { get; set; }
         /// <summary>

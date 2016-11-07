@@ -1,13 +1,6 @@
 ﻿@{
     Layout = null;
-    List<Szcg.Service.Model.FlowNodePower> powers = Model as List<Szcg.Service.Model.FlowNodePower>;
 
-    Szcg.Service.Model.FlowNodePower defaultPower = new Szcg.Service.Model.FlowNodePower();
-
-    if (powers != null && powers.Count > 0)
-    {
-        defaultPower = powers[0];
-    }
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -442,73 +435,18 @@
 
                 <li class="open hsub">
                     <a href="#" class="dropdown-toggle">
-                        <i class="menu-icon fa fa-desktop"></i>
-                        <span class="menu-text"> 案卷受理 </span>
-
-                        <b class="arrow fa fa-angle-down"></b>
-                    </a>
-
-                    <b class="arrow"></b>
-
-                    <ul class="submenu nav-show" style="display: block;">
-                        @if (powers != null && powers.Count > 0)
-                        {
-                            int index = 0;
-                            foreach (var power in powers)
-                            {
-                                <li>
-                                    @if (power.ShowName == "自办件")
-                                    {
-                                        <a data-url="callacceptance/project/ProjectSelfList?modelcode=@(power.ModelCode)" href="main.html#callacceptance/project/ProjectSelfList?modelcode=@(power.ModelCode)&buttoncode=@(power.ButtonCode)&nodeid=@(power.Property)">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            @power.ShowName
-                                        </a>
-                                    }
-                                    else if (power.ShowName == "存档案卷")
-                                    {
-                                        <a data-url="callacceptance/project/ProjectCDList?modelcode=@(power.ModelCode)" href="main.html#callacceptance/project/ProjectCDList?modelcode=@(power.ModelCode)&buttoncode=@(power.ButtonCode)&nodeid=@(power.Property)">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            @power.ShowName
-                                        </a>
-                                    }
-                                    else if (power.ShowName == "查询箱")
-                                    {
-                                        <a data-url="callacceptance/project/ProjectQuery?modelcode=@(power.ModelCode)" href="main.html#callacceptance/project/ProjectQuery?modelcode=@(power.ModelCode)&buttoncode=@(power.ButtonCode)&nodeid=@(power.Property)">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            @power.ShowName
-                                        </a>
-                                    }
-                                    else
-                                    {
-                                        <a data-url="callacceptance/project/reportlist?modelcode=@(power.ModelCode)" href="main.html#callacceptance/project/reportlist?modelcode=@(power.ModelCode)&buttoncode=@(power.ButtonCode)&nodeid=@(power.Property)">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            @power.ShowName
-                                        </a>
-                                    }
-
-                                    <b class="arrow"></b>
-                                </li>
-                                    index++;
-                            }
-                        }
-
-                    </ul>
-                </li>
-
-                <li class="">
-                    <a href="#" class="dropdown-toggle">
                         <i class="menu-icon fa fa-list"></i>
-                        <span class="menu-text"> 我的消息 </span>
+                        <span class="menu-text"> 组织结构管理 </span>
                         <b class="arrow fa fa-angle-down"></b>
                     </a>
 
                     <b class="arrow"></b>
 
-                    <ul class="submenu">
+                  <ul class="submenu nav-show" style="display: block;">
                         <li class="">
-                            <a data-url="callacceptance/message/businessmessage" href="main.html#callacceptance/message/businessmessage">
+                            <a data-url="department/index" href="main.html#department/index">
                                 <i class="menu-icon fa fa-caret-right"></i>
-                                业务消息
+                                组织机构
                             </a>
                             <b class="arrow"></b>
                         </li>
@@ -516,78 +454,30 @@
                         <li class="">
                             <a data-url="callacceptance/message/othermessage" href="main.html#callacceptance/message/othermessage">
                                 <i class="menu-icon fa fa-caret-right"></i>
-                                其他消息
+                                人员管理
                             </a>
                             <b class="arrow"></b>
                         </li>
-                        <li class="">
-                            <a data-url="callacceptance/message/warningmessage" href="main.html#callacceptance/message/warningmessage">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                智能报警
-                            </a>
-                            <b class="arrow"></b>
-                        </li>
+
                     </ul>
                 </li>
 
                 <li class="">
-                    <a href="#" class="dropdown-toggle">
-                        <i class="menu-icon fa fa-pencil-square-o"></i>
+                    <a data-url="callacceptance/project/projectgdlist" href="main.html#callacceptance/project/projectgdlist">
+                        <i class="menu-icon fa fa-picture-o"></i>
                         <span class="menu-text"> 监督员管理 </span>
-                        <b class="arrow fa fa-angle-down"></b>
                     </a>
 
                     <b class="arrow"></b>
+                </li>
 
-                    <ul class="submenu">
-                        <li class="">
-                            <a data-url="callacceptance/collecter/Index" href="main.html#callacceptance/collecter/Index">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                监督员管理
-                            </a>
-                            <b class="arrow"></b>
-                        </li>
+                <li class="">
+                    <a data-url="callacceptance/project/projectgdlist" href="main.html#callacceptance/project/projectgdlist">
+                        <i class="menu-icon fa fa-picture-o"></i>
+                        <span class="menu-text"> 网格数管理 </span>
+                    </a>
 
-                        <li class="">
-                            <a data-url="callacceptance/collecter/WorkStatistics" href="main.html#callacceptance/collecter/WorkStatistics">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                工作任务统计
-                            </a>
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a data-url="callacceptance/collecter/CheckProjectList?hcFlag=201" href="main.html#callacceptance/collecter/CheckProjectList?hcFlag=201">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                已核查（超时）
-                            </a>
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a data-url="callacceptance/collecter/CheckProjectList?hcFlag=202" href="main.html#callacceptance/collecter/CheckProjectList?hcFlag=202">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                已核查
-                            </a>
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a data-url="callacceptance/collecter/CheckProjectList?hcFlag=0" href="main.html#callacceptance/collecter/CheckProjectList?hcFlag=0">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                待核查
-                            </a>
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a data-url="callacceptance/collecter/CheckProjectList?hcFlag=1" href="main.html#callacceptance/collecter/CheckProjectList?hcFlag=1">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                未核查
-                            </a>
-                            <b class="arrow"></b>
-                        </li>
-                    </ul>
+                    <b class="arrow"></b>
                 </li>
 
                 <li class="">
@@ -615,36 +505,9 @@
                 </li>
 
                 <li class="">
-                    <a data-url="callacceptance/project/projectgdlist" href="main.html#callacceptance/project/projectgdlist">
-                        <i class="menu-icon fa fa-picture-o"></i>
-                        <span class="menu-text"> 问题归档 </span>
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-                <li class="">
-                    <a data-url="callacceptance/project/projectrecyclelist" href="main.html#callacceptance/project/projectrecyclelist">
-                        <i class="menu-icon fa fa-picture-o"></i>
-                        <span class="menu-text"> 回收站 </span>
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-
-                <li class="">
                     <a href="#" class="dropdown-toggle">
-                        <i class="menu-icon fa fa-file-o"></i>
-
-                        <span class="menu-text">
-                            个人信息
-
-                            <!-- #section:basics/sidebar.layout.badge -->
-                            <span class="badge badge-primary">5</span>
-
-                            <!-- /section:basics/sidebar.layout.badge -->
-                        </span>
-
+                        <i class="menu-icon fa fa-list"></i>
+                        <span class="menu-text">事部件管理 </span>
                         <b class="arrow fa fa-angle-down"></b>
                     </a>
 
@@ -652,51 +515,60 @@
 
                     <ul class="submenu">
                         <li class="">
-                            <a data-url="page/faq" href="main.html#page/faq">
+                            <a data-url="callacceptance/message/businessmessage" href="main.html#callacceptance/message/businessmessage">
                                 <i class="menu-icon fa fa-caret-right"></i>
-                                FAQ
+                                事件管理
                             </a>
-
                             <b class="arrow"></b>
                         </li>
 
                         <li class="">
-                            <a data-url="page/error-404" href="main.html#page/error-404">
+                            <a data-url="callacceptance/message/othermessage" href="main.html#callacceptance/message/othermessage">
                                 <i class="menu-icon fa fa-caret-right"></i>
-                                Error 404
+                                部件管理
                             </a>
-
                             <b class="arrow"></b>
                         </li>
 
-                        <li class="">
-                            <a data-url="page/error-500" href="main.html#page/error-500">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Error 500
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a data-url="page/grid" href="main.html#page/grid">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Grid
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a data-url="page/blank" href="main.html#page/blank">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Blank Page
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
                     </ul>
                 </li>
+
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-list"></i>
+                        <span class="menu-text">系统设置 </span>
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
+                        <li class="">
+                            <a data-url="callacceptance/message/businessmessage" href="main.html#callacceptance/message/businessmessage">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                字段库
+                            </a>
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a data-url="callacceptance/message/othermessage" href="main.html#callacceptance/message/othermessage">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                日志管理
+                            </a>
+                            <b class="arrow"></b>
+                        </li>
+                        <li class="">
+                            <a data-url="callacceptance/message/othermessage" href="main.html#callacceptance/message/othermessage">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                时限管理
+                            </a>
+                            <b class="arrow"></b>
+                        </li>
+
+                    </ul>
+                </li>
+
 
 
             </ul><!-- /.nav-list -->
@@ -896,6 +768,7 @@
     <script src="~/Content/assets/js/ace/ace.ajax-content.js"></script>
 
     <script src="/content/js/project.js"></script>
+    <script src="/content/js/depart.js"></script>
 
     <script type="text/javascript">
         //Load content via ajax
@@ -916,7 +789,7 @@
                         //for Ace PHP demo version convert "page/dashboard" to "?page=dashboard" and load it
                         return path + "?" + url.replace(/\//, "=");
                     },
-                    default_url: 'callacceptance/project/reportlist?modelcode=@(defaultPower.ModelCode)&buttoncode=@(defaultPower.ButtonCode)&nodeid=@(defaultPower.Property)'//default url
+                    default_url: 'department/index'//default url
                 }
                 ace.enable_ajax_content($, options)
             }

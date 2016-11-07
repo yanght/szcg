@@ -313,6 +313,24 @@ namespace Szcg.Service.IBussiness
         /// <returns></returns>
         bool ProjectRollBack(string projcode, string userCode, string departCode, string deleteSign = "1");
 
+
+        /// <summary>
+        /// 还原问题归档案卷
+        /// </summary>
+        /// <param name="projcode">案卷编号</param>
+        /// <param name="userCode">当前操作用户编号</param>
+        /// <param name="departCode">当前操作用户部门编号</param>
+        /// <param name="startdate">开始时间</param>
+        /// <returns></returns>
+        bool RollBackGDProject(string projcode, string userCode, string departCode, string startdate);
+
+        /// <summary>
+        /// 删除归档案卷
+        /// </summary>
+        /// <param name="projcode">案卷编号</param>
+        /// <returns></returns>
+        bool DeleteGDProject(string projcode);
+
         /// <summary>
         /// 物理删除案卷信息
         /// </summary>

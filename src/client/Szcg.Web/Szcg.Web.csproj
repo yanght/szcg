@@ -189,6 +189,9 @@
     <Compile Include="Areas\CallAcceptance\Controllers\CollecterController.cs" />
     <Compile Include="Areas\CallAcceptance\Controllers\MessageController.cs" />
     <Compile Include="Areas\CallAcceptance\Controllers\ProjectController.cs" />
+    <Compile Include="Areas\Manager\Controllers\DepartmentController.cs" />
+    <Compile Include="Areas\Manager\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Manager\Controllers\OrganizeController.cs" />
     <Compile Include="Controllers\AppraiseController.cs" />
     <Compile Include="Controllers\DocumentController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
@@ -615,6 +618,7 @@
     <Content Include="Content\assets\js\x-editable\ace-editable.min.js" />
     <Content Include="Content\assets\js\x-editable\bootstrap-editable.min.js" />
     <Content Include="Content\js\common.js" />
+    <Content Include="Content\js\depart.js" />
     <Content Include="Content\js\project.js" />
     <Content Include="Content\juicer.js" />
     <Content Include="Content\MxSlider.js" />
@@ -1051,6 +1055,13 @@
     <Content Include="Areas\CallAcceptance\Views\Message\SendMobileMessageToJdy.cshtml" />
     <Content Include="Areas\CallAcceptance\Views\Collecter\WorkStatistics.cshtml" />
     <Content Include="Areas\CallAcceptance\Views\Collecter\CheckProjectList.cshtml" />
+    <Content Include="Areas\CallAcceptance\Views\Project\ProjectGDList.cshtml" />
+    <Content Include="Areas\CallAcceptance\Views\Project\ProjectRecycleList.cshtml" />
+    <Content Include="Areas\Manager\Views\Organize\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Home\Main.cshtml" />
+    <Content Include="Areas\Manager\Views\Department\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Department\EditDepart.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -1126,7 +1137,6 @@
     <Folder Include="Areas\GeoCoding\Controllers\" />
     <Folder Include="Areas\GeoCoding\Models\" />
     <Folder Include="Areas\GeoCoding\Views\Shared\" />
-    <Folder Include="Areas\Manager\Controllers\" />
     <Folder Include="Areas\Manager\Models\" />
     <Folder Include="Areas\Manager\Views\Shared\" />
     <Folder Include="Areas\ResourceManager\Controllers\" />

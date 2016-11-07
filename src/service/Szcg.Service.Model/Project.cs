@@ -412,6 +412,20 @@ namespace Szcg.Service.Model
         /// 处理时限
         /// </summary>
         public string HandlerTime { get; set; }
+
+        /// <summary>
+        /// 删除人
+        /// </summary>
+        public string UserName { get; set; }
+        /// <summary>
+        /// 删除原因
+        /// </summary>
+        public string _Option { get; set; }
+        /// <summary>
+        /// 删除时间
+        /// </summary>
+        public string Cu_Date { get; set; }
+
     }
 
     /// <summary>
