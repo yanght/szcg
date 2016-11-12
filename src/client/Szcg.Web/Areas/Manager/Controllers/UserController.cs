@@ -3,20 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Szcg.Web.Controllers;
 
 namespace Szcg.Web.Areas.Manager.Controllers
 {
-    public class HomeController : BaseController
+    public class UserController : Controller
     {
         //
-        // GET: /Manager/Home/
+        // GET: /Manager/User/
 
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult Main()
+
+        public ActionResult InsertUser()
+        {
+            return View();
+        }
+
+        public ActionResult RoleTree()
         {
             return View();
         }

@@ -131,7 +131,7 @@ namespace Szcg.Service.Bussiness
         {
             RoleManage bl = new RoleManage();
             int temp = bl.UpdateRole(role.RoleName, "", role.AreaCode,
-                                                     role.StepId, "", role.RoleCode,
+                                                     role.StepId, "", int.Parse(role.RoleCode),
                                                       ref strErr);
             if (!string.IsNullOrEmpty(strErr))
             {
@@ -224,7 +224,7 @@ namespace Szcg.Service.Bussiness
                 Role role = new Role()
                 {
                     RoleName = names[i],
-                    RoleCode = int.Parse(codes[i])
+                    RoleCode =codes[i]
                 };
                 list.Add(role);
             }
@@ -260,6 +260,38 @@ namespace Szcg.Service.Bussiness
                 }
             }
             return list;
+        }
+
+        /// <summary>
+        /// 获取用户角色树
+        /// </summary>
+        /// <param name="areacode"></param>
+        /// <param name="userCode"></param>
+        /// <returns></returns>
+        public List<Role> GetRoleTree(string areacode, int userCode)
+        {
+            List<Role> rols = new List<Role>();
+
+            string userlevel = new UserManage().GetUserLevel(userCode, ref strErr);
+            if (userlevel == "")
+                userlevel = "100";
+
+            ArrayList list = new RoleManage().GetRoleTreeList(areacode, userlevel, ref strErr);
+
+            foreach (var item in list)
+            {
+                TreeSuruct ts = (TreeSuruct)item;
+                Role role = new Role()
+                {
+                    RoleCode = ts.code,
+                    RoleName = ts.text,
+                    ParentCode = ts.pcode,
+                    Memo = ts.tag
+                };
+                rols.Add(role);
+            }
+
+            return rols;
         }
 
         #endregion

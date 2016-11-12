@@ -38,11 +38,11 @@ namespace bacgBL.web.szbase.organize
         /// </summary>
         /// <param name="IsAcceptNote">是否接受短信</param>
         /// <param name="departcode">部门编码</param>
-        public int UpdateIsAcceptNote(string IsAcceptNote,string mobile, int departcode, out string ErrMsg)
+        public int UpdateIsAcceptNote(string IsAcceptNote, string mobile, int departcode, out string ErrMsg)
         {
             ErrMsg = "";
             string strSQL = string.Format(@"update p_depart set IsAcceptNote='{0}',Mobile='{1}' 
-                                            where departcode='{2}'", IsAcceptNote,mobile, departcode);
+                                            where departcode='{2}'", IsAcceptNote, mobile, departcode);
             try
             {
                 using (bacgDL.szbase.organize.DepartManage dl = new bacgDL.szbase.organize.DepartManage())
@@ -64,7 +64,7 @@ namespace bacgBL.web.szbase.organize
         /// </summary>
         /// <param name="areacode">区域编码</param>
         /// <returns></returns>
-        public DataSet GetAreaList(string areacode,ref string strErr)
+        public DataSet GetAreaList(string areacode, ref string strErr)
         {
             string strSQL = string.Format(@"
                                             select areacode,areaname
@@ -92,11 +92,11 @@ namespace bacgBL.web.szbase.organize
         /// <param name="areacode">区域编码</param>
         /// <param name="pid">父节点</param>
         /// <returns></returns>
-        public DataSet GetDepartList(string areacode,string departcode,ref string strErr)
+        public DataSet GetDepartList(string areacode, string departcode, ref string strErr)
         {
             string strSQL = "";
-            if(departcode=="0")//超级用户登陆的时候，可以看到全部的部门信息
-                strSQL=string.Format(@"select departcode,departname,isnull(parentcode ,0) as parentcode,area 
+            if (departcode == "0")//超级用户登陆的时候，可以看到全部的部门信息
+                strSQL = string.Format(@"select departcode,departname,isnull(parentcode ,0) as parentcode,area 
                                             from p_depart
                                             where isnull(IsDel,0) <> 1 and area like '{0}%'
                                             order by departcode", areacode);
@@ -106,7 +106,7 @@ namespace bacgBL.web.szbase.organize
                                             where isnull(IsDel,0) <> 1 
 	                                                and area like '{0}%' and  UserDefinedCode like 
                                          (select (UserDefinedCode+'%') as  UserDefinedCode from p_depart where departcode ='{1}')
-                                            order by departcode", areacode,departcode);
+                                            order by departcode", areacode, departcode);
             try
             {
                 using (bacgDL.szbase.organize.DepartManage dl = new bacgDL.szbase.organize.DepartManage())
@@ -245,7 +245,7 @@ namespace bacgBL.web.szbase.organize
             {
                 using (bacgDL.szbase.organize.DepartManage dl = new bacgDL.szbase.organize.DepartManage())
                 {
-                        return dl.ExecScalarSql(strSQL).ToString();
+                    return dl.ExecScalarSql(strSQL).ToString();
                 }
             }
             catch (Exception ex)
@@ -275,7 +275,7 @@ namespace bacgBL.web.szbase.organize
             catch (Exception ex)
             {
                 strErr = ex.Message;
-                return null; 
+                return null;
             }
         }
         #endregion
@@ -310,7 +310,7 @@ namespace bacgBL.web.szbase.organize
         /// </summary>
         /// <param name="departID">部门编号</param>
         /// <returns></returns>
-        public bool CheckDepartName(string pId,string departName, ref string strErr)
+        public bool CheckDepartName(string pId, string departName, ref string strErr)
         {
             string strSQL = string.Format(@"select count(*) 
                                             from p_depart 
@@ -319,7 +319,7 @@ namespace bacgBL.web.szbase.organize
             {
                 using (bacgDL.szbase.organize.DepartManage dl = new bacgDL.szbase.organize.DepartManage())
                 {
-                    if(Convert.ToInt32(dl.ExecuteScalar(strSQL))>0)
+                    if (Convert.ToInt32(dl.ExecuteScalar(strSQL)) > 0)
                     {
                         return true;
                     }
@@ -375,9 +375,9 @@ namespace bacgBL.web.szbase.organize
         /// <param name="strErr">输出的错误信息</param>
         /// <param name="txt_sort">序号</param>
         /// <returns></returns>
-        public int InsertDepart(int pId, string departName,string address,
-                                    string area,string memo,string IsDuty,string Mobile,
-                                    string tel,string principal,string UserDefinedCode,int max_notenum, string IsAcceptNote,
+        public int InsertDepart(int pId, string departName, string address,
+                                    string area, string memo, string IsDuty, string Mobile,
+                                    string tel, string principal, string UserDefinedCode, int max_notenum, string IsAcceptNote,
                                     string issj, string SJ_RoleCode, string NoAppraise,
                                     ref string strErr, string txt_sort)
         {
@@ -432,29 +432,29 @@ namespace bacgBL.web.szbase.organize
         /// <param name="strErr">输出错误信息</param>
         /// <param name="txt_sort">排序</param>
         /// <returns></returns>
-        public int UpdateDepart(string userDefinedCode,string departname,string parentcode,
-                                    string area,string principal,string Mobile, 
-                                    string Tel, string departaddress,string memo,string IsDuty,
+        public int UpdateDepart(string userDefinedCode, string departname, string parentcode,
+                                    string area, string principal, string Mobile,
+                                    string Tel, string departaddress, string memo, string IsDuty,
                                     int max_notenum, string IsAcceptNote, string issj,
-                                    string SJ_ROLECODE,string NOAPPRAISE,
+                                    string SJ_ROLECODE, string NOAPPRAISE,
                                     string departcode, int isChange, ref string strErr, string txt_sort)
         {
             string strPDefinedCode = string.Format(@"select UserDefinedCode from p_depart
-                                                     where departcode='{0}'",parentcode);
+                                                     where departcode='{0}'", parentcode);
             try
             {
                 using (bacgDL.szbase.organize.DepartManage dl = new bacgDL.szbase.organize.DepartManage())
                 {
                     object obj = dl.ExecScalarSql(strPDefinedCode);
-                    string pCode = obj==null ? "" : obj.ToString();
-                    if (pCode.Length > 0 && isChange==1)
+                    string pCode = obj == null ? "" : obj.ToString();
+                    if (pCode.Length > 0 && isChange == 1)
                     {
                         string subCode = userDefinedCode.Substring(userDefinedCode.Length - 3);
                         userDefinedCode = pCode + subCode;
                         string checkUserDefinedCode = string.Format(@"select count(*) from p_depart where UserDefinedCode = '{0}'", userDefinedCode);
                         //判断组合后的用户编码是否在数据库里存在
-                        object obj1=dl.ExecScalarSql(checkUserDefinedCode);
-                        string flag = obj1==null?"":obj1.ToString();
+                        object obj1 = dl.ExecScalarSql(checkUserDefinedCode);
+                        string flag = obj1 == null ? "" : obj1.ToString();
                         if (flag != "" && flag != "0")
                         {
                             return -1;
@@ -463,7 +463,7 @@ namespace bacgBL.web.szbase.organize
                     string strSQL = string.Format(@"update p_depart set UserDefinedCode='{0}',departname='{1}',parentcode='{2}',
                                                                     area='{3}',principal='{4}',Mobile ='{5}',
                                                                     Tel = '{6}',departadress='{7}',memo='{8}', IsDuty='{9}',IsAcceptNote='{10}', max_notenum='{11}',issj ='{12}' ,SJ_ROLECODE='{13}' ,NOAPPRAISE='{14}',dutyid='{15}'  
-                                            where departcode={16}", userDefinedCode, departname, parentcode, area, principal, Mobile, Tel, departaddress, memo, IsDuty, IsAcceptNote, max_notenum,issj,SJ_ROLECODE,NOAPPRAISE,txt_sort, departcode);
+                                            where departcode={16}", userDefinedCode, departname, parentcode, area, principal, Mobile, Tel, departaddress, memo, IsDuty, IsAcceptNote, max_notenum, issj, SJ_ROLECODE, NOAPPRAISE, txt_sort, departcode);
                     return dl.ExecuteNonQuery(strSQL);
                 }
             }
@@ -561,7 +561,7 @@ namespace bacgBL.web.szbase.organize
                     {
                         foreach (DataRow row in ds.Tables[0].Rows)
                         {
-                            if(flag==0)
+                            if (flag == 0)
                             {
                                 arrList.Add(row["ParentUserDefineCode"]);
                                 flag++;
@@ -684,8 +684,8 @@ namespace bacgBL.web.szbase.organize
         /// <param name="departname">部门名字</param>
         /// <param name="strErr">输出错误信息</param>
         /// <returns></returns>
-        public DataSet GetUserByDeptID(int departID,int pageIndex,int pageSize,
-                                            int returnRecordCount,int userId,string name,
+        public DataSet GetUserByDeptID(int departID, int pageIndex, int pageSize,
+                                            int returnRecordCount, int userId, string name,
                                             string loginname, string departname, string Order, string Field, ref string strErr)
         {
            	SqlParameter[] arrSP = new SqlParameter[]{
@@ -704,6 +704,8 @@ namespace bacgBL.web.szbase.organize
                 {
 
                     DataSet  ds = dl.ExecProc("pr_p_GetDepartTree", ref arrSP);
+                                   
+
                     return ds;
                 }
             }
@@ -745,7 +747,7 @@ namespace bacgBL.web.szbase.organize
                 //当截取后4位的第一位为0时，自增规则；
                 if (m1.Substring(0, 1).Equals("0"))
                 {
-                    int length =4 - len.ToString().Length;
+                    int length = 4 - len.ToString().Length;
                     for (int j = 0; j < length; j++)
                     {
                         keyvalue = keyvalue + "0";
@@ -781,7 +783,7 @@ namespace bacgBL.web.szbase.organize
         }
 
         //根据部门ID取其相关数据信息，组装成list
-        public ArrayList getDeptInfo(string departcode,string columname)
+        public ArrayList getDeptInfo(string departcode, string columname)
         {
             string strSQL = string.Format(@"select * from p_depart
                                             where departcode='{0}'", departcode);

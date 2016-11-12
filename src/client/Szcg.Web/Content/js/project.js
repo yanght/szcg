@@ -32,7 +32,7 @@ project.getareaList = function getareaList(callback) {
 }
 
 //街道列表
-project.getstreetList = function getstreetList(areacode) {
+project.getstreetList = function getstreetList(areacode, callback) {
     utils.httpClient("/project/GetStreetList", "post", { areacode: areacode }, function (data) {
         if (data.RspCode == 1) {
             var source = '{{each streets as value i}}'
@@ -44,7 +44,9 @@ project.getstreetList = function getstreetList(areacode) {
             var html = render(data.RspData);
 
             $("select[name='StreetId']").html(html);
-
+            if (callback) {
+                callback();
+            }
             $("select[name='StreetId']").change(function () {
                 var area = $("select[name='StreetId']:selected").val();
                 var street = $(this).val();
@@ -1380,13 +1382,14 @@ project.getProjectDetail = function getProjectDetail(projectcode, year, isend, n
             document.getElementById('projectdetail').innerHTML = html;
 
             project.initPropDepartTree(function (e, treeId, treeNode) {
+
                 var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-                zTree.expandNode(treeNode);
-                $("#departselected").click(function () {
+                var nodes = zTree.getSelectedNodes();
+                if (nodes != null) {
+                    var treeNode = nodes[0];
                     $("#TargetDepartName").val(treeNode.name);
                     $("#TargetDepartCode").val(treeNode.id);
-                    dialog.dialog("destroy").remove();
-                });
+                }
             });
 
             $(".next").click(function () {

@@ -26,7 +26,8 @@
                                     </div>
                                     <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 上级部门：</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="ParentDepartName" id="ParentDepartName" value="{{depart.ParentDepartName}}" />
+                                        <input type="text" class="form-control" name="ParentDepartName" id="TargetDepartName" value="{{depart.ParentDepartName}}" placeholder="" />
+                                        <input type="hidden" name="ParentCode" id="ParentCode" value="{{depart.ParentCode}}" />
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -42,9 +43,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 所属区域：</label>
                                     <div class="col-sm-4">
-                                        <select class="form-control" name="AreaId" id="AreaId">
-                                           
-                                        </select>
+                                        <select class="form-control" name="AreaId" id="AreaId"></select>
                                     </div>
                                     <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 电话：</label>
                                     <div class="col-sm-4">
@@ -81,14 +80,14 @@
                                     <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 是否接受派遣短信：</label>
                                     <div class="col-sm-4">
                                         <select class="form-control" id="IsAcceptNote" name="IsAcceptNote">
-                                            {{if depart.IsAcceptNote==0}}
-                                            <option value="True">是</option>
-                                            <option value="False" selected="selected">否</option>
-                                            {{/if}}
                                             {{if depart.IsAcceptNote==1}}
                                             <option value="True" selected="selected">是</option>
                                             <option value="False">否</option>
+                                            {{else}}
+                                            <option value="True">是</option>
+                                            <option value="False" selected="selected">否</option>
                                             {{/if}}
+
                                         </select>
                                     </div>
                                     <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 每日短信接收量：</label>
@@ -100,13 +99,12 @@
                                     <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 是否市局部门：</label>
                                     <div class="col-sm-4">
                                         <select class="form-control" id="IsSJ" name="IsSJ">
-                                            {{if depart.IsSJ==0}}
-                                            <option value="True">是</option>
-                                            <option value="False" selected="selected">否</option>
-                                            {{/if}}
                                             {{if depart.IsSJ==1}}
                                             <option value="True" selected="selected">是</option>
                                             <option value="False">否</option>
+                                            {{else}}
+                                            <option value="True">是</option>
+                                            <option value="False" selected="selected">否</option>
                                             {{/if}}
                                         </select>
                                     </div>
@@ -114,12 +112,11 @@
                                     <div class="col-sm-4">
                                         <select class="form-control" id="NoAppraise" name="NoAppraise">
                                             {{if depart.NoAppraise=="False"}}
-                                            <option value="True">是</option>
-                                            <option value="False" selected="selected">否</option>
-                                            {{/if}}
-                                            {{if depart.NoAppraise=="True"}}
                                             <option value="True" selected="selected">是</option>
                                             <option value="False">否</option>
+                                            {{else}}
+                                            <option value="True">是</option>
+                                            <option value="False" selected="selected">否</option>
                                             {{/if}}
                                         </select>
                                     </div>
@@ -140,10 +137,11 @@
                                         <input type="text" name="Memo" id="Memo" placeholder="" class="form-control" value="{{depart.Memo}}" />
                                     </div>
                                 </div>
-
+                                <input type="hidden" name="UserDefinedCode" id="UserDefinedCode" value="{{depart.UserDefinedCode}}" />
                             </script>
                         </div>
-                        <input type="hidden" name="DepartCode" id="DepartCode" value="@(Request["departId"])" />
+                        <input type="hidden" name="DepartCode" id="DepartCode" value="@(Request["departId"])" />                        
+
                     </form>
                 </div>
             </div>

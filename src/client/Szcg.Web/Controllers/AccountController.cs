@@ -147,7 +147,7 @@ namespace Szcg.Web.Controllers
 
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
-            if (role.RoleCode <= 0)
+            if (!string.IsNullOrEmpty(role.RoleCode))
             {
                 rtn = svc.InsertRole(role);
                 if (!rtn)
@@ -183,6 +183,52 @@ namespace Szcg.Web.Controllers
             List<RoleStep> steps = svc.GetStepList();
 
             ajax.RspData.Add("steps", JToken.FromObject(steps));
+
+            return ajax;
+        }
+
+        #endregion
+
+        #region [ 获取用户角色树 ]
+
+        public AjaxFxRspJson GetRoleTree()
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            List<TreeModel> trees = new List<TreeModel>();
+
+            trees.Add(new TreeModel() { id = "0", name = "角色选择", open = true });
+
+            List<Role> roles = svc.GetRoleTree(this.UserInfo.getAreacode(), this.UserInfo.getUsercode());
+
+            List<Role> userroles = svc.GetRoleList(UserInfo.getUsercode());
+
+            foreach (Role role in roles)
+            {
+                TreeModel tree = new TreeModel()
+                {
+                    id = role.RoleCode.ToString(),
+                    name = role.RoleName,
+                    pId = string.IsNullOrEmpty(role.ParentCode) ? "0" : role.ParentCode,
+                    tag = role.Memo
+                };
+
+                foreach (var item in userroles)
+                {
+                    if (item.RoleCode == role.RoleCode.Replace("aaaa", ""))
+                    {
+                        tree.@checked = true;
+                        break;
+                    }
+                    else
+                    {
+                        tree.@checked = false;
+                    }
+                }
+                trees.Add(tree);
+            }
+
+            ajax.RspData.Add("roles", JToken.FromObject(trees));
 
             return ajax;
         }

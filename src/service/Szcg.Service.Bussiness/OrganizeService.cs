@@ -35,24 +35,31 @@ namespace Szcg.Service.Bussiness
         {
             List<UserInfo> list = new List<UserInfo>();
             DepartManage bl = new DepartManage();
+
             DataSet ds = bl.GetUserByDeptID(departId, int.Parse(pageInfo.CurrentPage), int.Parse(pageInfo.PageSize), int.Parse(pageInfo.ReturnRecordCount),
                                                      userId, userName, loginName, departName, order, filds, ref strErr);
             if (!string.IsNullOrEmpty(strErr))
             {
                 LoggerManager.Instance.logger.Error("根据部门获取用户列表异常：" + strErr);
             }
+
+            if (ds.Tables.Count > 1)
+            {
+                pageInfo.RowCount = ds.Tables[1].Rows[0][0].ToString();
+            }
+
             if (ds != null && ds.Tables.Count > 0)
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
                     UserInfo userInfo = new UserInfo();
                     userInfo.setUsercode(SqlDataConverter.ToInt32(dr["usercode"].ToString()));
-                    userInfo.setUsername(SqlDataConverter.ToString(dr["usercode"].ToString()));
-                    userInfo.setLoginname(SqlDataConverter.ToString(dr["usercode"].ToString()));
-                    userInfo.setSex(SqlDataConverter.ToString(dr["usercode"].ToString()));
-                    userInfo.setTel(SqlDataConverter.ToString(dr["usercode"].ToString()));
-                    userInfo.setMobile(SqlDataConverter.ToString(dr["usercode"].ToString()));
-                    userInfo.setDepartname(SqlDataConverter.ToString(dr["usercode"].ToString()));
+                    userInfo.setUsername(SqlDataConverter.ToString(dr["username"].ToString()));
+                    userInfo.setLoginname(SqlDataConverter.ToString(dr["loginname"].ToString()));
+                    userInfo.setSex(SqlDataConverter.ToString(dr["sex"].ToString()));
+                    userInfo.setTel(SqlDataConverter.ToString(dr["tel"].ToString()));
+                    userInfo.setMobile(SqlDataConverter.ToString(dr["mobile"].ToString()));
+                    userInfo.setDepartname(SqlDataConverter.ToString(dr["departname"].ToString()));
                     list.Add(userInfo);
                 }
             }
@@ -86,8 +93,8 @@ namespace Szcg.Service.Bussiness
                 hometel = values[7],
                 fax = values[8],
                 zipCode = values[9],
-                mobile1 = values[10],
-                mobile2 = values[11],
+                mobile = values[10],
+                mobile1 = values[11],
                 email = values[12],
                 address = values[13],
                 sex = values[14],
@@ -95,10 +102,15 @@ namespace Szcg.Service.Bussiness
                 birthday = values[16],
                 strVirPath = values[17],
                 memo = values[18],
-                roleID = values[22],
+                departName = values[19],
                 callCenterUserID = values[20],
-                Hcpower = values[24],
+                videolevel = values[21],
+                roleids = values[22],
+                rolenames = values[23],
+                streetname = values[24],
+                Hcpower = values[25],
                 Sort = values[26],
+                userCode = userCode.ToString()
             };
             return userInfo;
         }
@@ -122,8 +134,8 @@ namespace Szcg.Service.Bussiness
             values[7] = user.hometel;
             values[8] = user.fax;
             values[9] = user.zipCode;
-            values[10] = user.mobile1;
-            values[11] = user.mobile2;
+            values[10] = user.mobile;
+            values[11] = user.mobile1;
             values[12] = user.email;
             values[13] = user.address;
             values[14] = user.sex;
@@ -131,7 +143,7 @@ namespace Szcg.Service.Bussiness
             values[16] = user.birthday;
             values[17] = user.strVirPath;
             values[18] = user.memo;
-            values[19] = user.roleID;
+            values[19] = user.roleids;
             values[20] = user.callCenterUserID;
             values[21] = user.gradeList;
             values[22] = user.Hcpower;
@@ -166,8 +178,8 @@ namespace Szcg.Service.Bussiness
             values[7] = user.hometel;
             values[8] = user.fax;
             values[9] = user.zipCode;
-            values[10] = user.mobile1;
-            values[11] = user.mobile2;
+            values[10] = user.mobile;
+            values[11] = user.mobile1;
             values[12] = user.email;
             values[13] = user.address;
             values[14] = user.sex;
@@ -175,7 +187,7 @@ namespace Szcg.Service.Bussiness
             values[16] = user.birthday;
             values[17] = user.strVirPath;
             values[18] = user.memo;
-            values[19] = user.roleID;
+            values[19] = user.roleids;
             values[20] = user.callCenterUserID;
             values[21] = user.gradeList;
             values[22] = user.Hcpower;
@@ -216,19 +228,64 @@ namespace Szcg.Service.Bussiness
         /// </summary>
         /// <param name="depart">部门实体</param>
         /// <returns></returns>
-        public bool InsertDepart(Depart depart)
+        public ReturnValue InsertDepart(Depart depart)
         {
+            ReturnValue rtn = new ReturnValue() { ReturnState = true };
+
+
+            string _userDefinedCode = "0001";
+
+            if (!string.IsNullOrEmpty(depart.ParentCode))
+            {
+
+                ArrayList arrList = bl.GetUserDefineCode1(depart.ParentCode, ref strErr);
+                ArrayList _arrList = bl.getDeptInfo(depart.ParentCode, "area");
+                string area = _arrList[0].ToString();
+                depart.AreaId = area;
+
+                if (arrList.Count > 0) //添加的为二级组织结构
+                {
+                    string prentDefinedCode = arrList[0].ToString();
+                    string temp = "";
+                    //string tt = arrList[1].ToString();
+                    if (arrList.Count >= 2 && arrList[1].ToString() != "")
+                    {
+                        for (int i = 1; i <= arrList.Count - 1; i++)
+                        {
+                            if (compareTo(arrList[arrList.Count - 1].ToString()) > compareTo(arrList[i].ToString()))
+                                temp = arrList[arrList.Count - 1].ToString();
+                            else
+                                temp = arrList[i].ToString();
+                        }
+                        _userDefinedCode = bl.increase(temp);
+                    }
+                    else
+                        _userDefinedCode = prentDefinedCode + "001";
+
+                }
+                else //添加的为一级组织结构
+                {
+                    string keyvalue = "UserDefinedCode";
+                    string tablename = "p_depart";
+                    string maxValue = Convert.ToString(bl.selectMaxValue(tablename, keyvalue, "", ""));
+                    if (maxValue.Length > 4)
+                        maxValue = maxValue.Substring(0, 4);
+                    _userDefinedCode = bl.increase(maxValue);
+                }
+
+            }
+
             int state = bl.InsertDepart(
-                Convert.ToInt32(depart.ParentCode)
+                string.IsNullOrEmpty(depart.ParentCode) ? 0 : Convert.ToInt32(depart.ParentCode)
                 , depart.DepartName
                 , depart.DepartAddress
-                , depart.Area
+                , depart.AreaId
                 , depart.Memo
                 , depart.IsDuty.ToString()
                 , depart.Mobile
                 , depart.Tel
                 , depart.Principal
-                , depart.UserDefinedCode
+                , _userDefinedCode
                 , depart.Max_NoteNum
                 , depart.IsAcceptNote.ToString()
                 , depart.IsSJ.ToString()
@@ -237,11 +294,17 @@ namespace Szcg.Service.Bussiness
                 , ref strErr
                 , string.IsNullOrEmpty(depart.Sort) ? "999" : depart.Sort
                 );
+
             if (!string.IsNullOrEmpty(strErr))
             {
                 LoggerManager.Instance.logger.Error("添加部门异常：" + strErr);
+                rtn.ErrorMsg = strErr;
             }
-            return state > 0;
+            else
+            {
+                rtn.ReturnState = state > 0;
+            }
+            return rtn;
         }
 
         /// <summary>
@@ -249,13 +312,63 @@ namespace Szcg.Service.Bussiness
         /// </summary>
         /// <param name="depart">部门实体</param>
         /// <returns></returns>
-        public bool UpdateDepart(Depart depart)
+        public ReturnValue UpdateDepart(Depart depart)
         {
+            ReturnValue rtn = new ReturnValue() { ReturnState = true };
+
+            string parentCode = "";
+            string _userDefinedCode = "0001";
+
+            bool refresh_userDefinedCode = !string.Equals(bl.GetParentCode(depart.DepartCode, ref strErr), depart.ParentCode);
+
+            if (!refresh_userDefinedCode)  //无需重定位 UserDefineCode
+            {
+                parentCode = depart.ParentCode;
+                _userDefinedCode = depart.UserDefinedCode;
+            }
+            else                        //需重定位 UserDefineCode
+            {
+                parentCode = depart.ParentCode;
+                // 自动生成 UserDefineCode
+                // wj_add
+                // begin  <暂时只保证2级组织结构>
+                ArrayList arrList = bl.GetUserDefineCode1(parentCode, ref strErr);
+                if (arrList.Count > 0)   //重定位到其他一级目录组织结构
+                {
+                    string prentDefinedCode = arrList[0].ToString();
+                    string temp = "";
+                    if (arrList.Count >= 2 && arrList[1].ToString() != "")
+                    {
+                        for (int i = 1; i <= arrList.Count - 1; i++)
+                        {
+                            if (Convert.ToInt32(arrList[arrList.Count - 1].ToString()) > Convert.ToInt32(arrList[i].ToString()))
+                                temp = arrList[arrList.Count - 1].ToString();
+                            else
+                                temp = arrList[i].ToString();
+                        }
+                        _userDefinedCode = bl.increase(temp);
+                    }
+                    else
+                        _userDefinedCode = prentDefinedCode + "001";
+                }
+                else
+                {                 //重定位到目录组织结构根节点，等同于新建一级组织结构
+                    string keyvalue = "UserDefinedCode";
+                    string tablename = "p_depart";
+                    string maxValue = Convert.ToString(bl.selectMaxValue(tablename, keyvalue, "", ""));
+                    if (maxValue.Length > 4)
+                        maxValue = maxValue.Substring(0, 4);
+                    _userDefinedCode = bl.increase(maxValue);
+                }
+                // end <7/17/2007>
+            }
+
+
             int state = bl.UpdateDepart(
-                depart.UserDefinedCode
+              _userDefinedCode
                 , depart.DepartName
                 , depart.ParentCode
-                , depart.Area
+                , depart.AreaId
                 , depart.Principal
                 , depart.Mobile
                 , depart.Tel
@@ -275,8 +388,10 @@ namespace Szcg.Service.Bussiness
             if (!string.IsNullOrEmpty(strErr))
             {
                 LoggerManager.Instance.logger.Error("更新部门异常：" + strErr);
+                rtn.ErrorMsg = strErr;
             }
-            return state > 0;
+            rtn.ReturnState = state > 0;
+            return rtn;
         }
 
         /// <summary>
@@ -311,27 +426,29 @@ namespace Szcg.Service.Bussiness
             Depart depart = new Depart();
             if (ds != null && ds.Tables.Count > 0)
             {
-                DataRow dr = ds.Tables[0].Rows[0];
-                depart.DepartCode = SqlDataConverter.ToString(dr["departcode"]);
-                depart.DepartName = SqlDataConverter.ToString(dr["departname"]);
-                depart.ParentDepartName = SqlDataConverter.ToString(dr["parentdepartname"]);
-                depart.Memo = SqlDataConverter.ToString(dr["memo"]);
-                depart.DepartAddress = SqlDataConverter.ToString(dr["departadress"]);
-                depart.ParentCode = SqlDataConverter.ToString(dr["parentcode"]);
-                depart.Mobile = SqlDataConverter.ToString(dr["Mobile"]);
-                depart.Tel = SqlDataConverter.ToString(dr["tel"]);
-                depart.Principal = SqlDataConverter.ToString(dr["principal"]);
-                depart.UserDefinedCode = SqlDataConverter.ToString(dr["UserDefinedCode"]);
-                depart.DutyId = SqlDataConverter.ToInt32(dr["dutyid"]);
-                depart.Area = SqlDataConverter.ToString(dr["area"]);
-                depart.IsDuty = SqlDataConverter.ToInt32(dr["IsDuty"]);
-                depart.IsAcceptNote = SqlDataConverter.ToInt32(dr["IsAcceptNote"]);
-                depart.Max_NoteNum = SqlDataConverter.ToInt32(dr["max_notenum"]);
-                depart.IsSJ = SqlDataConverter.ToInt32(dr["IsSJ"]);
-                depart.SJ_RoleCode = SqlDataConverter.ToString(dr["sj_rolecode"]);
-                depart.NoAppraise = SqlDataConverter.ToString(dr["NoAppraise"]);
-                depart.RoleName = SqlDataConverter.ToString(dr["rolename"]);
-
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    DataRow dr = ds.Tables[0].Rows[0];
+                    depart.DepartCode = SqlDataConverter.ToString(dr["departcode"]);
+                    depart.DepartName = SqlDataConverter.ToString(dr["departname"]);
+                    depart.ParentDepartName = SqlDataConverter.ToString(dr["parentdepartname"]);
+                    depart.Memo = SqlDataConverter.ToString(dr["memo"]);
+                    depart.DepartAddress = SqlDataConverter.ToString(dr["departadress"]);
+                    depart.ParentCode = SqlDataConverter.ToString(dr["parentcode"]);
+                    depart.Mobile = SqlDataConverter.ToString(dr["Mobile"]);
+                    depart.Tel = SqlDataConverter.ToString(dr["tel"]);
+                    depart.Principal = SqlDataConverter.ToString(dr["principal"]);
+                    depart.UserDefinedCode = SqlDataConverter.ToString(dr["UserDefinedCode"]);
+                    depart.DutyId = SqlDataConverter.ToInt32(dr["dutyid"]);
+                    depart.Area = SqlDataConverter.ToString(dr["area"]);
+                    depart.IsDuty = SqlDataConverter.ToInt32(dr["IsDuty"]);
+                    depart.IsAcceptNote = SqlDataConverter.ToInt32(dr["IsAcceptNote"]);
+                    depart.Max_NoteNum = SqlDataConverter.ToInt32(dr["max_notenum"]);
+                    depart.IsSJ = SqlDataConverter.ToInt32(dr["IsSJ"]);
+                    depart.SJ_RoleCode = SqlDataConverter.ToString(dr["sj_rolecode"]);
+                    depart.NoAppraise = SqlDataConverter.ToString(dr["NoAppraise"]);
+                    depart.RoleName = SqlDataConverter.ToString(dr["rolename"]);
+                }
             }
             return depart;
         }
@@ -586,6 +703,11 @@ namespace Szcg.Service.Bussiness
             return values;
         }
         #endregion
+
+        private int compareTo(string m)
+        {
+            return Convert.ToInt32(m.Substring(m.Length - 4, 4));
+        }
 
     }
 }

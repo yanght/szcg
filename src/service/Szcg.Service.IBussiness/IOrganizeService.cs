@@ -25,6 +25,13 @@ namespace Szcg.Service.IBussiness
         List<UserInfo> GetUserByDeptID(int departId, PageInfo pageInfo, int userId, string userName, string loginName, string departName, string order, string filds);
 
         /// <summary>
+        /// 根据用户编码获取用户
+        /// </summary>
+        /// <param name="userCode">用户编码</param>
+        /// <returns></returns>
+        UserData GetUserById(int userCode);
+
+        /// <summary>
         /// 添加用户
         /// </summary>
         /// <param name="user"></param>
@@ -52,14 +59,14 @@ namespace Szcg.Service.IBussiness
         /// </summary>
         /// <param name="depart">部门实体</param>
         /// <returns></returns>
-        bool InsertDepart(Depart depart);
+        ReturnValue InsertDepart(Depart depart);
 
         /// <summary>
         /// 更新部门
         /// </summary>
         /// <param name="depart">部门实体</param>
         /// <returns></returns>
-        bool UpdateDepart(Depart depart);
+        ReturnValue UpdateDepart(Depart depart);
 
         /// <summary>
         /// 删除部门
@@ -107,7 +114,7 @@ namespace Szcg.Service.IBussiness
         /// <returns></returns>
         bool CheckDepartName(string parentDepartId, string departName);
 
-        
+
 
     }
 }

@@ -1,0 +1,205 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="widget-box widget-color-blue ui-sortable-handle" style="opacity: 1; z-index: 0;">
+            <!-- #section:custom/widget-box.options -->
+            <div class="widget-header">
+                <h5 class="widget-title bigger lighter">
+                    <i class="ace-icon fa fa-pencil-square-o"></i>
+                    编辑用户
+                </h5>
+            </div>
+            <!-- /section:custom/widget-box.options -->
+            <div class="widget-body">
+                <div class="widget-main ">
+                    <form class="form-horizontal input-line" role="form">
+                        <!-- #section:elements.form -->
+                        <div id="userdetail">
+                            <script type="text/template" id="userdetailtpl">
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 登录名：</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="loginName1" id="loginName1" placeholder="" class="form-control" value="{{user.loginName}}" />
+                                    </div>
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 姓名：</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="userName1" id="userName1" class="form-control" value="{{user.userName}}" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 密码：</label>
+                                    <div class="col-sm-4">
+                                        <input type="password" name="password" id="password" placeholder="" class="form-control" value="{{user.password}}" />
+                                    </div>
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 性别：</label>
+                                    <div class="col-sm-4">
+                                        {{if user.sex=="True"}}
+                                        <select class="form-control" id="sex" name="sex">
+                                            <option value="1" selected="selected">男</option>
+                                            <option value="0">女</option>
+                                        </select>
+                                        {{else}}
+                                        <select class="form-control" id="sex" name="sex">
+                                            <option value="1">男</option>
+                                            <option value="0" selected="selected">女</option>
+                                        </select>
+                                        {{/if}}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 生日：</label>
+                                    <div class="col-sm-4">
+                                        <div class="input-group">
+                                            <input class="form-control date-picker" id="birthday" name="birthday" type="text" data-date-format="yyyy-mm-dd" value="{{user.birthday}}" />
+                                        </div>
+                                    </div>
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 所属部门：</label>
+                                    <div class="col-sm-4">
+                                        <span class="input-icon input-icon-right">
+                                            <input type="text" name="TargetDepartName" id="TargetDepartName" data-url="/callAcceptance/project/SelectDepart" value="{{user.departName}}">
+                                            <input type="hidden" name="departcode" id="departcode" value="{{user.departcode}}" />
+                                            <i class="ace-icon fa fa-plus-circle bigger-120  blue"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 移动电话1：</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="mobile" id="mobile" placeholder="" class="form-control" value="{{user.mobile}}" />
+                                    </div>
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 移动电话2：</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="mobile1" id="mobile1" placeholder="" class="form-control" value="{{user.mobile1}}" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 住宅电话：</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="hometel" id="hometel" placeholder="" class="form-control" value="{{user.hometel}}" />
+                                    </div>
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 办公电话：</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="tel" id="tel" placeholder="" class="form-control" value="{{user.tel}}" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 业务传真：</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="fax" id="fax" placeholder="" class="form-control" value="{{user.fax}}" />
+                                    </div>
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 邮政编码：</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="email" id="email" placeholder="" class="form-control" value="{{user.email}}" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group hide">
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 视频流权限级别：</label>
+                                    <div class="col-sm-4">
+                                        @*<input type="text" name="videolevel" id="videolevel" placeholder="" class="form-control" value="{{}}" />*@
+                                        <select class="form-control" id="videolevel" name="videolevel">
+                                            {{if user.videolevel==1}}
+                                            <option value="1" selected="selected">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            {{else if user.videolevel==2}}
+                                            <option value="1">1</option>
+                                            <option value="2" selected="selected">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            {{else if user.videolevel==3}}
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3" selected="selected">3</option>
+                                            <option value="4">4</option>
+                                            {{else if user.videolevel==4}}
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4" selected="selected">4</option>
+                                            {{else}}
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            {{/if}}
+                                        </select>
+                                    </div>
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 个人网页：</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="priWeb" id="priWeb" placeholder="" class="form-control" value="{{user.priWeb}}" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 业务网页：</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="pubWeb" id="pubWeb" placeholder="" class="form-control" value="{{user.pubWeb}}" />
+                                    </div>
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 呼叫中心用户编号：</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="callCenterUserID" id="callCenterUserID" placeholder="" class="form-control" value="{{user.callCenterUserID}}" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> Email：</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="email" id="email" placeholder="" class="form-control" value="{{user.email}}" />
+                                    </div>
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 排序：</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="Sort" id="Sort" placeholder="" class="form-control" value="{{user.Sort}}" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 核查栏核查权限：</label>
+                                    <div class="col-sm-4">
+                                        @*<input type="text" name="Hcpower" id="Hcpower" placeholder="" class="form-control" value="{{user.Hcpower}}" />*@
+                                        <select class="form-control" id="StreetId" name="StreetId">
+                                            <option value="">全部</option>
+                                        </select>
+                                    </div>
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 所属角色：</label>
+                                    <div class="col-sm-4">
+                                        <span class="input-icon input-icon-right">
+                                            <input type="text" name="rolenames" id="rolenames" placeholder="" class="form-control" value="{{user.rolenames}}" />
+                                            <input type="hidden" name="roleids" id="roleids" value="{{user.roleids}}" />
+                                            <i class="ace-icon fa fa-plus-circle bigger-120  blue"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1">地址：</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="address" id="address" placeholder="" class="form-control" value="{{user.address}}" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 备注：</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="memo" id="memo" placeholder="" class="form-control" value="{{user.memo}}" />
+                                    </div>
+                                </div>
+                                <input type="hidden" name="userCode" id="userCode" value="{{user.userCode}}" />
+                            </script>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/content/assets/js/date-time/bootstrap-datepicker.min.js"></script>
+<script src="/content/assets/js/date-time/bootstrap-timepicker.min.js"></script>
+<script src="/content/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
+<script type="text/javascript">
+    $(function () {
+        depart.getUserDetail(@Request["usercode"]);
+    })
+</script>

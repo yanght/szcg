@@ -1,0 +1,124 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="row">
+    <!-- #section:pages/pricing.small-header -->
+    <div class="col-xs-2 col-sm-2 pricing-span-header">
+        <div class="widget-box widget-color-blue ui-sortable-handle">
+            <div class="widget-header">
+                <h5 class="widget-title bigger lighter">部门列表</h5>
+            </div>
+
+            <div class="widget-body">
+                <div class="widget-main no-padding">
+                    <ul class="list-unstyled pricing-table-header" style="height:800px;overflow:scroll;" id="departlist"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /section:pages/pricing.small-header -->
+    <!-- #section:pages/pricing.small-body -->
+    <div class="col-xs-10 col-sm-10 pricing-span-body">
+        <div class="widget-box widget-color-blue ui-sortable-handle">
+            <div class="widget-header">
+                <h5 class="widget-title bigger lighter">人员列表</h5>
+                <div class="widget-toolbar">
+                    <a href="#" data-action="collapse">
+                        <i class="1 ace-icon fa fa-chevron-up bigger-125"></i>
+                    </a>
+                </div>
+                <div class="widget-toolbar no-border">
+
+                    <button class="btn btn-xs bigger btn-yellow dropdown-toggle" data-toggle="dropdown">
+                        添加人员
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="widget-body">
+                <div class="widget-main no-padding">
+                    <div class="well">
+                        <form class="form-inline">
+
+                            <label>姓名：</label>
+                            <input type="text" class="form-control" placeholder="" name="userName" id="userName">
+                            <label>登录名：</label>
+                            <input type="text" class="form-control" placeholder="" name="loginName" id="loginName">
+                            <label>部门：</label>
+                            <input type="text" class="form-control" placeholder="" name="departName" id="departName">
+                            <input type="hidden" name="departId" id="departId" value="0">
+
+                            <button type="button" class="btn btn-info btn-sm" id="query">
+                                查询
+                            </button>
+
+                            <button type="reset" class="btn btn-info btn-sm">
+                                重置
+                            </button>
+
+                        </form>
+                    </div>
+
+                    <table class="table table-striped table-bordered table-hover" id="userlistTB">
+                        <thead class="thin-border-bottom">
+                            <tr>
+                                <th>
+                                    所属部门
+                                </th>
+
+                                <th>
+                                    姓名
+                                </th>
+                                <th>
+                                    登录名
+                                </th>
+                                <th>
+                                    性别
+                                </th>
+                                <th>
+                                    办公电话
+                                </th>
+                                <th>
+                                    移动电话
+                                </th>
+                                <th>
+                                    操作
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /section:pages/pricing.small-body -->
+</div>
+
+
+<script src="/content/assets/js/date-time/bootstrap-datepicker.min.js"></script>
+<script src="/content/assets/js/date-time/bootstrap-timepicker.min.js"></script>
+
+<script src="/content/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
+<script src="/content/assets/js/jquery.dataTables.min.js"></script>
+<script src="/content/assets/js/jquery.dataTables.bootstrap.js"></script>
+
+<script type="text/javascript">
+
+    $(function () {
+
+        ace.load_ajax_scripts([null], function () {
+
+            depart.getDepartlistForUser();
+
+        });
+
+    })
+
+
+</script>

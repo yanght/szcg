@@ -101,7 +101,15 @@ namespace Szcg.Service.IBussiness
 
         #endregion
 
-        
+        /// <summary>
+        /// 获取用户角色树
+        /// </summary>
+        /// <param name="areacode"></param>
+        /// <param name="userCode"></param>
+        /// <returns></returns>
+        List<Role> GetRoleTree(string areacode, int userCode);
+
+
         /// <summary>
         /// 用户登录
         /// </summary>

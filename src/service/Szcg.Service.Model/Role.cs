@@ -13,7 +13,7 @@ namespace Szcg.Service.Model
         /// <summary>
         /// 角色编码
         /// </summary>
-        public int RoleCode { get; set; }
+        public string  RoleCode { get; set; }
         /// <summary>
         /// 角色名称
         /// </summary>
@@ -39,13 +39,15 @@ namespace Szcg.Service.Model
         /// </summary>
         public string Memo { get; set; }
         /// <summary>
-        /// 时都删除
+        /// 是否删除
         /// </summary>
         public string IsDel { get; set; }
         /// <summary>
         /// 角色等级
         /// </summary>
         public string RoleLevel { get; set; }
+
+        public string ParentCode { get; set; }
 
     }
 
