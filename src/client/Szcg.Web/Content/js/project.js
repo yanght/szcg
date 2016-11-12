@@ -265,58 +265,55 @@ project.initPropProjectClassTree = function initProjectClassTree(callback) {
 //区域选择弹框
 project.initPropAreaTree = function initPropAreaTree(callback) {
 
-    $("#areaName").click(function () {
-
-        $.get("/callAcceptance/project/SelectArea", function (data) {
-            var dialog = bootbox.dialog({
-                message: data,
-                title: "选择区域街道",
-                buttons:
+    $.get("/callAcceptance/project/SelectArea", function (data) {
+        var dialog = bootbox.dialog({
+            message: data,
+            title: "选择区域街道",
+            buttons:
+            {
+                "save":
                 {
-                    "save":
-                    {
-                        "label": "选择",
-                        "className": "btn-sm btn-primary",
-                        "callback": callback
-                    },
-                    "button":
-                    {
-                        "label": "取消",
-                        "className": "btn-sm"
-                    }
-                }
-            });
-
-            var setting = {
-                view: {
-                    dblClickExpand: false,
-                    showLine: true
+                    "label": "选择",
+                    "className": "btn-sm btn-primary",
+                    "callback": callback
                 },
-                data: {
-                    simpleData: {
-                        enable: true
-                    }
-                },
-                callback: {
-                    onClick: function (e, treeId, treeNode) {
-                        var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-                        zTree.expandNode(treeNode);
-                    }
+                "button":
+                {
+                    "label": "取消",
+                    "className": "btn-sm"
                 }
-            };
-            utils.httpClient("/project/GetAreaTree", "post", null, function (data) {
-                if (data.RspCode == 1) {
-
-                    zNodes = data.RspData.areaTree;
-
-                    var treeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
-
-                } else {
-                    utils.alert(data.RspMsg);
-                }
-            });
+            }
         });
-    })
+
+        var setting = {
+            view: {
+                dblClickExpand: false,
+                showLine: true
+            },
+            data: {
+                simpleData: {
+                    enable: true
+                }
+            },
+            callback: {
+                onClick: function (e, treeId, treeNode) {
+                    var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                    zTree.expandNode(treeNode);
+                }
+            }
+        };
+        utils.httpClient("/project/GetAreaTree", "post", null, function (data) {
+            if (data.RspCode == 1) {
+
+                zNodes = data.RspData.areaTree;
+
+                var treeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+
+            } else {
+                utils.alert(data.RspMsg);
+            }
+        });
+    });
 }
 
 //刷新举报栏待办案卷列表
@@ -2518,28 +2515,30 @@ project.getProjectReportDetail = function getProjectReportDetail(projectcode, ye
                 }
             })
 
-            project.initPropAreaTree(function () {
-                var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-                var nodes = zTree.getSelectedNodes();
-                if (nodes != null) {
-                    var treeNode = nodes[0];
-                    $("#areaName").closest(".form-group").find("input").val("");
+            $("#areaName").click(function () {
+                project.initPropAreaTree(function () {
+                    var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                    var nodes = zTree.getSelectedNodes();
+                    if (nodes != null) {
+                        var treeNode = nodes[0];
+                        $("#areaName").closest(".form-group").find("input").val("");
 
-                    if (treeNode.level == 0) {
-                        $("#areaName").val(treeNode.name);
-                        $("#AreaId").val(treeNode.id);
-                    } else if (treeNode.level == 1) {
-                        $("#AreaId").val(treeNode.getParentNode().id);
-                        $("#StreetId").val(treeNode.id);
-                        $("#areaName").val(treeNode.getParentNode().name + "/" + treeNode.name);
-                    } else if (treeNode.level == 2) {
-                        $("#StreetId").val(treeNode.getParentNode().id);
-                        $("#SquareId").val(treeNode.id);
-                        $("#AreaId").val(treeNode.getParentNode().getParentNode().id);
-                        $("#areaName").val(treeNode.getParentNode().getParentNode().name + "/" + treeNode.getParentNode().name + "/" + treeNode.name);
+                        if (treeNode.level == 0) {
+                            $("#areaName").val(treeNode.name);
+                            $("#AreaId").val(treeNode.id);
+                        } else if (treeNode.level == 1) {
+                            $("#AreaId").val(treeNode.getParentNode().id);
+                            $("#StreetId").val(treeNode.id);
+                            $("#areaName").val(treeNode.getParentNode().name + "/" + treeNode.name);
+                        } else if (treeNode.level == 2) {
+                            $("#StreetId").val(treeNode.getParentNode().id);
+                            $("#SquareId").val(treeNode.id);
+                            $("#AreaId").val(treeNode.getParentNode().getParentNode().id);
+                            $("#areaName").val(treeNode.getParentNode().getParentNode().name + "/" + treeNode.getParentNode().name + "/" + treeNode.name);
+                        }
                     }
-                }
-            })
+                })
+            });
 
         }
         else {

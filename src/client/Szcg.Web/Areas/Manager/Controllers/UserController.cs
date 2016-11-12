@@ -26,5 +26,10 @@ namespace Szcg.Web.Areas.Manager.Controllers
             return View();
         }
 
+        public ActionResult CollecterList()
+        {
+            return View();
+        }
+
     }
 }

@@ -484,3 +484,45 @@ depart.initRoleTree = function (callback) {
         });
     });
 }
+
+depart.initAreaTree = function () {
+    var setting = {
+        view: {
+            dblClickExpand: false,
+            showLine: true
+        },
+        data: {
+            simpleData: {
+                enable: true
+            }
+        },
+        callback: {
+            onClick: function (e, treeId, treeNode) {
+                var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                zTree.expandNode(treeNode);
+            }
+        }
+    };
+
+    utils.httpClient("/project/GetAreaTree", "post", null, function (data) {
+
+        if (data.RspCode == 1) {
+
+            zNodes = data.RspData.areaTree;
+
+            var treeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+
+            nodes = treeObj.getNodes();
+
+            //$.each(nodes, function (index, item) {
+            //    if (item.level ==0)
+            //    {
+            //        treeObj.hideNodes(item);
+            //    }
+            //})
+
+        } else {
+            utils.alert(data.RspMsg);
+        }
+    });
+}
