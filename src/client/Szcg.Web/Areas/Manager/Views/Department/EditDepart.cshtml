@@ -26,8 +26,11 @@
                                     </div>
                                     <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 上级部门：</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="ParentDepartName" id="TargetDepartName" value="{{depart.ParentDepartName}}" placeholder="" />
-                                        <input type="hidden" name="ParentCode" id="ParentCode" value="{{depart.ParentCode}}" />
+                                        <span class="input-icon input-icon-right">
+                                            <input type="text" class="form-control" name="ParentDepartName" id="TargetDepartName" value="{{depart.ParentDepartName}}" placeholder="" />
+                                            <input type="hidden" name="ParentCode" id="ParentCode" value="{{depart.ParentCode}}" />
+                                            <i class="ace-icon fa fa-plus-circle bigger-120  blue"></i>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -140,7 +143,7 @@
                                 <input type="hidden" name="UserDefinedCode" id="UserDefinedCode" value="{{depart.UserDefinedCode}}" />
                             </script>
                         </div>
-                        <input type="hidden" name="DepartCode" id="DepartCode" value="@(Request["departId"])" />                        
+                        <input type="hidden" name="DepartCode" id="DepartCode" value="@(Request["departId"])" />
 
                     </form>
                 </div>
