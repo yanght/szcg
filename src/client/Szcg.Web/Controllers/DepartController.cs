@@ -282,7 +282,7 @@ namespace Szcg.Web.Controllers
                 departId = "0";
             }
 
-            List<UserInfo> list = svc.GetUserByDeptID(int.Parse(departId), pageInfo, UserInfo.getUsercode(), userName, loginName, departName, pageInfo.Order, pageInfo.Field);
+            List<UserInfo> list = svc.GetUserByDeptID(int.Parse(departId), pageInfo, UserInfo.getUsercode(), userName == null ? "" : userName, loginName == null ? "" : loginName, departName == null ? "" : departName, pageInfo.Order , pageInfo.Field);
 
             List<UserData> users = new List<UserData>();
 
@@ -353,6 +353,33 @@ namespace Szcg.Web.Controllers
             {
                 ajax.RspMsg = "添加失败！";
                 ajax.RspCode = 0;
+                return ajax;
+            }
+
+            return ajax;
+        }
+
+        #endregion
+
+        #region [ 删除用户 ]
+
+        public AjaxFxRspJson DeleteUser(string usercode)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            if (string.IsNullOrEmpty(usercode))
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "请输入用户编码";
+                return ajax;
+            }
+
+            bool rtn = svc.DeleteUser(int.Parse(usercode));
+
+            if (!rtn)
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "删除用户失败";
                 return ajax;
             }
 

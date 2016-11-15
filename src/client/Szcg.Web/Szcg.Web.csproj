@@ -1067,6 +1067,7 @@
     <Content Include="Areas\Manager\Views\User\InsertUser.cshtml" />
     <Content Include="Areas\Manager\Views\User\RoleTree.cshtml" />
     <Content Include="Areas\Manager\Views\User\CollecterList.cshtml" />
+    <Content Include="Areas\Manager\Views\User\InsertCollecter.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />

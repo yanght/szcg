@@ -10,6 +10,7 @@ namespace Szcg.Service.Model
     /// </summary>
     public class Area
     {
+        public string Id { get; set; }
         /// <summary>
         /// 区域名称
         /// </summary>
@@ -24,6 +25,7 @@ namespace Szcg.Service.Model
     /// </summary>
     public class Street
     {
+        public string Id { get; set; }
         public string StreetCode { get; set; }
         public string AreaCode { get; set; }
         public string StreetName { get; set; }
@@ -35,6 +37,7 @@ namespace Szcg.Service.Model
     /// </summary>
     public class Community
     {
+        public string Id { get; set; }
         public string CommCode { get; set; }
         public string StreetCode { get; set; }
         public string CommName { get; set; }

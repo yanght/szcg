@@ -25,15 +25,44 @@ namespace Szcg.Web.Controllers
 
         #region [ 获取指定区域所有监督员列表 ]
 
-        public AjaxFxRspJson GetCollecters(CollectorQueryArgs args)
+        public JsonResult GetCollecters(CollectorQueryArgs args)
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            if (UserInfo == null)
+            {
+                ajax.RspMsg = "用户未登录！";
+                ajax.RspCode = 0;
+                return Json(ajax);
+            }
+
+            int currentpage = int.Parse(Request["start"]);
+
+            int pagesize = int.Parse(Request["length"]);
+
+            if (currentpage != 0)
+            {
+                currentpage = (currentpage / pagesize) + 1;
+            }
+            else
+            {
+                currentpage = 1;
+            }
+
+            args.PageSize = int.Parse(Request["length"]);
+            args.PageIndex = int.Parse(currentpage.ToString());
+            args.ReturnRecordCount = 1;
+
+            if (args.Id == 0)
+            {
+                args.Id = int.Parse(UserInfo.getAreacode());
+            }
 
             List<Collecter> list = svc.GetCollecters(args);
 
             ajax.RspData.Add("collecters", JToken.FromObject(list));
 
-            return ajax;
+            return Json(new { draw = Request["draw"], recordsTotal = args.ReturnRecordCount, recordsFiltered = args.ReturnRecordCount, data = list == null ? new List<Collecter>() : list }, JsonRequestBehavior.AllowGet);
         }
 
         #endregion
@@ -104,7 +133,23 @@ namespace Szcg.Web.Controllers
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
-            ReturnValue rtn = svc.AddCollecter(collector);
+            ReturnValue rtn = new ReturnValue() { ReturnState = true };
+
+            ajax = CheckCollecterValue(collector);
+
+            if (ajax.RspCode == 0)
+            {
+                return ajax;
+            }
+
+            if (collector.CollCode == 0)
+            {
+                rtn = svc.AddCollecter(collector);
+            }
+            else
+            {
+                rtn = svc.ModifyCollector(collector);
+            }
 
             if (!rtn.ReturnState)
             {
@@ -132,6 +177,57 @@ namespace Szcg.Web.Controllers
                 ajax.RspCode = 0;
                 ajax.RspMsg = rtn.ErrorMsg;
                 return ajax;
+            }
+
+            return ajax;
+        }
+
+        #endregion
+
+        #region [ 删除监督员 ]
+
+        public AjaxFxRspJson DeleteCollector(string collcode)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            if (string.IsNullOrEmpty(collcode))
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "请输入监督员编码";
+                return ajax;
+            }
+
+            bool rtn = svc.DeleteCollector(int.Parse(collcode));
+
+            if (!rtn)
+            {
+
+                ajax.RspCode = 0;
+                ajax.RspMsg = "删除监督员失败";
+                return ajax;
+            }
+
+
+            return ajax;
+        }
+
+        #endregion
+
+        #region [ 查询监督员明细 ]
+
+        public AjaxFxRspJson GetCollecterInfoByCode(string collcode)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            if (string.IsNullOrEmpty(collcode))
+            {
+                ajax.RspData.Add("collecter", JToken.FromObject(new Collecter()));
+                return ajax;
+            }
+            else
+            {
+                Collecter collecter = svc.GetCollecterInfoByCode(collcode);
+                ajax.RspData.Add("collecter", JToken.FromObject(collecter));
             }
 
             return ajax;
@@ -191,6 +287,83 @@ namespace Szcg.Web.Controllers
             ajax.RspData.Add("tasks", JToken.FromObject(list));
 
             ajax.RspData.Add("message", JToken.FromObject(message));
+
+            return ajax;
+        }
+
+
+        public AjaxFxRspJson CheckCollecterValue(Collecter collecter)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+            if (string.IsNullOrEmpty(collecter.CollName))
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "姓名不能为空";
+                return ajax;
+            }
+            if (collecter.CollName.Length > 9)
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "姓名长度不能超过9个字符";
+                return ajax;
+            }
+            if (string.IsNullOrEmpty(collecter.LoginName))
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "登录名不能为空";
+                return ajax;
+            }
+            if (collecter.LoginName.Length > 9)
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "登录名长度不能超过18个字符";
+                return ajax;
+            }
+            if (string.IsNullOrEmpty(collecter.PassWord))
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "口令不能为空";
+                return ajax;
+            }
+            if (collecter.PassWord != null && collecter.PassWord.Length > 18)
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "口令长度不能超过18个字符!";
+                return ajax;
+            }
+            if (string.IsNullOrEmpty(collecter.CommCode))
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "社区名称不能为空";
+                return ajax;
+            }
+            if (string.IsNullOrEmpty(collecter.GridCode))
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "网格号不能为空";
+                return ajax;
+            }
+            if (collecter.TimeOut.Length > 0)
+            {
+                if (!Teamax.Common.PublicClass.IsValidInt(collecter.TimeOut))
+                {
+                    ajax.RspCode = 0;
+                    ajax.RspMsg = "轨迹上传时间请填写数值";
+                    return ajax;
+                }
+            }
+            if (collecter.HomeAddress != null && collecter.HomeAddress.Length > 18)
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "地址长度不能超过512个字符!";
+                return ajax;
+            }
+            if (collecter.Memo != null && collecter.Memo.Length > 18)
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "备注长度不能超过128个字符!";
+                return ajax;
+            }
 
             return ajax;
         }

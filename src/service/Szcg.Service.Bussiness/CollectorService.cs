@@ -77,32 +77,38 @@ namespace Szcg.Service.Bussiness
         {
             ReturnValue rtn = new ReturnValue() { ReturnState = true };
 
-            int temp = bl.CheckLoginName(collecter.LoginName, ref strErr);
-            if (!string.IsNullOrEmpty(strErr))
+            bacgBL.web.szbase.entity.Collecter oldcollecter = bl.GetCollecterInfoByID(collecter.CollCode, ref strErr);
+
+            if (oldcollecter.CollName != collecter.CollName)
             {
-                LoggerManager.Instance.logger.ErrorFormat("检查用户名重复异常：" + strErr);
-            }
-            if (temp > 0)
-            {
-                rtn.ErrorMsg = "登录名不能重复!";
-                rtn.ReturnState = false;
-                return rtn;
+
+                int temp = bl.CheckLoginName(collecter.LoginName, ref strErr);
+                if (!string.IsNullOrEmpty(strErr))
+                {
+                    LoggerManager.Instance.logger.ErrorFormat("检查用户名重复异常：" + strErr);
+                }
+                if (temp > 0)
+                {
+                    rtn.ErrorMsg = "登录名不能重复!";
+                    rtn.ReturnState = false;
+                    return rtn;
+                }
             }
 
             List<string> list = new List<string>();
-            list.Add(collecter.CollCode.ToString());
+            list.Add(collecter.CommCode);
             list.Add(collecter.GridCode);
             list.Add(collecter.Code);
             list.Add(collecter.CollName);
             list.Add(collecter.LoginName);
             list.Add(collecter.PassWord);
-            list.Add(collecter.Sex.ToString());
+            list.Add(collecter.Sex);
             list.Add(collecter.Mobile);
-            list.Add(collecter.Age.ToString());
+            list.Add(collecter.Age);
             list.Add(collecter.Url);
             list.Add(collecter.HomeTel);
             list.Add(collecter.HomeAddress);
-            list.Add(collecter.TimeOut.ToString());
+            list.Add(collecter.TimeOut);
             list.Add(collecter.Memo);
             list.Add(collecter.IMEI);
             int i = bl.UpdateToCollecter(list.ToArray(), collecter.CollCode.ToString(), ref strErr);
@@ -139,28 +145,38 @@ namespace Szcg.Service.Bussiness
         public List<Collecter> GetCollecters(CollectorQueryArgs args)
         {
             List<Collecter> Collecters = new List<Collecter>();
-            ArrayList[] list = bl.GetAllCollecter(args.Type, args.Id, args.PageIndex, args.PageSize, args.ReturnRecordCount, args.Name, args.LoginName, args.GridCode, ref strErr);
+            ArrayList[] list = bl.GetAllCollecter(args.Type, args.Id, args.PageIndex, args.PageSize, args.ReturnRecordCount, args.Name == null ? "" : args.Name == null ? "" : args.Name, args.LoginName == null ? "" : args.LoginName, args.GridCode == null ? "" : args.GridCode, ref strErr);
             if (!string.IsNullOrEmpty(strErr))
             {
                 LoggerManager.Instance.logger.Error("获取监督员列表异常：" + strErr);
             }
+
+            if (list[0] != null && list[0].Count > 0)
+            {
+                foreach (bacgBL.web.szbase.entity.Collecter item in list[0])
+                {
+                    Collecters.Add(new Collecter()
+                    {
+                        CollCode = item.CollCode,
+                        CollName = item.CollName,
+                        GridCode = item.GridCode,
+                        LoginName = item.LoginName,
+                        Mobile = item.Mobile,
+                        IMEI = item.Imei,
+                        HomeTel = item.Tel,
+                        HomeAddress = item.Address
+                    });
+                }
+            }
+
             if (args.ReturnRecordCount == 1)
             {
-                foreach (var item in list[1])
-                {
-                    Collecters.Add((Collecter)item);
-                }
+
+                args.ReturnRecordCount = int.Parse(list[1][0].ToString());
             }
-            else
-            {
-                foreach (var item in list[0])
-                {
-                    Collecters.Add((Collecter)item);
-                }
-            }
+
             return Collecters;
         }
-
 
         /// <summary>
         /// 获取监督员列表
@@ -237,6 +253,38 @@ namespace Szcg.Service.Bussiness
                 collecters = ConvertDtHelper<Collecter>.GetModelList(ds.Tables[0].Rows);
             }
             return collecters;
+        }
+
+        /// <summary>
+        /// 查询监督员明细
+        /// </summary>
+        /// <param name="collcode">监督员编码</param>
+        /// <returns></returns>
+        public Collecter GetCollecterInfoByCode(string collcode)
+        {
+            bacgBL.web.szbase.entity.Collecter collObject = bl.GetCollecterInfoByID(int.Parse(collcode), ref strErr);
+
+            Collecter collecter = new Collecter()
+            {
+                CollCode = collObject.CollCode,
+                CollName = collObject.CollName,
+                GridCode = collObject.GridCode,
+                CommCode = collObject.CommCode,
+                LoginName = collObject.LoginName,
+                PassWord = collObject.Pwd,
+                Sex = collObject.Sex,
+                Mobile = collObject.Mobile,
+                Age = collObject.Age,
+                Url = collObject.Url,
+                HomeTel = collObject.Tel,
+                HomeAddress = collObject.Address,
+                TimeOut = collObject.TimeOut.ToString(),
+                Memo = collObject.Memo,
+                Code = collObject.NumberCode,
+                CommName = collObject.CommName,
+                IMEI = collObject.Imei
+            };
+            return collecter;
         }
 
         /// <summary>

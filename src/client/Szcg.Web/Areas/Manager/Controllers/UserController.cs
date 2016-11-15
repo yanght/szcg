@@ -31,5 +31,10 @@ namespace Szcg.Web.Areas.Manager.Controllers
             return View();
         }
 
+        public ActionResult InsertCollecter()
+        {
+            return View();
+        }
+
     }
 }

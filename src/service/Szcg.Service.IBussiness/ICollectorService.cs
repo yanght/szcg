@@ -68,6 +68,13 @@ namespace Szcg.Service.IBussiness
         List<Collecter> GetCollecters(string areacode, string streetcode, string commcode);
 
         /// <summary>
+        /// 查询监督员明细
+        /// </summary>
+        /// <param name="collcode">监督员编码</param>
+        /// <returns></returns>
+        Collecter GetCollecterInfoByCode(string collcode);
+
+        /// <summary>
         /// 获取监督员工作任务统计
         /// </summary>
         /// <param name="projcode">案卷编号</param>

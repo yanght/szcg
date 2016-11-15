@@ -41,7 +41,7 @@ namespace Szcg.Service.Model
         /// <summary>
         /// 性别
         /// </summary>
-        public int Sex { get; set; }
+        public string Sex { get; set; }
         /// <summary>
         /// 城管通号码
         /// </summary>
@@ -74,7 +74,7 @@ namespace Szcg.Service.Model
         /// <summary>
         /// 年龄
         /// </summary>
-        public int Age { get; set; }
+        public string Age { get; set; }
         /// <summary>
         /// 头像图片地址
         /// </summary>
@@ -106,7 +106,7 @@ namespace Szcg.Service.Model
         /// <summary>
         /// 轨迹上报时间间隔（分钟）
         /// </summary>
-        public int TimeOut { get; set; }
+        public string  TimeOut { get; set; }
         /// <summary>
         /// 其他备注
         /// </summary>

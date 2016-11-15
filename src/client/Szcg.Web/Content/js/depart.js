@@ -222,7 +222,7 @@ depart.getDepartlistForUser = function () {
     });
 }
 
-//刷新举报栏待办案卷列表
+//刷新用户列表
 depart.GetUserList = function GetUserList(table) {
 
     var json = {
@@ -241,6 +241,7 @@ depart.GetUserList = function GetUserList(table) {
 
 }
 
+//初始化用户列表
 depart.initUserListTable = function () {
 
     var json = {
@@ -258,7 +259,7 @@ depart.initUserListTable = function () {
            .dataTable({
                "bServerSide": true,
                'bPaginate': true, //是否分页
-               "iDisplayLength": 10, //每页显示10条记录
+               "iDisplayLength": 20, //每页显示10条记录
                "ajax": {
                    "url": url + parm
                },
@@ -283,7 +284,7 @@ depart.initUserListTable = function () {
                           html += ' <span class="blue usermodify" data-url="/manager/user/InsertUser?usercode=' + full.userCode + '"><i class="ace-icon fa fa-search-plus bigger-120"></i>修改</span>';
                           html += ' </a>';
                           html += '   <a href="javascript:;" class="tooltip-info" data-rel="tooltip" title="View">';
-                          html += ' <span class="blue userdelete" ><i class="ace-icon fa fa-trash-o bigger-120"></i>删除</span>';
+                          html += ' <span class="blue userdelete" usercode="' + full.userCode + '"><i class="ace-icon fa fa-trash-o bigger-120"></i>删除</span>';
                           html += ' </a>';
                           html += ' </div>';
                           return html;
@@ -368,6 +369,166 @@ depart.initUserListTable = function () {
                            });
                        });
                    })
+
+                   $(".userdelete").click(function () {
+                       if (confirm("确定要删除吗？")) {
+                           var usercode = $(this).attr("usercode");
+                           utils.httpClient("/depart/DeleteUser", "POST", { usercode: usercode }, function (data) {
+                               if (data.RspCode == 1) {
+                                   utils.alert("删除成功！");
+                                   var table = $('#userlistTB').DataTable();
+                                   table.ajax.reload();
+                               } else {
+                                   utils.alert(data.RspMsg);
+                               }
+                           })
+                       }
+                   })
+               }
+           });
+
+    return oTable1;
+}
+
+
+//刷新用户列表
+depart.GetCollecterList = function GetUserList(table) {
+
+    var json = {
+        Name: $("input[name='Name']").val(),
+        LoginName: $("input[name='LoginName']").val(),
+        Type: $("input[name='Type']").val(),
+        Id: $("input[name='Id']").val(),
+        GridCode: $("input[name='GridCode']").val()
+    };
+
+    var url = '/Collector/GetCollecters';
+    var parm = "?Name=" + json.Name + "&LoginName=" + json.LoginName + "&GridCode=" + json.GridCode + "&Type=" + json.Type + "&Id=" + json.Id;
+
+
+    oSettings = table.fnSettings();
+    oSettings.ajax.url = url + parm;
+    table.fnDraw();
+
+}
+
+//初始化用户列表
+depart.initCollecterListTable = function () {
+
+    var json = {
+        Name: $("input[name='Name']").val(),
+        LoginName: $("input[name='LoginName']").val(),
+        Type: $("input[name='Type']").val(),
+        Id: $("input[name='Id']").val(),
+        GridCode: $("input[name='GridCode']").val()
+    };
+
+    var url = '/Collector/GetCollecters';
+    var parm = "?Name=" + json.Name + "&LoginName=" + json.LoginName + "&GridCode=" + json.GridCode + "&Type=" + json.Type + "&Id=" + json.Id;
+
+    var oTable1 =
+           $('#userlistTB')
+           .dataTable({
+               "bServerSide": true,
+               'bPaginate': true, //是否分页
+               "iDisplayLength": 20, //每页显示10条记录
+               "ajax": {
+                   "url": url + parm
+               },
+               'bFilter': false, //是否使用内置的过滤功能
+               "bSort": false,
+               "bProcessing": true,
+               "columns": [
+                  { "data": "CollName" },
+                  { "data": "LoginName" },
+                  { "data": "GridCode" },
+                  { "data": "Mobile" },
+                  { "data": "IMEI" },
+                  { "data": "HomeTel" },
+                  { "data": "HomeAddress" },
+                  {
+                      "mRender": function (data, type, full) {
+                          var html = '';
+                          html += '   <div class="hidden-md ">';
+                          html += '   <a href="javascript:;" class="tooltip-info" data-rel="tooltip" title="View">';
+                          html += ' <span class="blue collecterview" data-url="/manager/user/InsertUser?collcode=' + full.CollCode + '"><i class="ace-icon fa fa-location-arrow  bigger-120"></i>查看</span>';
+                          html += ' </a>';
+                          html += '   <a href="javascript:;" class="tooltip-info" data-rel="tooltip" title="View">';
+                          html += ' <span class="blue collectermodify" data-url="/manager/user/InsertCollecter?collcode=' + full.CollCode + '"><i class="ace-icon fa fa-search-plus bigger-120"></i>修改</span>';
+                          html += ' </a>';
+                          html += '   <a href="javascript:;" class="tooltip-info" data-rel="tooltip" title="View">';
+                          html += ' <span class="blue collecterdelete" collcode="' + full.CollCode + '" ><i class="ace-icon fa fa-trash-o bigger-120"></i>删除</span>';
+                          html += ' </a>';
+                          html += ' </div>';
+                          return html;
+                      }
+                  }
+               ],
+               "oLanguage": {
+                   "sProcessing": "正在处理.....",
+                   'sSearch': '数据筛选:',
+                   "sLengthMenu": "每页显示 _MENU_ 项记录",
+                   "sZeroRecords": "没有符合条件的数据...",
+                   "sInfo": "当前数据为从第 _START_ 到第 _END_ 项数据；总共有 _TOTAL_ 项记录",
+                   "sInfoEmpty": "显示 0 至 0 共 0 项",
+                   "sInfoFiltered": "(_MAX_)",
+                   "oPaginate": {
+                       "sFirst": "第一页",
+                       "sPrevious": " 上一页 ",
+                       "sNext": " 下一页 ",
+                       "sLast": " 最后一页 "
+                   }
+               }, fnDrawCallback: function () {
+
+                   $(".addcollecter,.collectermodify").click(function () {
+                       var url = $(this).attr("data-url");
+                       $.get(url, function (data) {
+                           bootbox.dialog({
+                               message: data,
+                               title: "编辑监督员",
+                               buttons:
+                               {
+                                   "success":
+                                   {
+                                       "label": "保存",
+                                       "className": "btn-sm btn-primary",
+                                       "callback": function () {
+                                           utils.httpClient("/collector/AddCollecter", "post", $("#collecter").serialize(), function (data) {
+                                               if (data.RspCode == 1) {
+                                                   utils.alert1("编辑成功!", function () {
+                                                       var table = $('#userlistTB').DataTable();
+                                                       table.ajax.reload();
+                                                   });
+                                               } else {
+                                                   utils.alert1(data.RspMsg);
+                                               }
+                                           });
+                                       }
+                                   },
+                                   "button":
+                                   {
+                                       "label": "取消",
+                                       "className": "btn-sm"
+                                   }
+                               }
+                           });
+                       });
+                   })
+
+                   $(".collecterdelete").click(function () {
+                       if (confirm("确定要删除吗？")) {
+                           var collcode = $(this).attr("collcode");
+                           utils.httpClient("/collector/DeleteCollector", "POST", { collcode: collcode }, function (data) {
+                               if (data.RspCode == 1) {
+                                   utils.alert("删除成功！");
+                                   var table = $('#userlistTB').DataTable();
+                                   table.ajax.reload();
+                               } else {
+                                   utils.alert(data.RspMsg);
+                               }
+                           })
+                       }
+                   })
                }
            });
 
@@ -421,6 +582,51 @@ depart.getUserDetail = function (usercode) {
                 autoclose: true,
                 todayHighlight: true,
                 language: 'zh-CN'
+            })
+
+        } else {
+            utils.alert(data.RspMsg);
+        }
+    });
+}
+
+depart.getCollecterDetail = function (collcode) {
+
+    utils.httpClient("/collector/GetCollecterInfoByCode", "post", { collcode: collcode }, function (data) {
+
+        if (data.RspCode == 1) {
+
+            var html = template('collecterdetailtpl', data.RspData);
+
+            document.getElementById('collecterdetail').innerHTML = html;
+
+
+            project.initPropDepartTree(function (e, treeId, treeNode) {
+                var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                var nodes = zTree.getSelectedNodes();
+                if (nodes != null) {
+                    var treeNode = nodes[0];
+                    $("#TargetDepartName").val(treeNode.name);
+                    $("#departcode").val(treeNode.tag);
+                }
+            });
+
+            $("#rolenames").click(function () {
+                depart.initRoleTree(function () {
+                    var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                    var nodes = zTree.getCheckedNodes(true);
+                    if (nodes != null) {
+                        var names = ""; var codes = "";
+                        $.each(nodes, function (index, item) {
+                            if (item.id.indexOf("aaaa") >= 0) {
+                                names += item.name + ",";
+                                codes += item.id.replace("aaaa", "") + ",";
+                            }
+                        })
+                        $("#rolenames").val(names.substring(0, names.length - 1));
+                        $("#roleids").val(codes.substring(0, codes.length - 1));
+                    }
+                });
             })
 
         } else {
@@ -486,6 +692,7 @@ depart.initRoleTree = function (callback) {
 }
 
 depart.initAreaTree = function () {
+    var table;
     var setting = {
         view: {
             dblClickExpand: false,
@@ -499,7 +706,22 @@ depart.initAreaTree = function () {
         callback: {
             onClick: function (e, treeId, treeNode) {
                 var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-                zTree.expandNode(treeNode);
+
+                var nodes = zTree.getSelectedNodes();
+                if (nodes != null && nodes.length > 0) {
+
+                    $("#Id").val(nodes[0].tag);
+
+                    if (nodes[0].level == 0) {
+                        $("#Type").val("area");
+                    } else {
+                        $("#Type").val("street");
+                    }
+
+                }
+
+                depart.GetCollecterList(table);
+
             }
         }
     };
@@ -512,14 +734,21 @@ depart.initAreaTree = function () {
 
             var treeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
 
-            nodes = treeObj.getNodes();
+            var node = treeObj.getNodes();
+            var nodes = treeObj.transformToArray(node);
 
-            //$.each(nodes, function (index, item) {
-            //    if (item.level ==0)
-            //    {
-            //        treeObj.hideNodes(item);
-            //    }
-            //})
+            $.each(nodes, function (index, item) {
+                if (item.level > 1) {
+                    treeObj.removeNode(item);
+                }
+            })
+
+            table = depart.initCollecterListTable();
+
+            $("#query").click(function () {
+                depart.GetCollecterList(table);
+            })
+
 
         } else {
             utils.alert(data.RspMsg);

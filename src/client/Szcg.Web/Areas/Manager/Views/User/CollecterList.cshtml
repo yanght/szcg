@@ -31,7 +31,7 @@
                 </div>
                 <div class="widget-toolbar no-border">
 
-                    <button class="btn btn-xs bigger btn-yellow dropdown-toggle" data-toggle="dropdown">
+                    <button class="btn btn-xs bigger btn-yellow dropdown-toggle addcollecter" data-toggle="dropdown" id="addcollecter" data-url="/manager/user/insertcollecter">
                         添加监督员
                     </button>
 
@@ -44,12 +44,13 @@
                         <form class="form-inline">
 
                             <label>姓名：</label>
-                            <input type="text" class="form-control" placeholder="" name="userName" id="userName">
+                            <input type="text" class="form-control" placeholder="" name="Name" id="Name">
                             <label>登录名：</label>
-                            <input type="text" class="form-control" placeholder="" name="loginName" id="loginName">
+                            <input type="text" class="form-control" placeholder="" name="LoginName" id="LoginName">
                             <label>网格号：</label>
-                            <input type="text" class="form-control" placeholder="" name="departName" id="departName">
-                            <input type="hidden" name="departId" id="departId" value="0">
+                            <input type="text" class="form-control" placeholder="" name="GridCode" id="GridCode">
+                            <input type="hidden" name="Id" id="Id" value="" />
+                            <input type="hidden" name="Type" id="Type" value="area" />
 
                             <button type="button" class="btn btn-info btn-sm" id="query">
                                 查询
@@ -99,8 +100,6 @@
     $(function () {
 
         ace.load_ajax_scripts([null], function () {
-
-            //depart.getDepartlistForUser();
 
             depart.initAreaTree();
 

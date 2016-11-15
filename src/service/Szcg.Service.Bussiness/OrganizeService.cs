@@ -214,7 +214,7 @@ namespace Szcg.Service.Bussiness
             {
                 LoggerManager.Instance.logger.Error("删除用户异常：" + strErr);
             }
-            return i > 0;
+            return i >= 0;
         }
 
         #endregion

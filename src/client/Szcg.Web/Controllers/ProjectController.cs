@@ -1196,19 +1196,19 @@ namespace Szcg.Web.Controllers
             {
                 if (area.AreaName == "全部") continue;
 
-                treeModel.Add(new TreeModel() { id = area.AreaCode, name = area.AreaName, pId = "0", open = true });
+                treeModel.Add(new TreeModel() { id = area.AreaCode, name = area.AreaName, pId = "0", open = true ,tag=area.Id});
                 List<Street> list_Street = svc.GetStreetList(area.AreaCode);
 
                 foreach (Street street in list_Street)
                 {
                     if (street.StreetName == "全部") continue;
-                    treeModel.Add(new TreeModel() { id = street.StreetCode, name = street.StreetName, pId = area.AreaCode });
+                    treeModel.Add(new TreeModel() { id = street.StreetCode, name = street.StreetName, pId = area.AreaCode, tag=street.Id });
                     List<Community> list_Community = svc.GetCommunityList(area.AreaCode, street.StreetCode);
 
                     foreach (Community community in list_Community)
                     {
                         if (community.CommName == "全部") continue;
-                        treeModel.Add(new TreeModel() { id = community.CommCode, name = community.CommName, pId = street.StreetCode });
+                        treeModel.Add(new TreeModel() { id = community.CommCode, name = community.CommName, pId = street.StreetCode ,tag=street.Id});
                     }
                 }
 
