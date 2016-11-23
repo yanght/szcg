@@ -26,7 +26,8 @@ role.getRoleTree = function () {
     var table;
     var setting = {
         check: {
-            enable: true
+            enable: true,
+            chkboxType: { "Y": "s", "N": "s" }
         },
         view: {
             dblClickExpand: false,
