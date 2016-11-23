@@ -88,5 +88,39 @@ namespace Szcg.Service.IBussiness
         /// <returns></returns>
         List<CollecterTask> GetTaskStat(string projcode, string streetId, string name, string type, string hcpower, DateTime beginTime, DateTime endTime, out string message);
 
+        /// <summary>
+        /// 获取所有城管通手机列表
+        /// </summary>
+        /// <param name="type">类型(area,street,community)</param>
+        /// <param name="id">区编码或者街道id或者社区id</param>
+        /// <param name="pageInfo">分页信息</param>
+        /// <param name="mobile">手机号码</param>
+        /// <param name="iesiCard">IMSI卡号</param>
+        /// <param name="iemiCard">IMEI卡号</param>
+        /// <param name="gridCode">网格号</param>
+        /// <returns></returns>
+        List<Collecter> GetAllMobile(string type, string id, PageInfo pageInfo, string mobile, string iesiCard, string iemiCard, string gridCode);
+
+        /// <summary>
+        /// 插入城管通信息
+        /// </summary>
+        /// <param name="col"></param>
+        /// <returns></returns>
+        ReturnValue InsertIntoMobile(Collecter col);
+
+        /// <summary>
+        /// 更新城管通信息
+        /// </summary>
+        /// <param name="col"></param>
+        /// <returns></returns>
+        bool UpdateToMobile(Collecter col);
+
+        /// <summary>
+        /// 通过城管通号码,获取城管通信息
+        /// </summary>
+        /// <param name="mobile"></param>
+        /// <returns></returns>
+        Collecter GetMobileByMobile(string mobile);
+
     }
 }

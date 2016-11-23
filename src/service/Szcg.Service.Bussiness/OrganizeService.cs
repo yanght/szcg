@@ -19,6 +19,7 @@ namespace Szcg.Service.Bussiness
         private string strErr = "";
 
         #region 用户相关
+
         /// <summary>
         /// 根据部门获取用户列表
         /// </summary>

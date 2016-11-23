@@ -187,6 +187,65 @@ namespace Szcg.Web.Controllers
             return ajax;
         }
 
+        #region [ 获取角色列表 ]
+
+        public AjaxFxRspJson GetRoleList()
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            List<Role> list = svc.GetRoles();
+
+            ajax.RspData.Add("roles", JToken.FromObject(list));
+
+            return ajax;
+        }
+
+
+        public AjaxFxRspJson GetRolePermissionTree(string roleId)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            List<SystemModel> models = svc.GetSystemModels();
+
+            List<SystemModel> rolemodels = svc.GetSystemModelsByRoleId(roleId);
+
+            List<TreeModel> tree = new List<TreeModel>();
+
+            tree.Add(new TreeModel()
+            {
+                id = "0",
+                pId = "0",
+                name = "系统权限",
+                open = true
+            });
+
+            foreach (var item in models)
+            {
+                TreeModel roleTree = new TreeModel();
+                roleTree.id = item.NodeCode;
+                roleTree.pId = item.ParentCode;
+                roleTree.name = item.NodeName;
+                foreach (var role in rolemodels)
+                {
+                    if (item.NodeCode == role.NodeCode)
+                    {
+                        roleTree.@checked = true;
+                    }
+                }
+                int count = tree.Where(m => m.id == item.ParentCode).Count();
+                if (count > 0)
+                {
+                    tree.Add(roleTree);
+                }
+            }
+
+            ajax.RspData.Add("roles", JToken.FromObject(tree));
+
+            return ajax;
+        }
+
+        #endregion
+
         #endregion
 
         #region [ 获取用户角色树 ]

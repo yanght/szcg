@@ -1,0 +1,77 @@
+﻿@{
+    Layout = null;
+}
+
+
+<div class="row">
+    <!-- #section:pages/pricing.small-header -->
+    <div class="col-xs-2 col-sm-2 pricing-span-header">
+        <div class="widget-box widget-color-blue ui-sortable-handle">
+            <div class="widget-header">
+                <h5 class="widget-title bigger lighter">权限管理</h5>
+            </div>
+            <div class="widget-body">
+                <div class="widget-main no-padding">
+                    <ul class="list-unstyled  pricing-table-header" id="permissionList"></ul>
+                    <input type="hidden" name="roleId" id="roleId" value="" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /section:pages/pricing.small-header -->
+    <!-- #section:pages/pricing.small-body -->
+    <div class="col-xs-10 col-sm-10 pricing-span-body">
+        <div class="widget-box widget-color-blue ui-sortable-handle">
+            <div class="widget-header">
+                <h5 class="widget-title bigger lighter">系统模块</h5>
+                <div class="widget-toolbar">
+                    <a href="#" data-action="collapse">
+                        <i class="1 ace-icon fa fa-chevron-up bigger-125"></i>
+                    </a>
+                </div>
+                <div class="widget-toolbar no-border">
+                    <button class="btn btn-xs bigger btn-yellow dropdown-toggle" data-toggle="dropdown" id="saveroles">
+                        保存权限
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="widget-body">
+                <div class="widget-main no-padding">
+                    <ul id="treeDemo" class="ztree"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /section:pages/pricing.small-body -->
+</div>
+
+
+<script src="/content/assets/js/date-time/bootstrap-datepicker.min.js"></script>
+<script src="/content/assets/js/date-time/bootstrap-timepicker.min.js"></script>
+<link rel="stylesheet" href="/Content/zTree_v3/css/metroStyle/metroStyle.css" type="text/css">
+<script type="text/javascript" src="/Content/zTree_v3/js/jquery.ztree.core.js"></script>
+<script src="/content/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
+<script src="/content/assets/js/jquery.dataTables.min.js"></script>
+<script src="/content/assets/js/jquery.dataTables.bootstrap.js"></script>
+<script src="/Content/zTree_v3/js/jquery.ztree.excheck.min.js"></script>
+
+<script type="text/javascript">
+
+    $(function () {
+
+        ace.load_ajax_scripts([null], function () {
+
+            role.getRoleList();
+
+            role.getRoleTree();
+
+        });
+
+    })
+
+
+</script>

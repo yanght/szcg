@@ -1,0 +1,109 @@
+﻿@{
+    Layout = null;
+}
+
+
+<div class="row">
+    <!-- #section:pages/pricing.small-header -->
+    <div class="col-xs-2 col-sm-2 pricing-span-header">
+        <div class="widget-box widget-color-blue ui-sortable-handle">
+            <div class="widget-header">
+                <h5 class="widget-title bigger lighter">区域</h5>
+            </div>
+            <div class="widget-body">
+                <div class="widget-main no-padding">
+                    <ul id="treeDemo" class="ztree"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /section:pages/pricing.small-header -->
+    <!-- #section:pages/pricing.small-body -->
+    <div class="col-xs-10 col-sm-10 pricing-span-body">
+        <div class="widget-box widget-color-blue ui-sortable-handle">
+            <div class="widget-header">
+                <h5 class="widget-title bigger lighter">网格列表</h5>
+                <div class="widget-toolbar">
+                    <a href="#" data-action="collapse">
+                        <i class="1 ace-icon fa fa-chevron-up bigger-125"></i>
+                    </a>
+                </div>
+                <div class="widget-toolbar no-border">
+
+                    <button class="btn btn-xs bigger btn-yellow dropdown-toggle addcollecter" data-toggle="dropdown" id="addcollecter" data-url="/manager/user/insertcollecter">
+                        添加网格
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="widget-body">
+                <div class="widget-main no-padding">
+                    <div class="well">
+                        <form class="form-inline">
+                            <label>城管通号码：</label>
+                            <input type="text" class="form-control" placeholder="" name="mobile" id="mobile">
+                            <label>SIM卡串码：</label>
+                            <input type="text" class="form-control" placeholder="" name="iesiCard" id="iesiCard">
+                            <label>手机串码：</label>
+                            <input type="text" class="form-control" placeholder="" name="iemiCard" id="iemiCard">
+                            <label>王网格号：</label>
+                            <input type="text" class="form-control" placeholder="" name="grideCode" id="grideCode">
+                            <input type="hidden" id="id" name="id" value="">
+                            <input type="hidden" name="type" id="type" value="area" />
+                            <button type="button" class="btn btn-info btn-sm" id="query">
+                                查询
+                            </button>
+                            <button type="reset" class="btn btn-info btn-sm">
+                                重置
+                            </button>
+                        </form>
+                    </div>
+
+                    <table class="table table-striped table-bordered table-hover" id="gridelistTB">
+                        <thead class="thin-border-bottom">
+                            <tr>
+                                <th> 城管通号码 </th>
+                                <th> SIM卡串码 </th>
+                                <th> 网格编号 </th>
+                                <th> 手机串码 </th>
+                                <th> 网格编号 </th>
+                                <th> 注册时间 </th>
+                                <th> 编辑时间 </th>
+                                <th> 操作 </th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /section:pages/pricing.small-body -->
+</div>
+
+
+<script src="/content/assets/js/date-time/bootstrap-datepicker.min.js"></script>
+<script src="/content/assets/js/date-time/bootstrap-timepicker.min.js"></script>
+<link rel="stylesheet" href="/Content/zTree_v3/css/metroStyle/metroStyle.css" type="text/css">
+<script type="text/javascript" src="/Content/zTree_v3/js/jquery.ztree.core.js"></script>
+<script src="/content/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
+<script src="/content/assets/js/jquery.dataTables.min.js"></script>
+<script src="/content/assets/js/jquery.dataTables.bootstrap.js"></script>
+
+<script type="text/javascript">
+
+    $(function () {
+
+        ace.load_ajax_scripts([null], function () {
+
+            depart.initGrideList();
+
+        });
+
+    })
+
+
+</script>

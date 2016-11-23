@@ -192,6 +192,7 @@
     <Compile Include="Areas\Manager\Controllers\DepartmentController.cs" />
     <Compile Include="Areas\Manager\Controllers\HomeController.cs" />
     <Compile Include="Areas\Manager\Controllers\OrganizeController.cs" />
+    <Compile Include="Areas\Manager\Controllers\RoleController.cs" />
     <Compile Include="Areas\Manager\Controllers\UserController.cs" />
     <Compile Include="Controllers\AppraiseController.cs" />
     <Compile Include="Controllers\DocumentController.cs" />
@@ -621,6 +622,7 @@
     <Content Include="Content\js\common.js" />
     <Content Include="Content\js\depart.js" />
     <Content Include="Content\js\project.js" />
+    <Content Include="Content\js\role.js" />
     <Content Include="Content\juicer.js" />
     <Content Include="Content\MxSlider.js" />
     <Content Include="Content\template.js" />
@@ -1068,6 +1070,8 @@
     <Content Include="Areas\Manager\Views\User\RoleTree.cshtml" />
     <Content Include="Areas\Manager\Views\User\CollecterList.cshtml" />
     <Content Include="Areas\Manager\Views\User\InsertCollecter.cshtml" />
+    <Content Include="Areas\Manager\Views\User\GrideList.cshtml" />
+    <Content Include="Areas\Manager\Views\Role\PermissionManager.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />

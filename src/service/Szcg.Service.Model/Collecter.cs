@@ -88,6 +88,10 @@ namespace Szcg.Service.Model
         /// </summary>
         public string HomeAddress { get; set; }
         /// <summary>
+        /// 注册时间
+        /// </summary>
+        public string Regdate { get; set; }
+        /// <summary>
         /// 身份证号码
         /// </summary>
         public string Code { get; set; }

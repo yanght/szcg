@@ -1,5 +1,6 @@
 ﻿var depart = {};
 
+//获取部门列表
 depart.getDepartlist = function () {
 
     utils.httpClient("/depart/GetDepartListView", "post", null, function (data) {
@@ -185,6 +186,7 @@ depart.getDepartlist = function () {
 
 }
 
+//获取部门列表
 depart.getDepartlistForUser = function () {
 
     utils.httpClient("/depart/GetDepartListView", "post", null, function (data) {
@@ -390,7 +392,6 @@ depart.initUserListTable = function () {
     return oTable1;
 }
 
-
 //刷新用户列表
 depart.GetCollecterList = function GetUserList(table) {
 
@@ -535,6 +536,7 @@ depart.initCollecterListTable = function () {
     return oTable1;
 }
 
+//获取用户详情
 depart.getUserDetail = function (usercode) {
 
     utils.httpClient("/depart/GetUserById", "post", { userCode: usercode }, function (data) {
@@ -590,6 +592,7 @@ depart.getUserDetail = function (usercode) {
     });
 }
 
+//获取监督员详情
 depart.getCollecterDetail = function (collcode) {
 
     utils.httpClient("/collector/GetCollecterInfoByCode", "post", { collcode: collcode }, function (data) {
@@ -635,6 +638,7 @@ depart.getCollecterDetail = function (collcode) {
     });
 }
 
+//获取角色树
 depart.initRoleTree = function (callback) {
     $.get("/manager/user/RoleTree", function (data) {
         var dialog = bootbox.dialog({
@@ -691,6 +695,7 @@ depart.initRoleTree = function (callback) {
     });
 }
 
+//获取区域树
 depart.initAreaTree = function () {
     var table;
     var setting = {
@@ -705,9 +710,11 @@ depart.initAreaTree = function () {
         },
         callback: {
             onClick: function (e, treeId, treeNode) {
+
                 var zTree = $.fn.zTree.getZTreeObj("treeDemo");
 
                 var nodes = zTree.getSelectedNodes();
+
                 if (nodes != null && nodes.length > 0) {
 
                     $("#Id").val(nodes[0].tag);
@@ -717,11 +724,8 @@ depart.initAreaTree = function () {
                     } else {
                         $("#Type").val("street");
                     }
-
                 }
-
                 depart.GetCollecterList(table);
-
             }
         }
     };
@@ -743,15 +747,223 @@ depart.initAreaTree = function () {
                 }
             })
 
-            table = depart.initCollecterListTable();
+        } else {
+            utils.alert(data.RspMsg);
+        }
+    });
 
-            $("#query").click(function () {
-                depart.GetCollecterList(table);
-            })
+    table = depart.initCollecterListTable();
 
+    $("#query").click(function () {
+        depart.GetCollecterList(table);
+    })
+}
+
+//初始化网格列表
+depart.initGrideList = function () {
+    var table;
+    var setting = {
+        view: {
+            dblClickExpand: false,
+            showLine: true
+        },
+        data: {
+            simpleData: {
+                enable: true
+            }
+        },
+        callback: {
+            onClick: function (e, treeId, treeNode) {
+
+                var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+
+                var nodes = zTree.getSelectedNodes();
+
+                if (nodes != null && nodes.length > 0) {
+
+                    $("#id").val(nodes[0].tag);
+
+                    if (nodes[0].level == 0) {
+                        $("#Type").val("area");
+                    } else if (nodes[0].level == 1) {
+                        $("#Type").val("street");
+                    } else {
+                        $("#Type").val("community");
+                    }
+                }
+                depart.GetGrideList(table);
+            }
+        }
+    };
+
+    utils.httpClient("/project/GetAreaTree", "post", null, function (data) {
+
+        if (data.RspCode == 1) {
+
+            zNodes = data.RspData.areaTree;
+
+            var treeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+
+            var node = treeObj.getNodes();
+            var nodes = treeObj.transformToArray(node);
 
         } else {
             utils.alert(data.RspMsg);
         }
     });
+
+    table = depart.initGrideListTable();
+
+    $("#query").click(function () {
+        depart.GetGrideList(table);
+    })
 }
+
+//初始化网格树列表
+depart.initGrideListTable = function () {
+
+    var json = {
+        type: $("input[name='type']").val(),
+        id: $("input[name='id']").val(),
+        mobile: $("input[name='mobile']").val(),
+        iesiCard: $("input[name='iesiCard']").val(),
+        iemiCard: $("input[name='iemiCard']").val(),
+        grideCode: $("input[name='grideCode']").val()
+    };
+
+
+    var url = '/collector/GetAllMobile';
+    var parm = "?mobile=" + json.mobile + "&iesiCard=" + json.iesiCard + "&iemiCard=" + json.iemiCard + "&grideCode=" + json.grideCode + "&type=" + json.type + "&id=" + json.id;
+
+    var oTable1 =
+           $('#gridelistTB')
+           .dataTable({
+               "bServerSide": true,
+               'bPaginate': true, //是否分页
+               "iDisplayLength": 20, //每页显示10条记录
+               "ajax": {
+                   "url": url + parm
+               },
+               'bFilter': false, //是否使用内置的过滤功能
+               "bSort": false,
+               "bProcessing": true,
+               "columns": [
+                  { "data": "Mobile" },
+                  { "data": "IMEI" },
+                  { "data": "GridCode" },
+                  { "data": "Regdate" },
+                  { "data": "Cu_Date" },
+                  {
+                      "mRender": function (data, type, full) {
+                          var html = '';
+                          html += '   <div class="hidden-md ">';
+                          html += '   <a href="javascript:;" class="tooltip-info" data-rel="tooltip" title="View">';
+                          html += ' <span class="blue userview" data-url="/manager/user/InsertUser?CollCode=' + full.CollCode + '"><i class="ace-icon fa fa-location-arrow  bigger-120"></i>查看</span>';
+                          html += ' </a>';
+                          html += '   <a href="javascript:;" class="tooltip-info" data-rel="tooltip" title="View">';
+                          html += ' <span class="blue usermodify" data-url="/manager/user/InsertUser?CollCode=' + full.CollCode + '"><i class="ace-icon fa fa-search-plus bigger-120"></i>修改</span>';
+                          html += ' </a>';
+                          html += '   <a href="javascript:;" class="tooltip-info" data-rel="tooltip" title="View">';
+                          html += ' <span class="blue userdelete" usercode="' + full.CollCode + '"><i class="ace-icon fa fa-trash-o bigger-120"></i>删除</span>';
+                          html += ' </a>';
+                          html += ' </div>';
+                          return html;
+                      }
+                  }
+               ],
+               "oLanguage": {
+                   "sProcessing": "正在处理.....",
+                   'sSearch': '数据筛选:',
+                   "sLengthMenu": "每页显示 _MENU_ 项记录",
+                   "sZeroRecords": "没有符合条件的数据...",
+                   "sInfo": "当前数据为从第 _START_ 到第 _END_ 项数据；总共有 _TOTAL_ 项记录",
+                   "sInfoEmpty": "显示 0 至 0 共 0 项",
+                   "sInfoFiltered": "(_MAX_)",
+                   "oPaginate": {
+                       "sFirst": "第一页",
+                       "sPrevious": " 上一页 ",
+                       "sNext": " 下一页 ",
+                       "sLast": " 最后一页 "
+                   }
+               }, fnDrawCallback: function () {
+
+                   $(".usermodify").click(function () {
+
+                       var url = $(this).attr("data-url");
+
+                       $.get(url, function (data) {
+                           bootbox.dialog({
+                               message: data,
+                               buttons:
+                               {
+                                   "success":
+                                   {
+                                       "label": "确定",
+                                       "className": "btn-sm btn-primary",
+                                       "callback": function () {
+                                           var json = {
+                                               userCode: $("#userCode").val(),
+                                           };
+
+                                           utils.httpClient("/depart/insertuser", "POST", json, function (data) {
+                                               if (data.RspCode == 1) {
+                                                   utils.alert("编辑成功！");
+                                                   var table = $('#gridelistTB').DataTable();
+                                                   table.ajax.reload();
+                                               } else {
+                                                   utils.alert(data.RspMsg);
+                                               }
+                                           })
+                                       }
+                                   },
+                                   "button":
+                                   {
+                                       "label": "取消",
+                                       "className": "btn-sm"
+                                   }
+                               }
+                           });
+                       });
+                   })
+
+                   $(".userdelete").click(function () {
+                       if (confirm("确定要删除吗？")) {
+                           var usercode = $(this).attr("usercode");
+                           utils.httpClient("/depart/DeleteUser", "POST", { usercode: usercode }, function (data) {
+                               if (data.RspCode == 1) {
+                                   utils.alert("删除成功！");
+                                   var table = $('#userlistTB').DataTable();
+                                   table.ajax.reload();
+                               } else {
+                                   utils.alert(data.RspMsg);
+                               }
+                           })
+                       }
+                   })
+               }
+           });
+
+    return oTable1;
+}
+
+//刷新网格树列表
+depart.GetGrideList = function GetGrideList(table) {
+
+    var json = {
+        type: $("input[name='type']").val(),
+        id: $("input[name='id']").val(),
+        mobile: $("input[name='mobile']").val(),
+        iesiCard: $("input[name='iesiCard']").val(),
+        iemiCard: $("input[name='iemiCard']").val(),
+        grideCode: $("input[name='grideCode']").val()
+    };
+
+    var url = '/collector/GetAllMobile';
+    var parm = "?mobile=" + json.mobile + "&iesiCard=" + json.iesiCard + "&iemiCard=" + json.iemiCard + "&grideCode=" + json.grideCode + "&type=" + json.type + "&id=" + json.id;
+
+    oSettings = table.fnSettings();
+    oSettings.ajax.url = url + parm;
+    table.fnDraw();
+
+}
+

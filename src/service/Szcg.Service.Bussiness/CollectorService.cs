@@ -319,6 +319,129 @@ namespace Szcg.Service.Bussiness
             return list;
         }
 
+        /// <summary>
+        /// 获取所有城管通手机列表
+        /// </summary>
+        /// <param name="type">类型(area,street,community)</param>
+        /// <param name="id">区编码或者街道id或者社区id</param>
+        /// <param name="pageInfo">分页信息</param>
+        /// <param name="mobile">手机号码</param>
+        /// <param name="iesiCard">IMSI卡号</param>
+        /// <param name="iemiCard">IMEI卡号</param>
+        /// <param name="gridCode">网格号</param>
+        /// <returns></returns>
+        public List<Collecter> GetAllMobile(string type, string id, PageInfo pageInfo, string mobile, string iesiCard, string iemiCard, string gridCode)
+        {
+            List<Collecter> colls = new List<Collecter>();
+
+            CollecterManage bl = new CollecterManage();
+
+            ArrayList[] list = bl.GetAllMobile(type, int.Parse(id), int.Parse(pageInfo.CurrentPage), int.Parse(pageInfo.PageSize), int.Parse(pageInfo.ReturnRecordCount), mobile, iesiCard, iemiCard, gridCode, ref strErr);
+
+            for (int i = 0; i < list[0].Count; i++)
+            {
+                bacgBL.web.szbase.entity.Collecter coll = (bacgBL.web.szbase.entity.Collecter)list[0][i];
+
+                Collecter c = new Collecter()
+                {
+                    CollCode = coll.CollCode,
+                    GridCode = coll.GridCode,
+                    CollName = coll.CollName,
+                    LoginName = coll.LoginName,
+                    Mobile = coll.Mobile,
+                    IMEI = coll.Imei,
+                    HomeTel = coll.Tel,
+                    IMSI = coll.ImsiCard,
+                    HomeAddress = coll.Address,
+                    Regdate = coll.Regdate,
+                    Cu_Date = coll.Cudate
+                };
+
+                colls.Add(c);
+
+            }
+
+            pageInfo.RowCount = list[1][0].ToString();
+
+            return colls;
+        }
+
+        /// <summary>
+        /// 插入城管通信息
+        /// </summary>
+        /// <param name="col"></param>
+        /// <returns></returns>
+        public ReturnValue InsertIntoMobile(Collecter col)
+        {
+            ReturnValue rtn = new ReturnValue() { ReturnState = true };
+
+            int t = bl.CheckMobile(col.Mobile, ref strErr);
+            if (strErr != "")
+            {
+                rtn.ErrorMsg = strErr;
+                rtn.ReturnState = false;
+                return rtn;
+            }
+            if (t > 0)
+            {
+                rtn.ReturnState = false;
+                rtn.ErrorMsg = "城管通号码不能重复!";
+                return rtn;
+            }
+
+            bacgBL.web.szbase.entity.Collecter collecter = new bacgBL.web.szbase.entity.Collecter()
+            {
+                Mobile = col.Mobile,
+                ImsiCard = col.IMSI,
+                ImeiCard = col.IMEI,
+                GridCode = col.GridCode
+            };
+
+            rtn.ReturnState = bl.InsertIntoMobile(collecter, ref strErr) > 0;
+
+            return rtn;
+        }
+
+        /// <summary>
+        /// 更新城管通信息
+        /// </summary>
+        /// <param name="col"></param>
+        /// <returns></returns>
+        public bool UpdateToMobile(Collecter col)
+        {
+            bacgBL.web.szbase.entity.Collecter collecter = new bacgBL.web.szbase.entity.Collecter()
+            {
+                Mobile = col.Mobile,
+                ImsiCard = col.IMSI,
+                ImeiCard = col.IMEI,
+                GridCode = col.GridCode
+            };
+
+            return bl.UpdateToMobile(collecter, ref strErr) > 0;
+        }
+
+        /// <summary>
+        /// 通过城管通号码,获取城管通信息
+        /// </summary>
+        /// <param name="mobile"></param>
+        /// <returns></returns>
+        public Collecter GetMobileByMobile(string mobile)
+        {
+            Collecter coll = new Collecter();
+
+            bacgBL.web.szbase.entity.Collecter collObject = bl.GetMobileByID(mobile, ref strErr);
+            if (collObject != null)
+            {
+
+                coll.Mobile = collObject.Mobile;
+                coll.IMEI = collObject.Imei;
+                coll.IMSI = collObject.ImsiCard;
+                coll.GridCode = collObject.GridCode;
+            }
+
+            return coll;
+
+        }
 
     }
 }

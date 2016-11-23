@@ -6,37 +6,30 @@ using System.Web.Mvc;
 
 namespace Szcg.Web.Areas.Manager.Controllers
 {
-    public class UserController : Controller
+    public class RoleController : Controller
     {
         //
-        // GET: /Manager/User/
+        // GET: /Manager/Role/
 
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult InsertUser()
+        //权限
+        public ActionResult PermissionManager()
         {
             return View();
         }
 
-        public ActionResult RoleTree()
+        //角色
+        public ActionResult RoleManager()
         {
             return View();
         }
 
-        public ActionResult CollecterList()
-        {
-            return View();
-        }
-
-        public ActionResult InsertCollecter()
-        {
-            return View();
-        }
-
-        public ActionResult GrideList()
+        //授权
+        public ActionResult PurviewManager()
         {
             return View();
         }

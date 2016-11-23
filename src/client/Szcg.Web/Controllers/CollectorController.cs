@@ -109,6 +109,50 @@ namespace Szcg.Web.Controllers
 
         }
 
+
+        public JsonResult GetAllMobile(string type, string id, string mobile, string iesiCard, string iemiCard, string grideCode)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            if (UserInfo == null)
+            {
+                ajax.RspMsg = "用户未登录！";
+                ajax.RspCode = 0;
+                return Json(ajax);
+            }
+
+            int currentpage = int.Parse(Request["start"]);
+
+            int pagesize = int.Parse(Request["length"]);
+
+            if (currentpage != 0)
+            {
+                currentpage = (currentpage / pagesize) + 1;
+            }
+            else
+            {
+                currentpage = 1;
+            }
+
+            PageInfo pageInfo = new PageInfo();
+
+            pageInfo.PageSize = Request["length"];
+
+            pageInfo.CurrentPage = currentpage.ToString();
+
+            pageInfo.ReturnRecordCount = "1";
+
+            if (string.IsNullOrEmpty(id))
+            {
+                id = UserInfo.getAreacode();
+            }
+
+            List<Collecter> list = svc.GetAllMobile(type, id, pageInfo, mobile, iesiCard, iemiCard, grideCode);
+
+            return Json(new { draw = Request["draw"], recordsTotal = pageInfo.RowCount, recordsFiltered = pageInfo.RowCount, data = list == null ? new List<Collecter>() : list }, JsonRequestBehavior.AllowGet);
+
+        }
+
         #endregion
 
         #region [ 获取核查案卷监督员列表 ]
@@ -229,6 +273,65 @@ namespace Szcg.Web.Controllers
                 Collecter collecter = svc.GetCollecterInfoByCode(collcode);
                 ajax.RspData.Add("collecter", JToken.FromObject(collecter));
             }
+
+            return ajax;
+        }
+
+        #endregion
+
+        #region [ 插入或修改城管通信息 ]
+
+        public AjaxFxRspJson InsertIntoMobile(Collecter collecter)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            if (collecter.CollCode > 0)
+            {
+                return UpdateToMobile(collecter);
+            }
+            else
+            {
+                ReturnValue rtn = svc.InsertIntoMobile(collecter);
+
+                if (!rtn.ReturnState)
+                {
+                    ajax.RspCode = 0;
+                    ajax.RspMsg = rtn.ErrorMsg;
+                    return ajax;
+                }
+            }
+            return ajax;
+        }
+
+        #endregion
+
+        #region [ 修改城管通信息 ]
+
+        public AjaxFxRspJson UpdateToMobile(Collecter collecter)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            bool rtn = svc.UpdateToMobile(collecter);
+
+            if (!rtn)
+            {
+                ajax.RspCode = 0;
+                ajax.RspMsg = "修改失败！";
+                return ajax;
+            }
+
+            return ajax;
+        }
+
+        #endregion
+
+        #region [ 通过城管通号码,获取城管通信息 ]
+
+        public AjaxFxRspJson GetMobileByMobile(string mobile)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            ajax.RspData.Add("data", JToken.FromObject(svc.GetMobileByMobile(mobile)));
 
             return ajax;
         }
