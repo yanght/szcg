@@ -1,5 +1,6 @@
 ﻿var role = {};
 
+//获取所有权限列表
 role.getRoleList = function () {
     utils.httpClient("/account/GetRoleList", "post", null, function (data) {
         if (data.RspCode == 1) {
@@ -22,12 +23,17 @@ role.getRoleList = function () {
     });
 }
 
+//改变的权限code
+var changeroleids = new Array();
+
+//获取某个角色的权限
 role.getRoleTree = function () {
+
     var table;
     var setting = {
         check: {
             enable: true,
-            chkboxType: { "Y": "s", "N": "s" }
+            chkboxType: { "Y": "", "N": "" }
         },
         view: {
             dblClickExpand: false,
@@ -42,6 +48,20 @@ role.getRoleTree = function () {
             onClick: function (e, treeId, treeNode) {
                 var zTree = $.fn.zTree.getZTreeObj("treeDemo");
                 zTree.expandNode(treeNode);
+
+            },
+            onCheck: function (event, treeId, treeNode) {
+                var flag = false;
+
+                $.each(changeroleids, function (index, item) {
+                    if (item == treeNode.id) {
+                        changeroleids.splice(index, 1);
+                        flag = treeId;
+                    }
+                })
+                if (!flag) {
+                    changeroleids.push(treeNode.id);
+                }
             }
         }
     };
@@ -61,22 +81,15 @@ role.getRoleTree = function () {
     });
 }
 
+//更新角色的权限
 role.updateModels = function () {
     $("#saveroles").click(function () {
-        if ($("#roleId").val().length == 0)
-        {
+        if ($("#roleId").val().length == 0) {
             utils.alert("您没有设置用户,请选择相应角色后设置权限!");
             return false;
         }
-        var roles = '';
-        var treeObj = $.fn.zTree.getZTreeObj("treeDemo");
-        var nodes = treeObj.getCheckedNodes(true);
-        $.each(nodes, function (index, item) {
-            roles += item.id + ",";
-        })
-        roles = roles.substring(0, roles.length - 1);
-        console.log(roles);
-        utils.httpClient("/account/UpdateSystemModel", "post", { roleId: $("#roleId").val(), modelcodes: roles }, function (data) {
+
+        utils.httpClient("/account/UpdateSystemModel", "post", { roleId: $("#roleId").val(), modelcodes: changeroleids.toString() }, function (data) {
             if (data.RspCode == 1) {
                 utils.alert("更新成功！");
             } else {

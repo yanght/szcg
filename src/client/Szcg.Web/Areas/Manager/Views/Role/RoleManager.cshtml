@@ -8,7 +8,7 @@
     <div class="col-xs-2 col-sm-2 pricing-span-header">
         <div class="widget-box widget-color-blue ui-sortable-handle">
             <div class="widget-header">
-                <h5 class="widget-title bigger lighter">权限管理</h5>
+                <h5 class="widget-title bigger lighter">角色管理</h5>
             </div>
             <div class="widget-body">
                 <div class="widget-main no-padding">
@@ -24,7 +24,7 @@
     <div class="col-xs-10 col-sm-10 pricing-span-body">
         <div class="widget-box widget-color-blue ui-sortable-handle">
             <div class="widget-header">
-                <h5 class="widget-title bigger lighter">系统模块</h5>
+                <h5 class="widget-title bigger lighter">编辑角色</h5>
                 <div class="widget-toolbar">
                     <a href="#" data-action="collapse">
                         <i class="1 ace-icon fa fa-chevron-up bigger-125"></i>
@@ -32,7 +32,7 @@
                 </div>
                 <div class="widget-toolbar no-border">
                     <button class="btn btn-xs bigger btn-yellow dropdown-toggle" data-toggle="dropdown" id="saveroles">
-                        保存权限
+                        删除
                     </button>
                 </div>
 
@@ -64,7 +64,7 @@
     $(function () {
 
         ace.load_ajax_scripts([null], function () {
-          
+
             role.getRoleList();
 
             role.getRoleTree();

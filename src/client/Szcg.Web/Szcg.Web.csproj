@@ -1072,6 +1072,7 @@
     <Content Include="Areas\Manager\Views\User\InsertCollecter.cshtml" />
     <Content Include="Areas\Manager\Views\User\GrideList.cshtml" />
     <Content Include="Areas\Manager\Views\Role\PermissionManager.cshtml" />
+    <Content Include="Areas\Manager\Views\Role\RoleManager.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
