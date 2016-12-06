@@ -149,22 +149,48 @@ namespace Szcg.Web.Controllers
 
             if (!string.IsNullOrEmpty(role.RoleCode))
             {
-                rtn = svc.InsertRole(role);
-                if (!rtn)
-                {
-                    ajax.RspMsg = "添加角色失败！";
-                }
-            }
-            else
-            {
                 rtn = svc.UpdateRole(role);
                 if (!rtn)
                 {
                     ajax.RspMsg = "修改角色失败！";
                 }
             }
+            else
+            {
+                rtn = svc.InsertRole(role);
+                if (!rtn)
+                {
+                    ajax.RspMsg = "添加角色失败！";
+                }
+            }
             if (!rtn)
             {
+                ajax.RspCode = 0;
+                return ajax;
+            }
+
+            return ajax;
+        }
+
+        /// <summary>
+        /// 删除角色
+        /// </summary>
+        /// <param name="roleId"></param>
+        /// <returns></returns>
+        public AjaxFxRspJson DeleteRole(string roleId)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            if (string.IsNullOrEmpty(roleId))
+            {
+                ajax.RspMsg = "请输入角色Id！";
+                ajax.RspCode = 0;
+                return ajax;
+            }
+
+            if (!(svc.DeleteRole(int.Parse(roleId)) > 0))
+            {
+                ajax.RspMsg = "删除角色失败！";
                 ajax.RspCode = 0;
                 return ajax;
             }

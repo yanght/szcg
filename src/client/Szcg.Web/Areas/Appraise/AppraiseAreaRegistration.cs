@@ -14,11 +14,19 @@ namespace Szcg.Web.Areas.Appraise
 
         public override void RegisterArea(AreaRegistrationContext context)
         {
-            //context.MapRoute(
-            //    "Appraise_default",
-            //    "Appraise/{controller}/{action}/{id}",
-            //    new { action = "Index", id = UrlParameter.Optional }
-            //);
+
+            context.MapRoute(
+            name: "Appraise_main",
+            url: "appraise/main.html",
+            defaults: new { controller = "Home", action = "Main", @namespace = "Szcg.Web.Areas.Appraise.Controllers" }
+        );
+
+            context.MapRoute(
+                "Appraise_default",
+                "Appraise/{controller}/{action}/{id}",
+                new { action = "Index", id = UrlParameter.Optional },
+                   new[] { "Szcg.Web.Areas.Appraise.Controllers" }
+            );
         }
     }
 }

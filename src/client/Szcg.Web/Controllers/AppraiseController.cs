@@ -12,7 +12,7 @@ using Szcg.Service.Model.RequestModel;
 
 namespace Szcg.Web.Controllers
 {
-    public class AppraiseController : BaseController
+    public class AppraiseApiController : BaseController
     {
         IAppraiseService svc = new AppraiseService();
 

@@ -25,6 +25,33 @@ namespace Szcg.Web.Controllers
             return View();
         }
 
+        public AjaxFxRspJson GetUserTreeList()
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            List<TreeModel> trees = new List<TreeModel>();
+
+            List<UserData> users = svc.GetUserTreeList(this.UserInfo.getAreacode(), this.UserInfo.getDepartcode().ToString());
+
+            foreach (UserData user in users)
+            {
+                TreeModel tree = new TreeModel()
+                {
+                    id = user.userCode,
+                    pId = user.parentID,
+                    name = user.userName,
+                    tag = user.memo,
+                };
+
+                trees.Add(tree);
+            }
+
+            ajax.RspData.Add("users", JToken.FromObject(trees));
+
+            return ajax;
+        }
+
+
         #region [ 获取部门列表 ]
 
         /// <summary>
@@ -282,7 +309,7 @@ namespace Szcg.Web.Controllers
                 departId = "0";
             }
 
-            List<UserInfo> list = svc.GetUserByDeptID(int.Parse(departId), pageInfo, UserInfo.getUsercode(), userName == null ? "" : userName, loginName == null ? "" : loginName, departName == null ? "" : departName, pageInfo.Order , pageInfo.Field);
+            List<UserInfo> list = svc.GetUserByDeptID(int.Parse(departId), pageInfo, UserInfo.getUsercode(), userName == null ? "" : userName, loginName == null ? "" : loginName, departName == null ? "" : departName, pageInfo.Order, pageInfo.Field);
 
             List<UserData> users = new List<UserData>();
 

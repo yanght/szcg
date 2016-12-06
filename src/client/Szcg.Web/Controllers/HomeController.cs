@@ -82,6 +82,10 @@ namespace Szcg.Web.Controllers
                     {
                         rtnurl = "/manager/main.html";
                     }
+                    if (systemId == "21")
+                    {
+                        rtnurl = "/Appraise/main.html";
+                    }
 
                     ajax.RspData.Add("url", JToken.FromObject(rtnurl));
                     ajax.RspCode = 1;

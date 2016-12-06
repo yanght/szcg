@@ -1,5 +1,6 @@
 ﻿using bacgBL.web.szbase.entity;
 using bacgBL.web.szbase.organize;
+using bacgBL.web.szbase.purview;
 using bacgDL.business;
 using System;
 using System.Collections;
@@ -19,6 +20,37 @@ namespace Szcg.Service.Bussiness
         private string strErr = "";
 
         #region 用户相关
+
+        /// <summary>
+        ///  获取人员树信息（部门，人员）
+        /// </summary>
+        /// <param name="areacode">区域编码</param>
+        /// <param name="departcode">部门编码</param>
+        /// <returns></returns>
+        public List<UserData> GetUserTreeList(string areacode, string departcode)
+        {
+            List<UserData> users = new List<UserData>();
+
+            Purviews bl = new Purviews();
+
+            ArrayList list = bl.GetUserTreeList(areacode, departcode, ref strErr);
+
+            foreach (var item in list)
+            {
+                TreeSuruct ts = (TreeSuruct)item;
+                UserData user = new UserData()
+                {
+                    userCode = ts.code,
+                    parentID = ts.pcode,
+                    userName = ts.text,
+                    memo = ts.tag
+                };
+
+                users.Add(user);
+            }
+
+            return users;
+        }
 
         /// <summary>
         /// 根据部门获取用户列表

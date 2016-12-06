@@ -4,7 +4,7 @@
 
 
 <div class="row">
-    <!-- #section:pages/pricing.small-header -->
+
     <div class="col-xs-2 col-sm-2 pricing-span-header">
         <div class="widget-box widget-color-blue ui-sortable-handle">
             <div class="widget-header">
@@ -19,8 +19,6 @@
         </div>
     </div>
 
-    <!-- /section:pages/pricing.small-header -->
-    <!-- #section:pages/pricing.small-body -->
     <div class="col-xs-10 col-sm-10 pricing-span-body">
         <div class="widget-box widget-color-blue ui-sortable-handle">
             <div class="widget-header">
@@ -31,7 +29,10 @@
                     </a>
                 </div>
                 <div class="widget-toolbar no-border">
-                    <button class="btn btn-xs bigger btn-yellow dropdown-toggle" data-toggle="dropdown" id="saveroles">
+                    <button class="btn btn-xs bigger btn-yellow dropdown-toggle" data-toggle="dropdown" id="addrole">
+                        添加
+                    </button>
+                    <button class="btn btn-xs bigger btn-yellow dropdown-toggle" data-toggle="dropdown" id="deleterole">
                         删除
                     </button>
                 </div>
@@ -40,15 +41,53 @@
 
             <div class="widget-body">
                 <div class="widget-main no-padding">
-                    <ul id="treeDemo" class="ztree"></ul>
-                </div>
+                    <div class="well col-xs-12">
+                        <div class="well col-xs-6">
+                            <form class="form-horizontal" role="form">
+                                <!-- #section:elements.form -->
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 名称 </label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" id="RoleName" name="RoleName" placeholder="" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> 选择阶段 </label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" id="StepId" name="StepId"></select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> 所属区域 </label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" id="AreaId" name="AreaId"></select>
+                                    </div>
+                                </div>
+                                <!-- /section:elements.form -->
+                                <div class=" form-actions">
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <button class="btn btn-info" type="button" id="saverole">
+                                            <i class="ace-icon fa fa-check bigger-110"></i>
+                                            确认
+                                        </button>
+                                        &nbsp; &nbsp; &nbsp;
+                                        <button class="btn" type="reset">
+                                            <i class="ace-icon fa fa-undo bigger-110"></i>
+                                            取消
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div><!-- /.col -->
             </div>
         </div>
     </div>
 
-    <!-- /section:pages/pricing.small-body -->
 </div>
-
 
 <script src="/content/assets/js/date-time/bootstrap-datepicker.min.js"></script>
 <script src="/content/assets/js/date-time/bootstrap-timepicker.min.js"></script>
@@ -65,9 +104,14 @@
 
         ace.load_ajax_scripts([null], function () {
 
-            role.getRoleList();
-
-            role.getRoleTree();
+            role.getRoleList(function () {
+                role.getRoleById();
+            });
+            role.getStepList();
+            project.getareaList();
+            role.deleteRole();
+            role.addRole();
+            role.saveRole();
 
         });
 

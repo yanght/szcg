@@ -10,6 +10,15 @@ namespace Szcg.Service.IBussiness
 {
     public interface IOrganizeService
     {
+
+        /// <summary>
+        ///  获取人员树信息（部门，人员）
+        /// </summary>
+        /// <param name="areacode">区域编码</param>
+        /// <param name="departcode">部门编码</param>
+        /// <returns></returns>
+        List<UserData> GetUserTreeList(string areacode, string departcode);
+
         /// <summary>
         /// 根据部门Id获取用户列表
         /// </summary>

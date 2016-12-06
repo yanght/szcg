@@ -1,3 +1,4 @@
 ﻿.input-line input[type='text']{border:none;border-bottom:1px solid #438eb9;}
 .pricing-span {margin:30px;}
 table .selected{background-color:#fee188;}
+#nestable{max-width:100%;}

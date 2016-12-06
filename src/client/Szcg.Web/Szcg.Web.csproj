@@ -186,6 +186,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\Appraise\Controllers\AreaAppraiseController.cs" />
+    <Compile Include="Areas\Appraise\Controllers\HomeController.cs" />
     <Compile Include="Areas\CallAcceptance\Controllers\CollecterController.cs" />
     <Compile Include="Areas\CallAcceptance\Controllers\MessageController.cs" />
     <Compile Include="Areas\CallAcceptance\Controllers\ProjectController.cs" />
@@ -1073,6 +1075,9 @@
     <Content Include="Areas\Manager\Views\User\GrideList.cshtml" />
     <Content Include="Areas\Manager\Views\Role\PermissionManager.cshtml" />
     <Content Include="Areas\Manager\Views\Role\RoleManager.cshtml" />
+    <Content Include="Areas\Manager\Views\Role\PurviewManager.cshtml" />
+    <Content Include="Areas\Appraise\Views\AreaAppraise\Index.cshtml" />
+    <Content Include="Areas\Appraise\Views\Home\Main.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -1134,7 +1139,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Appraise\Controllers\" />
     <Folder Include="Areas\Appraise\Models\" />
     <Folder Include="Areas\Appraise\Views\Shared\" />
     <Folder Include="Areas\CallAcceptance\Models\" />
