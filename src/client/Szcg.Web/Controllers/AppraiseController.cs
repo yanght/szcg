@@ -48,11 +48,11 @@ namespace Szcg.Web.Controllers
 
         #region [ 区域评价 ]
 
-        public AjaxFxRspJson GetAreaAppraise()
+        public JsonResult GetAreaAppraise(string id)
         {
             AreaAppraiseRequestArgs args = new AreaAppraiseRequestArgs()
             {
-                AreaCode = "",
+                AreaCode = this.UserInfo.getAreacode(),
                 ModelId = 6,
                 Number = 2016,
                 RoleId = "2",
@@ -67,11 +67,25 @@ namespace Szcg.Web.Controllers
 
             List<Area_Appraise> list = svc.GetAreaAppraise(args, pageInfo);
 
-            ajax.RspData.Add("list", JToken.FromObject(list));
-            ajax.RspData.Add("pageInfo", JToken.FromObject(pageInfo));
-            ajax.RspData.Add("reportMessage", JToken.FromObject(args.strReportMessage));
+            //ajax.RspData.Add("list", JToken.FromObject(list));
+            //ajax.RspData.Add("pageInfo", JToken.FromObject(pageInfo));
+            //ajax.RspData.Add("reportMessage", JToken.FromObject(args.strReportMessage));
 
-            return ajax;
+
+            //ajax.RspData.Add("page", JToken.FromObject("1"));
+            //ajax.RspData.Add("total", JToken.FromObject(list.Count));
+            //ajax.RspData.Add("records", JToken.FromObject(list.Count));
+            //ajax.RspData.Add("rows", JToken.FromObject(list));
+
+            //  return ajax;
+            if (!string.IsNullOrEmpty(id))
+            {
+                return Json(new { page = "1", total = list.Count, records = list.Count, rows = list.Where(m => m.PCode == id) }, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new { page = "1", total = list.Count, records = list.Count, rows = list.Where(m => string.IsNullOrEmpty(m.PCode)) }, JsonRequestBehavior.AllowGet);
+            }
 
         }
 

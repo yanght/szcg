@@ -1,0 +1,124 @@
+﻿@{
+    Layout = null;
+}
+
+
+<div class="row">
+    <!-- #section:pages/pricing.small-header -->
+    <div class="col-xs-2 col-sm-2 pricing-span-header">
+        <div class="widget-box widget-color-blue ui-sortable-handle">
+            <div class="widget-header">
+                <h5 class="widget-title bigger lighter">授权管理</h5>
+            </div>
+            <div class="widget-body">
+                <div class="widget-main no-padding">
+                    <ul id="treeDemo" class="ztree"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /section:pages/pricing.small-header -->
+    <!-- #section:pages/pricing.small-body -->
+    <div class="col-xs-10 col-sm-10 pricing-span-body">
+        <div class="widget-box widget-color-blue ui-sortable-handle">
+            <div class="widget-header">
+                <h5 class="widget-title bigger lighter"></h5>
+                <div class="widget-toolbar">
+                    <a href="#" data-action="collapse">
+                        <i class="1 ace-icon fa fa-chevron-up bigger-125"></i>
+                    </a>
+                </div>
+                <div class="widget-toolbar no-border">
+
+                </div>
+
+            </div>
+
+            <div class="widget-body">
+                <div class="widget-main no-padding">
+                    <div class="well col-xs-12">
+                        <div class="well col-xs-6">
+                            <form class="form-horizontal" role="form">
+                                <!-- #section:elements.form -->
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 授权人（From）: </label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" id="consignerId" name="consignerId" placeholder="" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 接收人（To）: </label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" id="accepterId" name="accepterId" placeholder="" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 授予角色 :</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" id="roleList" name="roleList" placeholder="" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> 开始时间 : </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" id="startTime" name="startTime" placeholder="" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> 结束时间 : </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" id="endTime" name="endTime" placeholder="" class="form-control">
+                                    </div>
+                                </div>
+                                <!-- /section:elements.form -->
+                                <div class=" form-actions">
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <button class="btn btn-info" type="button" id="savePurview">
+                                            <i class="ace-icon fa fa-check bigger-110"></i>
+                                            确认
+                                        </button>
+                                        &nbsp; &nbsp; &nbsp;
+                                        <button class="btn" type="reset">
+                                            <i class="ace-icon fa fa-undo bigger-110"></i>
+                                            取消
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /section:pages/pricing.small-body -->
+</div>
+
+
+<script src="/content/assets/js/date-time/bootstrap-datepicker.min.js"></script>
+<script src="/content/assets/js/date-time/bootstrap-timepicker.min.js"></script>
+<link rel="stylesheet" href="/Content/zTree_v3/css/metroStyle/metroStyle.css" type="text/css">
+<script type="text/javascript" src="/Content/zTree_v3/js/jquery.ztree.core.js"></script>
+<script src="/content/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
+<script src="/content/assets/js/jquery.dataTables.min.js"></script>
+<script src="/content/assets/js/jquery.dataTables.bootstrap.js"></script>
+<script src="/Content/zTree_v3/js/jquery.ztree.excheck.min.js"></script>
+
+<script type="text/javascript">
+
+    $(function () {
+
+        ace.load_ajax_scripts([null], function () {
+            role.getDepartUser();
+        });
+
+    })
+
+
+</script>

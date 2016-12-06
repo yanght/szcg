@@ -621,6 +621,7 @@
     <Content Include="Content\assets\js\uncompressed\x-editable\bootstrap-editable.js" />
     <Content Include="Content\assets\js\x-editable\ace-editable.min.js" />
     <Content Include="Content\assets\js\x-editable\bootstrap-editable.min.js" />
+    <Content Include="Content\js\appraise.js" />
     <Content Include="Content\js\common.js" />
     <Content Include="Content\js\depart.js" />
     <Content Include="Content\js\project.js" />
