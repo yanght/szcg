@@ -29,7 +29,7 @@ namespace Szcg.Service.Bussiness
             AreaAppraise areaquery = new AreaAppraise();
 
             bacgDL.zhpj.areaappraise.StructQuery sq = new bacgDL.zhpj.areaappraise.StructQuery();
-
+            sq.intYears = args.Year;
             if (args.Type == 0) //周
                 sq.intWeeks = args.Number;
             if (args.Type == 1) //月
@@ -66,7 +66,7 @@ namespace Szcg.Service.Bussiness
             AreaAppraise areaquery = new AreaAppraise();
 
             bacgDL.zhpj.areaappraise.StructQuery sq = new bacgDL.zhpj.areaappraise.StructQuery();
-
+            sq.intYears = args.Year; ;
             if (args.Type == 0) //周
                 sq.intWeeks = args.Number;
             if (args.Type == 1) //月
@@ -74,7 +74,7 @@ namespace Szcg.Service.Bussiness
             if (args.Type == 2) //季
                 sq.intQuarter = args.Number; ;
             if (args.Type == 3) //年
-                sq.intYears = args.Number; ;
+                sq.intYears = args.Year; ;
 
             areaquery.SetStatDate(sq);
 
@@ -109,7 +109,7 @@ namespace Szcg.Service.Bussiness
 
             AreaAppraise areaquery = new AreaAppraise();
             bacgDL.zhpj.areaappraise.StructQuery sq = new bacgDL.zhpj.areaappraise.StructQuery();
-
+            sq.intYears = args.Year; ;
             if (args.Type == 0) //周
                 sq.intWeeks = args.Number;
             if (args.Type == 1) //月
@@ -129,6 +129,36 @@ namespace Szcg.Service.Bussiness
             string cols = string.Empty;
 
             DataTable dt = areaquery.getAreaAppraise(args.ModelId, args.DepartCode, args.AreaCode, args.RoleId, field, order, sq.startDate.ToString("yyyy-MM-dd"), sq.endDate.ToString("yyyy-MM-dd"), ref rowCount, ref pageCount, out cols, out strReportMessage);
+
+            DataTable dep_dt = areaquery.getDepart();
+            DataColumn dc1 = new DataColumn("排序号", System.Type.GetType("System.Int32"));
+            dt.Columns.Add(dc1);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                bool isSort = false;
+                for (int j = 0; j < dep_dt.Rows.Count; j++)
+                {
+
+                    string Fcode = dt.Rows[i]["code"].ToString();
+                    string Pcode = dt.Rows[i]["pcode"].ToString();
+                    string Scode = dep_dt.Rows[j]["UserDefinedCode"].ToString();
+                    //pcode
+                    if (Pcode == "" && Fcode.Length > 4)
+                    {
+                        dt.Rows[i]["pcode"] = Fcode.Substring(0, Fcode.Length - 3);
+                    }
+                    //序号
+                    if (Fcode == Scode)
+                    {
+                        dt.Rows[i]["排序号"] = dep_dt.Rows[j]["排序号"];
+                        isSort = true;
+                        break;
+                    }
+                }
+                if (isSort == false)
+                    dt.Rows[i]["排序号"] = 999;
+            }
+
 
             pageInfo.RowCount = rowCount.ToString();
             pageInfo.PageCount = pageCount.ToString();
@@ -155,15 +185,15 @@ namespace Szcg.Service.Bussiness
             AreaAppraise areaquery = new AreaAppraise();
 
             bacgDL.zhpj.areaappraise.StructQuery sq = new bacgDL.zhpj.areaappraise.StructQuery();
-
+            sq.intYears =args.Year;
             if (args.Type == 0) //周
                 sq.intWeeks = args.Number;
             if (args.Type == 1) //月
-                sq.intMonths = args.Number; ;
+                sq.intMonths = args.Number; 
             if (args.Type == 2) //季
-                sq.intQuarter = args.Number; ;
+                sq.intQuarter = args.Number; 
             if (args.Type == 3) //年
-                sq.intYears = args.Number; ;
+                sq.intYears = args.Number; 
 
             areaquery.SetStatDate(sq);
 

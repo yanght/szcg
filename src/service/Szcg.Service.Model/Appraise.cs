@@ -31,6 +31,8 @@ namespace Szcg.Service.Model
         public string 问题及时解决率 { get; set; }
         public string 问题按时解决数 { get; set; }
         public string 问题按时解决率 { get; set; }
+        public string 排序号 { get; set; }
+
     }
 
     /// <summary>
@@ -63,7 +65,7 @@ namespace Szcg.Service.Model
         public string 最大事件按期结案量 { get; set; }
         public string 最大超期结案总数 { get; set; }
         public string 最大部件超期结案量 { get; set; }
-
+      
     }
 
     /// <summary>
@@ -78,10 +80,9 @@ namespace Szcg.Service.Model
         public string 小类 { get; set; }
         public string 数量 { get; set; }
         public string 结案量 { get; set; }
-        public string 占总数百分比 { get; set; }
-        public string 占大类类型百分比 { get; set; }
+        public string 占总数百分率 { get; set; }
+        public string 占大类类型百分率 { get; set; }
         public string 结案率 { get; set; }
-
 
 
     }
@@ -95,10 +96,10 @@ namespace Szcg.Service.Model
         public string PCode { get; set; }
         public string 操作员名称 { get; set; }
         public string 所属部门 { get; set; }
-        public string 批转数 { get; set; }
-        public string 错误批转数 { get; set; }
-        public string 超时批转数 { get; set; }
-        public string 超时举报数 { get; set; }
+        public string 审批数 { get; set; }
+        public string 错误审批数 { get; set; }
+        public string 超时审批数 { get; set; }
+        public string 超时结案数 { get; set; }
     }
 
     public class Collecter_Apprise

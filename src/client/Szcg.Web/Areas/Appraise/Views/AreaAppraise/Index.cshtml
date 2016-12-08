@@ -5,8 +5,60 @@
 <link rel="stylesheet" href="/content/assets/css/ui.jqgrid.css" />
 
 <div class="row">
+
     <div class="col-xs-12">
         <!-- PAGE CONTENT BEGINS -->
+        <div class="widget-box widget-color-blue">
+            <div class="widget-header">
+                <h5 class="widget-title">查询条件</h5>
+            </div>
+            <div class="widget-body">
+                <div class="widget-main">
+                    <form class="form-inline">
+                        <label>街道：</label>
+                        <select class="form-control" name="StreetId" id="StreetId">
+                            <option value="">全部</option>
+                        </select>
+
+                        <label>街道：</label>
+                        <select class="form-control" name="SquareId" id="SquareId">
+                            <option value="">全部</option>
+                        </select>
+
+                        <label>时段：</label>
+                        <select class="form-control" name="Type" id="Type">
+                            <option value="0">周</option>
+                            <option value="1">月</option>
+                            <option value="2">季</option>
+                            <option value="3">年</option>
+                        </select>
+
+                        <label>年份：</label>
+                        <select class="form-control" name="Year" id="Year">
+                            @{
+                                int current = DateTime.Now.Year;
+                            }
+                            @for (int i = DateTime.Now.Year; i >= current - 5; i--)
+                            {
+                                <option value="@(i)"> @(i)</option>
+                            }
+
+                        </select>
+                        <span class="number">
+                            <label>第：</label>
+                            <select class="form-control" name="Number" id="Number"></select>
+                            <font>周</font>
+                        </span>
+                        <button type="button" class="btn btn-info btn-sm" id="query">
+                            查询
+                        </button>
+                        <button type="reset" class="btn btn-info btn-sm">
+                            重置
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
 
         <table id="grid-table"></table>
 
@@ -36,7 +88,7 @@
     $(function () {
 
         ace.load_ajax_scripts([null], function () {
-
+            project.getstreetList('@(ViewBag.AreaCode)');
         });
 
     })

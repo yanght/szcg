@@ -187,6 +187,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Appraise\Controllers\AreaAppraiseController.cs" />
+    <Compile Include="Areas\Appraise\Controllers\DepartAppraiseController.cs" />
+    <Compile Include="Areas\Appraise\Controllers\DutyAppraiseController.cs" />
+    <Compile Include="Areas\Appraise\Controllers\EvePartAppraiseController.cs" />
     <Compile Include="Areas\Appraise\Controllers\HomeController.cs" />
     <Compile Include="Areas\CallAcceptance\Controllers\CollecterController.cs" />
     <Compile Include="Areas\CallAcceptance\Controllers\MessageController.cs" />
@@ -196,7 +199,7 @@
     <Compile Include="Areas\Manager\Controllers\OrganizeController.cs" />
     <Compile Include="Areas\Manager\Controllers\RoleController.cs" />
     <Compile Include="Areas\Manager\Controllers\UserController.cs" />
-    <Compile Include="Controllers\AppraiseController.cs" />
+    <Compile Include="Controllers\AppraiseApiController.cs" />
     <Compile Include="Controllers\DocumentController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\PageController.cs" />
@@ -1079,6 +1082,9 @@
     <Content Include="Areas\Manager\Views\Role\PurviewManager.cshtml" />
     <Content Include="Areas\Appraise\Views\AreaAppraise\Index.cshtml" />
     <Content Include="Areas\Appraise\Views\Home\Main.cshtml" />
+    <Content Include="Areas\Appraise\Views\EvePartAppraise\Index.cshtml" />
+    <Content Include="Areas\Appraise\Views\DepartAppraise\Index.cshtml" />
+    <Content Include="Areas\Appraise\Views\DutyAppraise\Index.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />

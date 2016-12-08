@@ -7,12 +7,12 @@ using Szcg.Web.Controllers;
 
 namespace Szcg.Web.Areas.Appraise.Controllers
 {
-    public class HomeController : BaseController
+    public class EvePartAppraiseController : BaseController
     {
         //
-        // GET: /Appraise/Home/
+        // GET: /Appraise/EvePartAppraise/
 
-        public ActionResult Main()
+        public ActionResult Index()
         {
             return View();
         }

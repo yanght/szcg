@@ -25,41 +25,83 @@ namespace Szcg.Web.Controllers
 
         #region [ 事部件评价 ]
 
-        public AjaxFxRspJson GetEvePartAppraise()
+        public JsonResult GetEvePartAppraise(string Type, string Year, string Number)
         {
+            if (string.IsNullOrEmpty(Number) || Number == "null")
+            {
+                Number = Year;
+            }
+
             EveParAppraiseRequestArgs args = new EveParAppraiseRequestArgs()
             {
                 StreetCode = "",
-                Number = 2016,
-                Type = 3,
-                Year = 2016
+                Number = int.Parse(Number),
+                Type = int.Parse(Type),
+                Year = int.Parse(Year)
             };
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            int currentpage = int.Parse(Request["start"]);
+            int pagesize = int.Parse(Request["length"]);
+
+            if (currentpage != 0)
+            {
+                currentpage = (currentpage / pagesize) + 1;
+            }
+            else
+            {
+                currentpage = 1;
+            }
 
             List<EvePar_Appraise> list = svc.GetEvePartAppraise(args);
 
             ajax.RspData.Add("list", JToken.FromObject(list));
+
             ajax.RspData.Add("reportMessage", JToken.FromObject(args.strReportMessage));
 
-            return ajax;
+            // return ajax;
+            return Json(new { draw = Request["draw"], recordsTotal = list.Count, recordsFiltered = list.Count, data = list.Skip(pagesize * (currentpage - 1)).Take(pagesize) }, JsonRequestBehavior.AllowGet);
         }
 
         #endregion
 
         #region [ 区域评价 ]
 
-        public JsonResult GetAreaAppraise(string id)
+        public JsonResult GetAreaAppraise(string id, string StreetId, string SquareId, string Type, string Year, string Number)
         {
+            if (string.IsNullOrEmpty(Number) || Number == "null")
+            {
+                Number = Year;
+            }
+
             AreaAppraiseRequestArgs args = new AreaAppraiseRequestArgs()
             {
                 AreaCode = this.UserInfo.getAreacode(),
                 ModelId = 6,
-                Number = 2016,
-                RoleId = "2",
+                Number = int.Parse(Number),
+                RoleId = UserInfo.CurrentRole.ToString(),
                 strReportMessage = "",
-                Type = 3,
-                Year = 2016
+                Type = int.Parse(Type),
+                Year = int.Parse(Year)
             };
+
+
+
+            if (string.IsNullOrEmpty(SquareId))
+            {
+                if (string.IsNullOrEmpty(StreetId))
+                {
+                    args.AreaCode = Convert.ToString(this.UserInfo.getAreacode());
+                }
+                else
+                {
+                    args.AreaCode = Convert.ToString(StreetId);
+                }
+            }
+            else
+            {
+                args.AreaCode = SquareId;
+            }
 
             PageInfo pageInfo = new PageInfo() { };
 
@@ -93,23 +135,40 @@ namespace Szcg.Web.Controllers
 
         #region [ 责任单位评价 ]
 
-        public AjaxFxRspJson GetDepartAppraise()
+        public JsonResult GetDepartAppraise(string Type, string Year, string Number)
         {
             List<Depart_Appraise> list = new List<Depart_Appraise>();
+
+            if (string.IsNullOrEmpty(Number) || Number == "null")
+            {
+                Number = Year;
+            }
 
             DepartAppraiseRequestArgs args = new DepartAppraiseRequestArgs()
             {
                 DepartCode = "",
-                AreaCode = "",
+                AreaCode = this.UserInfo.getAreacode(),
                 ModelId = 24,
-                Number = 2016,
-                RoleId = "2",
+                Number = int.Parse(Number),
+                RoleId = this.UserInfo.CurrentRole.ToString(),
                 strReportMessage = "",
-                Type = 3,
-                Year = 2016
+                Type = int.Parse(Type),
+                Year = int.Parse(Year)
             };
 
             PageInfo pageInfo = new PageInfo() { };
+
+            int currentpage = int.Parse(Request["start"]);
+            int pagesize = int.Parse(Request["length"]);
+
+            if (currentpage != 0)
+            {
+                currentpage = (currentpage / pagesize) + 1;
+            }
+            else
+            {
+                currentpage = 1;
+            }
 
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
@@ -119,30 +178,52 @@ namespace Szcg.Web.Controllers
             ajax.RspData.Add("pageInfo", JToken.FromObject(pageInfo));
             ajax.RspData.Add("reportMessage", JToken.FromObject(args.strReportMessage));
 
-            return ajax;
+            //  return ajax;
+
+            return Json(new { draw = Request["draw"], recordsTotal = list.Count, recordsFiltered = list.Count, data = list.Skip(pagesize * (currentpage - 1)).Take(pagesize) }, JsonRequestBehavior.AllowGet);
         }
 
         #endregion
 
         #region  [ 岗位评价 ]
 
-        public AjaxFxRspJson GetDutyAppraise()
+        public JsonResult GetDutyAppraise(string Code, string Name, string DepartCode, string Type, string Year, string Number)
         {
             List<Duty_Appraise> list = new List<Duty_Appraise>();
 
+            if (string.IsNullOrEmpty(Number) || Number == "null")
+            {
+                Number = Year;
+            }
+           
             DutyAppraiseRequestArgs args = new DutyAppraiseRequestArgs()
             {
-                DepartCode = "39",
+                DepartCode = DepartCode,
                 AreaCode = "",
                 ModelId = 14,
-                Number = 2016,
+                Number = int.Parse(Number),
                 RoleId = "2",
                 strReportMessage = "",
-                Type = 3,
-                Year = 2016
+                Type = int.Parse(Type),
+                Year = int.Parse(Year),
+                Code = Code,
+                Name = Name
             };
 
             PageInfo pageInfo = new PageInfo() { };
+
+            int currentpage = int.Parse(Request["start"]);
+
+            int pagesize = int.Parse(Request["length"]);
+
+            if (currentpage != 0)
+            {
+                currentpage = (currentpage / pagesize) + 1;
+            }
+            else
+            {
+                currentpage = 1;
+            }
 
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
@@ -152,7 +233,9 @@ namespace Szcg.Web.Controllers
             ajax.RspData.Add("pageInfo", JToken.FromObject(pageInfo));
             ajax.RspData.Add("reportMessage", JToken.FromObject(args.strReportMessage));
 
-            return ajax;
+            //return ajax;
+
+            return Json(new { draw = Request["draw"], recordsTotal = list.Count, recordsFiltered = list.Count, data = list.Skip(pagesize * (currentpage - 1)).Take(pagesize) }, JsonRequestBehavior.AllowGet);
         }
 
         #endregion

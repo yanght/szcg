@@ -1,6 +1,6 @@
 ﻿var appraise = {};
 
-appraise.areaAppraise = function () {   
+appraise.areaAppraise = function () {
 
     jQuery(function ($) {
         var grid_selector = "#grid-table";
@@ -11,7 +11,7 @@ appraise.areaAppraise = function () {
             $(grid_selector).jqGrid('setGridWidth', $(".page-content").width());
         })
 
-     
+
 
         //resize on sidebar collapse/expand
         var parent_column = $(grid_selector).closest('[class*="col-"]');
@@ -31,8 +31,10 @@ appraise.areaAppraise = function () {
 
             //subgrid options
             subGrid: true,
-          
-            shrinkToFit:true,
+
+            //shrinkToFit: true,
+            //hidegrid: false,
+            //autoScroll: true,
             //subGridModel: [{ name : ['No','Item Name','Qty'], width : [55,200,80] }],
             //datatype: "xml",
             subGridOptions: {
@@ -45,12 +47,20 @@ appraise.areaAppraise = function () {
                 var subgridTableId = subgridDivId + "_t";
 
                 var ret = jQuery(grid_selector).jqGrid('getRowData', rowId);
-                
+
+                var json = {
+                    StreetId: $("#StreetId").val(),
+                    SquareId: $("#SquareId").val(),
+                    Type: $("#Type").val(),
+                    Year: $("#Year").val(),
+                    Number: $("#Number").val()
+                };
+
                 $("#" + subgridDivId).html("<table id='" + subgridTableId + "'></table>");
                 $("#" + subgridTableId).jqGrid({
-                    url: '/appraiseapi/GetAreaAppraise?id=' + ret.Code,
+                    url: '/appraiseapi/GetAreaAppraise?id=' + ret.Code + "&StreetId=" + json.StreetId + "&SquareId=" + json.SquareId + "&Type=" + json.Type + "&Year=" + json.Year + "&Number=" + json.Number,
                     datatype: 'json',
-                    sortable:'false',
+                    sortable: 'false',
                     // data: subgrid_data,
                     colNames: [/*' ',*/
                   'Code'
@@ -80,7 +90,7 @@ appraise.areaAppraise = function () {
                     ],
 
                     colModel: [
-                { name: 'Code', index: 'Code', hidden: true,sortable:false },
+                { name: 'Code', index: 'Code', hidden: true, sortable: false },
                 { name: '区域名称', index: '区域名称', sortable: false },
                 { name: '派遣案件量', index: '派遣案件量', sortable: false },
                 { name: '部件派遣量', index: '部件派遣量', sortable: false },
@@ -154,7 +164,7 @@ appraise.areaAppraise = function () {
                 //},
                 { name: 'Code', index: 'Code', hidden: true, sortable: false },
                 { name: '区域名称', index: '区域名称', sortable: false },
-                { name: '派遣案件量', index: '派遣案件量', sortable: false, summaryType: 'sum',summaryTpl:'<b>Max: {0}</b>' },
+                { name: '派遣案件量', index: '派遣案件量', sortable: false, summaryType: 'sum', summaryTpl: '<b>Max: {0}</b>' },
                 { name: '部件派遣量', index: '部件派遣量', sortable: false },
                 { name: '事件派遣量', index: '事件派遣量', sortable: false },
                 { name: '未处理案卷', index: '未处理案卷', sortable: false },
@@ -182,8 +192,8 @@ appraise.areaAppraise = function () {
             //viewrecords: true,
             rowNum: 10,
             rowList: [10, 20, 30],
-            viewrecords: true,
-           // pager: pager_selector,
+            // viewrecords: true,
+            // pager: pager_selector,
             //altRows: true,
             //toppager: true,
 
@@ -202,7 +212,7 @@ appraise.areaAppraise = function () {
                 }, 0);
             },
 
-            editurl: "/dummy.html",//nothing is saved
+            // editurl: "/dummy.html",//nothing is saved
             caption: "区域评价"
 
             //,autowidth: true,
@@ -457,4 +467,348 @@ appraise.areaAppraise = function () {
             $('.ui-jqdialog').remove();
         });
     });
+
+    appraise.initWeeks();
+
+    $("#Type").change(function () {
+        $(".number").show();
+        if ($(this).val() == "0") {
+            appraise.initWeeks();
+            $(".number font").html("周")
+        } else if ($(this).val() == "1") {
+            appraise.initMonth()
+            $(".number font").html("月")
+        } else if ($(this).val() == "2") {
+            appraise.initQuarter()
+            $(".number font").html("季")
+        } else if ($(this).val() == "3") {
+            $("#Number").html("");
+            $(".number").hide();
+        }
+    })
+
+    $("#query").click(function () {
+        var json = {
+            StreetId: $("#StreetId").val(),
+            SquareId: $("#SquareId").val(),
+            Type: $("#Type").val(),
+            Year: $("#Year").val(),
+            Number: $("#Number").val()
+        };
+
+        $("#grid-table").jqGrid('setGridParam', {
+            datatype: 'json',
+            postData: json, //发送数据  
+            page: 1
+        }).trigger("reloadGrid"); //重新载入  
+
+    })
 }
+
+//刷新事部件评价列表
+project.GetEventPartAppriseList = function GetEventPartAppriseList(table) {
+
+    var json = {
+        AreaId: $("select[name='AreaId']").val(),
+        Type: $("select[name='Type']").val(),
+        Year: $("select[name='Year']").val(),
+        Number: $("select[name='Number']").val(),
+    };
+
+    var url = '/AppraiseApi/GetEvePartAppraise';
+    var parm = "?AreaId=" + json.AreaId + "&Type=" + json.Type + "&Year=" + json.Year + "&Number=" + json.Number;
+
+    var oSettings = table.fnSettings();
+    oSettings.ajax.url = url + parm;
+    table.fnDraw();
+
+}
+
+//获取事部件评价列表
+project.initEventPartAppriseList = function () {
+    appraise.initWeeks();
+    var json = {
+        AreaId: $("select[name='AreaId']").val(),
+        Type: $("select[name='Type']").val(),
+        Year: $("select[name='Year']").val(),
+        Number: $("select[name='Number']").val(),
+    };
+
+    var url = '/AppraiseApi/GetEvePartAppraise';
+    var parm = "?AreaId=" + json.AreaId + "&Type=" + json.Type + "&Year=" + json.Year + "&Number=" + json.Number;
+
+    var oTable1 =
+           $('#eventPartAppraise')
+           .dataTable({
+               "bServerSide": true,
+               'bPaginate': true, //是否分页
+               "iDisplayLength": 10, //每页显示10条记录
+               "ajax": {
+                   "url": url + parm
+               },
+               'bFilter': false, //是否使用内置的过滤功能
+               "bSort": false,
+               "bProcessing": true,
+               "columns": [
+                  { "data": "类型" },
+                  { "data": "大类" },
+                  { "data": "小类" },
+                  { "data": "数量" },
+                  { "data": "结案量" },
+                  { "data": "占总数百分率" },
+                  { "data": "占大类类型百分率" },
+                  { "data": "结案率" }
+               ],
+               "oLanguage": {
+                   "sProcessing": "正在处理.....",
+                   'sSearch': '数据筛选:',
+                   "sLengthMenu": "每页显示 _MENU_ 项记录",
+                   "sZeroRecords": "没有符合条件的数据...",
+                   "sInfo": "当前数据为从第 _START_ 到第 _END_ 项数据；总共有 _TOTAL_ 项记录",
+                   "sInfoEmpty": "显示 0 至 0 共 0 项",
+                   "sInfoFiltered": "(_MAX_)",
+                   "oPaginate": {
+                       "sFirst": "第一页",
+                       "sPrevious": " 上一页 ",
+                       "sNext": " 下一页 ",
+                       "sLast": " 最后一页 "
+                   }
+               }
+           });
+
+
+
+    $("#Type").change(function () {
+        $(".number").show();
+        if ($(this).val() == "0") {
+            appraise.initWeeks();
+            $(".number font").html("周")
+        } else if ($(this).val() == "1") {
+            appraise.initMonth()
+            $(".number font").html("月")
+        } else if ($(this).val() == "2") {
+            appraise.initQuarter()
+            $(".number font").html("季")
+        } else if ($(this).val() == "3") {
+            $("#Number").html("");
+            $(".number").hide();
+        }
+    })
+
+    return oTable1;
+
+}
+
+//刷新责任单位评价列表
+project.GetDepartAppriseList = function GetDepartAppriseList(table) {
+
+    var json = {
+        AreaId: $("select[name='AreaId']").val(),
+        Type: $("select[name='Type']").val(),
+        Year: $("select[name='Year']").val(),
+        Number: $("select[name='Number']").val(),
+    };
+
+    var url = '/AppraiseApi/GetDepartAppraise';
+    var parm = "?AreaId=" + json.AreaId + "&Type=" + json.Type + "&Year=" + json.Year + "&Number=" + json.Number;
+
+    var oSettings = table.fnSettings();
+    oSettings.ajax.url = url + parm;
+    table.fnDraw();
+
+}
+
+//获取责任单位评价列表
+project.initDepartAppriseList = function () {
+    appraise.initWeeks();
+    var json = {
+        AreaId: $("select[name='AreaId']").val(),
+        Type: $("select[name='Type']").val(),
+        Year: $("select[name='Year']").val(),
+        Number: $("select[name='Number']").val(),
+      
+    };
+
+    var url = '/AppraiseApi/GetDepartAppraise';
+    var parm = "?AreaId=" + json.AreaId + "&Type=" + json.Type + "&Year=" + json.Year + "&Number=" + json.Number ;
+
+    var oTable1 =
+           $('#departAppraiseTB')
+           .dataTable({
+               "bServerSide": true,
+               'bPaginate': true, //是否分页
+               "iDisplayLength": 50, //每页显示50条记录
+               "ajax": {
+                   "url": url + parm
+               },
+               'bFilter': false, //是否使用内置的过滤功能
+               "bSort": false,
+               "bProcessing": true,
+               "columns": [
+                  { "data": "部门名称" },
+                  { "data": "问题应解决数" },
+                  { "data": "问题解决数" },
+                  { "data": "问题未解决数" },
+                  { "data": "超时倍数" },
+                  { "data": "返工数" },
+                  { "data": "反复数" },
+                  { "data": "超多反复数" },
+                  { "data": "问题解决率" },
+                  { "data": "问题及时解决率" },
+                  { "data": "问题按时解决数" },
+                  { "data": "问题按时解决率" },
+                  { "data": "排序号" }
+               ],
+               "oLanguage": {
+                   "sProcessing": "正在处理.....",
+                   'sSearch': '数据筛选:',
+                   "sLengthMenu": "每页显示 _MENU_ 项记录",
+                   "sZeroRecords": "没有符合条件的数据...",
+                   "sInfo": "当前数据为从第 _START_ 到第 _END_ 项数据；总共有 _TOTAL_ 项记录",
+                   "sInfoEmpty": "显示 0 至 0 共 0 项",
+                   "sInfoFiltered": "(_MAX_)",
+                   "oPaginate": {
+                       "sFirst": "第一页",
+                       "sPrevious": " 上一页 ",
+                       "sNext": " 下一页 ",
+                       "sLast": " 最后一页 "
+                   }
+               }
+           });
+
+
+
+    $("#Type").change(function () {
+        $(".number").show();
+        if ($(this).val() == "0") {
+            appraise.initWeeks();
+            $(".number font").html("周")
+        } else if ($(this).val() == "1") {
+            appraise.initMonth()
+            $(".number font").html("月")
+        } else if ($(this).val() == "2") {
+            appraise.initQuarter()
+            $(".number font").html("季")
+        } else if ($(this).val() == "3") {
+            $("#Number").html("");
+            $(".number").hide();
+        }
+    })
+
+    return oTable1;
+
+}
+
+//刷新岗位评价列表
+project.GetDutyAppriseList = function GetDutyAppriseList(table) {
+
+    var json = {
+        DepartCode: $("select[name='Depart']").val(),
+        Type: $("select[name='Type']").val(),
+        Year: $("select[name='Year']").val(),
+        Number: $("select[name='Number']").val(),
+        Code: $("input[name='Code']").val(),
+        Name: $("input[name='Name']").val(),
+    };
+
+    var url = '/AppraiseApi/GetDutyAppraise';
+    var parm = "?DepartCode=" + json.DepartCode + "&Type=" + json.Type + "&Year=" + json.Year + "&Number=" + json.Number + "&Code=" + json.Code + "&Name=" + json.Name;
+
+    var oSettings = table.fnSettings();
+    oSettings.ajax.url = url + parm;
+    table.fnDraw();
+
+}
+
+//获取岗位评价列表
+project.initDutyAppriseList = function () {
+    appraise.initWeeks();
+    var json = {
+        DepartCode: $("select[name='Depart']").val(),
+        Type: $("select[name='Type']").val(),
+        Year: $("select[name='Year']").val(),
+        Number: $("select[name='Number']").val(),
+        Code: $("input[name='Code']").val(),
+        Name: $("input[name='Name']").val(),
+    };
+
+    var url = '/AppraiseApi/GetDutyAppraise';
+    var parm = "?DepartCode=" + json.DepartCode + "&Type=" + json.Type + "&Year=" + json.Year + "&Number=" + json.Number + "&Code=" + json.Code + "&Name=" + json.Name;
+
+    var oTable1 =
+           $('#departAppraiseTB')
+           .dataTable({
+               "bServerSide": true,
+               'bPaginate': true, //是否分页
+               "iDisplayLength": 20, //每页显示20条记录
+               "ajax": {
+                   "url": url + parm
+               },
+               'bFilter': false, //是否使用内置的过滤功能
+               "bSort": false,
+               "bProcessing": true,
+               "columns": [
+                  { "data": "操作员名称" },
+                  { "data": "所属部门" },
+                  { "data": "审批数" },
+                  { "data": "错误审批数" },
+                  { "data": "超时审批数" },
+                  { "data": "超时结案数" }
+               ],
+               "oLanguage": {
+                   "sProcessing": "正在处理.....",
+                   'sSearch': '数据筛选:',
+                   "sLengthMenu": "每页显示 _MENU_ 项记录",
+                   "sZeroRecords": "没有符合条件的数据...",
+                   "sInfo": "当前数据为从第 _START_ 到第 _END_ 项数据；总共有 _TOTAL_ 项记录",
+                   "sInfoEmpty": "显示 0 至 0 共 0 项",
+                   "sInfoFiltered": "(_MAX_)",
+                   "oPaginate": {
+                       "sFirst": "第一页",
+                       "sPrevious": " 上一页 ",
+                       "sNext": " 下一页 ",
+                       "sLast": " 最后一页 "
+                   }
+               }
+           });
+
+    $("#Type").change(function () {
+        $(".number").show();
+        if ($(this).val() == "0") {
+            appraise.initWeeks();
+            $(".number font").html("周")
+        } else if ($(this).val() == "1") {
+            appraise.initMonth()
+            $(".number font").html("月")
+        } else if ($(this).val() == "2") {
+            appraise.initQuarter()
+            $(".number font").html("季")
+        } else if ($(this).val() == "3") {
+            $("#Number").html("");
+            $(".number").hide();
+        }
+    })
+
+    return oTable1;
+
+}
+
+appraise.initWeeks = function () {
+
+    var weeks = utils.yearOfWeeks(new Date().getYear());
+    $.each(weeks, function (index, item) {
+        $("#Number").append("<option value='" + item + "'>" + item + "</option>");
+    });
+
+    $('#Number option:eq(' + utils.getWeekNumber(new Date().getYear(), new Date().getMonth(), new Date().getDay()) + ')').attr('selected', 'selected');
+
+}
+ 
+appraise.initQuarter = function () {
+    $("#Number").html("<option value='1'>1</option><option value='2'>2</option><option value='3'>3</option>");
+}
+
+appraise.initMonth = function () {
+    $("#Number").html("<option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option><option value='11'>11</option><option value='12'>12</option>");
+}
+
