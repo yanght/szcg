@@ -516,6 +516,8 @@ namespace Szcg.Web.Controllers
 
         #endregion
 
+        #region [ 还原问题归档案卷 ]
+
         public AjaxFxRspJson RollBackGDProject(string projcode, string startdate)
         {
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
@@ -531,6 +533,10 @@ namespace Szcg.Web.Controllers
 
             return ajax;
         }
+
+        #endregion
+
+        #region [ 删除问题归档案卷 ]
 
         public AjaxFxRspJson DeleteGDProject(string projcode)
         {
@@ -548,6 +554,8 @@ namespace Szcg.Web.Controllers
             return ajax;
 
         }
+
+        #endregion
 
         #region [ 案卷物理删除 ]
 

@@ -217,7 +217,7 @@ namespace Szcg.Web.Controllers
             int pagesize = int.Parse(Request["length"]);
 
             if (currentpage != 0)
-            {
+            {   
                 currentpage = (currentpage / pagesize) + 1;
             }
             else
