@@ -187,6 +187,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Appraise\Controllers\AreaAppraiseController.cs" />
+    <Compile Include="Areas\Appraise\Controllers\CollecterAppraiseController.cs" />
     <Compile Include="Areas\Appraise\Controllers\DepartAppraiseController.cs" />
     <Compile Include="Areas\Appraise\Controllers\DutyAppraiseController.cs" />
     <Compile Include="Areas\Appraise\Controllers\EvePartAppraiseController.cs" />
