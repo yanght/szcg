@@ -23,13 +23,13 @@
                     <form class="form-inline">
 
                         <label>编号：</label>
-                        <input type="text" class="input-sm form-control" name="Code" id="Code">
+                        <input type="text" class="input-sm form-control" name="CollectorCode" id="CollectorCode">
 
-                        <label>姓名：</label>
-                        <input type="text" class="input-sm form-control" name="Name" id="Name">
+                        <label>登录名：</label>
+                        <input type="text" class="input-sm form-control" name="LoginName" id="LoginName">
 
-                        <label>部门：</label>
-                        <select class="form-control" name="Depart" id="Depart">
+                        <label>街道：</label>
+                        <select class="form-control" name="StreetId" id="StreetId">
                             <option value="">全部</option>
                         </select>
 
@@ -70,7 +70,7 @@
         <!--案卷列表-->
         <div class="widget-box widget-color-blue">
             <div class="widget-header">
-                <h5 class="widget-title">岗位评价</h5>
+                <h5 class="widget-title">监督员评价</h5>
                 <div class="widget-toolbar">
                     <a href="#" data-action="collapse">
                         <i class="1 ace-icon fa fa-chevron-up bigger-125"></i>
@@ -94,34 +94,16 @@
                     <table id="departAppraiseTB" class="table table-striped table-bordered table-hover">
                         <thead>
                             <tr>
-                                @if (Request.QueryString["ModelId"] == "13")
-                                {
-                                    <th>操作员名称</th>
-                                    <th>所属部门</th>
-                                    <th>审批数</th>
-                                    <th>错误审批数</th>
-                                    <th>超时审批数</th>
-                                    <th>超时结案数</th>
-                                }
-                                else if (Request.QueryString["ModelId"] == "14")
-                                {
-                                    <th>操作员名称</th>
-                                    <th>所属部门</th>
-                                    <th>批转数</th>
-                                    <th>错误批转数</th>
-                                    <th>超时批转数</th>
-                                    <th>超时举报数</th>
-                                }
-                                else if (Request.QueryString["ModelId"] == "30")
-                                {
-                                    <th>操作员名称</th>
-                                    <th>所属部门</th>
-                                    <th>审批数</th>
-                                    <th>错误审批数</th>
-                                    <th>超时审批数</th>
-                                    <th class="hide"></th>
-                                }
-
+                                <th>巡查考核员姓名</th>
+                                <th>错误上报数</th>
+                                <th>上报数</th>
+                                <th>差错率</th>
+                                <th>发送核查数</th>
+                                <th>核查回复数</th>
+                                <th>核查率</th>
+                                <th>按时核查数</th>
+                                <th>按时核查率</th>
+                                <th>pgs超时次数</th>
                             </tr>
                         </thead>
                         <tbody></tbody>
@@ -129,7 +111,6 @@
                 </div>
             </div>
         </div>
-        <input type="hidden" name="ModelId" id="ModelId" value="@Request.QueryString["ModelId"]" />
         <!-- PAGE CONTENT ENDS -->
     </div><!-- /.col -->
 </div><!-- /.row -->
@@ -149,15 +130,15 @@
     $(function () {
         ace.load_ajax_scripts([null], function () {
 
-            //project.getareaList();
+            project.getstreetList('@(ViewBag.AreaCode)');
             //inline scripts related to this page
 
             $('.input-daterange').datepicker({ autoclose: true, language: 'zh-CN', });
-            project.initDepartList();
-            var table = project.initDutyAppriseList();
+
+            var table = project.initCollecterAppriseList();
 
             $("#query").click(function () {
-                project.GetDutyAppriseList(table);
+                project.GetCollecterAppriseList(table);
             })
 
         });

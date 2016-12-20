@@ -1086,6 +1086,7 @@
     <Content Include="Areas\Appraise\Views\EvePartAppraise\Index.cshtml" />
     <Content Include="Areas\Appraise\Views\DepartAppraise\Index.cshtml" />
     <Content Include="Areas\Appraise\Views\DutyAppraise\Index.cshtml" />
+    <Content Include="Areas\Appraise\Views\CollecterAppraise\Index.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />

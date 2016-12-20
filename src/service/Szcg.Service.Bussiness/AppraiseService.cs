@@ -185,15 +185,15 @@ namespace Szcg.Service.Bussiness
             AreaAppraise areaquery = new AreaAppraise();
 
             bacgDL.zhpj.areaappraise.StructQuery sq = new bacgDL.zhpj.areaappraise.StructQuery();
-            sq.intYears =args.Year;
+            sq.intYears = args.Year;
             if (args.Type == 0) //周
                 sq.intWeeks = args.Number;
             if (args.Type == 1) //月
-                sq.intMonths = args.Number; 
+                sq.intMonths = args.Number;
             if (args.Type == 2) //季
-                sq.intQuarter = args.Number; 
+                sq.intQuarter = args.Number;
             if (args.Type == 3) //年
-                sq.intYears = args.Number; 
+                sq.intYears = args.Number;
 
             areaquery.SetStatDate(sq);
 
@@ -212,7 +212,48 @@ namespace Szcg.Service.Bussiness
 
             if (dt != null && dt.Rows.Count > 0)
             {
-                list = ConvertDtHelper<Duty_Appraise>.GetModelList(dt);
+                if (args.ModelId == 13)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        Duty_Appraise appraise = new Duty_Appraise()
+                        {
+                            Code = dr["Code"].ToString(),
+                            PCode = dr["PCode"].ToString(),
+                            操作员名称 = dr["操作员名称"].ToString(),
+                            所属部门 = dr["所属部门"].ToString(),
+                            审批数 = dr["批转数"].ToString(),
+                            错误审批数 = dr["错误批转数"].ToString(),
+                            超时审批数 = dr["超时批转数"].ToString(),
+                            超时结案数 = dr["超时举报数"].ToString(),
+                        };
+                        list.Add(appraise);
+                    }
+
+                }
+                else if (args.ModelId == 14)
+                {
+                    list = ConvertDtHelper<Duty_Appraise>.GetModelList(dt);
+                }
+                else if (args.ModelId == 30)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        Duty_Appraise appraise = new Duty_Appraise()
+                        {
+                            Code = dr["Code"].ToString(),
+                            PCode = dr["PCode"].ToString(),
+                            操作员名称 = dr["操作员名称"].ToString(),
+                            所属部门 = dr["所属部门"].ToString(),
+                            审批数 = dr["派遣数"].ToString(),
+                            错误审批数 = dr["错误派遣数"].ToString(),
+                            超时审批数 = dr["超时派遣数"].ToString()
+                        };
+                        list.Add(appraise);
+                    }
+
+                }
+
             }
 
             return list;
@@ -230,8 +271,13 @@ namespace Szcg.Service.Bussiness
             bacgBL.zhpj.Appraise_xcy xcy = new bacgBL.zhpj.Appraise_xcy();
             AreaAppraise areaquery = new AreaAppraise();
 
-            bacgDL.zhpj.areaappraise.StructQuery sq = new bacgDL.zhpj.areaappraise.StructQuery();
+            if(args.StreetCode=="0")
+            {
+                args.StreetCode = "";
+            }
 
+            bacgDL.zhpj.areaappraise.StructQuery sq = new bacgDL.zhpj.areaappraise.StructQuery();
+            sq.intYears = args.Year;
             if (args.Type == 0) //周
                 sq.intWeeks = args.Number;
             if (args.Type == 1) //月

@@ -626,11 +626,11 @@ project.initDepartAppriseList = function () {
         Type: $("select[name='Type']").val(),
         Year: $("select[name='Year']").val(),
         Number: $("select[name='Number']").val(),
-      
+
     };
 
     var url = '/AppraiseApi/GetDepartAppraise';
-    var parm = "?AreaId=" + json.AreaId + "&Type=" + json.Type + "&Year=" + json.Year + "&Number=" + json.Number ;
+    var parm = "?AreaId=" + json.AreaId + "&Type=" + json.Type + "&Year=" + json.Year + "&Number=" + json.Number;
 
     var oTable1 =
            $('#departAppraiseTB')
@@ -709,10 +709,11 @@ project.GetDutyAppriseList = function GetDutyAppriseList(table) {
         Number: $("select[name='Number']").val(),
         Code: $("input[name='Code']").val(),
         Name: $("input[name='Name']").val(),
+        ModelId: $("input[name='ModelId']").val()
     };
 
     var url = '/AppraiseApi/GetDutyAppraise';
-    var parm = "?DepartCode=" + json.DepartCode + "&Type=" + json.Type + "&Year=" + json.Year + "&Number=" + json.Number + "&Code=" + json.Code + "&Name=" + json.Name;
+    var parm = "?DepartCode=" + json.DepartCode + "&Type=" + json.Type + "&Year=" + json.Year + "&Number=" + json.Number + "&Code=" + json.Code + "&Name=" + json.Name + "&ModelId=" + json.ModelId;
 
     var oSettings = table.fnSettings();
     oSettings.ajax.url = url + parm;
@@ -730,10 +731,11 @@ project.initDutyAppriseList = function () {
         Number: $("select[name='Number']").val(),
         Code: $("input[name='Code']").val(),
         Name: $("input[name='Name']").val(),
+        ModelId: $("input[name='ModelId']").val()
     };
 
     var url = '/AppraiseApi/GetDutyAppraise';
-    var parm = "?DepartCode=" + json.DepartCode + "&Type=" + json.Type + "&Year=" + json.Year + "&Number=" + json.Number + "&Code=" + json.Code + "&Name=" + json.Name;
+    var parm = "?DepartCode=" + json.DepartCode + "&Type=" + json.Type + "&Year=" + json.Year + "&Number=" + json.Number + "&Code=" + json.Code + "&Name=" + json.Name + "&ModelId=" + json.ModelId;
 
     var oTable1 =
            $('#departAppraiseTB')
@@ -793,6 +795,106 @@ project.initDutyAppriseList = function () {
 
 }
 
+
+//刷新监督员评价列表
+project.GetCollecterAppriseList = function GetCollecterAppriseList(table) {
+
+    var json = {
+        CollectorCode: $("input[name='CollectorCode']").val(),
+        LoginName: $("input[name='LoginName']").val(),
+        StreetId: $("select[name='StreetId']").val(),
+        Number: $("select[name='Number']").val(),
+        Type: $("select[name='Type']").val(),
+        Year: $("select[name='Year']").val(),
+    };
+
+    var url = '/AppraiseApi/GetCollecterAppraise';
+    var parm = "?CollectorCode=" + json.CollectorCode + "&LoginName=" + json.LoginName + "&Type=" + json.Type + "&Year=" + json.Year + "&Number=" + json.Number + "&StreetId=" + json.StreetId;
+
+    var oSettings = table.fnSettings();
+    oSettings.ajax.url = url + parm;
+    table.fnDraw();
+
+}
+
+//获取监督员评价列表
+project.initCollecterAppriseList = function () {
+    appraise.initWeeks();
+    var json = {
+        CollectorCode: $("input[name='CollectorCode']").val(),
+        LoginName: $("input[name='LoginName']").val(),
+        StreetId: $("select[name='StreetId']").val(),
+        Number: $("select[name='Number']").val(),
+        Type: $("select[name='Type']").val(),
+        Year: $("select[name='Year']").val(),
+    };
+
+    var url = '/AppraiseApi/GetCollecterAppraise';
+    var parm = "?CollectorCode=" + json.CollectorCode + "&LoginName=" + json.LoginName + "&Type=" + json.Type + "&Year=" + json.Year + "&Number=" + json.Number + "&StreetId=" + json.StreetId;
+
+    var oTable1 =
+           $('#departAppraiseTB')
+           .dataTable({
+               "bServerSide": true,
+               'bPaginate': true, //是否分页
+               "iDisplayLength": 10, //每页显示20条记录
+               "ajax": {
+                   "url": url + parm
+               },
+               'bFilter': false, //是否使用内置的过滤功能
+               "bSort": false,
+               "bProcessing": true,
+               "columns": [
+                  { "data": "巡查考核员姓名" },
+                  { "data": "错误上报数" },
+                  { "data": "上报数" },
+                  { "data": "差错率" },
+                  { "data": "发送核查数" },
+                  { "data": "核查回复数" },
+                  { "data": "核查率" },
+                  { "data": "按时核查数" },
+                  { "data": "按时核查率" },
+                  { "data": "GPS超时次数" }
+
+               ],
+               "oLanguage": {
+                   "sProcessing": "正在处理.....",
+                   'sSearch': '数据筛选:',
+                   "sLengthMenu": "每页显示 _MENU_ 项记录",
+                   "sZeroRecords": "没有符合条件的数据...",
+                   "sInfo": "当前数据为从第 _START_ 到第 _END_ 项数据；总共有 _TOTAL_ 项记录",
+                   "sInfoEmpty": "显示 0 至 0 共 0 项",
+                   "sInfoFiltered": "(_MAX_)",
+                   "oPaginate": {
+                       "sFirst": "第一页",
+                       "sPrevious": " 上一页 ",
+                       "sNext": " 下一页 ",
+                       "sLast": " 最后一页 "
+                   }
+               }
+           });
+
+    $("#Type").change(function () {
+        $(".number").show();
+        if ($(this).val() == "0") {
+            appraise.initWeeks();
+            $(".number font").html("周")
+        } else if ($(this).val() == "1") {
+            appraise.initMonth()
+            $(".number font").html("月")
+        } else if ($(this).val() == "2") {
+            appraise.initQuarter()
+            $(".number font").html("季")
+        } else if ($(this).val() == "3") {
+            $("#Number").html("");
+            $(".number").hide();
+        }
+    })
+
+    return oTable1;
+
+}
+
 appraise.initWeeks = function () {
 
     var weeks = utils.yearOfWeeks(new Date().getYear());
@@ -803,7 +905,7 @@ appraise.initWeeks = function () {
     $('#Number option:eq(' + utils.getWeekNumber(new Date().getYear(), new Date().getMonth(), new Date().getDay()) + ')').attr('selected', 'selected');
 
 }
- 
+
 appraise.initQuarter = function () {
     $("#Number").html("<option value='1'>1</option><option value='2'>2</option><option value='3'>3</option>");
 }

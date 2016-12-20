@@ -187,7 +187,7 @@ namespace Szcg.Web.Controllers
 
         #region  [ 岗位评价 ]
 
-        public JsonResult GetDutyAppraise(string Code, string Name, string DepartCode, string Type, string Year, string Number)
+        public JsonResult GetDutyAppraise(string Code, string Name, string DepartCode, string Type, string Year, string Number, string ModelId)
         {
             List<Duty_Appraise> list = new List<Duty_Appraise>();
 
@@ -195,12 +195,12 @@ namespace Szcg.Web.Controllers
             {
                 Number = Year;
             }
-           
+
             DutyAppraiseRequestArgs args = new DutyAppraiseRequestArgs()
             {
                 DepartCode = DepartCode,
                 AreaCode = "",
-                ModelId = 14,
+                ModelId = !string.IsNullOrEmpty(ModelId) ? int.Parse(ModelId) : 0,
                 Number = int.Parse(Number),
                 RoleId = "2",
                 strReportMessage = "",
@@ -217,7 +217,7 @@ namespace Szcg.Web.Controllers
             int pagesize = int.Parse(Request["length"]);
 
             if (currentpage != 0)
-            {   
+            {
                 currentpage = (currentpage / pagesize) + 1;
             }
             else
@@ -242,23 +242,51 @@ namespace Szcg.Web.Controllers
 
         #region [ 监督员评价 ]
 
-        public AjaxFxRspJson GetCollecterAppraise()
+        public JsonResult GetCollecterAppraise(string CollectorCode, string LoginName, string StreetId, string Type, string Year, string Number)
         {
             List<Collecter_Apprise> list = new List<Collecter_Apprise>();
+            if (string.IsNullOrEmpty(Number) || Number == "null")
+            {
+                Number = Year;
+            }
 
             CollecterAppraiseRequestArgs args = new CollecterAppraiseRequestArgs()
             {
-                AreaCode = "",
-                StreetCode = "",
+                CollectorCode = CollectorCode,
+                LoginName = LoginName,
+                AreaCode = this.UserInfo.getAreacode(),
+                StreetCode = StreetId,
                 ModelId = 21,
-                Number = 2016,
-                RoleId = "2",
+                Number = int.Parse(Number),
+                RoleId = this.UserInfo.getUsercode().ToString(),
                 strReportMessage = "",
-                Type = 3,
-                Year = 2016
+                Type = int.Parse(Type),
+                Year = int.Parse(Year)
             };
 
+         
             PageInfo pageInfo = new PageInfo() { };
+
+            int currentpage = int.Parse(Request["start"]);
+
+            int pagesize = int.Parse(Request["length"]);
+
+            if (currentpage != 0)
+            {
+                currentpage = (currentpage / pagesize) + 1;
+            }
+            else
+            {
+                currentpage = 1;
+            }
+
+            pageInfo.PageSize = Request["length"];
+
+            pageInfo.CurrentPage = currentpage.ToString();
+
+            pageInfo.Field = "code";
+
+            pageInfo.Order = "desc";
 
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
@@ -268,7 +296,7 @@ namespace Szcg.Web.Controllers
             ajax.RspData.Add("pageInfo", JToken.FromObject(pageInfo));
             ajax.RspData.Add("reportMessage", JToken.FromObject(args.strReportMessage));
 
-            return ajax;
+            return Json(new { draw = Request["draw"], recordsTotal = list.Count, recordsFiltered = list.Count, data = list.Skip(pagesize * (currentpage - 1)).Take(pagesize) }, JsonRequestBehavior.AllowGet);
         }
 
         #endregion
