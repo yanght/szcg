@@ -85,8 +85,6 @@ namespace Szcg.Web.Controllers
                 Year = int.Parse(Year)
             };
 
-
-
             if (string.IsNullOrEmpty(SquareId))
             {
                 if (string.IsNullOrEmpty(StreetId))
@@ -108,7 +106,9 @@ namespace Szcg.Web.Controllers
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
             List<Area_Appraise> list = svc.GetAreaAppraise(args, pageInfo);
-
+            Session["startTime"] = args.startTime;
+            Session["endTime"] = args.endTime;
+            Session["cols"] = args.cols;
             //ajax.RspData.Add("list", JToken.FromObject(list));
             //ajax.RspData.Add("pageInfo", JToken.FromObject(pageInfo));
             //ajax.RspData.Add("reportMessage", JToken.FromObject(args.strReportMessage));
@@ -173,6 +173,7 @@ namespace Szcg.Web.Controllers
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
             list = svc.GetDepartAppraise(args, pageInfo);
+            ViewBag.Cols = args.cols;
 
             ajax.RspData.Add("list", JToken.FromObject(list));
             ajax.RspData.Add("pageInfo", JToken.FromObject(pageInfo));
@@ -228,7 +229,7 @@ namespace Szcg.Web.Controllers
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
             list = svc.GetDutyAppraise(args, pageInfo);
-
+            ViewBag.Cols = args.cols;
             ajax.RspData.Add("list", JToken.FromObject(list));
             ajax.RspData.Add("pageInfo", JToken.FromObject(pageInfo));
             ajax.RspData.Add("reportMessage", JToken.FromObject(args.strReportMessage));
@@ -291,7 +292,7 @@ namespace Szcg.Web.Controllers
             AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
 
             list = svc.GetCollecterAppraise(args, pageInfo);
-
+            ViewBag.Cols = args.cols;
             ajax.RspData.Add("list", JToken.FromObject(list));
             ajax.RspData.Add("pageInfo", JToken.FromObject(pageInfo));
             ajax.RspData.Add("reportMessage", JToken.FromObject(args.strReportMessage));

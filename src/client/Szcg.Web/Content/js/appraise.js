@@ -1,4 +1,5 @@
 ﻿var appraise = {};
+var table;
 
 appraise.areaAppraise = function () {
 
@@ -10,8 +11,6 @@ appraise.areaAppraise = function () {
         $(window).on('resize.jqGrid', function () {
             $(grid_selector).jqGrid('setGridWidth', $(".page-content").width());
         })
-
-
 
         //resize on sidebar collapse/expand
         var parent_column = $(grid_selector).closest('[class*="col-"]');
@@ -26,7 +25,7 @@ appraise.areaAppraise = function () {
 
 
 
-        jQuery(grid_selector).jqGrid({
+        table = jQuery(grid_selector).jqGrid({
             //direction: "rtl",
 
             //subgrid options
@@ -45,7 +44,6 @@ appraise.areaAppraise = function () {
             //for this example we are using local data
             subGridRowExpanded: function (subgridDivId, rowId) {
                 var subgridTableId = subgridDivId + "_t";
-
                 var ret = jQuery(grid_selector).jqGrid('getRowData', rowId);
 
                 var json = {
@@ -92,29 +90,34 @@ appraise.areaAppraise = function () {
                     colModel: [
                 { name: 'Code', index: 'Code', hidden: true, sortable: false },
                 { name: '区域名称', index: '区域名称', sortable: false },
-                { name: '派遣案件量', index: '派遣案件量', sortable: false },
-                { name: '部件派遣量', index: '部件派遣量', sortable: false },
-                { name: '事件派遣量', index: '事件派遣量', sortable: false },
-                { name: '未处理案卷', index: '未处理案卷', sortable: false },
-                { name: '已处理案卷', index: '已处理案卷', sortable: false },
-                { name: '部件结案量', index: '部件结案量', sortable: false },
-                { name: '事件结案量', index: '事件结案量', sortable: false },
-                { name: '按期结案量', index: '按期结案量', sortable: false },
-                { name: '部件按期结案量', index: '部件按期结案量', sortable: false },
-                { name: '事件按期结案量', index: '事件按期结案量', sortable: false },
-                { name: '公众投诉总量', index: '公众投诉总量', sortable: false },
-                { name: '公众投诉结案量', index: '公众投诉结案量', sortable: false },
-                { name: '公众投诉按期结案量', index: '公众投诉按期结案量', sortable: false },
-                { name: '超期结案量', index: '超期结案量', sortable: false },
-                { name: '部件超期结案量', index: '部件超期结案量', sortable: false },
-                { name: '事件超期结案量', index: '事件超期结案量', sortable: false },
-                { name: '最大准确派遣案件量', index: '最大准确派遣案件量', sortable: false },
-                { name: '最大事件按期结案率', index: '最大事件按期结案率', sortable: false },
-                { name: '最大部件按期结案量', index: '最大部件按期结案量', sortable: false },
-                { name: '最大事件按期结案量', index: '最大事件按期结案量', sortable: false },
-                { name: '最大超期结案总数', index: '最大超期结案总数', sortable: false },
-                { name: '最大部件超期结案量', index: '最大部件超期结案量', sortable: false },
-                    ]
+                { name: '派遣案件量', index: '派遣案件量', sortable: false, formatter: currencyFmatter },
+                { name: '部件派遣量', index: '部件派遣量', sortable: false, formatter: currencyFmatter },
+                { name: '事件派遣量', index: '事件派遣量', sortable: false, formatter: currencyFmatter },
+                { name: '未处理案卷', index: '未处理案卷', sortable: false, formatter: currencyFmatter },
+                { name: '已处理案卷', index: '已处理案卷', sortable: false, formatter: currencyFmatter },
+                { name: '部件结案量', index: '部件结案量', sortable: false, formatter: currencyFmatter },
+                { name: '事件结案量', index: '事件结案量', sortable: false, formatter: currencyFmatter },
+                { name: '按期结案量', index: '按期结案量', sortable: false, formatter: currencyFmatter },
+                { name: '部件按期结案量', index: '部件按期结案量', sortable: false, formatter: currencyFmatter },
+                { name: '事件按期结案量', index: '事件按期结案量', sortable: false, formatter: currencyFmatter },
+                { name: '公众投诉总量', index: '公众投诉总量', sortable: false, formatter: currencyFmatter },
+                { name: '公众投诉结案量', index: '公众投诉结案量', sortable: false, formatter: currencyFmatter },
+                { name: '公众投诉按期结案量', index: '公众投诉按期结案量', sortable: false, formatter: currencyFmatter },
+                { name: '超期结案量', index: '超期结案量', sortable: false, formatter: currencyFmatter },
+                { name: '部件超期结案量', index: '部件超期结案量', sortable: false, formatter: currencyFmatter },
+                { name: '事件超期结案量', index: '事件超期结案量', sortable: false, formatter: currencyFmatter },
+                { name: '最大准确派遣案件量', index: '最大准确派遣案件量', sortable: false, formatter: currencyFmatter },
+                { name: '最大事件按期结案率', index: '最大事件按期结案率', sortable: false, formatter: currencyFmatter },
+                { name: '最大部件按期结案量', index: '最大部件按期结案量', sortable: false, formatter: currencyFmatter },
+                { name: '最大事件按期结案量', index: '最大事件按期结案量', sortable: false, formatter: currencyFmatter },
+                { name: '最大超期结案总数', index: '最大超期结案总数', sortable: false, formatter: currencyFmatter },
+                { name: '最大部件超期结案量', index: '最大部件超期结案量', sortable: false, formatter: currencyFmatter },
+                    ],
+                    loadComplete: function () {                        
+                        setTimeout(function () {
+                            showProjectList();
+                        }, 0);
+                    }
                 });
             },
 
@@ -164,28 +167,28 @@ appraise.areaAppraise = function () {
                 //},
                 { name: 'Code', index: 'Code', hidden: true, sortable: false },
                 { name: '区域名称', index: '区域名称', sortable: false },
-                { name: '派遣案件量', index: '派遣案件量', sortable: false, summaryType: 'sum', summaryTpl: '<b>Max: {0}</b>' },
-                { name: '部件派遣量', index: '部件派遣量', sortable: false },
-                { name: '事件派遣量', index: '事件派遣量', sortable: false },
-                { name: '未处理案卷', index: '未处理案卷', sortable: false },
-                { name: '已处理案卷', index: '已处理案卷', sortable: false },
-                { name: '部件结案量', index: '部件结案量', sortable: false },
-                { name: '事件结案量', index: '事件结案量', sortable: false },
-                { name: '按期结案量', index: '按期结案量', sortable: false },
-                { name: '部件按期结案量', index: '部件按期结案量', sortable: false },
-                { name: '事件按期结案量', index: '事件按期结案量', sortable: false },
-                { name: '公众投诉总量', index: '公众投诉总量', sortable: false },
-                { name: '公众投诉结案量', index: '公众投诉结案量', sortable: false },
-                { name: '公众投诉按期结案量', index: '公众投诉按期结案量', sortable: false },
-                { name: '超期结案量', index: '超期结案量', sortable: false },
-                { name: '部件超期结案量', index: '部件超期结案量', sortable: false },
-                { name: '事件超期结案量', index: '事件超期结案量', sortable: false },
-                { name: '最大准确派遣案件量', index: '最大准确派遣案件量', sortable: false },
-                { name: '最大事件按期结案率', index: '最大事件按期结案率', sortable: false },
-                { name: '最大部件按期结案量', index: '最大部件按期结案量', sortable: false },
-                { name: '最大事件按期结案量', index: '最大事件按期结案量', sortable: false },
-                { name: '最大超期结案总数', index: '最大超期结案总数', sortable: false },
-                { name: '最大部件超期结案量', index: '最大部件超期结案量', sortable: false },
+                { name: '派遣案件量', index: '派遣案件量', sortable: false, formatter: currencyFmatter },
+                { name: '部件派遣量', index: '部件派遣量', sortable: false, formatter: currencyFmatter },
+                { name: '事件派遣量', index: '事件派遣量', sortable: false, formatter: currencyFmatter },
+                { name: '未处理案卷', index: '未处理案卷', sortable: false, formatter: currencyFmatter },
+                { name: '已处理案卷', index: '已处理案卷', sortable: false, formatter: currencyFmatter },
+                { name: '部件结案量', index: '部件结案量', sortable: false, formatter: currencyFmatter },
+                { name: '事件结案量', index: '事件结案量', sortable: false, formatter: currencyFmatter },
+                { name: '按期结案量', index: '按期结案量', sortable: false, formatter: currencyFmatter },
+                { name: '部件按期结案量', index: '部件按期结案量', sortable: false, formatter: currencyFmatter },
+                { name: '事件按期结案量', index: '事件按期结案量', sortable: false, formatter: currencyFmatter },
+                { name: '公众投诉总量', index: '公众投诉总量', sortable: false, formatter: currencyFmatter },
+                { name: '公众投诉结案量', index: '公众投诉结案量', sortable: false, formatter: currencyFmatter },
+                { name: '公众投诉按期结案量', index: '公众投诉按期结案量', sortable: false, formatter: currencyFmatter },
+                { name: '超期结案量', index: '超期结案量', sortable: false, formatter: currencyFmatter },
+                { name: '部件超期结案量', index: '部件超期结案量', sortable: false, formatter: currencyFmatter },
+                { name: '事件超期结案量', index: '事件超期结案量', sortable: false, formatter: currencyFmatter },
+                { name: '最大准确派遣案件量', index: '最大准确派遣案件量', sortable: false, formatter: currencyFmatter },
+                { name: '最大事件按期结案率', index: '最大事件按期结案率', sortable: false, formatter: currencyFmatter },
+                { name: '最大部件按期结案量', index: '最大部件按期结案量', sortable: false, formatter: currencyFmatter },
+                { name: '最大事件按期结案量', index: '最大事件按期结案量', sortable: false, formatter: currencyFmatter },
+                { name: '最大超期结案总数', index: '最大超期结案总数', sortable: false, formatter: currencyFmatter },
+                { name: '最大部件超期结案量', index: '最大部件超期结案量', sortable: false, formatter: currencyFmatter },
 
             ],
 
@@ -205,13 +208,12 @@ appraise.areaAppraise = function () {
                 var table = this;
                 setTimeout(function () {
                     styleCheckbox(table);
-
                     updateActionIcons(table);
                     updatePagerIcons(table);
                     enableTooltips(table);
+                    showProjectList();
                 }, 0);
             },
-
             // editurl: "/dummy.html",//nothing is saved
             caption: "区域评价"
 
@@ -254,6 +256,42 @@ appraise.areaAppraise = function () {
                 $(cell).find('input[type=text]')
                         .datepicker({ format: 'yyyy-mm-dd', autoclose: true });
             }, 0);
+        }
+
+        function currencyFmatter(cellvalue, options, rowObject) {
+            var jsondata = {
+                labelname: rowObject.区域名称,
+                labeltype: escape(options.colModel.name),
+                streetcode: rowObject.Code,
+                datafield: "",
+                datestart: $("#startTime").val(),
+                modeid: 1,
+                dateend: $("#endTime").val(),
+            };
+
+            var cols = $("#cols").val();
+            $.each(cols.split(';'), function (index, item) {
+                if (item.split(',')[0] == options.colModel.name) {
+                    jsondata.datafield = escape(item.split(',')[1]);
+                }
+            })
+
+            var url = "/appraise/home/ProjectList?labelname=" + jsondata.labelname
+                + "&labeltype=" + jsondata.labeltype
+                + "&streetcode=" + jsondata.streetcode
+                + "&datafield=" + jsondata.datafield
+                + "&datestart=" + jsondata.datestart
+                + "&modeid=" + jsondata.modeid
+                + "&dateend=" + jsondata.dateend;
+
+            return "<a style='cursor:pointer;' class='appraiseprojectlist' data-url='" + url + "'>" + cellvalue + "</a>";
+
+        }
+
+        function showProjectList() {
+            $(".appraiseprojectlist").unbind("click").bind("click", function () {
+                utils.dialog(this, "案卷列表", 1000, 800);
+            });
         }
 
 
@@ -503,6 +541,7 @@ appraise.areaAppraise = function () {
         }).trigger("reloadGrid"); //重新载入  
 
     })
+
 }
 
 //刷新事部件评价列表

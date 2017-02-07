@@ -17,5 +17,10 @@ namespace Szcg.Web.Areas.Appraise.Controllers
             return View();
         }
 
+        public ActionResult ProjectList(string labelname, string labeltype, string streetcode, string datafield, string datestart, string modeid, string dateend)
+        {
+            return View();
+        }
+
     }
 }

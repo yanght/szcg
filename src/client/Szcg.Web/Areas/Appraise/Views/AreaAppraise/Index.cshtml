@@ -71,7 +71,10 @@
         <!-- PAGE CONTENT ENDS -->
     </div><!-- /.col -->
 </div><!-- /.row -->
+<input type="hidden" id="cols" name="cols" value="@(Session["cols"])" />
 
+<input type="hidden" id="startTime" name="startTime" value="@(Session["startTime"])" />
+<input type="hidden" id="endTime" name="endTime" value="@(Session["endTime"])" />
 
 <script src="/content/assets/js/jqGrid/jquery.jqGrid.min.js"></script>
 <script src="/content/assets/js/jqGrid/i18n/grid.locale-en.js"></script>

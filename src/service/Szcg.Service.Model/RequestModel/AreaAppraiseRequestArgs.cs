@@ -37,5 +37,18 @@ namespace Szcg.Service.Model.RequestModel
         /// </summary>
         public string strReportMessage { get; set; }
 
+        /// <summary>
+        /// 数据库返回的列字符串（返回时使用）
+        /// </summary>
+        public string cols { get; set; }
+        /// <summary>
+        /// 查询开始时间（返回时使用）
+        /// </summary>
+        public string startTime { get; set; }
+        /// <summary>
+        /// 查询结束时间（返回时使用）
+        /// </summary>
+        public string endTime { get; set; }
+
     }
 }

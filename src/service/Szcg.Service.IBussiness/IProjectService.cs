@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using szcg.com.teamax.business.entity;
 using Szcg.Service.Model;
+using Szcg.Service.Model.RequestModel;
 using Project = Szcg.Service.Model.Project;
 
 
@@ -111,6 +112,13 @@ namespace Szcg.Service.IBussiness
         /// <param name="pageInfo">分页信息</param>
         /// <returns></returns>
         ReturnValue GetCheckProjectList(string street, string loginname, string collname, string mobile, string begin, string end, string hcFlag, string hcPower, PageInfo pageInfo);
+
+        /// <summary>
+        /// 获取评价详情案卷列表
+        /// </summary>
+        /// <param name="args">查询参数</param>
+        /// <returns></returns>
+        List<Project> GetAppraiseProjectList(AppraiseProjectListRequest args, PageInfo pageInfo);
 
         /// <summary>
         /// 获取案件信息

@@ -984,7 +984,7 @@ namespace Szcg.Web.Controllers
             {
                 street = project.StreetId,
                 projcode = project.Projcode
-               
+
             };
 
             int currentpage = int.Parse(Request["start"]);
@@ -1088,6 +1088,55 @@ namespace Szcg.Web.Controllers
         }
 
         #endregion
+
+
+        public JsonResult GetAppraiseProjectList(AppraiseProjectListRequest args, PageInfo pageInfo)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            //args = new AppraiseProjectListRequest()
+            //{
+            //    labelname = "浮云街道",
+            //    AreaCode = this.UserInfo.getAreacode(),
+            //    Modeid = "1",
+            //    streetcode = "331125001",
+            //    labeltype = "派遣案卷量",
+            //    DataField = "#AreaModel_T1.zqpq",
+            //    DateStart = "2016-01-01",
+            //    DateEnd = "2016-12-31"
+            //};
+            args.AreaCode = this.UserInfo.getAreacode();
+            args.DateStart = Session["startTime"].ToString();
+            args.DateEnd = Session["endTime"].ToString();
+
+            if (UserInfo == null)
+            {
+                ajax.RspMsg = "用户未登录！";
+                ajax.RspCode = 0;
+                return Json(ajax);
+            }
+
+            int currentpage = 1;// int.Parse(Request["start"]);
+            int pagesize = 10;//int.Parse(Request["length"]);
+
+            if (currentpage != 0)
+            {
+                currentpage = (currentpage / pagesize) + 1;
+            }
+            else
+            {
+                currentpage = 1;
+            }
+
+            pageInfo.PageSize = "20";// Request["length"];
+            pageInfo.CurrentPage = currentpage.ToString();
+            pageInfo.Field = "projcode";
+            pageInfo.Order = "desc";
+
+            List<Project> list = svc.GetAppraiseProjectList(args, pageInfo);
+
+            return Json(new { draw = Request["draw"], recordsTotal = pageInfo.RowCount, recordsFiltered = pageInfo.RowCount, data = list == null ? new List<Project>() : list }, JsonRequestBehavior.AllowGet);
+        }
 
         #endregion
 
@@ -1204,19 +1253,19 @@ namespace Szcg.Web.Controllers
             {
                 if (area.AreaName == "全部") continue;
 
-                treeModel.Add(new TreeModel() { id = area.AreaCode, name = area.AreaName, pId = "0", open = true ,tag=area.Id});
+                treeModel.Add(new TreeModel() { id = area.AreaCode, name = area.AreaName, pId = "0", open = true, tag = area.Id });
                 List<Street> list_Street = svc.GetStreetList(area.AreaCode);
 
                 foreach (Street street in list_Street)
                 {
                     if (street.StreetName == "全部") continue;
-                    treeModel.Add(new TreeModel() { id = street.StreetCode, name = street.StreetName, pId = area.AreaCode, tag=street.Id });
+                    treeModel.Add(new TreeModel() { id = street.StreetCode, name = street.StreetName, pId = area.AreaCode, tag = street.Id });
                     List<Community> list_Community = svc.GetCommunityList(area.AreaCode, street.StreetCode);
 
                     foreach (Community community in list_Community)
                     {
                         if (community.CommName == "全部") continue;
-                        treeModel.Add(new TreeModel() { id = community.CommCode, name = community.CommName, pId = street.StreetCode ,tag=street.Id});
+                        treeModel.Add(new TreeModel() { id = community.CommCode, name = community.CommName, pId = street.StreetCode, tag = street.Id });
                     }
                 }
 

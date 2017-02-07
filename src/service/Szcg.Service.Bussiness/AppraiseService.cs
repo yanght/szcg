@@ -77,7 +77,8 @@ namespace Szcg.Service.Bussiness
                 sq.intYears = args.Year; ;
 
             areaquery.SetStatDate(sq);
-
+            args.startTime = sq.startDate.ToString("yyyy-MM-dd");
+            args.endTime = sq.endDate.ToString("yyyy-MM-dd");
             int rowCount = 0;
             int pageCount = 0;
             string field = "code";
@@ -90,7 +91,7 @@ namespace Szcg.Service.Bussiness
             pageInfo.RowCount = rowCount.ToString();
             pageInfo.PageCount = pageCount.ToString();
             args.strReportMessage = strReportMessage;
-
+            args.cols = cols;
             if (dt != null && dt.Rows.Count > 0)
             {
                 list = ConvertDtHelper<Area_Appraise>.GetModelList(dt);
@@ -163,7 +164,7 @@ namespace Szcg.Service.Bussiness
             pageInfo.RowCount = rowCount.ToString();
             pageInfo.PageCount = pageCount.ToString();
             args.strReportMessage = strReportMessage;
-
+            args.cols = cols;
             if (dt != null && dt.Rows.Count > 0)
             {
                 list = ConvertDtHelper<Depart_Appraise>.GetModelList(dt);
@@ -209,6 +210,7 @@ namespace Szcg.Service.Bussiness
             pageInfo.RowCount = rowCount.ToString();
             pageInfo.PageCount = pageCount.ToString();
             args.strReportMessage = strReportMessage;
+            args.cols = cols;
 
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -271,7 +273,7 @@ namespace Szcg.Service.Bussiness
             bacgBL.zhpj.Appraise_xcy xcy = new bacgBL.zhpj.Appraise_xcy();
             AreaAppraise areaquery = new AreaAppraise();
 
-            if(args.StreetCode=="0")
+            if (args.StreetCode == "0")
             {
                 args.StreetCode = "";
             }
@@ -301,6 +303,7 @@ namespace Szcg.Service.Bussiness
             pageInfo.RowCount = rowCount.ToString();
             pageInfo.PageCount = pageCount.ToString();
             args.strReportMessage = strReportMessage;
+            args.cols = cols;
 
             if (dt != null && dt.Rows.Count > 0)
             {

@@ -10,6 +10,7 @@ using bacgDL.business;
 using Szcg.Service.Model;
 using szcg.com.teamax.business.entity;
 using bacgBL.web.szbase.doormanager;
+using Szcg.Service.Model.RequestModel;
 
 namespace Szcg.Service.Bussiness
 {
@@ -383,6 +384,56 @@ namespace Szcg.Service.Bussiness
             return rtn;
         }
 
+        /// <summary>
+        /// 获取评价详情案卷列表
+        /// </summary>
+        /// 
+        /// <param name="args">查询参数</param>
+        /// <returns></returns>
+        public List<Project> GetAppraiseProjectList(AppraiseProjectListRequest args, PageInfo pageInfo)
+        {
+            args.DateStart = string.IsNullOrEmpty(args.DateStart) ? "2016-01-01" : args.DateStart;
+            args.DateEnd = string.IsNullOrEmpty(args.DateEnd) ? DateTime.Now.ToString() : args.DateEnd;
+
+            DataSet ds = null;
+            if (args.Modeid == "1")   //1:表示区域评价
+                ds = bacgBL.zhpj.PQAJ_Dealyl.GetStreetDataInfo(args.streetcode, args.DataField, args.DateStart, args.DateEnd, DateTime.Now.Year.ToString(), pageInfo, out strErr);
+            else if (args.Modeid == "2") //2:责任单位评价
+            {
+                //  ds = bacgBL.zhpj.PQAJ_Dealyl.GetZRDWDataInfo(Request["UserDefinedCode"].ToString(), Request["DataField"].ToString(), DateStart, DateEnd, SearchYear, pgInfo, out strErr);
+                if (args.AreaCode == "331125")//二级职能部门考核总计区分
+                {
+                    args.AreaCode = "3311251";
+                }
+                ds = bacgBL.zhpj.PQAJ_Dealyl.GetZRDWDataInfo1(args.UserDefinedCode, args.AreaCode, args.DataField, DateTime.Now.Year.ToString(), args.DateStart, args.DateEnd, pageInfo, out strErr);
+            }
+            else if (args.Modeid == "3") //3:岗位评价
+                ds = bacgBL.zhpj.PQAJ_Dealyl.GetGWDataInfo(args.UserCode, args.DataField, args.DateStart, args.DateEnd, DateTime.Now.Year.ToString(), pageInfo, out strErr);
+            else if (args.Modeid == "4")//监督员评价
+                ds = bacgBL.zhpj.PQAJ_Dealyl.GetXCYDataInfo(args.UserCode, args.DataField, args.DateStart, args.DateEnd, DateTime.Now.Year.ToString(), pageInfo, out strErr);
+            else if (args.Modeid == "5")//责任单位评价
+                ds = bacgBL.zhpj.PQAJ_Dealyl.GetZRDWDataInfo1(args.UserDefinedCode, "3311", args.AppriseType1, args.AppriseType2, args.DateStart, args.DateEnd, pageInfo, out strErr);
+            else if (args.Modeid == "6") //6:职能部门内部评价
+            {
+                //if (area == "330483")//二级职能部门内部考核总计区分
+                //{
+                //    area = "3304831";
+                //}
+
+                ds = bacgBL.zhpj.PQAJ_Dealyl.GetZRDWDataInfo2(args.UserDefinedCode, args.AreaCode, args.DataField, DateTime.Now.Year.ToString(), args.DateStart, args.DateEnd, pageInfo, out strErr);
+            }
+            if (args.isType == "zgl")
+            {
+                return null;
+            }
+
+            if (args.Modeid == "" && args.isType != "")
+            {
+                ds = bacgBL.zhpj.PQAJ_Dealyl.GetZAJDataInfo(args.isType, pageInfo, out strErr);
+            }
+           
+            return ConvertDtHelper<Project>.GetModelList(ds.Tables[0]);
+        }
 
         /// <summary>
         /// 获取案件信息

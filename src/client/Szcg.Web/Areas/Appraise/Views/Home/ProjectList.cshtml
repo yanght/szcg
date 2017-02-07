@@ -1,0 +1,96 @@
+﻿@{
+    Layout = null;
+}
+<title>Form Elements - Ace Admin</title>
+<link rel="stylesheet" href="/content/assets/css/jquery-ui.custom.min.css" />
+<link rel="stylesheet" href="/content/assets/css/chosen.css" />
+<link rel="stylesheet" href="/content/assets/css/datepicker.css" />
+<link rel="stylesheet" href="/content/assets/css/bootstrap-timepicker.css" />
+<link rel="stylesheet" href="/content/assets/css/daterangepicker.css" />
+<link rel="stylesheet" href="/content/assets/css/bootstrap-datetimepicker.css" />
+<link rel="stylesheet" href="/content/assets/css/colorpicker.css" />
+
+<div class="row">
+    <div class="col-xs-12">
+        <!-- PAGE CONTENT BEGINS -->
+        <!--查询条件-->
+     
+        <!--案卷列表-->
+        <div class="widget-box widget-color-blue">
+            <div class="widget-header">
+                <h5 class="widget-title">案卷列表</h5>
+               
+                <div class="widget-toolbar no-border">
+
+                    <button class="btn btn-xs bigger btn-yellow dropdown-toggle" data-toggle="dropdown">
+                        操作
+                        <i class="ace-icon fa fa-chevron-down icon-on-right"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
+                        <li>
+                            <a href="#">导出电子表格</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="widget-body">
+                <div class="widget-main">
+                    <table id="appraiseprojectlistTB" class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>来源</th>
+                                <th>案卷号</th>
+                                <th>分类</th>
+                                <th>大类</th>
+                                <th>小类</th>
+                                <th>街道</th>
+                                <th>社区</th>
+                                <th>地址</th>
+                                <th>处理时间</th>
+                                <th>描述</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- PAGE CONTENT ENDS -->
+    </div><!-- /.col -->
+</div><!-- /.row -->
+<!-- page specific plugin scripts -->
+<!--[if lte IE 8]>
+  <script src="/content/assets/js/excanvas.min.js"></script>
+<![endif]-->
+
+<input type="hidden" id="labelname" name="labelname" value="@Request["labelname"]" />
+<input type="hidden" id="labeltype" name="labeltype" value="@Request["labeltype"]" />
+<input type="hidden" id="streetcode" name="streetcode" value="@Request["streetcode"]" />
+<input type="hidden" id="datafield" name="datafield" value="@Request["datafield"]" />
+<input type="hidden" id="datestart" name="datestart" value="@Request["datestart"]" />
+<input type="hidden" id="modeid" name="modeid" value="@Request["modeid"]" />
+<input type="hidden" id="dateend" name="dateend" value="@Request["dateend"]" />
+
+<script src="/content/assets/js/date-time/bootstrap-datepicker.min.js"></script>
+<script src="/content/assets/js/date-time/bootstrap-timepicker.min.js"></script>
+<script src="/content/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
+<script src="/content/assets/js/jquery.dataTables.min.js"></script>
+<script src="/content/assets/js/jquery.dataTables.bootstrap.js"></script>
+
+<script type="text/javascript">
+
+    $(function () {
+        ace.load_ajax_scripts([null], function () {
+            //inline scripts related to this page
+
+            $('.input-daterange').datepicker({ autoclose: true, language: 'zh-CN', });
+
+            var table = project.initAppraiseProjectTable();
+
+        });
+
+    })
+
+
+</script>
