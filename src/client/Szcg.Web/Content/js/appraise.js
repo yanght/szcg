@@ -8,20 +8,20 @@ appraise.areaAppraise = function () {
         var pager_selector = "#grid-pager";
 
         //resize to fit page size
-        $(window).on('resize.jqGrid', function () {
-            $(grid_selector).jqGrid('setGridWidth', $(".page-content").width());
-        })
+        //$(window).on('resize.jqGrid', function () {
+        //    $(grid_selector).jqGrid('setGridWidth', $(".page-content").width());
+        //})
 
-        //resize on sidebar collapse/expand
-        var parent_column = $(grid_selector).closest('[class*="col-"]');
-        $(document).on('settings.ace.jqGrid', function (ev, event_name, collapsed) {
-            if (event_name === 'sidebar_collapsed' || event_name === 'main_container_fixed') {
-                //setTimeout is for webkit only to give time for DOM changes and then redraw!!!
-                setTimeout(function () {
-                    $(grid_selector).jqGrid('setGridWidth', parent_column.width());
-                }, 0);
-            }
-        })
+        ////resize on sidebar collapse/expand
+        //var parent_column = $(grid_selector).closest('[class*="col-"]');
+        //$(document).on('settings.ace.jqGrid', function (ev, event_name, collapsed) {
+        //    if (event_name === 'sidebar_collapsed' || event_name === 'main_container_fixed') {
+        //        //setTimeout is for webkit only to give time for DOM changes and then redraw!!!
+        //        setTimeout(function () {
+        //            $(grid_selector).jqGrid('setGridWidth', parent_column.width());
+        //        }, 0);
+        //    }
+        //})
 
 
 
@@ -113,7 +113,7 @@ appraise.areaAppraise = function () {
                 { name: '最大超期结案总数', index: '最大超期结案总数', sortable: false, formatter: currencyFmatter },
                 { name: '最大部件超期结案量', index: '最大部件超期结案量', sortable: false, formatter: currencyFmatter },
                     ],
-                    loadComplete: function () {                        
+                    loadComplete: function () {
                         setTimeout(function () {
                             showProjectList();
                         }, 0);
@@ -235,8 +235,6 @@ appraise.areaAppraise = function () {
         });
         $(window).triggerHandler('resize.jqGrid');//trigger window resize to make the grid get the correct size
 
-
-
         //enable search/filter toolbar
         //jQuery(grid_selector).jqGrid('filterToolbar',{defaultSearch:true,stringResult:true})
         //jQuery(grid_selector).filterToolbar({});
@@ -348,7 +346,7 @@ appraise.areaAppraise = function () {
                     form.data('styled', true);
                 },
                 onClick: function (e) {
-                    alert(1);
+                    //alert(1);
                 }
             },
             {
@@ -697,6 +695,40 @@ project.initDepartAppriseList = function () {
                   { "data": "问题按时解决数" },
                   { "data": "问题按时解决率" },
                   { "data": "排序号" }
+               ], columnDefs: [
+                   {
+                       targets: [1],
+                       render: function (data, type, row, meta) {
+
+                           var jsondata = {
+                               labelname: row.部门名称,
+                               labeltype: "",
+                               userdefinedcode: row.Code,
+                               datafield: "",
+                               datestart: $("#startTime").val(),
+                               modeid: 2,
+                               dateend: $("#endTime").val(),
+                           };
+                           console.log(meta);
+                           var cols = $("#cols").val();
+                           $.each(cols.split(';'), function (index, item) {
+                               if (item.split(',')[0] == options.colModel.name) {
+                                   jsondata.datafield = escape(item.split(',')[1]);
+                               }
+                           })
+
+                           var url = "/appraise/home/ProjectList?labelname=" + jsondata.labelname
+                               + "&labeltype=" + jsondata.labeltype
+                               + "&userdefinedcode=" + jsondata.userdefinedcode
+                               + "&datafield=" + jsondata.datafield
+                               + "&datestart=" + jsondata.datestart
+                               + "&modeid=" + jsondata.modeid
+                               + "&dateend=" + jsondata.dateend;
+
+                           return "<a style='cursor:pointer;' class='appraiseprojectlist' data-url='" + url + "'>" + cellvalue + "</a>";
+
+                       }
+                   }
                ],
                "oLanguage": {
                    "sProcessing": "正在处理.....",
@@ -712,10 +744,47 @@ project.initDepartAppriseList = function () {
                        "sNext": " 下一页 ",
                        "sLast": " 最后一页 "
                    }
+               },
+               fnDrawCallback: function () {
+
                }
            });
 
+    function currencyFmatter(cellvalue, options, rowObject) {
+        var jsondata = {
+            labelname: rowObject.区域名称,
+            labeltype: escape(options.colModel.name),
+            streetcode: rowObject.Code,
+            datafield: "",
+            datestart: $("#startTime").val(),
+            modeid: 1,
+            dateend: $("#endTime").val(),
+        };
 
+        var cols = $("#cols").val();
+        $.each(cols.split(';'), function (index, item) {
+            if (item.split(',')[0] == options.colModel.name) {
+                jsondata.datafield = escape(item.split(',')[1]);
+            }
+        })
+
+        var url = "/appraise/home/ProjectList?labelname=" + jsondata.labelname
+            + "&labeltype=" + jsondata.labeltype
+            + "&streetcode=" + jsondata.streetcode
+            + "&datafield=" + jsondata.datafield
+            + "&datestart=" + jsondata.datestart
+            + "&modeid=" + jsondata.modeid
+            + "&dateend=" + jsondata.dateend;
+
+        return "<a style='cursor:pointer;' class='appraiseprojectlist' data-url='" + url + "'>" + cellvalue + "</a>";
+
+    }
+
+    function showProjectList() {
+        $(".appraiseprojectlist").unbind("click").bind("click", function () {
+            utils.dialog(this, "案卷列表", 1000, 800);
+        });
+    }
 
     $("#Type").change(function () {
         $(".number").show();

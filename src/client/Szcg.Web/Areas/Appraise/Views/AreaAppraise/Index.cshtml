@@ -60,19 +60,24 @@
             </div>
         </div>
 
-        <table id="grid-table"></table>
+        <div class="widget-box widget-color-blue" >
+            <div class="widget-body">
+                <div class="widget-main" style="padding:0px;width:100%;overflow:scroll">
 
-        <div id="grid-pager"></div>
+                    <table id="grid-table" style="width:100%;overflow-x:scroll;"></table>
 
-        <script type="text/javascript">
-            var $path_base = "..";//in Ace demo this will be used for editurl parameter
-        </script>
+                    <div id="grid-pager"></div>
 
+                    <script type="text/javascript">
+                        var $path_base = "..";//in Ace demo this will be used for editurl parameter
+                    </script>
+                </div>
+            </div>
+        </div>
         <!-- PAGE CONTENT ENDS -->
     </div><!-- /.col -->
 </div><!-- /.row -->
 <input type="hidden" id="cols" name="cols" value="@(Session["cols"])" />
-
 <input type="hidden" id="startTime" name="startTime" value="@(Session["startTime"])" />
 <input type="hidden" id="endTime" name="endTime" value="@(Session["endTime"])" />
 

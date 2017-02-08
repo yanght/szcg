@@ -1347,14 +1347,14 @@ project.initAppraiseProjectTable = function () {
                "bSort": false,
                "bProcessing": true,
                "columns": [
-                  { "data": "ProbSource", width: "60" },
-                  { "data": "ProjName", "mRender": function (data, type, full) { return '<a class="projectdetail" href="javascript:;" data-url="/callAcceptance/project/preview?projectcode=' + full.Projcode + '&year=' + full.StartYear + '&isend=' + full.IsEnd + '&nodeid=' + full.NodeId + '">' + data + '</a>'; } },
-                  { "data": "ProbClassName", width: "60" },
-                  { "data": "BigClassName", width: "50" },
+                  { "data": "ProbSource", width: "80" },
+                  { "data": "ProjName", width: "150", "mRender": function (data, type, full) { return '<a class="projectdetail" href="javascript:;" data-url="/callAcceptance/project/preview?projectcode=' + full.Projcode + '&year=' + full.StartYear + '&isend=' + full.IsEnd + '&nodeid=' + full.NodeId + '">' + data + '</a>'; } },
+                  { "data": "ProbClassName", width: "80" },
+                  { "data": "BigClassName", width: "80" },
                   { "data": "SmallClassName", width: "80" },
                   { "data": "Street", width: "80" },
                   { "data": "Square", width: "80" },
-                  { "data": "Address" },
+                  { "data": "Address", width: "80" },
                   { "data": "StartDate", "mRender": function (data, type, full) { return utils.getFormatDate(data, "yyyy-mm-dd HH:MM:ss") } },
                   {
                       "data": "ProbDesc", "mRender": function (data, type, full) {

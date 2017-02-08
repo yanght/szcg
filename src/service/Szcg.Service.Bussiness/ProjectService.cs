@@ -431,8 +431,8 @@ namespace Szcg.Service.Bussiness
             {
                 ds = bacgBL.zhpj.PQAJ_Dealyl.GetZAJDataInfo(args.isType, pageInfo, out strErr);
             }
-           
-            return ConvertDtHelper<Project>.GetModelList(ds.Tables[0]);
+
+            return ds == null||ds.Tables.Count==0 ? null : ConvertDtHelper<Project>.GetModelList(ds.Tables[0]);
         }
 
         /// <summary>
