@@ -52,6 +52,7 @@
     <Compile Include="EnumModel\EnumSystem.cs" />
     <Compile Include="FlowNodePower.cs" />
     <Compile Include="GroupUser.cs" />
+    <Compile Include="MapDepartModel.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="ProjectCheckMessage.cs" />

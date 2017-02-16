@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://service.boc.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CobSecurityServiceService" targetNamespace="http://service.boc.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8084/RsaSecurityWebService/CobSecurityServicePort?xsd=1" namespace="http://service.boc.com/" />
+    </xsd:schema>
+  </types>
+  <message name="main">
+    <part name="parameters" element="tns:main" />
+  </message>
+  <message name="mainResponse">
+    <part name="parameters" element="tns:mainResponse" />
+  </message>
+  <message name="downloadFile">
+    <part name="parameters" element="tns:downloadFile" />
+  </message>
+  <message name="downloadFileResponse">
+    <part name="parameters" element="tns:downloadFileResponse" />
+  </message>
+  <message name="EncryptPassword">
+    <part name="parameters" element="tns:EncryptPassword" />
+  </message>
+  <message name="EncryptPasswordResponse">
+    <part name="parameters" element="tns:EncryptPasswordResponse" />
+  </message>
+  <message name="EncryptFile">
+    <part name="parameters" element="tns:EncryptFile" />
+  </message>
+  <message name="EncryptFileResponse">
+    <part name="parameters" element="tns:EncryptFileResponse" />
+  </message>
+  <message name="DecryptFile">
+    <part name="parameters" element="tns:DecryptFile" />
+  </message>
+  <message name="DecryptFileResponse">
+    <part name="parameters" element="tns:DecryptFileResponse" />
+  </message>
+  <portType name="CobSecurityServiceDelegate">
+    <operation name="main">
+      <input message="tns:main" />
+      <output message="tns:mainResponse" />
+    </operation>
+    <operation name="downloadFile">
+      <input message="tns:downloadFile" />
+      <output message="tns:downloadFileResponse" />
+    </operation>
+    <operation name="EncryptPassword">
+      <input message="tns:EncryptPassword" />
+      <output message="tns:EncryptPasswordResponse" />
+    </operation>
+    <operation name="EncryptFile">
+      <input message="tns:EncryptFile" />
+      <output message="tns:EncryptFileResponse" />
+    </operation>
+    <operation name="DecryptFile">
+      <input message="tns:DecryptFile" />
+      <output message="tns:DecryptFileResponse" />
+    </operation>
+  </portType>
+  <binding name="CobSecurityServicePortBinding" type="tns:CobSecurityServiceDelegate">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="main">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="downloadFile">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="EncryptPassword">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="EncryptFile">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="DecryptFile">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="CobSecurityServiceService">
+    <port name="CobSecurityServicePort" binding="tns:CobSecurityServicePortBinding">
+      <soap:address location="http://localhost:8084/RsaSecurityWebService/CobSecurityServicePort" />
+    </port>
+  </service>
+</definitions>

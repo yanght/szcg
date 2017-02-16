@@ -1,0 +1,19 @@
+/*
+ COPYRIGHT 2009 ESRI
+
+ TRADE SECRETS: ESRI PROPRIETARY AND CONFIDENTIAL
+ Unpublished material - all rights reserved under the
+ Copyright Laws of the United States and applicable international
+ laws, treaties, and conventions.
+
+ For additional information, contact:
+ Environmental Systems Research Institute, Inc.
+ Attn: Contracts and Legal Services Department
+ 380 New York Street
+ Redlands, California, 92373
+ USA
+
+ email: contracts@esri.com
+ */
+//>>built
+define("esri/dijit/Print",["dijit","dojo","dojox","dojo/require!dijit/Menu,dijit/form/Button,esri/tasks/PrintTask"],function(_1,_2,_3){_2.provide("esri.dijit.Print");_2.require("dijit.Menu");_2.require("dijit.form.Button");_2.require("esri.tasks.PrintTask");_2.declare("esri.dijit.Print",null,{onPrintComplete:function(){},onError:function(){},onPrintStart:function(){},constructor:function(_4,_5){_4=_4||{};this.url=_4.url;this.async=_4.async;this.map=_4.map;this.templates=_4.templates;this.extraParams=_4.extraParameters;var _6=esri.bundle.widgets.print;this._printText=_6.NLS_print;this._printingText=_6.NLS_printing;this._printoutText=_6.NLS_printout;if(!this.templates){this.templates=[{label:this._printText,format:"PNG32",layout:"MAP_ONLY",exportOptions:{width:800,height:1100,dpi:96}}];}this.printDomNode=_2.create("div");_2.addClass(this.printDomNode,"esriPrint");_5=_2.byId(_5);_5.appendChild(this.printDomNode);},startup:function(){this._createPrintButton();},destroy:function(){this.map=null;_2.destroy(this.printDomNode);},hide:function(){esri.hide(this.printDomNode);},show:function(){esri.show(this.printDomNode);},printMap:function(_7){this.onPrintStart();this._printButton.setAttribute("label",this._printingText);this._printButton.setAttribute("disabled",true);var _8=this.map;var _9=new esri.tasks.PrintTask(this.url,{async:this.async});var _a=new esri.tasks.PrintParameters();_a.map=_8;_a.template=_7;_a.extraParameters=this.extraParams;_9.execute(_a,_2.hitch(this,this._printComplete),_2.hitch(this,this._printError));},_createPrintButton:function(){var _b=this.templates;if(_b.length===1){this._printButton=new _1.form.Button({label:this._printText,onClick:_2.hitch(this,function(){this.printMap(_b[0]);})});this.printDomNode.appendChild(this._printButton.domNode);}else{this._printButton=new _1.form.ComboButton({label:this._printText,onClick:_2.hitch(this,function(){this.printMap(_b[0]);})});this.printDomNode.appendChild(this._printButton.domNode);var _c=new _1.Menu({style:"display: none;"});_2.forEach(_b,function(_d){var _e=new _1.MenuItem({label:_d.label,onClick:_2.hitch(this,function(){this.printMap(_d);})});_c.addChild(_e);},this);this._printButton.setAttribute("dropDown",_c);}_2.addClass(this._printButton.domNode,"esriPrintButton");},_printComplete:function(_f){this.onPrintComplete(_f);var _10=window.location.host.split(".");var _11=_10.length>1?_10[_10.length-2]+"."+_10[_10.length-1]:window.location.host;var _12=_f.url.split("://")[1].split("/")[0].split(".");var _13=_12.length>1?_12[_12.length-2]+"."+_12[_12.length-1]:_f.url.split("://")[1].split("/")[0];if(_11.toLowerCase()===_13.toLowerCase()){window.open(_f.url);this._removeAllChildren(this.printDomNode);this._createPrintButton();}else{this._printButton.domNode.style.display="none";var _14=_2.create("a",{href:_f.url,target:"_blank",innerHTML:this._printoutText});_2.connect(_14,"onclick",_2.hitch(this,this._hyperlinkClick));this._removeAllChildren(this.printDomNode);_2.addClass(_14,"esriPrintout");this.printDomNode.appendChild(_14);}},_printError:function(err){this._removeAllChildren(this.printDomNode);this._createPrintButton();console.error(err);this.onError(err);},_hyperlinkClick:function(){this._removeAllChildren(this.printDomNode);this._createPrintButton();},_removeAllChildren:function(_15){while(_15.hasChildNodes()){_15.removeChild(_15.lastChild);}}});});

@@ -1,0 +1,11 @@
+﻿.esriPopup.myTheme .titlePane, .dj_ie7 .esriPopup.myTheme .titlePane .title {
+        /*background-color: #C8AB91;*/
+        color: #333333;
+        font-weight: bold;
+        height :23px;
+        background-image: url('../../image/ggzxc/banner/banw.png');
+      }
+.mapsbar .right span.zhankai { width: 102px; height: 25px; float: left; background: url('../../image/imagesgs/green.png')}
+  
+      
+      

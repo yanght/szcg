@@ -1,0 +1,2 @@
+//>>built
+define("dgrid/extensions/DijitRegistry",["dojo/_base/declare","dijit/registry"],function(_1,_2){return _1("dgrid.extensions.DijitRegistry",[],{buildRendering:function(){_2.add(this);this.inherited(arguments);this.domNode.setAttribute("widgetId",this.id);},startup:function(){if(this._started){return;}this.inherited(arguments);if(_2.getEnclosingWidget(this.domNode.parentNode)){this._resizeHandle.remove();}},destroy:function(){this.inherited(arguments);_2.remove(this);},getChildren:function(){return [];}});});

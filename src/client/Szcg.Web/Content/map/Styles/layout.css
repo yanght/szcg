@@ -1,0 +1,161 @@
+﻿:focus /* for Firefox，IE8.0等去掉虚框 */
+{
+    outline-style: none;
+}
+a, area /* for IE7.0及以下版本去掉虚框*/
+{
+    blr: expression(this.onFocus=this.blur());
+}
+/*.container image
+{
+    cursor:hand;
+    cursor: pointer;
+}*/
+/*.esriPopup.myTheme .sizer{width:280px !important;}*/
+#map.graphics3_layer 
+{
+    cursor:hand;
+    cursor: pointer;
+}
+#map.graphics2_layer
+{
+    cursor:hand;
+    cursor: pointer;
+}
+#map_graphics_layer
+{
+	cursor:hand;
+    cursor: pointer;
+}
+  .esriPopup .actionsPane {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #F7F7F7;
+    border-radius: 0 0 5px 5px;
+    border-style: none solid solid;
+    border-width: medium 1px 1px;
+    padding: 2px 10px 4px;
+     filter:alpha(opacity=90);
+        -moz-opacity:0.9;
+        -khtml-opacity: 0.9;
+        opacity: 0.8;
+}
+
+      .esriPopup .contentPane {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #F7F7F7;
+    border-style: none solid;
+    border-width: medium 1px;
+    color: #333333;
+    overflow: auto;
+    padding: 10px 6px 6px 10px;
+    position: relative;
+     filter:alpha(opacity=80);
+        -moz-opacity:0.8;
+        -khtml-opacity: 0.8;
+        opacity: 0.8;
+}
+.infotdname
+{
+    font-weight: bold;
+    height: 20px;
+    text-align: left;
+    white-space: nowrap;
+}
+#maptoolbar ul li
+{
+   
+    display: inline;
+}
+
+#maptoolbar ul li a
+{
+    display: inline-block;
+    text-align: center;
+    /*border-right: 2px solid white;*/
+    text-decoration: none;
+    font-size: 10.5pt;
+    font-weight: bold;
+}
+#maptoolbar2 ul
+{
+   
+}
+#maptoolbar2 ul li
+{
+    
+    display: inline;
+   
+}
+
+#maptoolbar2 ul li a
+{
+    display: inline-block;
+    text-align: center;
+    /*border-right: 2px solid white;*/
+    text-decoration: none;
+    font-size: 10.5pt;
+    font-weight: bold;
+}
+.infotdname
+{
+    font-weight:bold;height:20px; text-align:left;
+}
+.infotddata
+{
+    text-align:left;word-break:break-all;width:280px;
+}
+.infowindow .window .top .right .user .titlebar .title
+{
+    font-size: 14pt;
+    font-weight: bold;
+
+	/*background-image:url(http://61.164.207.22/arcgis_js_api/library/2.8/jsapi/js/esri/dijit/images/tundra.infowindow.png);*/
+}
+
+ .l-dialog td, .l-dialog tr, .l-dialog td div {
+    font-size: 15px;
+}
+
+ .PagerView{
+	font-size: 12px;
+	font-family: tahoma, arial;
+	color: #333;
+	text-align: center;
+	padding: 8px;
+	line-height: 100%;
+}
+.PagerView span{
+	color: #999;
+	margin: 0 1px;
+	padding: 3px 6px;
+	border: 1px solid #ccc;
+}
+.PagerView span.on{
+	color: #fff;
+	font-weight: bold;
+	border: 1px solid #666;
+	background: #39f;
+}
+.PagerView a{
+	color: #00f;
+	text-decoration: none;
+}
+.PagerView a span{
+	color: #33f;
+	border: 1px solid #66c;
+}
+ul,li {list-style-type:none;}
+.select_box { z-index:99; width:110px; border:1px solid #ccc; padding-right:20px; padding-left:10px; background:url(../Image/107.gif) no-repeat 120px center; position:relative;}
+.select_box span {cursor:pointer; display:block; line-height:25px; width:100%; height:23px; overflow:hidden;}
+.select_box ul li {cursor:pointer;}
+.son_ul {width:139px; position:absolute; left:0; top:24px; border:1px dashed #ccc; background:#fff;}
+.son_ul li {display:block; line-height:25px; padding-left:10px; width:129px;}
+.hover {background:#ccc;} 

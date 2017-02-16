@@ -32,6 +32,13 @@ namespace Szcg.Web
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "Szcg.Web.Controllers" }
             );
+
+            routes.MapRoute(
+              name: "Handler",
+              url: "tdtsys/handler/cgrid.ashx",
+              defaults: new { controller = "tdtsys", action = "handler", id = UrlParameter.Optional },
+              namespaces: new[] { "Szcg.Web.Controllers" }
+          );
         }
     }
 }

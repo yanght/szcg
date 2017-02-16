@@ -1,0 +1,19 @@
+/*
+ COPYRIGHT 2009 ESRI
+
+ TRADE SECRETS: ESRI PROPRIETARY AND CONFIDENTIAL
+ Unpublished material - all rights reserved under the
+ Copyright Laws of the United States and applicable international
+ laws, treaties, and conventions.
+
+ For additional information, contact:
+ Environmental Systems Research Institute, Inc.
+ Attn: Contracts and Legal Services Department
+ 380 New York Street
+ Redlands, California, 92373
+ USA
+
+ email: contracts@esri.com
+ */
+//>>built
+define("esri/tasks/_task",["dijit","dojo","dojox","dojo/require!esri/graphic,esri/utils"],function(_1,_2,_3){_2.provide("esri.tasks._task");_2.require("esri.graphic");_2.require("esri.utils");_2.declare("esri.tasks._Task",null,{constructor:function(_4){if(_4&&_2.isString(_4)){this._url=esri.urlToObject(this.url=_4);}this.normalization=true;this._errorHandler=_2.hitch(this,this._errorHandler);},_useSSL:function(){var _5=this._url,re=/^http:/i,_6="https:";if(this.url){this.url=this.url.replace(re,_6);}if(_5&&_5.path){_5.path=_5.path.replace(re,_6);}},_encode:function(_7,_8,_9){var _a,_b,_c={},i,p,pl;for(i in _7){if(i==="declaredClass"){continue;}_a=_7[i];_b=typeof (_a);if(_a!==null&&_a!==undefined&&_b!=="function"){if(_2.isArray(_a)){_c[i]=[];pl=_a.length;for(p=0;p<pl;p++){_c[i][p]=this._encode(_a[p]);}}else{if(_b==="object"){if(_a.toJson){var _d=_a.toJson(_9&&_9[i]);if(_a instanceof esri.tasks.FeatureSet){if(_d.spatialReference){_d.sr=_d.spatialReference;delete _d.spatialReference;}}_c[i]=_8?_d:_2.toJson(_d);}}else{_c[i]=_a;}}}}return _c;},_successHandler:function(_e,_f,_10,dfd){if(_f){this[_f].apply(this,_e);}if(_10){_10.apply(null,_e);}if(dfd){esri._resDfd(dfd,_e);}},_errorHandler:function(err,_11,dfd){this.onError(err);if(_11){_11(err);}if(dfd){dfd.errback(err);}},setNormalization:function(_12){this.normalization=_12;},onError:function(){}});_2.declare("esri.tasks.FeatureSet",null,{constructor:function(_13){if(_13){_2.mixin(this,_13);var _14=this.features,sr=_13.spatialReference,_15=esri.Graphic,_16=esri.geometry.getGeometryType(_13.geometryType);sr=(this.spatialReference=new esri.SpatialReference(sr));this.geometryType=_13.geometryType;if(_13.fields){this.fields=_13.fields;}_2.forEach(_14,function(_17,i){var _18=_17.geometry&&_17.geometry.spatialReference;_14[i]=new _15((_16&&_17.geometry)?new _16(_17.geometry):null,_17.symbol&&esri.symbol.fromJson(_17.symbol),_17.attributes);if(_14[i].geometry&&!_18){_14[i].geometry.setSpatialReference(sr);}});}else{this.features=[];}},displayFieldName:null,geometryType:null,spatialReference:null,fieldAliases:null,toJson:function(_19){var _1a={};if(this.displayFieldName){_1a.displayFieldName=this.displayFieldName;}if(this.fields){_1a.fields=this.fields;}if(this.spatialReference){_1a.spatialReference=this.spatialReference.toJson();}else{if(this.features[0]&&this.features[0].geometry){_1a.spatialReference=this.features[0].geometry.spatialReference.toJson();}}if(this.features[0]){if(this.features[0].geometry){_1a.geometryType=esri.geometry.getJsonType(this.features[0].geometry);}_1a.features=esri._encodeGraphics(this.features,_19);}_1a.exceededTransferLimit=this.exceededTransferLimit;return esri._sanitize(_1a);}});esri.tasks._SpatialRelationship={SPATIAL_REL_INTERSECTS:"esriSpatialRelIntersects",SPATIAL_REL_CONTAINS:"esriSpatialRelContains",SPATIAL_REL_CROSSES:"esriSpatialRelCrosses",SPATIAL_REL_ENVELOPEINTERSECTS:"esriSpatialRelEnvelopeIntersects",SPATIAL_REL_INDEXINTERSECTS:"esriSpatialRelIndexIntersects",SPATIAL_REL_OVERLAPS:"esriSpatialRelOverlaps",SPATIAL_REL_TOUCHES:"esriSpatialRelTouches",SPATIAL_REL_WITHIN:"esriSpatialRelWithin",SPATIAL_REL_RELATION:"esriSpatialRelRelation"};});

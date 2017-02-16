@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://service.boc.com/" targetNamespace="http://service.boc.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="DecryptFile" type="tns:DecryptFile" />
+  <xs:element name="DecryptFileResponse" type="tns:DecryptFileResponse" />
+  <xs:element name="EncryptFile" type="tns:EncryptFile" />
+  <xs:element name="EncryptFileResponse" type="tns:EncryptFileResponse" />
+  <xs:element name="EncryptPassword" type="tns:EncryptPassword" />
+  <xs:element name="EncryptPasswordResponse" type="tns:EncryptPasswordResponse" />
+  <xs:element name="downloadFile" type="tns:downloadFile" />
+  <xs:element name="downloadFileResponse" type="tns:downloadFileResponse" />
+  <xs:element name="main" type="tns:main" />
+  <xs:element name="mainResponse" type="tns:mainResponse" />
+  <xs:complexType name="EncryptPassword">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EncryptPasswordResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DecryptFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DecryptFileResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="main">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="arg0" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mainResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="downloadFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="downloadFileResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EncryptFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EncryptFileResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
