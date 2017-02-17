@@ -1,0 +1,206 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<meta charset="utf-8" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+        天地图
+    </title>
+    <link rel="stylesheet" type="text/css" href="http://220.191.220.57:8000/arcgis_js_api/library/2.8/jsapi/js/dojo/dijit/themes/claro/claro.css" />
+    <link rel="stylesheet" type="text/css" href="http://220.191.220.57:8000/arcgis_js_api/library/2.8/jsapi/js/esri/dijit/css/Popup.css" />
+    <link href="/content/map/Styles/style.css" rel="stylesheet" type="text/css" />
+    <link href="/content/map/Styles/layout.css" rel="stylesheet" type="text/css" />
+    <link href="/content/map/Styles/ggzxc/StyleSheet.css" rel="stylesheet" type="text/css" />
+    <link href="/content/map/lib/facefiles/facebox.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/content/map/lib/jqueryui/jquery-ui-1.8.22.custom.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="http://220.191.220.57:8000/arcgis_js_api/library/2.8/jsapi/"></script>
+
+    <script src="/content/map/lib/jquery/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script src="/content/map/lib/facefiles/facebox.js" type="text/javascript"></script>
+    <script src="/content/map/Scripts/base.js" type="text/javascript"></script>
+    <script src="/content/map/Scripts/ggzxc/gsmpmap.js" type="text/javascript"></script>
+    <script src="/content/map/Scripts/ggzxc/infoWinContent.js" type="text/javascript"></script>
+    <script src="/content/map/Scripts/ggzxc/glist.js" type="text/javascript"></script>
+    <script src="/content/map/Scripts/maps.js" type="text/javascript"></script>
+    <script src="/content/map/Scripts/TDTTiledLayer.js" type="text/javascript"></script>
+    <script src="/content/map/lib/jqueryui/jquery.ui.core.js" type="text/javascript"></script>
+    <script src="/content/map/lib/jqueryui/jquery.ui.position.js" type="text/javascript"></script>
+    <script src="/content/map/lib/jqueryui/jquery.ui.widget.js" type="text/javascript"></script>
+    <script src="/content/map/lib/jqueryui/jquery.combobox.js" type="text/javascript"></script>
+    <script src="/content/map/lib/jqueryui/jquery.ui.autocomplete.js" type="text/javascript"></script>
+    <script src="/content/map/lib/PagerView.js" type="text/javascript"></script>
+    <style type="text/css">
+        .divOver {
+            background: #eff8fe;
+            border: solid 1px #d2dce3;
+        }
+    </style>
+    <script type="text/javascript">
+        var graphicarray = new Array();
+        var pageIndex = 0;     //页面索引初始值
+        var pageSize;
+        var pageCount;
+        var pathcontext = "/tdtsys";
+        var furl;
+        var view = "ggzxc";
+        var qview;
+        var imgpath = "/Image/";
+        if (pathcontext == "/") {
+            pathcontext = "";
+        }
+        window.onresize = function () {
+            resize();
+        }
+        $(document).ready(function () {
+            $("#spara").attr('disabled', true);
+            resize();
+            select();
+        })
+    </script>
+
+</head>
+<body style="cursor: default;" class="claro">
+    <form method="post" action="tdtggzxc.aspx" id="form1">
+        <div class="aspNetHidden">
+            <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTI0OTE3NzUwNGRk6j88Yubyd4K2QhivyUWk2tcgJ3YQVLshcd5Mk5AyNmU=" />
+        </div>
+
+        <div class="aspNetHidden">
+
+            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="2E46104E" />
+        </div>
+        <div style="height: 69px; overflow: hidden;  background-image:url('http://www.jxmap.gov.cn:8000/tdtsys/Image/ggzxc/banner/banback.png')">
+            @*<img src="http://www.jxmap.gov.cn:8000/tdtsys/Image/ggzxc/banner/ban.png" alt="" style=" float:left" />*@
+            <div class="toolbar area" id="toolbar1">
+                <a name="top"></a>
+                <div class="left l">
+                    <div class="l login_infos"><a href="http://" class="user_name"></a></div>
+                </div>
+            </div>
+            <div id="logo" class="logo area">
+                <div class="top_left clear">
+                </div>
+            </div>
+        </div>
+        <div id="mapsbar" class="mapsbar area" style=" background-image:url('http://www.jxmap.gov.cn:8000/tdtsys/Image/imagesgs/newmap_topbg2.png')">
+            <div class="left">
+                <a href="http://www.jxmap.gov.cn/main.asp?qval=index.html?name=&type=1&level=6" class="go_home">首页</a>
+                <p>&nbsp;</p>
+                <div style="float: left; margin-left: 20px">
+
+                    <ul id="main_box">
+                        <li class="select_box">
+                            <span id="selectbox">全部</span>
+                            <ul class="son_ul">
+                                <li>地址</li>
+                                @*<li>自行车数</li>*@
+                                <li>全部</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div style="float: left; margin-left: 15px">
+                    <input maxlength="30" value="" name="spara" id="spara" type="text" style="border: 1px solid #C0CABF; background: #f9f9f9;width:150px;height:21px" />
+
+                </div>
+
+                <div style=" float:left;margin-left:15px">
+                    <a href="javascript:void(0)" class="go_home" onclick="query(view)">搜索</a>
+                </div>
+            </div>
+            <div class="right">
+                <p>&nbsp;</p>
+                <span class="zhankai"><a href="javascript:void(0)" onclick="fshow()" style=" margin-left:5px">展开文本视图</a></span>
+            </div>
+        </div>
+        <div id="maparea" class="maparea area">
+            <table align="center" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td width="100%" valign="top">
+                        <div id="mapbar" style="background-color: rgb(235, 234, 232); cursor: default;">
+                            <div id="map">
+
+                                <div id="maptoolbar" style="position: absolute;width: 300px; height: 35px; left: 65px; right:auto; z-index: 2">
+                                    <ul style="display: inline; text-align: center;">
+                                        <li>
+                                            <a href="javascript:void(0)" onclick="ZOOM_IN()">
+                                                <img id="zoomin" src="http://www.jxmap.gov.cn:8000/tdtsys/Image/ggzxc/maptools/map_zoomin1.png" alt="" style="border: node" />
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" onclick="ZOOM_OUT()">
+                                                <img id="zoomout" src="http://www.jxmap.gov.cn:8000/tdtsys/Image/ggzxc/maptools/map_zoomout1.png" alt="" />
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" onclick="navToolbar.activate(esri.toolbars.Navigation.PAN);">
+                                                <img id="navpan" src="http://www.jxmap.gov.cn:8000/tdtsys/Image/ggzxc/maptools/map_pan1.png" alt="" />
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" onclick="javascript:navToolbar.zoomToFullExtent();">
+                                                <img id="zoomfull" src="http://www.jxmap.gov.cn:8000/tdtsys/Image/ggzxc/maptools/map_full1.png" alt="" />
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" onclick="clearpoint()">
+                                                <img id="Img2" src="http://www.jxmap.gov.cn:8000/tdtsys/Image/ggzxc/maptools/map_full13.png" alt="" />
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div id="maptoolbar2" style="position: absolute;width:150px; height: 35px; margin-top:5px; left:auto;right:0px; z-index: 2">
+                                    <ul style="display: inline; ">
+                                        <li>
+                                            <a href="javascript:void(0)" onclick="getVector()">
+                                                <img id="Img1" src="http://www.jxmap.gov.cn:8000/tdtsys/Image/v1.png" onmousemove="javascript:$(this).attr('src','http://www.jxmap.gov.cn:8000/tdtsys/Image/v2.png')" onmouseout="javascript:$(this).attr('src','http://www.jxmap.gov.cn:8000/tdtsys/Image/v1.png')" alt="" style="border: node" />
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" onclick="getImg()">
+                                                <img src="http://www.jxmap.gov.cn:8000/tdtsys/Image/i1.png" alt="" onmousemove="javascript:$(this).attr('src','http://www.jxmap.gov.cn:8000/tdtsys/Image/i2.png')" onmouseout="javascript:$(this).attr('src','http://www.jxmap.gov.cn:8000/tdtsys/Image/i1.png')" />
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td width="10px"></td>
+                    <td id="deallist-y2" width="300px" valign="top" style=" display:none">
+                        <div class="map_right">
+                            <a href="javascript:void(0)" class="shouhui"></a>
+                            <div class="map_right_content" id="deallist-y">
+                                <div class="scrollbar" id="scrollbars">
+                                    <div class="track" id="tracks">
+
+                                    </div>
+                                </div>
+                                <div style="height: 717px;" class="viewport" id="viewports">
+                                    <div style="top: 0px;" class="overview">
+                                        <div class="top_txt">查询结果<em><label id="serjg" style=" font-size:12px"></label></em></div>
+                                        <div id="dealList" class="clear">
+                                        </div>
+
+                                        <div id="pager" style=" float:left; margin-top:2px; margin-left:15px"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+        @* <div class="map_foot">主办单位：嘉兴市测绘与地理信息局  　 地图数据来源：<span id="ftext">天地图</span>　　技术支持：嘉兴市规划设计研究院有限公司</div>*@
+
+
+    </form>
+</body>
+</html>

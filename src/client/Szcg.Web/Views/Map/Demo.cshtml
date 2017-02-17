@@ -1,0 +1,108 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPEHTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Simple Map</title>
+    <link rel="stylesheet" type="text/css" href="http://220.191.220.57:8000/arcgis_js_api/library/2.8/jsapi/js/dojo/dijit/themes/claro/claro.css" />
+    <link rel="stylesheet" type="text/css" href="http://220.191.220.57:8000/arcgis_js_api/library/2.8/jsapi/js/esri/dijit/css/Popup.css" />
+    <script type="text/javascript" src="http://220.191.220.57:8000/arcgis_js_api/library/2.8/jsapi/init.js">
+    </script>
+    <script type="text/javascript">
+        dojo.require("esri.map");
+        dojo.require("esri.toolbars.draw");
+        dojo.require("esri.graphic");
+        dojo.require("esri.layers.graphics");
+        dojo.require("esri.geometry");
+        var ptcount ="13740395.6058,5130594.7971/13740385.6058,5130594.7971/13740375.6058,5130594.7971/13740365.6058,5130594.7971/13740355.6058,5130594.7971/13740355.6058,5130583.7971/13740355.6058,5130572.7971/13740355.6058,5130561.7971/13740355.6058,5130550.7971/13740355.6058,5130549.7971/13740355.6058,5130538.7971/13740355.6058,5130527.7971/13740355.6058,5130516.7971/13740355.6058,5130505.7971/13740355.6058,5130494.7971/13740355.6058,5130483.7971/13740355.6058,5130472.7971/13740355.6058,5130461.7971/13740355.6058,5130450.7971/13740355.6058,5130449.7971/13740355.6058,5130438.7971/13740355.6058,5130427.7971/13740355.6058,5130416.7971/13740355.6058,5130405.7971/13740355.6058,5130394.7971/13740355.6058,5130383.7971/13740355.6058,5130372.7971/13740355.6058,5130361.7971/13740355.6058,5130350.7971/13740355.6058,5130349.7971/13740355.6058,5130328.7971/13740355.6058,5130317.7971/13740355.6058,5130306.7971/13740355.6058,5130295.7971/13740355.6058,5130284.7971/13740355.6058,5130273.7971/13740355.6058,5130262.7971/";
+        var list;
+        var defaultSymbol;
+        var myMap;
+        var icount;
+        var i = 0;
+        function ptcounntSplit() {
+            list =ptcount.split("/");
+            icount=list.length;
+            //alert(list[0].substring(0,list[0].indexOf(',')));
+            //alert(list[0].substring(list[0].indexOf(',')+1, list[0].length));
+        }
+        function ptPosition() {
+
+            varpointSymbol = new esri.symbol.SimpleMarkerSymbol();
+            pointSymbol.setOutline = newesri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID, newdojo.Color([255, 0, 0]), 1);
+            pointSymbol.setSize(5);
+            pointSymbol.setColor(new dojo.Color([0, 255, 0, 0.25]));
+
+            var geometry= new esri.geometry.Point(13740395.6058, 5130594.7971);
+
+            var graphic= new esri.Graphic(geometry, pointSymbol);
+
+            myMap.graphics.add(graphic);
+            // var point = new esri.geometry.Point({ "x": 13740395.6058,"y": 5130594.7971, " spatialReference": { "wkid": 102100} });
+            myMap.centerAndZoom(geometry, 20);
+        }
+
+        function go() {
+
+
+            varpointSymbol = new esri.symbol.SimpleMarkerSymbol();
+            pointSymbol.setOutline= new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID,new dojo.Color([255, 0, 0]), 1);
+            pointSymbol.setSize(5);
+            pointSymbol.setColor(new dojo.Color([0, 255, 0, 0.25]));
+            //alert(list[i]);
+            var geometry= new esri.geometry.Point(list[i].substring(0, list[i].indexOf(',')),list[i].substring(list[i].indexOf(',') + 1, list[i].length));
+            var graphic = new esri.Graphic(geometry, pointSymbol);
+
+            myMap.graphics.add(graphic);
+
+            var extent =myMap.extent;
+            if(!extent.contains(graphic.geometry)) {
+                myMap.centerAt(geometry);
+            }
+
+            i++;
+
+
+        }
+
+        function gogps() {
+
+            go();
+            if (i <icount) {
+                window.settimeout("gogps()", "2000" );
+            }
+            else {
+                window.cleartimeout("gogps()");
+            }
+        }
+        function init() { var myMap = newesri.Map("mapDiv");
+            var customExtentAndSR =new esri.geometry.Extent(13676444.4499247, 5092822.83792968, 13781163.1786753,5160163.85984883, new esri.SpatialReference({ "wkid": 102100}));
+            myMap = new esri.Map("mapDiv", {extent:customExtentAndSR});
+
+            //note that if you do not havepublic Internet access then you will need to point this url to your own locallyaccessible cached service.
+            var myTiledMapServiceLayer = newesri.layers.ArcGISTiledMapServiceLayer("http://www.arcgisonline.cn/ArcGIS/rest/services/ChinaCities_Community_BaseMap_CHN/ShenYang_Community_BaseMap_CHN/MapServer");
+            myMap.addLayer(myTiledMapServiceLayer);
+
+        }
+        dojo.addOnLoad(init);
+    </script>
+</head>
+<body class="tundra">
+    <table>
+        <tr>
+            <td>
+                <div id="mapDiv" style="width:1500px; height:800px;border:1px solid #000;"></div>
+            </td>
+            <td>
+                <input id="Button1" type="button" value="定位" nclick='ptPosition()' />
+                <input id="Button2" type="button" value="回放" nclick=' ptcounntSplit();gogps()' />
+            </td>
+        </tr>
+
+
+    </table>
+</body>
+</html>

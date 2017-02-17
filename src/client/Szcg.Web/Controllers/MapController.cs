@@ -16,6 +16,10 @@ namespace Szcg.Web.Controllers
         {
             return View();
         }
+        public ActionResult Demo()
+        {
+            return View();
+        }
 
         public ActionResult EncryptPassword()
         {

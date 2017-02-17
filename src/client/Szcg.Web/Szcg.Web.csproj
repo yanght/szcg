@@ -651,13 +651,14 @@
     <Content Include="Content\map\lib\jqueryui\jquery.ui.widget.js" />
     <Content Include="Content\map\lib\jquery\jquery-1.7.1.min.js" />
     <Content Include="Content\map\lib\PagerView.js" />
-    <Content Include="Content\map\Scripts\arcjsapi.js" />
     <Content Include="Content\map\Scripts\base.js" />
     <Content Include="Content\map\Scripts\ggzxc\glist.js" />
     <Content Include="Content\map\Scripts\ggzxc\gsmpmap.js" />
     <Content Include="Content\map\Scripts\ggzxc\infoWinContent.js" />
     <Content Include="Content\map\Scripts\maps.js" />
-    <Content Include="Content\map\Scripts\TDTTiledLayer.js" />
+    <Content Include="Content\map\Scripts\TDTAnnoLayer.js" />
+    <Content Include="Content\map\tdtlib\TDTLayer.js" />
+    <Content Include="Content\map\tdtlib\TDTTiledLayer.js" />
     <Content Include="Content\map\Styles\ggzxc\StyleSheet.css" />
     <Content Include="Content\map\Styles\layout.css" />
     <Content Include="Content\map\Styles\style.css" />
@@ -7180,6 +7181,8 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\Map\Index.cshtml" />
+    <Content Include="Views\Map\Demo.cshtml" />
+    <Content Include="Views\Map\Index - 复制.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -21,7 +21,7 @@ function initMap() {
         'marginTop': '20'
     };
     var popup = new esri.dijit.Popup(popupOptions, dojo.create("div"));
-     map = new esri.Map("map", { logo: false, infoWindow: popup });
+    map = new esri.Map("map", { logo: false, infoWindow: popup });
     dojo.addClass(map.infoWindow.domNode, "myTheme");
     dojo.connect(map, 'onLoad', function (map) {
         var scalebar = new esri.dijit.Scalebar({
@@ -49,32 +49,32 @@ function initMap() {
 }
 var timer;
 dojo.addOnLoad(initMap);
-    function drawToMap(geometry) {
-        map.graphics.clear();
-        map.infoWindow.hide();
-        var xmax = geometry.xmax;
-        var xmin = geometry.xmin;
-        var ymax = geometry.ymax;
-        var ymin = geometry.ymin;
-        var url = pathcontext + "/handler/cgrid.ashx?view=" + view + "&xmax=" + xman + "&xmin=" + xmin + "&ymax=" + yman + "&ymin=" + ymin;
-        fajax(url);
-        toolbar.deactivate();
+function drawToMap(geometry) {
+    map.graphics.clear();
+    map.infoWindow.hide();
+    var xmax = geometry.xmax;
+    var xmin = geometry.xmin;
+    var ymax = geometry.ymax;
+    var ymin = geometry.ymin;
+    var url = pathcontext + "/handler/cgrid.ashx?view=" + view + "&xmax=" + xman + "&xmin=" + xmin + "&ymax=" + yman + "&ymin=" + ymin;
+    fajax(url);
+    toolbar.deactivate();
+}
+function getLevel() {
+    var ftext;
+    var level = map.getLevel();
+    switch (level) {
+        case 0: ftext = "天地图"; break;
+        case 1: ftext = "天地图"; break;
+        case 2: ftext = "天地图.浙江"; break;
+        case 3: ftext = "天地图.浙江"; break;
+        case 4: ftext = "天地图.浙江"; break;
+        case 5: ftext = "天地图.嘉兴"; break;
+        case 6: ftext = "天地图.嘉兴"; break;
+        case 7: ftext = "天地图.嘉兴"; break;
     }
-    function getLevel() {
-        var ftext;
-        var level = map.getLevel();
-        switch (level) {
-            case 0: ftext = "天地图"; break;
-            case 1: ftext = "天地图"; break;
-            case 2: ftext = "天地图.浙江"; break;
-            case 3: ftext = "天地图.浙江"; break;
-            case 4: ftext = "天地图.浙江"; break;
-            case 5: ftext = "天地图.嘉兴"; break;
-            case 6: ftext = "天地图.嘉兴"; break;
-            case 7: ftext = "天地图.嘉兴"; break;
-        }
-       $("#ftext").text(ftext);
-    }
+    $("#ftext").text(ftext);
+}
 
 function showInfowindow(evt) {
     var evtgr = evt.graphic;
@@ -86,7 +86,7 @@ function showInfowindow(evt) {
     }
 }
 function showInfowindow2(evt) {
-    alert(evt.mapPoint.x+"--"+evt.mapPoint.y);
+    alert(evt.mapPoint.x + "--" + evt.mapPoint.y);
 }
 function displaypoint() {
     var url = pathcontext + "/handler/cgrid.ashx?view=" + view
@@ -102,17 +102,16 @@ function showgrover(evt) {
     var width = "20";
     var height = "20";
     var fpaths = pathcontext + imgpath + g.attributes["mappich"];
-    if(g.geometry.type=="polyline")
-     {
-         if (g.symbol.style == "solid") {
-             fsymbol = new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID, new dojo.Color([232, 81, 9]), 5);
-         }
-         else if (g.symbol.style == "dash") {
-             fsymbol = new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_DASH, new dojo.Color([232, 81, 9]), 5);
-         }
-     }
-     else if(g.geometry.type=="point"){
-        if (g.attributes["fclass"] == "sub"||g.attributes["fclass"] == "xp") {
+    if (g.geometry.type == "polyline") {
+        if (g.symbol.style == "solid") {
+            fsymbol = new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID, new dojo.Color([232, 81, 9]), 5);
+        }
+        else if (g.symbol.style == "dash") {
+            fsymbol = new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_DASH, new dojo.Color([232, 81, 9]), 5);
+        }
+    }
+    else if (g.geometry.type == "point") {
+        if (g.attributes["fclass"] == "sub" || g.attributes["fclass"] == "xp") {
             height = "14";
             width = "14"
         }
@@ -136,7 +135,7 @@ function showgrout(evt) {
         }
     }
     else if (g.geometry.type == "point") {
-        if (g.attributes["fclass"] == "sub"||g.attributes["fclass"] == "xp") {
+        if (g.attributes["fclass"] == "sub" || g.attributes["fclass"] == "xp") {
             height = "12";
             width = "12"
         }
@@ -155,7 +154,7 @@ function showMark(result) {
         var myPoint = new esri.geometry.Point(result.POINT_X, result.POINT_Y);
         var attr = getattr(result);
         if (result.fclass != undefined) {
-            if (result.fclass == "sub"||result.fclass == "xp") {
+            if (result.fclass == "sub" || result.fclass == "xp") {
                 height = "12";
                 width = "12"
             }
@@ -166,8 +165,7 @@ function showMark(result) {
     }
 }
 
-function initMarker()
-{
+function initMarker() {
     var MAX = 50000;
     var markers = [];
     var width = "18";
@@ -186,7 +184,7 @@ function initMarker()
         result.zxcs = "35";
         result.zds = "2017";
         result.adder = "金都九月洋房";
-        result.POINT_X =Math.random() * 40 + 85;
+        result.POINT_X = Math.random() * 40 + 85;
         result.POINT_Y = Math.random() * 30 + 21;
         result.mappic = "gssymbol4.png";
         result.mappich = "hgssymbol4.png";
@@ -206,7 +204,7 @@ function showMark2(result) {
         var myPoint = new esri.geometry.Point(result.POINT_X, result.POINT_Y);
         var attr = getattr(result);
         if (result.fclass != undefined) {
-            if (result.fclass == "sub"||result.fclass == "xp") {
+            if (result.fclass == "sub" || result.fclass == "xp") {
                 height = "14";
                 width = "14"
             }

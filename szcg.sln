@@ -95,6 +95,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Szcg.Web.Tests", "src\clien
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Szcg.TaskScheduler", "src\client\Szcg.TaskScheduler\Szcg.TaskScheduler.csproj", "{DCABD199-E93A-4B83-92C1-FCADD625F350}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Szcg.Map", "Szcg.Map\Szcg.Map.csproj", "{84540186-43BE-4A65-97AB-79A63176E689}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -253,6 +255,10 @@ Global
 		{DCABD199-E93A-4B83-92C1-FCADD625F350}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCABD199-E93A-4B83-92C1-FCADD625F350}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCABD199-E93A-4B83-92C1-FCADD625F350}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84540186-43BE-4A65-97AB-79A63176E689}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84540186-43BE-4A65-97AB-79A63176E689}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84540186-43BE-4A65-97AB-79A63176E689}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84540186-43BE-4A65-97AB-79A63176E689}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -302,5 +308,6 @@ Global
 		{4AB56C05-8E9B-47F9-A2F2-D23C24CB548B} = {0AF9F171-415D-4A95-B564-09FDA97085D0}
 		{A6141A3A-FDE7-4E57-952F-FFA8FF00FD36} = {0AF9F171-415D-4A95-B564-09FDA97085D0}
 		{DCABD199-E93A-4B83-92C1-FCADD625F350} = {0AF9F171-415D-4A95-B564-09FDA97085D0}
+		{84540186-43BE-4A65-97AB-79A63176E689} = {0AF9F171-415D-4A95-B564-09FDA97085D0}
 	EndGlobalSection
 EndGlobal
