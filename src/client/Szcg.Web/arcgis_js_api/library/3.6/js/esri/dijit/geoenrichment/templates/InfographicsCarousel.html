@@ -1,0 +1,38 @@
+﻿<div style="display: inline-block;">
+        <div data-dojo-attach-point="_loading">
+            <div class="Browser_LoadingBackground"></div>
+            <div class="Browser_Loading"></div>
+        </div>
+        <table class="Browser_Table" cellpadding="0" cellspacing="0">
+            <tr>
+                <td class="Browser_BackTd">
+                    <div class="Browser_Back" data-dojo-attach-event="click: _slideBack"></div>
+                </td>
+                <td align="center">
+
+                    <div data-dojo-type="dijit/layout/BorderContainer" data-dojo-attach-point="_container" data-dojo-props="gutters: false" class="Browser_HostBorder">
+                        <div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="_titlePane" data-dojo-props="region:'top'" class="Browser_TitlePane" style="visibility: hidden;">
+                            <select data-dojo-type="dijit/form/Select"
+                                data-dojo-attach-point="_select"
+                                data-dojo-attach-event="onChange: _onSelectChange">
+                            </select>
+                            <div data-dojo-attach-point="_subtitle" class="Browser_Subtitle"></div>
+                        </div>
+                        <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'" style="padding: 0;">
+                            <div data-dojo-type="esri/dijit/geoenrichment/Infographic"
+                                data-dojo-attach-point="_infographic"
+                                data-dojo-props="autoWidth: false, autoHeight: false, title: ''"
+                                data-dojo-attach-event="onDataRequest: _onDataRequest, onDataLoad: _onDataLoad, onDataReady: _onDataReady, onDataError: _onDataError"
+                                style="height: 100%">
+                            </div>
+
+                        </div>
+                    </div>
+
+                </td>
+                <td class="Browser_ForwardTd">
+                    <div class="Browser_Forward" data-dojo-attach-event="click: _slideForward"></div>
+                </td>
+            </tr>
+        </table>
+</div>

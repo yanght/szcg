@@ -1,0 +1,19 @@
+/*
+ COPYRIGHT 2009 ESRI
+
+ TRADE SECRETS: ESRI PROPRIETARY AND CONFIDENTIAL
+ Unpublished material - all rights reserved under the
+ Copyright Laws of the United States and applicable international
+ laws, treaties, and conventions.
+
+ For additional information, contact:
+ Environmental Systems Research Institute, Inc.
+ Attn: Contracts and Legal Services Department
+ 380 New York Street
+ Redlands, California, 92373
+ USA
+
+ email: contracts@esri.com
+ */
+//>>built
+define("esri/dijit/geoenrichment/EnrichConfig",["../../declare","dojo/_base/lang","dojo/aspect","./_Wizard","./_Interop","../../tasks/geoenrichment/EnrichParameters","../../tasks/geoenrichment/RingBuffer","./EnrichDataCollectionsPage","./EnrichOptionsPage"],function(_1,_2,_3,_4,_5,_6,_7,_8,_9,_a){function _b(_c){var _d={};if(_c){for(var _e in _c){_d[_e.split(".")[0]]=true;}}return _d;};var _f=_1("esri.dijit.geoenrichment.EnrichConfig",[_4],{enrichParams:null,geomType:null,fields:null,fieldsMap:null,allowNewColumns:true,studyAreaCount:null,showBackButton:true,_dataCollections:null,_eventMap:{"back":true,"finish":["params","fieldsMap","dataCollections"]},startup:function(){this.inherited(arguments);if(!this.enrichParams){this.enrichParams=new _6();}this.enrichParams.studyAreaOptions=new _7();this.pages["dataCollections"]=new _8({country:this.enrichParams.countryID,showBackButton:this.showBackButton,onBack:_2.hitch(this,this._onBack),onNext:_2.hitch(this,this._onDataCollectionsPicked)});this._loadDataCollectionsPage();},_loadDataCollectionsPage:function(){var _10=_b(this.fieldsMap);this.pages["dataCollections"].set("checks",_10);this.loadPage("dataCollections");},_onDataCollectionsPicked:function(){this._dataCollections=this.pages["dataCollections"].dataCollections;if(!this.pages["options"]){this.pages["options"]=new _9({buffer:this.enrichParams.studyAreaOptions,geomType:this.geomType,fields:this.fields,allowNewColumns:this.allowNewColumns,dataCollections:this._dataCollections,studyAreaCount:this.studyAreaCount,onBack:_2.hitch(this,function(){this.fieldsMap=this.pages["options"].get("fieldsMap");this._loadDataCollectionsPage();}),onFinish:_2.hitch(this,this._finish)});}var _11=_b(this.fieldsMap);var _12=this.pages["dataCollections"].get("checks");var _13={};for(var i=0;i<this._dataCollections.length;i++){var _14=this._dataCollections[i].id;if(_12[_14]){var _15=this._dataCollections[i].variables;for(var j=0;j<_15.length;j++){var _16=_14+"."+_15[j].id;var _17;if(_11[_14]){_17=this.fieldsMap[_16];if(!_2.isString(_17)){continue;}}else{_17="";}_13[_16]=_17;}}}this.fieldsMap=_13;this.pages["options"].set("fieldsMap",_13);this.loadPage("options");},_onBack:function(){this.onBack();},onBack:function(){},_finish:function(){this.fieldsMap=null;if(this.pages["options"]){this.enrichParams.studyAreaOptions=this.pages["options"].get("buffer");this.fieldsMap=this.pages["options"].get("fieldsMap");}var _18=[];var _19=_b(this.fieldsMap);this.enrichParams.variables=[];for(var i=0;i<this._dataCollections.length;i++){var dc=this._dataCollections[i];if(!_19[dc.id]){continue;}_18.push(dc);var _1a=true;var _1b=[];for(var j=0;j<dc.variables.length;j++){var _1c=dc.id+"."+dc.variables[j].id;var _1d=this.fieldsMap[_1c]!==undefined;if(_1d){_1b.push(_1c);}else{_1a=false;}}if(_1a){this.enrichParams.variables.push(dc.id+".*");}else{for(var j=0;j<_1b.length;j++){this.enrichParams.variables.push(_1b[j]);}}}this.onFinish(this.enrichParams,this.fieldsMap,_18);},onFinish:function(_1e,_1f,_20){}});_f.Interop=_1([_f,_5],{postMixInProperties:function(){_3.after(this,"onBack",_2.hitch(this,this._onCancel));_3.after(this,"onFinish",_2.hitch(this,this._onOK));this.inherited(arguments);},_onOK:function(){this._onChange("enrichParams");this._onChange("fieldsMap");this._onCommand("OnOK");},_onCancel:function(){this._onCommand("OnCancel");},converters:{"enrichParams":new _5.RestConverter(_6),"allowNewColumns":_5.BoolConverter,"showBackButton":_5.BoolConverter}});return _f;});
