@@ -4,4 +4,15 @@
  Szcg.Web.Controllers.LoginController2017-02-20 10:46:11,898 [32] INFO  Szcg.Web.Controllers.LoginController - logger....
  Szcg.Web.Controllers.LoginController2017-02-20 11:03:10,278 [49] INFO  Szcg.Web.Controllers.LoginController - logger....
  Szcg.Web.Controllers.LoginController2017-02-20 12:10:08,231 [11] INFO  Szcg.Web.Controllers.LoginController - logger....
- Szcg.Web.Controllers.LoginController
+ Szcg.Web.Controllers.LoginController2017-02-20 23:39:59,526 [9] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2017-02-20 23:40:22,486 [6] ERROR Szcg.Service.Common.LoggerManager - 获取存档案件列表异常：字符串 '201' 后的引号不完整。
+'201' 附近有语法错误。
+ Szcg.Service.Common.LoggerManager2017-02-20 23:40:22,493 [6] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：此请求已被阻止，因为当用在 GET 请求中时，会将敏感信息透漏给第三方网站。若要允许 GET 请求，请将 JsonRequestBehavior 设置为 AllowGet。  
+ 引发异常的方法：Void ExecuteResult(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.JsonResult.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager
