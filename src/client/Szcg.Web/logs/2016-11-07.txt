@@ -1,0 +1,1008 @@
+2016-11-07 08:56:00,008 [11] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-11-07 10:20:55,247 [81] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：Void Rollback()  
+ 引发异常源：Szcg.Core.Common   在 Teamax.Common.CommonDatabase.Rollback() 位置 e:\myspace\project\src\core\Szcg.Core.Common\CommonDatabase.cs:行号 549
+   在 bacgBL.business.Project.RollBackGDProject(ProjectTraceInfo pt, String startdate, String& ErrMsg) 位置 e:\myspace\project\src\core\bl\Szcg.Core.businessBL\business\Project.cs:行号 2874
+   在 Szcg.Service.Bussiness.ProjectService.RollBackGDProject(String projcode, String userCode, String departCode, String startdate) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\ProjectService.cs:行号 1470
+   在 Szcg.Web.Controllers.ProjectController.RollBackGDProject(String projcode, String startdate) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\ProjectController.cs:行号 523
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 10:21:21,907 [15] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：Void Rollback()  
+ 引发异常源：Szcg.Core.Common   在 Teamax.Common.CommonDatabase.Rollback() 位置 e:\myspace\project\src\core\Szcg.Core.Common\CommonDatabase.cs:行号 549
+   在 bacgBL.business.Project.RollBackGDProject(ProjectTraceInfo pt, String startdate, String& ErrMsg) 位置 e:\myspace\project\src\core\bl\Szcg.Core.businessBL\business\Project.cs:行号 2874
+   在 Szcg.Service.Bussiness.ProjectService.RollBackGDProject(String projcode, String userCode, String departCode, String startdate) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\ProjectService.cs:行号 1470
+   在 Szcg.Web.Controllers.ProjectController.RollBackGDProject(String projcode, String startdate) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\ProjectController.cs:行号 523
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 10:22:02,057 [71] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：Void Rollback()  
+ 引发异常源：Szcg.Core.Common   在 Teamax.Common.CommonDatabase.Rollback() 位置 e:\myspace\project\src\core\Szcg.Core.Common\CommonDatabase.cs:行号 549
+   在 bacgBL.business.Project.RollBackGDProject(ProjectTraceInfo pt, String startdate, String& ErrMsg) 位置 e:\myspace\project\src\core\bl\Szcg.Core.businessBL\business\Project.cs:行号 2874
+   在 Szcg.Service.Bussiness.ProjectService.RollBackGDProject(String projcode, String userCode, String departCode, String startdate) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\ProjectService.cs:行号 1470
+   在 Szcg.Web.Controllers.ProjectController.RollBackGDProject(String projcode, String startdate) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\ProjectController.cs:行号 523
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 10:24:38,254 [48] ERROR Szcg.Service.Common.LoggerManager - 归档还原案件异常 案卷编号: 错误信息:“=”附近有语法错误。
+“=”附近有语法错误。
+“=”附近有语法错误。
+“=”附近有语法错误。
+“=”附近有语法错误。
+“=”附近有语法错误。
+“=”附近有语法错误。
+“=”附近有语法错误。
+ Szcg.Service.Common.LoggerManager2016-11-07 10:25:17,714 [31] ERROR Szcg.Service.Common.LoggerManager - 归档还原案件异常 案卷编号: 错误信息:“=”附近有语法错误。
+“=”附近有语法错误。
+“=”附近有语法错误。
+“=”附近有语法错误。
+“=”附近有语法错误。
+“=”附近有语法错误。
+“=”附近有语法错误。
+“=”附近有语法错误。
+ Szcg.Service.Common.LoggerManager2016-11-07 11:37:27,847 [97] ERROR Szcg.Service.Common.LoggerManager - 还原案卷异常 案卷编号:237780 错误信息:对象名 'szcg_timeout..b_project' 无效。
+EXECUTE 后的事务计数指示 BEGIN 和 COMMIT 语句的数目不匹配。上一计数 = 0，当前计数 = 1。
+ Szcg.Service.Common.LoggerManager2016-11-07 11:41:12,292 [92] ERROR Szcg.Service.Common.LoggerManager - 还原案卷异常 案卷编号:237780 错误信息:对象名 'szcg_timeout..b_project' 无效。
+EXECUTE 后的事务计数指示 BEGIN 和 COMMIT 语句的数目不匹配。上一计数 = 0，当前计数 = 1。
+ Szcg.Service.Common.LoggerManager2016-11-07 11:41:18,141 [98] ERROR Szcg.Service.Common.LoggerManager - 还原案卷异常 案卷编号:237780 错误信息:INSERT 语句的选择列表包含的项多于插入列表中的项。SELECT 语句中值的数目必须与 INSERT 语句中列的数目匹配。
+EXECUTE 后的事务计数指示 BEGIN 和 COMMIT 语句的数目不匹配。上一计数 = 0，当前计数 = 1。
+ Szcg.Service.Common.LoggerManager2016-11-07 11:42:24,528 [98] ERROR Szcg.Service.Common.LoggerManager - 还原案卷异常 案卷编号:237780 错误信息:INSERT 语句的选择列表包含的项多于插入列表中的项。SELECT 语句中值的数目必须与 INSERT 语句中列的数目匹配。
+EXECUTE 后的事务计数指示 BEGIN 和 COMMIT 语句的数目不匹配。上一计数 = 0，当前计数 = 1。
+ Szcg.Service.Common.LoggerManager2016-11-07 11:47:21,022 [24] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 11:47:26,028 [89] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 11:47:28,992 [62] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 11:47:34,824 [89] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 11:47:39,694 [77] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 11:54:11,602 [108] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-11-07 11:57:10,988 [102] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Areas.Manager.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Areas\Manager\Controllers\HomeController.cs:行号 29
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 11:57:12,470 [14] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Areas.Manager.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Areas\Manager\Controllers\HomeController.cs:行号 29
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 11:57:13,284 [103] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Areas.Manager.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Areas\Manager\Controllers\HomeController.cs:行号 29
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 11:57:33,288 [85] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Areas.Manager.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Areas\Manager\Controllers\HomeController.cs:行号 29
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 11:58:04,640 [85] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Areas.Manager.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Areas\Manager\Controllers\HomeController.cs:行号 29
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 11:58:09,035 [114] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-11-07 11:58:17,586 [110] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Areas.Manager.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Areas\Manager\Controllers\HomeController.cs:行号 29
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 11:59:55,951 [110] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Areas.Manager.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Areas\Manager\Controllers\HomeController.cs:行号 29
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 11:59:58,370 [113] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Areas.Manager.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Areas\Manager\Controllers\HomeController.cs:行号 29
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 12:00:14,028 [76] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Areas.Manager.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Areas\Manager\Controllers\HomeController.cs:行号 29
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 12:00:14,903 [110] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Areas.Manager.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Areas\Manager\Controllers\HomeController.cs:行号 29
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 12:00:15,466 [102] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Areas.Manager.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Areas\Manager\Controllers\HomeController.cs:行号 29
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 12:00:22,507 [113] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Areas.Manager.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Areas\Manager\Controllers\HomeController.cs:行号 29
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 12:02:29,716 [104] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Areas.Manager.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Areas\Manager\Controllers\HomeController.cs:行号 29
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 12:03:32,526 [107] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Areas.Manager.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Areas\Manager\Controllers\HomeController.cs:行号 29
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 12:09:06,929 [70] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Areas.Manager.Controllers.OrganizeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Areas\Manager\Controllers\OrganizeController.cs:行号 30
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 12:15:16,638 [104] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Areas.Manager.Controllers.OrganizeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Areas\Manager\Controllers\OrganizeController.cs:行号 30
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 12:15:34,726 [93] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“Main”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/Manager/Views/Organize/Main.aspx
+~/Areas/Manager/Views/Organize/Main.ascx
+~/Areas/Manager/Views/Shared/Main.aspx
+~/Areas/Manager/Views/Shared/Main.ascx
+~/Views/Organize/Main.aspx
+~/Views/Organize/Main.ascx
+~/Views/Shared/Main.aspx
+~/Views/Shared/Main.ascx
+~/Areas/Manager/Views/Organize/Main.cshtml
+~/Areas/Manager/Views/Organize/Main.vbhtml
+~/Areas/Manager/Views/Shared/Main.cshtml
+~/Areas/Manager/Views/Shared/Main.vbhtml
+~/Views/Organize/Main.cshtml
+~/Views/Organize/Main.vbhtml
+~/Views/Shared/Main.cshtml
+~/Views/Shared/Main.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 12:15:36,214 [91] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“Main”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/Manager/Views/Organize/Main.aspx
+~/Areas/Manager/Views/Organize/Main.ascx
+~/Areas/Manager/Views/Shared/Main.aspx
+~/Areas/Manager/Views/Shared/Main.ascx
+~/Views/Organize/Main.aspx
+~/Views/Organize/Main.ascx
+~/Views/Shared/Main.aspx
+~/Views/Shared/Main.ascx
+~/Areas/Manager/Views/Organize/Main.cshtml
+~/Areas/Manager/Views/Organize/Main.vbhtml
+~/Areas/Manager/Views/Shared/Main.cshtml
+~/Areas/Manager/Views/Shared/Main.vbhtml
+~/Views/Organize/Main.cshtml
+~/Views/Organize/Main.vbhtml
+~/Views/Shared/Main.cshtml
+~/Views/Shared/Main.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 12:15:36,997 [79] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“Main”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/Manager/Views/Organize/Main.aspx
+~/Areas/Manager/Views/Organize/Main.ascx
+~/Areas/Manager/Views/Shared/Main.aspx
+~/Areas/Manager/Views/Shared/Main.ascx
+~/Views/Organize/Main.aspx
+~/Views/Organize/Main.ascx
+~/Views/Shared/Main.aspx
+~/Views/Shared/Main.ascx
+~/Areas/Manager/Views/Organize/Main.cshtml
+~/Areas/Manager/Views/Organize/Main.vbhtml
+~/Areas/Manager/Views/Shared/Main.cshtml
+~/Areas/Manager/Views/Shared/Main.vbhtml
+~/Views/Organize/Main.cshtml
+~/Views/Organize/Main.vbhtml
+~/Views/Shared/Main.cshtml
+~/Views/Shared/Main.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 12:16:06,347 [98] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“Main”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/Manager/Views/Organize/Main.aspx
+~/Areas/Manager/Views/Organize/Main.ascx
+~/Areas/Manager/Views/Shared/Main.aspx
+~/Areas/Manager/Views/Shared/Main.ascx
+~/Views/Organize/Main.aspx
+~/Views/Organize/Main.ascx
+~/Views/Shared/Main.aspx
+~/Views/Shared/Main.ascx
+~/Areas/Manager/Views/Organize/Main.cshtml
+~/Areas/Manager/Views/Organize/Main.vbhtml
+~/Areas/Manager/Views/Shared/Main.cshtml
+~/Areas/Manager/Views/Shared/Main.vbhtml
+~/Views/Organize/Main.cshtml
+~/Views/Organize/Main.vbhtml
+~/Views/Shared/Main.cshtml
+~/Views/Shared/Main.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 12:16:14,007 [89] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“Main”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/Manager/Views/Organize/Main.aspx
+~/Areas/Manager/Views/Organize/Main.ascx
+~/Areas/Manager/Views/Shared/Main.aspx
+~/Areas/Manager/Views/Shared/Main.ascx
+~/Views/Organize/Main.aspx
+~/Views/Organize/Main.ascx
+~/Views/Shared/Main.aspx
+~/Views/Shared/Main.ascx
+~/Areas/Manager/Views/Organize/Main.cshtml
+~/Areas/Manager/Views/Organize/Main.vbhtml
+~/Areas/Manager/Views/Shared/Main.cshtml
+~/Areas/Manager/Views/Shared/Main.vbhtml
+~/Views/Organize/Main.cshtml
+~/Views/Organize/Main.vbhtml
+~/Views/Shared/Main.cshtml
+~/Views/Shared/Main.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 12:16:43,727 [27] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“Main”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/Manager/Views/Organize/Main.aspx
+~/Areas/Manager/Views/Organize/Main.ascx
+~/Areas/Manager/Views/Shared/Main.aspx
+~/Areas/Manager/Views/Shared/Main.ascx
+~/Views/Organize/Main.aspx
+~/Views/Organize/Main.ascx
+~/Views/Shared/Main.aspx
+~/Views/Shared/Main.ascx
+~/Areas/Manager/Views/Organize/Main.cshtml
+~/Areas/Manager/Views/Organize/Main.vbhtml
+~/Areas/Manager/Views/Shared/Main.cshtml
+~/Areas/Manager/Views/Shared/Main.vbhtml
+~/Views/Organize/Main.cshtml
+~/Views/Organize/Main.vbhtml
+~/Views/Shared/Main.cshtml
+~/Views/Shared/Main.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 15:08:47,896 [35] ERROR Szcg.Service.Common.LoggerManager - <log4net.Error>Exception during StringFormat: 输入字符串的格式不正确。 <format> 消息类型：HttpParseException 
+ 消息内容：“<”在代码块开头无效。只有标识符、关键字、注释、“(”和“{”才有效。
+  
+ 引发异常的方法：Void EnsureGeneratedCode()  
+ 引发异常源：System.Web.WebPages.Razor   在 System.Web.WebPages.Razor.RazorBuildProvider.EnsureGeneratedCode()
+   在 System.Web.WebPages.Razor.RazorBuildProvider.get_CodeCompilerType()
+   在 System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   在 System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   在 System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.FileExists(ControllerContext controllerContext, String virtualPath)
+   在 System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   在 System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   在 System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   在 System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   在 System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   在 System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)</format><args>{}</args></log4net.Error>
+ Szcg.Service.Common.LoggerManager2016-11-07 15:09:12,606 [39] ERROR Szcg.Service.Common.LoggerManager - <log4net.Error>Exception during StringFormat: 输入字符串的格式不正确。 <format> 消息类型：HttpParseException 
+ 消息内容：“<”在代码块开头无效。只有标识符、关键字、注释、“(”和“{”才有效。
+  
+ 引发异常的方法：Void EnsureGeneratedCode()  
+ 引发异常源：System.Web.WebPages.Razor   在 System.Web.WebPages.Razor.RazorBuildProvider.EnsureGeneratedCode()
+   在 System.Web.WebPages.Razor.RazorBuildProvider.get_CodeCompilerType()
+   在 System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   在 System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   在 System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.FileExists(ControllerContext controllerContext, String virtualPath)
+   在 System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   在 System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   在 System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   在 System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   在 System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   在 System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)</format><args>{}</args></log4net.Error>
+ Szcg.Service.Common.LoggerManager2016-11-07 15:09:15,085 [35] ERROR Szcg.Service.Common.LoggerManager - <log4net.Error>Exception during StringFormat: 输入字符串的格式不正确。 <format> 消息类型：HttpParseException 
+ 消息内容：“<”在代码块开头无效。只有标识符、关键字、注释、“(”和“{”才有效。
+  
+ 引发异常的方法：Void EnsureGeneratedCode()  
+ 引发异常源：System.Web.WebPages.Razor   在 System.Web.WebPages.Razor.RazorBuildProvider.EnsureGeneratedCode()
+   在 System.Web.WebPages.Razor.RazorBuildProvider.get_CodeCompilerType()
+   在 System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   在 System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   在 System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.FileExists(ControllerContext controllerContext, String virtualPath)
+   在 System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   在 System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   在 System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   在 System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   在 System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   在 System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)</format><args>{}</args></log4net.Error>
+ Szcg.Service.Common.LoggerManager2016-11-07 15:09:16,100 [39] ERROR Szcg.Service.Common.LoggerManager - <log4net.Error>Exception during StringFormat: 输入字符串的格式不正确。 <format> 消息类型：HttpParseException 
+ 消息内容：“<”在代码块开头无效。只有标识符、关键字、注释、“(”和“{”才有效。
+  
+ 引发异常的方法：Void EnsureGeneratedCode()  
+ 引发异常源：System.Web.WebPages.Razor   在 System.Web.WebPages.Razor.RazorBuildProvider.EnsureGeneratedCode()
+   在 System.Web.WebPages.Razor.RazorBuildProvider.get_CodeCompilerType()
+   在 System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   在 System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   在 System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.FileExists(ControllerContext controllerContext, String virtualPath)
+   在 System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   在 System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   在 System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   在 System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   在 System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   在 System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)</format><args>{}</args></log4net.Error>
+ Szcg.Service.Common.LoggerManager2016-11-07 15:09:23,824 [31] ERROR Szcg.Service.Common.LoggerManager - <log4net.Error>Exception during StringFormat: 输入字符串的格式不正确。 <format> 消息类型：HttpParseException 
+ 消息内容：“<”在代码块开头无效。只有标识符、关键字、注释、“(”和“{”才有效。
+  
+ 引发异常的方法：Void EnsureGeneratedCode()  
+ 引发异常源：System.Web.WebPages.Razor   在 System.Web.WebPages.Razor.RazorBuildProvider.EnsureGeneratedCode()
+   在 System.Web.WebPages.Razor.RazorBuildProvider.get_CodeCompilerType()
+   在 System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   在 System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   在 System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.FileExists(ControllerContext controllerContext, String virtualPath)
+   在 System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   在 System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   在 System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   在 System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   在 System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   在 System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)</format><args>{}</args></log4net.Error>
+ Szcg.Service.Common.LoggerManager2016-11-07 15:09:32,661 [47] ERROR Szcg.Service.Common.LoggerManager - <log4net.Error>Exception during StringFormat: 输入字符串的格式不正确。 <format> 消息类型：HttpParseException 
+ 消息内容：“<”在代码块开头无效。只有标识符、关键字、注释、“(”和“{”才有效。
+  
+ 引发异常的方法：Void EnsureGeneratedCode()  
+ 引发异常源：System.Web.WebPages.Razor   在 System.Web.WebPages.Razor.RazorBuildProvider.EnsureGeneratedCode()
+   在 System.Web.WebPages.Razor.RazorBuildProvider.get_CodeCompilerType()
+   在 System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   在 System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   在 System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.FileExists(ControllerContext controllerContext, String virtualPath)
+   在 System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   在 System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   在 System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   在 System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   在 System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   在 System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)</format><args>{}</args></log4net.Error>
+ Szcg.Service.Common.LoggerManager2016-11-07 16:26:48,994 [21] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Service.Bussiness.OrganizeService.GetDepartInfo(String departId) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\OrganizeService.cs:行号 306
+   在 Szcg.Web.Controllers.DepartController.GetDepartInfo(String departId) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\DepartController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 16:27:17,807 [19] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Service.Bussiness.OrganizeService.GetDepartInfo(String departId) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\OrganizeService.cs:行号 306
+   在 Szcg.Web.Controllers.DepartController.GetDepartInfo(String departId) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\DepartController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 16:27:32,564 [35] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Service.Bussiness.OrganizeService.GetDepartInfo(String departId) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\OrganizeService.cs:行号 306
+   在 Szcg.Web.Controllers.DepartController.GetDepartInfo(String departId) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\DepartController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 16:27:45,069 [31] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Service.Bussiness.OrganizeService.GetDepartInfo(String departId) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\OrganizeService.cs:行号 306
+   在 Szcg.Web.Controllers.DepartController.GetDepartInfo(String departId) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\DepartController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 16:28:43,210 [21] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Service.Bussiness.OrganizeService.GetDepartInfo(String departId) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\OrganizeService.cs:行号 306
+   在 Szcg.Web.Controllers.DepartController.GetDepartInfo(String departId) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\DepartController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 16:28:54,514 [38] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Service.Bussiness.OrganizeService.GetDepartInfo(String departId) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\OrganizeService.cs:行号 306
+   在 Szcg.Web.Controllers.DepartController.GetDepartInfo(String departId) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\DepartController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 16:29:12,270 [26] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Service.Bussiness.OrganizeService.GetDepartInfo(String departId) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\OrganizeService.cs:行号 306
+   在 Szcg.Web.Controllers.DepartController.GetDepartInfo(String departId) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\DepartController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 16:29:34,250 [17] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Service.Bussiness.OrganizeService.GetDepartInfo(String departId) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\OrganizeService.cs:行号 306
+   在 Szcg.Web.Controllers.DepartController.GetDepartInfo(String departId) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\DepartController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 16:30:12,186 [33] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Service.Bussiness.OrganizeService.GetDepartInfo(String departId) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\OrganizeService.cs:行号 306
+   在 Szcg.Web.Controllers.DepartController.GetDepartInfo(String departId) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\DepartController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 16:30:54,537 [42] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Service.Bussiness.OrganizeService.GetDepartInfo(String departId) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\OrganizeService.cs:行号 306
+   在 Szcg.Web.Controllers.DepartController.GetDepartInfo(String departId) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\DepartController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 16:30:56,814 [57] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Service.Bussiness.OrganizeService.GetDepartInfo(String departId) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\OrganizeService.cs:行号 306
+   在 Szcg.Web.Controllers.DepartController.GetDepartInfo(String departId) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\DepartController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 16:31:01,171 [55] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Service.Bussiness.OrganizeService.GetDepartInfo(String departId) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\OrganizeService.cs:行号 306
+   在 Szcg.Web.Controllers.DepartController.GetDepartInfo(String departId) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\DepartController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 16:31:18,085 [43] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Service.Bussiness.OrganizeService.GetDepartInfo(String departId) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\OrganizeService.cs:行号 306
+   在 Szcg.Web.Controllers.DepartController.GetDepartInfo(String departId) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\DepartController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 16:32:44,366 [57] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Service.Bussiness.OrganizeService.GetDepartInfo(String departId) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\OrganizeService.cs:行号 306
+   在 Szcg.Web.Controllers.DepartController.GetDepartInfo(String departId) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\DepartController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 16:32:55,038 [42] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Service.Bussiness.OrganizeService.GetDepartInfo(String departId) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\OrganizeService.cs:行号 306
+   在 Szcg.Web.Controllers.DepartController.GetDepartInfo(String departId) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\DepartController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 16:33:01,812 [37] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Service.Bussiness.OrganizeService.GetDepartInfo(String departId) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\OrganizeService.cs:行号 306
+   在 Szcg.Web.Controllers.DepartController.GetDepartInfo(String departId) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\DepartController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 16:33:36,630 [42] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Service.Bussiness.OrganizeService.GetDepartInfo(String departId) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\OrganizeService.cs:行号 306
+   在 Szcg.Web.Controllers.DepartController.GetDepartInfo(String departId) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\DepartController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 17:55:25,546 [33] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：Szcg.Web.AjaxFxRspJson CheckDepart(Szcg.Service.Model.Depart)  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.DepartController.CheckDepart(Depart depart) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\DepartController.cs:行号 210
+   在 Szcg.Web.Controllers.DepartController.InsertDepart(Depart depart) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\DepartController.cs:行号 123
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 17:55:46,078 [32] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：Szcg.Web.AjaxFxRspJson CheckDepart(Szcg.Service.Model.Depart)  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.DepartController.CheckDepart(Depart depart) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\DepartController.cs:行号 210
+   在 Szcg.Web.Controllers.DepartController.InsertDepart(Depart depart) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\DepartController.cs:行号 123
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-07 17:59:34,347 [14] ERROR Szcg.Service.Common.LoggerManager - 更新部门异常：“=”附近有语法错误。
+ Szcg.Service.Common.LoggerManager2016-11-07 17:59:56,464 [10] ERROR Szcg.Service.Common.LoggerManager - 更新部门异常：“=”附近有语法错误。
+ Szcg.Service.Common.LoggerManager2016-11-07 18:01:01,782 [65] ERROR Szcg.Service.Common.LoggerManager - 添加部门异常：不能将值 NULL 插入列 'UserDefinedCode'，表 'szcg.dbo.p_depart'；列不允许有 Null 值。INSERT 失败。
+语句已终止。
+ Szcg.Service.Common.LoggerManager2016-11-07 18:01:16,496 [65] ERROR Szcg.Service.Common.LoggerManager - 添加部门异常：不能将值 NULL 插入列 'UserDefinedCode'，表 'szcg.dbo.p_depart'；列不允许有 Null 值。INSERT 失败。
+语句已终止。
+ Szcg.Service.Common.LoggerManager2016-11-07 18:02:14,451 [63] ERROR Szcg.Service.Common.LoggerManager - 更新部门异常：违反了 PRIMARY KEY 约束“PK_p_depart”。不能在对象“dbo.p_depart”中插入重复键。重复键值为 ()。
+语句已终止。
+ Szcg.Service.Common.LoggerManager2016-11-07 18:02:23,033 [47] ERROR Szcg.Service.Common.LoggerManager - 更新部门异常：违反了 PRIMARY KEY 约束“PK_p_depart”。不能在对象“dbo.p_depart”中插入重复键。重复键值为 ()。
+语句已终止。
+ Szcg.Service.Common.LoggerManager2016-11-07 18:02:34,881 [21] ERROR Szcg.Service.Common.LoggerManager - 更新部门异常：违反了 PRIMARY KEY 约束“PK_p_depart”。不能在对象“dbo.p_depart”中插入重复键。重复键值为 ()。
+语句已终止。
+ Szcg.Service.Common.LoggerManager

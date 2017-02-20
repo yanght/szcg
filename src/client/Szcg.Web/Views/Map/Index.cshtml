@@ -1,0 +1,249 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="/content/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/content/assets/css/font-awesome.min.css" />
+
+    <!-- text fonts -->
+    <link rel="stylesheet" href="/content/assets/css/ace-fonts.css" />
+
+    <!-- page specific plugin styles -->
+    <link rel="stylesheet" href="/content/assets/css/jquery-ui.min.css" />
+
+    <!-- ace styles -->
+    <link rel="stylesheet" href="/content/assets/css/ace.min.css" id="main-ace-style" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/content/assets/css/ace-part2.min.css" />
+    <![endif]-->
+    <link rel="stylesheet" href="/content/assets/css/ace-skins.min.css" />
+    <link rel="stylesheet" href="/content/assets/css/ace-rtl.min.css" />
+
+    <link rel="stylesheet" href="/content/themes/style.css" />
+
+    <link rel="stylesheet" href="http://127.0.0.1/arcgis_js_api/library/3.6/js/esri/css/esri.css" />
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1/arcgis_js_api/library/3.6/js/dojo/dijit/themes/claro/claro.css">
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="http://127.0.0.1/arcgis_js_api/library/3.6/init.js"></script>
+    <script src="~/Content/map/map.js"></script>
+    <script src="~/Content/map/base.js"></script>
+    <title></title>
+    <style>
+        .toolbar {
+            width: 100%;
+            height: 30px;
+            background-color: white;
+            z-index: 9999;
+            margin-top: 30px;
+        }
+
+        #maptoolbar2 ul li {
+            display: inline;
+        }
+
+        .tool {
+            position: absolute;
+            left: 50px;
+            top: 10px;
+            z-index: 2;
+        }
+
+            .tool span {
+                cursor: pointer;
+            }
+    </style>
+</head>
+<body class="no-skin claro">
+
+    <div id="navbar" class="navbar navbar-default">
+
+        <div class="navbar-container" id="navbar-container">
+            <!-- #section:basics/sidebar.mobile.toggle -->
+            <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler">
+                <span class="sr-only">Toggle sidebar</span>
+
+                <span class="icon-bar"></span>
+
+                <span class="icon-bar"></span>
+
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- /section:basics/sidebar.mobile.toggle -->
+            <div class="navbar-header pull-left">
+                <!-- #section:basics/navbar.layout.brand -->
+                <a href="#" class="navbar-brand">
+                    <small>
+                        <i class="fa fa-leaf"></i>
+                        ArcgisApi
+                    </small>
+                </a>
+
+                <!-- /section:basics/navbar.layout.brand -->
+                <!-- #section:basics/navbar.toggle -->
+                <!-- /section:basics/navbar.toggle -->
+            </div>
+
+        </div><!-- /.navbar-container -->
+    </div>
+
+    <div class="main-container" id="main-container">
+
+        <div class="main-content">
+            <div class="page-content">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="widget-body">
+                            <div class="widget-main">
+                                <form class="form-inline">
+                                    <select class="form-control" id="form-field-select-1">
+                                        <option value="">全部</option>
+                                        <option value="">下水管道</option>
+                                    </select>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control search-query" placeholder="">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-purple btn-sm" id="btn-search">
+                                                搜索
+                                                <i class="ace-icon fa fa-search icon-on-right bigger-110"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="widget-body">
+                            <div class="widget-main">
+                                @*<p id="info">
+                                        <button type="button" id="Point" class="btn btn-white">点画图</button>
+                                        <button type="button" id="Multipoint" class="btn btn-white btn-default">多点画图</button>
+                                        <button type="button" id="Line" class="btn btn-white btn-primary">划线</button>
+                                        <button type="button" id="Polyline" class="btn btn-white btn-info">起点终点划线</button>
+                                        <button type="button" id="FreehandPolyline" class="btn btn-white btn-success">自由划线</button>
+                                        <button type="button" id="Triangle" class="btn btn-white btn-success">三角形</button>
+                                        <button type="button" id="Extent" class="btn btn-white btn-success">矩形</button>
+                                        <button type="button" id="Circle" class="btn btn-white btn-success">圆</button>
+                                        <button type="button" id="Ellipse" class="btn btn-white btn-success">椭圆</button>
+                                        <button type="button" id="Polygon" class="btn btn-white btn-success">画面</button>
+                                        <button type="button" id="FreehandPolygon" class="btn btn-white btn-success">自由画面</button>
+                                    </p>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+
+                    <div id="map" class="col-sm-12" style="width:100%;height:800px;position:relative;margin:0px;padding:0px;">
+
+                        <p class="tool">
+                            <span id="info">
+                                <span class="label label-warning" id="Multipoint">
+                                    <i class="ace-icon fa fa-circle bigger-120"></i>
+                                    画点
+                                </span>
+                                <span class="label label-warning" id="Polyline">
+                                    <i class="ace-icon glyphicon glyphicon-pencil bigger-120"></i>
+                                    划线
+                                </span>
+                            </span>
+                            <span class="label label-warning" id="btn-view">
+                                <i class="ace-icon fa fa-globe bigger-120"></i>
+                                全览
+                            </span>
+                            <span class="label label-warning" id="btn-clear">
+                                <i class="ace-icon glyphicon glyphicon-remove bigger-120"></i>
+                                清除
+                            </span>
+                        </p>
+
+
+                        <div id="maptoolbar2" style="position: absolute;width:150px; height: 35px; margin-top:5px; left:auto;right:30px; z-index: 2;">
+                            <ul style="display: inline; ">
+                                <li>
+                                    <a href="javascript:void(0)" id="getVector">
+                                        <img id="Img1" src="/Content/map/images/v1.png" onmousemove="javascript: $(this).attr('src', '/Content/map/images//v2.png')" onmouseout="    javascript: $(this).attr('src', '/Content/map/images//v1.png')" alt="" style="border: node" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" id="getImg">
+                                        <img src="/Content/map/images/i1.png" alt="" onmousemove="javascript: $(this).attr('src', '/Content/map/images//i2.png')" onmouseout="    javascript: $(this).attr('src', '/Content/map/images//i1.png')" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="row" style="position:absolute;top:0px;right:0px; z-index:2;width:300px;margin:0px;">
+                            <div class="pricing-box" style="background-color:white;display:none;" id="resultlist">
+                                <div class="widget-box widget-color-blue">
+                                    <div class="widget-header">
+                                        <h5 class="widget-title bigger lighter">查询结果</h5>
+                                    </div>
+
+                                    <div class="widget-body">
+                                        <div class="widget-main">
+                                            <ul class="list-unstyled spaced2">
+                                                <li>
+                                                    <i class="ace-icon fa fa-check green"></i>
+                                                    50 GB Disk Space
+                                                </li>
+
+                                                <li>
+                                                    <i class="ace-icon fa fa-check green"></i>
+                                                    1 TB Bandwidth
+                                                </li>
+
+                                                <li>
+                                                    <i class="ace-icon fa fa-check green"></i>
+                                                    1000 Email Accounts
+                                                </li>
+
+                                                <li>
+                                                    <i class="ace-icon fa fa-check green"></i>
+                                                    100 MySQL Databases
+                                                </li>
+
+                                                <li>
+                                                    <i class="ace-icon fa fa-check green"></i>
+                                                    $25 Ad Credit
+                                                </li>
+
+                                                <li>
+                                                    <i class="ace-icon fa fa-check green"></i>
+                                                    Free Domain
+                                                </li>
+                                            </ul>
+
+                                            <hr>
+                                            @*<div class="price">
+                                                    $10
+                                                    <small>/month</small>
+                                                </div>*@
+                                        </div>
+
+                                        <div>
+                                            <a href="javascript:;" class="btn btn-block btn-primary" id="hideresultlist">
+                                                <i class="ace-icon fa fa-shopping-cart bigger-110"></i>
+                                                <span>收起</span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,954 @@
+2016-10-19 09:42:42,127 [7] ERROR Szcg.Service.Common.LoggerManager -  消息类型：JsonSerializationException 
+ 消息内容：Error converting value 123 to type 'szcg.com.teamax.business.entity.UserInfo'. Path '', line 1, position 3.  
+ 引发异常的方法：System.Object EnsureType(Newtonsoft.Json.JsonReader, System.Object, System.Globalization.CultureInfo, Newtonsoft.Json.Serialization.JsonContract, System.Type)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   在 Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   在 Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   在 Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   在 Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   在 Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 44
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 59
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-19 10:11:10,472 [10] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-19 10:18:00,586 [8] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 10:18:13,488 [30] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 10:18:19,668 [10] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 10:18:22,955 [30] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 10:19:31,369 [28] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 10:19:34,992 [11] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 10:20:11,961 [32] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 10:20:29,600 [11] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 10:23:02,158 [28] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 10:29:44,176 [14] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 10:34:31,927 [18] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 11:15:59,598 [44] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 11:23:52,591 [34] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 11:24:30,697 [45] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 11:24:34,977 [24] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 11:31:00,959 [59] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-19 11:31:01,816 [17] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-19 11:31:04,670 [16] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-19 11:31:40,191 [11] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-19 11:32:05,712 [57] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-19 11:32:13,786 [51] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-19 11:32:18,236 [10] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-19 11:32:19,764 [43] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-19 11:32:32,333 [9] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-19 11:32:55,033 [16] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-19 11:33:31,303 [16] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-19 11:33:33,754 [59] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-19 11:33:49,184 [11] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-19 11:33:51,612 [38] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-19 11:34:05,337 [16] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-19 11:34:08,380 [54] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-19 11:34:10,159 [11] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-19 11:34:30,432 [35] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-19 11:34:32,134 [54] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-19 11:34:39,009 [43] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-19 11:34:40,764 [11] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-19 11:34:45,453 [43] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-19 11:34:59,069 [35] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-19 11:35:00,170 [11] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-19 11:35:18,049 [59] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-19 11:35:23,578 [16] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-19 11:35:25,952 [16] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-19 11:49:21,846 [54] ERROR Szcg.Service.Common.LoggerManager - <log4net.Error>Exception during StringFormat: 输入字符串的格式不正确。 <format> 消息类型：HttpCompileException 
+ 消息内容：e:\myspace\project\src\client\Szcg.Web\Views\Home\Main.cshtml(12): error CS1525: 无效的表达式项“}”  
+ 引发异常的方法：System.CodeDom.Compiler.CompilerResults Compile()  
+ 引发异常源：System.Web   在 System.Web.Compilation.AssemblyBuilder.Compile()
+   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   在 System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.FileExists(ControllerContext controllerContext, String virtualPath)
+   在 System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   在 System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   在 System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   在 System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   在 System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   在 System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)</format><args>{}</args></log4net.Error>
+ Szcg.Service.Common.LoggerManager2016-10-19 11:49:23,756 [33] ERROR Szcg.Service.Common.LoggerManager - <log4net.Error>Exception during StringFormat: 输入字符串的格式不正确。 <format> 消息类型：HttpCompileException 
+ 消息内容：e:\myspace\project\src\client\Szcg.Web\Views\Home\Main.cshtml(12): error CS1525: 无效的表达式项“}”  
+ 引发异常的方法：System.CodeDom.Compiler.CompilerResults Compile()  
+ 引发异常源：System.Web   在 System.Web.Compilation.BuildManager.PostProcessFoundBuildResult(BuildResult result, Boolean keyFromVPP, VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetBuildResultFromCacheInternal(String cacheKey, Boolean keyFromVPP, VirtualPath virtualPath, Int64 hashCode, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultFromCacheInternal(VirtualPath virtualPath, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   在 System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.FileExists(ControllerContext controllerContext, String virtualPath)
+   在 System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   在 System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   在 System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   在 System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   在 System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   在 System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)</format><args>{}</args></log4net.Error>
+ Szcg.Service.Common.LoggerManager2016-10-19 11:49:25,692 [43] ERROR Szcg.Service.Common.LoggerManager - <log4net.Error>Exception during StringFormat: 输入字符串的格式不正确。 <format> 消息类型：HttpCompileException 
+ 消息内容：e:\myspace\project\src\client\Szcg.Web\Views\Home\Main.cshtml(12): error CS1525: 无效的表达式项“}”  
+ 引发异常的方法：System.CodeDom.Compiler.CompilerResults Compile()  
+ 引发异常源：System.Web   在 System.Web.Compilation.BuildManager.PostProcessFoundBuildResult(BuildResult result, Boolean keyFromVPP, VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetBuildResultFromCacheInternal(String cacheKey, Boolean keyFromVPP, VirtualPath virtualPath, Int64 hashCode, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultFromCacheInternal(VirtualPath virtualPath, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   在 System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.FileExists(ControllerContext controllerContext, String virtualPath)
+   在 System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   在 System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   在 System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   在 System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   在 Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   在 System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   在 System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)</format><args>{}</args></log4net.Error>
+ Szcg.Service.Common.LoggerManager2016-10-19 12:14:06,564 [7] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-19 14:29:54,458 [7] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-19 14:29:59,574 [10] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-19 15:45:52,895 [59] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：无法找到表 0。  
+ 引发异常的方法：System.Data.DataTable get_Item(Int32)  
+ 引发异常源：System.Data   在 System.Data.DataTableCollection.get_Item(Int32 index)
+   在 Szcg.Service.Bussiness.PermissionService.GetFlowNodePower(String roleCode, String modelCode, String systemId) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\PermissionService.cs:行号 345
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 103
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 15:45:57,573 [46] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：无法找到表 0。  
+ 引发异常的方法：System.Data.DataTable get_Item(Int32)  
+ 引发异常源：System.Data   在 System.Data.DataTableCollection.get_Item(Int32 index)
+   在 Szcg.Service.Bussiness.PermissionService.GetFlowNodePower(String roleCode, String modelCode, String systemId) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\PermissionService.cs:行号 345
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 103
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 15:46:00,988 [54] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：无法找到表 0。  
+ 引发异常的方法：System.Data.DataTable get_Item(Int32)  
+ 引发异常源：System.Data   在 System.Data.DataTableCollection.get_Item(Int32 index)
+   在 Szcg.Service.Bussiness.PermissionService.GetFlowNodePower(String roleCode, String modelCode, String systemId) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\PermissionService.cs:行号 345
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 103
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 15:47:00,853 [34] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 15:47:03,399 [54] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 15:47:05,980 [11] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 16:26:42,007 [12] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 16:26:46,568 [12] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 16:27:32,514 [17] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 17:14:56,711 [13] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 17:16:30,901 [32] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 17:16:41,763 [32] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 17:16:45,227 [7] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 17:16:57,324 [15] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 17:17:01,089 [34] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 17:17:50,015 [34] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 17:17:59,837 [13] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 17:18:27,214 [5] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 17:31:05,645 [14] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 17:31:18,940 [37] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 17:42:14,425 [68] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 17:43:30,519 [68] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 18:28:28,312 [13] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-19 18:28:33,585 [12] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager

@@ -1,0 +1,507 @@
+2016-10-20 10:39:04,248 [10] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-20 11:06:20,576 [35] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-20 14:16:32,288 [7] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-20 14:16:32,341 [7] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-20 14:16:39,274 [7] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-20 14:16:39,293 [9] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-20 14:16:42,598 [13] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-20 14:16:42,622 [7] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-20 14:17:00,129 [11] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-20 15:31:46,260 [30] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 15:51:44,834 [71] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 15:51:52,327 [68] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentException 
+ 消息内容：列“_opinion”不属于表 Table。  
+ 引发异常的方法：System.Object get_Item(System.String)  
+ 引发异常源：System.Data   在 System.Data.DataRow.get_Item(String columnName)
+   在 Szcg.Service.Bussiness.ProjectService.GetProjectSomeInfo(String projcode, String nodeid) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\ProjectService.cs:行号 440
+   在 Szcg.Web.Controllers.ProjectController.GetProjectDetailLA(String dotype, String projcode, String nodeid) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\ProjectController.cs:行号 828
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 15:52:47,907 [76] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentException 
+ 消息内容：列“_opinion”不属于表 Table。  
+ 引发异常的方法：System.Object get_Item(System.String)  
+ 引发异常源：System.Data   在 System.Data.DataRow.get_Item(String columnName)
+   在 Szcg.Service.Bussiness.ProjectService.GetProjectSomeInfo(String projcode, String nodeid) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\ProjectService.cs:行号 440
+   在 Szcg.Web.Controllers.ProjectController.GetProjectDetailLA(String dotype, String projcode, String nodeid) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\ProjectController.cs:行号 828
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 15:53:18,487 [49] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentException 
+ 消息内容：列“_opinion”不属于表 Table。  
+ 引发异常的方法：System.Object get_Item(System.String)  
+ 引发异常源：System.Data   在 System.Data.DataRow.get_Item(String columnName)
+   在 Szcg.Service.Bussiness.ProjectService.GetProjectSomeInfo(String projcode, String nodeid) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\ProjectService.cs:行号 440
+   在 Szcg.Web.Controllers.ProjectController.GetProjectDetailLA(String dotype, String projcode, String nodeid) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\ProjectController.cs:行号 828
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 15:53:41,900 [74] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentException 
+ 消息内容：列“_opinion”不属于表 Table。  
+ 引发异常的方法：System.Object get_Item(System.String)  
+ 引发异常源：System.Data   在 System.Data.DataRow.get_Item(String columnName)
+   在 Szcg.Service.Bussiness.ProjectService.GetProjectSomeInfo(String projcode, String nodeid) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\ProjectService.cs:行号 440
+   在 Szcg.Web.Controllers.ProjectController.GetProjectDetailLA(String dotype, String projcode, String nodeid) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\ProjectController.cs:行号 828
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 15:54:09,253 [66] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentException 
+ 消息内容：列“_opinion”不属于表 Table。  
+ 引发异常的方法：System.Object get_Item(System.String)  
+ 引发异常源：System.Data   在 System.Data.DataRow.get_Item(String columnName)
+   在 Szcg.Service.Bussiness.ProjectService.GetProjectSomeInfo(String projcode, String nodeid) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\ProjectService.cs:行号 440
+   在 Szcg.Web.Controllers.ProjectController.GetProjectDetailLA(String dotype, String projcode, String nodeid) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\ProjectController.cs:行号 828
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 15:55:59,712 [20] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentException 
+ 消息内容：列“_opinion”不属于表 Table。  
+ 引发异常的方法：System.Object get_Item(System.String)  
+ 引发异常源：System.Data   在 System.Data.DataRow.get_Item(String columnName)
+   在 Szcg.Service.Bussiness.ProjectService.GetProjectSomeInfo(String projcode, String nodeid) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\ProjectService.cs:行号 440
+   在 Szcg.Web.Controllers.ProjectController.GetProjectDetailLA(String dotype, String projcode, String nodeid) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\ProjectController.cs:行号 828
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 15:56:55,242 [31] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 16:04:35,854 [7] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 16:07:29,603 [14] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 16:12:37,467 [70] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 16:45:25,516 [126] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 17:09:44,758 [110] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 17:09:47,778 [90] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 17:09:51,788 [68] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 17:10:51,357 [117] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 17:11:29,577 [101] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 17:11:34,327 [104] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 17:12:30,489 [112] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 17:14:02,899 [108] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 17:14:05,630 [5] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 17:26:40,512 [58] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 17:29:00,284 [61] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 17:53:37,632 [41] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 18:03:00,581 [99] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 18:04:34,039 [64] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Void ArgumentNotNull(System.Object, System.String)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Utilities.ValidationUtils.ArgumentNotNull(Object value, String parameterName)
+   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Newtonsoft.Json.Linq.JToken.FromObject(Object o)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 18:16:39,514 [84] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 18:16:47,535 [73] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.String GetHandleTime(System.String, System.String, System.String, System.String)  
+ 引发异常源：Szcg.Service.Bussiness   在 Szcg.Service.Bussiness.ProjectService.GetHandleTime(String typecode, String smallcode, String typeVaue, String processtype) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\ProjectService.cs:行号 1408
+   在 Szcg.Web.Controllers.ProjectController.GetProjectHandleTime(String typecode, String smallcode, String filingType, String processtype) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\ProjectController.cs:行号 847
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 18:17:37,536 [33] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.String GetHandleTime(System.String, System.String, System.String, System.String)  
+ 引发异常源：Szcg.Service.Bussiness   在 Szcg.Service.Bussiness.ProjectService.GetHandleTime(String typecode, String smallcode, String typeVaue, String processtype) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\ProjectService.cs:行号 1408
+   在 Szcg.Web.Controllers.ProjectController.GetProjectHandleTime(String typecode, String smallcode, String filingType, String processtype) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\ProjectController.cs:行号 847
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 18:17:39,386 [33] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Void ArgumentNotNull(System.Object, System.String)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Utilities.ValidationUtils.ArgumentNotNull(Object value, String parameterName)
+   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Newtonsoft.Json.Linq.JToken.FromObject(Object o)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 18:18:46,812 [75] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.String GetHandleTime(System.String, System.String, System.String, System.String)  
+ 引发异常源：Szcg.Service.Bussiness   在 Szcg.Service.Bussiness.ProjectService.GetHandleTime(String typecode, String smallcode, String typeVaue, String processtype) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\ProjectService.cs:行号 1408
+   在 Szcg.Web.Controllers.ProjectController.GetProjectHandleTime(String typecode, String smallcode, String filingType, String processtype) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\ProjectController.cs:行号 847
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 18:27:50,864 [98] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-20 19:37:21,924 [7] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController

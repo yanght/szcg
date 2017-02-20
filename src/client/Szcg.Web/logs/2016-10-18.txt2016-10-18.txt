@@ -1,0 +1,329 @@
+2016-10-18 16:58:24,616 [7] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-18 16:59:58,937 [5] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-18 17:00:40,311 [16] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-18 17:10:17,165 [38] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-18 17:17:33,692 [25] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-18 17:18:29,926 [64] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-18 17:18:30,462 [35] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-18 17:18:44,614 [27] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-18 17:19:04,834 [53] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-18 17:20:12,578 [59] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-18 17:20:16,455 [21] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-18 17:20:21,765 [20] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-18 17:20:25,005 [53] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-18 17:20:46,030 [21] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-18 17:21:18,026 [61] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-18 17:21:33,502 [48] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-18 17:23:18,082 [19] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-18 17:23:21,701 [39] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-18 17:23:23,059 [19] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-18 17:23:28,900 [39] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-18 17:33:57,133 [20] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-18 17:34:07,838 [20] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-18 17:34:20,601 [13] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-18 17:34:30,508 [11] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-18 17:35:02,369 [82] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-18 17:35:03,461 [77] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 105
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-18 17:35:04,982 [13] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-18 17:35:39,380 [13] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-18 17:35:52,802 [18] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-18 17:36:52,898 [80] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“index”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/page/index.aspx
+~/Views/page/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/page/index.cshtml
+~/Views/page/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager

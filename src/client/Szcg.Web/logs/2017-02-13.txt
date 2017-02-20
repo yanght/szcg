@@ -1,0 +1,55 @@
+2017-02-13 14:19:23,649 [7] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2017-02-13 16:20:03,955 [11] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2017-02-13 16:20:07,279 [11] ERROR Szcg.Service.Common.LoggerManager -  消息类型：FaultException 
+ 消息内容：java.lang.NullPointerException  
+ 引发异常的方法：Void HandleReturnMessage(System.Runtime.Remoting.Messaging.IMessage, System.Runtime.Remoting.Messaging.IMessage)  
+ 引发异常源：mscorlib
+Server stack trace: 
+   在 System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)
+   在 System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 Szcg.Web.ServiceReference1.TestService.uploadFile(uploadFileRequest request)
+   在 Szcg.Web.ServiceReference1.TestServiceClient.Szcg.Web.ServiceReference1.TestService.uploadFile(uploadFileRequest request) 位置 e:\myspace\project\src\client\Szcg.Web\Service References\ServiceReference1\Reference.cs:行号 286
+   在 Szcg.Web.ServiceReference1.TestServiceClient.uploadFile(String arg0, Byte[] arg1) 位置 e:\myspace\project\src\client\Szcg.Web\Service References\ServiceReference1\Reference.cs:行号 294
+   在 Szcg.Web.Controllers.MapController.Test() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\MapController.cs:行号 26
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2017-02-13 16:20:28,860 [13] ERROR Szcg.Service.Common.LoggerManager -  消息类型：FaultException 
+ 消息内容：java.lang.NullPointerException  
+ 引发异常的方法：Void HandleReturnMessage(System.Runtime.Remoting.Messaging.IMessage, System.Runtime.Remoting.Messaging.IMessage)  
+ 引发异常源：mscorlib
+Server stack trace: 
+   在 System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)
+   在 System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 Szcg.Web.ServiceReference1.TestService.uploadFile(uploadFileRequest request)
+   在 Szcg.Web.ServiceReference1.TestServiceClient.Szcg.Web.ServiceReference1.TestService.uploadFile(uploadFileRequest request) 位置 e:\myspace\project\src\client\Szcg.Web\Service References\ServiceReference1\Reference.cs:行号 286
+   在 Szcg.Web.ServiceReference1.TestServiceClient.uploadFile(String arg0, Byte[] arg1) 位置 e:\myspace\project\src\client\Szcg.Web\Service References\ServiceReference1\Reference.cs:行号 294
+   在 Szcg.Web.Controllers.MapController.Test() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\MapController.cs:行号 26
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager

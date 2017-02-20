@@ -27,7 +27,7 @@ namespace Szcg.Web.Controllers
 
             ServiceReference1.CobSecurityServiceDelegateClient clicnt = new ServiceReference1.CobSecurityServiceDelegateClient();
 
-            return Content(clicnt.EncryptPassword("111111"));
+            return Content(clicnt.EncryptPassword("11111111"));
         }
 
         public ActionResult Encrypt()

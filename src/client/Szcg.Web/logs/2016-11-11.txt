@@ -1,0 +1,171 @@
+2016-11-11 09:11:46,642 [10] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-11-11 11:47:34,314 [50] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：Boolean EditProject(Szcg.Service.Model.Project, szcg.com.teamax.business.entity.UserInfo)  
+ 引发异常源：Szcg.Service.Bussiness   在 Szcg.Service.Bussiness.ProjectService.EditProject(Project project, UserInfo userInfo) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\ProjectService.cs:行号 657
+   在 Szcg.Service.Bussiness.ProjectService.ProjectReport(Project project, UserInfo userInfo) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\ProjectService.cs:行号 702
+   在 Szcg.Web.Controllers.ProjectController.ProjectReport(Project project) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\ProjectController.cs:行号 45
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-11 11:47:52,061 [39] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：Boolean EditProject(Szcg.Service.Model.Project, szcg.com.teamax.business.entity.UserInfo)  
+ 引发异常源：Szcg.Service.Bussiness   在 Szcg.Service.Bussiness.ProjectService.EditProject(Project project, UserInfo userInfo) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\ProjectService.cs:行号 657
+   在 Szcg.Service.Bussiness.ProjectService.ProjectReport(Project project, UserInfo userInfo) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\ProjectService.cs:行号 702
+   在 Szcg.Web.Controllers.ProjectController.ProjectReport(Project project) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\ProjectController.cs:行号 45
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-11 11:47:59,940 [16] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：Boolean EditProject(Szcg.Service.Model.Project, szcg.com.teamax.business.entity.UserInfo)  
+ 引发异常源：Szcg.Service.Bussiness   在 Szcg.Service.Bussiness.ProjectService.EditProject(Project project, UserInfo userInfo) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\ProjectService.cs:行号 657
+   在 Szcg.Service.Bussiness.ProjectService.ProjectReport(Project project, UserInfo userInfo) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\ProjectService.cs:行号 702
+   在 Szcg.Web.Controllers.ProjectController.ProjectReport(Project project) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\ProjectController.cs:行号 45
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-11 11:48:12,693 [31] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：Boolean EditProject(Szcg.Service.Model.Project, szcg.com.teamax.business.entity.UserInfo)  
+ 引发异常源：Szcg.Service.Bussiness   在 Szcg.Service.Bussiness.ProjectService.EditProject(Project project, UserInfo userInfo) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\ProjectService.cs:行号 657
+   在 Szcg.Service.Bussiness.ProjectService.ProjectReport(Project project, UserInfo userInfo) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\ProjectService.cs:行号 702
+   在 Szcg.Web.Controllers.ProjectController.ProjectReport(Project project) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\ProjectController.cs:行号 45
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-11 11:52:44,483 [68] ERROR Szcg.Service.Common.LoggerManager - 修改案卷异常：从数据类型 nvarchar 转换为 bit 时出错。
+ Szcg.Service.Common.LoggerManager2016-11-11 14:29:01,045 [13] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：Int32 InsertUser1(System.String[], System.String ByRef)  
+ 引发异常源：Szcg.Core.szbaseBL   在 bacgBL.web.szbase.organize.UserManage.InsertUser1(String[] values, String& strErr) 位置 e:\myspace\project\src\core\bl\Szcg.Core.szbaseBL\szbase\organize\UserManage.cs:行号 457
+   在 Szcg.Service.Bussiness.OrganizeService.InsertUser(UserData user) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\OrganizeService.cs:行号 153
+   在 Szcg.Web.Controllers.DepartController.InsertUser(UserData user) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\DepartController.cs:行号 344
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-11 14:29:45,066 [68] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：Int32 InsertUser1(System.String[], System.String ByRef)  
+ 引发异常源：Szcg.Core.szbaseBL   在 bacgBL.web.szbase.organize.UserManage.InsertUser1(String[] values, String& strErr) 位置 e:\myspace\project\src\core\bl\Szcg.Core.szbaseBL\szbase\organize\UserManage.cs:行号 457
+   在 Szcg.Service.Bussiness.OrganizeService.InsertUser(UserData user) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\OrganizeService.cs:行号 153
+   在 Szcg.Web.Controllers.DepartController.InsertUser(UserData user) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\DepartController.cs:行号 344
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-11 14:31:33,597 [17] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：Int32 InsertUser1(System.String[], System.String ByRef)  
+ 引发异常源：Szcg.Core.szbaseBL   在 bacgBL.web.szbase.organize.UserManage.InsertUser1(String[] values, String& strErr) 位置 e:\myspace\project\src\core\bl\Szcg.Core.szbaseBL\szbase\organize\UserManage.cs:行号 457
+   在 Szcg.Service.Bussiness.OrganizeService.InsertUser(UserData user) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\OrganizeService.cs:行号 153
+   在 Szcg.Web.Controllers.DepartController.InsertUser(UserData user) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\DepartController.cs:行号 344
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-11 14:32:19,090 [17] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：Int32 InsertUser1(System.String[], System.String ByRef)  
+ 引发异常源：Szcg.Core.szbaseBL   在 bacgBL.web.szbase.organize.UserManage.InsertUser1(String[] values, String& strErr) 位置 e:\myspace\project\src\core\bl\Szcg.Core.szbaseBL\szbase\organize\UserManage.cs:行号 457
+   在 Szcg.Service.Bussiness.OrganizeService.InsertUser(UserData user) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\OrganizeService.cs:行号 153
+   在 Szcg.Web.Controllers.DepartController.InsertUser(UserData user) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\DepartController.cs:行号 344
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-11 17:32:00,556 [11] ERROR Szcg.Service.Common.LoggerManager -  消息类型：FormatException 
+ 消息内容：输入字符串的格式不正确。  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Service.Bussiness.PermissionService.GetRoleTree(String areacode, Int32 userCode) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\PermissionService.cs:行号 284
+   在 Szcg.Web.Controllers.AccountController.GetRoleTree() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 198
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-11 17:32:30,107 [17] ERROR Szcg.Service.Common.LoggerManager -  消息类型：FormatException 
+ 消息内容：输入字符串的格式不正确。  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Service.Bussiness.PermissionService.GetRoleTree(String areacode, Int32 userCode) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\PermissionService.cs:行号 284
+   在 Szcg.Web.Controllers.AccountController.GetRoleTree() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 198
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-11 17:32:44,073 [15] ERROR Szcg.Service.Common.LoggerManager -  消息类型：FormatException 
+ 消息内容：输入字符串的格式不正确。  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Service.Bussiness.PermissionService.GetRoleTree(String areacode, Int32 userCode) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\PermissionService.cs:行号 284
+   在 Szcg.Web.Controllers.AccountController.GetRoleTree() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 198
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager

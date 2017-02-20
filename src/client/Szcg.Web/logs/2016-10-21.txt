@@ -1,0 +1,878 @@
+2016-10-21 10:14:28,888 [10] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-21 10:20:12,195 [29] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:20:48,479 [26] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:20:52,065 [21] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:20:52,643 [24] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:21:03,486 [19] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-21 10:31:22,732 [12] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:31:41,246 [55] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:31:42,565 [55] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:31:43,291 [51] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:31:43,900 [55] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:31:46,293 [12] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:31:49,129 [55] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:31:51,162 [55] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:31:56,518 [50] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:32:10,006 [55] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:32:28,855 [55] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:32:34,506 [55] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-21 10:32:37,784 [53] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:32:42,007 [46] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:32:44,335 [52] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-21 10:47:05,117 [56] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:47:06,942 [68] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:47:13,265 [33] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:47:16,291 [67] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:47:42,218 [20] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:48:25,713 [23] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:49:58,158 [12] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：索引超出了数组界限。  
+ 引发异常的方法：szcg.com.teamax.business.entity.UserInfo get_UserInfo()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.BaseController.get_UserInfo() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 48
+   在 Szcg.Web.Controllers.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\BaseController.cs:行号 77
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:50:21,380 [26] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-21 10:50:39,350 [60] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:51:19,035 [26] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:51:24,002 [58] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:52:13,293 [53] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:53:07,405 [13] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 10:53:52,056 [21] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-21 10:53:52,644 [24] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-21 11:04:51,359 [58] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 11:04:56,476 [21] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 11:06:44,164 [39] INFO  Szcg.Service.Common.LoggerManager - 审核处理成功 但是在给责任单位发送通知短信失败!
+ Szcg.Service.Common.LoggerManager2016-10-21 11:07:44,027 [19] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 11:11:46,805 [20] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 11:13:30,180 [11] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 11:21:15,294 [37] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 13:17:07,428 [17] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-21 13:18:29,339 [21] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-21 13:20:59,404 [49] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: o  
+ 引发异常的方法：Newtonsoft.Json.Linq.JToken FromObjectInternal(System.Object, Newtonsoft.Json.JsonSerializer)  
+ 引发异常源：Newtonsoft.Json   在 Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 107
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 13:51:12,398 [112] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-21 13:51:20,938 [126] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-21 16:31:27,054 [7] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-21 17:33:56,855 [47] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-21 17:36:52,910 [19] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-21 17:37:05,092 [19] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-21 17:38:47,483 [12] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:38:49,211 [52] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:38:49,812 [58] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:38:50,290 [28] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:38:50,651 [53] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:38:51,328 [27] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:38:52,118 [28] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:38:53,497 [53] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:38:54,181 [27] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:38:55,395 [28] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:38:56,068 [53] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:39:40,476 [27] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:39:45,374 [55] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:40:18,505 [57] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:43:01,911 [19] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:43:07,248 [39] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:44:42,765 [42] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:44:51,072 [35] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:45:15,525 [42] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:46:47,995 [30] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:48:51,356 [18] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:49:12,012 [32] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:49:28,734 [76] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:50:00,931 [70] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:50:08,169 [70] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:50:25,383 [24] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:51:33,395 [77] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:52:06,952 [53] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:52:41,823 [55] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentOutOfRangeException 
+ 消息内容：索引和长度必须引用该字符串内的位置。
+参数名: length  
+ 引发异常的方法：System.String InternalSubStringWithChecks(Int32, Int32, Boolean)  
+ 引发异常源：mscorlib   在 System.String.InternalSubStringWithChecks(Int32 startIndex, Int32 length, Boolean fAlwaysCopy)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 103
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:53:25,037 [77] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentOutOfRangeException 
+ 消息内容：索引和长度必须引用该字符串内的位置。
+参数名: length  
+ 引发异常的方法：System.String InternalSubStringWithChecks(Int32, Int32, Boolean)  
+ 引发异常源：mscorlib   在 System.String.InternalSubStringWithChecks(Int32 startIndex, Int32 length, Boolean fAlwaysCopy)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 103
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:53:44,434 [64] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentOutOfRangeException 
+ 消息内容：索引和长度必须引用该字符串内的位置。
+参数名: length  
+ 引发异常的方法：System.String InternalSubStringWithChecks(Int32, Int32, Boolean)  
+ 引发异常源：mscorlib   在 System.String.InternalSubStringWithChecks(Int32 startIndex, Int32 length, Boolean fAlwaysCopy)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 103
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:53:47,887 [57] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentOutOfRangeException 
+ 消息内容：索引和长度必须引用该字符串内的位置。
+参数名: length  
+ 引发异常的方法：System.String InternalSubStringWithChecks(Int32, Int32, Boolean)  
+ 引发异常源：mscorlib   在 System.String.InternalSubStringWithChecks(Int32 startIndex, Int32 length, Boolean fAlwaysCopy)
+   在 Szcg.Web.Controllers.AccountController.GetFlowNodePower(String modelcode) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 103
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-10-21 17:54:07,999 [32] INFO  Szcg.Service.Common.LoggerManager - 审核处理成功 但是在给责任单位发送通知短信失败!
+ Szcg.Service.Common.LoggerManager2016-10-21 17:55:57,400 [34] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-10-21 18:05:34,700 [13] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController

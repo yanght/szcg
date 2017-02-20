@@ -1,0 +1,37 @@
+2017-02-15 17:34:35,771 [476] ERROR Szcg.Service.Common.LoggerManager -  消息类型：EndpointNotFoundException 
+ 消息内容：没有终结点在侦听可以接受消息的 http://localhost:8080/RsaSecurityWebService/CobSecurityServicePort。这通常是由于不正确的地址或者 SOAP 操作导致的。如果存在此情况，请参见 InnerException 以了解详细信息。  
+ 引发异常的方法：Void HandleReturnMessage(System.Runtime.Remoting.Messaging.IMessage, System.Runtime.Remoting.Messaging.IMessage)  
+ 引发异常源：mscorlib
+Server stack trace: 
+   在 System.ServiceModel.Channels.HttpChannelUtilities.ProcessGetResponseWebException(WebException webException, HttpWebRequest request, HttpAbortReason abortReason)
+   在 System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.WaitForReply(TimeSpan timeout)
+   在 System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   在 System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 Szcg.Web.ServiceReference1.CobSecurityServiceDelegate.EncryptPassword(EncryptPasswordRequest request)
+   在 Szcg.Web.ServiceReference1.CobSecurityServiceDelegateClient.Szcg.Web.ServiceReference1.CobSecurityServiceDelegate.EncryptPassword(EncryptPasswordRequest request) 位置 e:\myspace\project\src\client\Szcg.Web\Service References\ServiceReference1\Reference.cs:行号 282
+   在 Szcg.Web.ServiceReference1.CobSecurityServiceDelegateClient.EncryptPassword(String arg0) 位置 e:\myspace\project\src\client\Szcg.Web\Service References\ServiceReference1\Reference.cs:行号 288
+   在 Szcg.Web.Controllers.MapController.EncryptPassword() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\MapController.cs:行号 26
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2017-02-15 17:46:25,650 [10] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController

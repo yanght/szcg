@@ -1,0 +1,127 @@
+2016-12-02 20:46:55,523 [8] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-12-02 20:47:02,469 [9] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-12-02 10:57:11,527 [7] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-12-02 10:57:11,981 [8] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-12-02 11:27:27,843 [39] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“purviewmanager”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/Manager/Views/role/purviewmanager.aspx
+~/Areas/Manager/Views/role/purviewmanager.ascx
+~/Areas/Manager/Views/Shared/purviewmanager.aspx
+~/Areas/Manager/Views/Shared/purviewmanager.ascx
+~/Views/role/purviewmanager.aspx
+~/Views/role/purviewmanager.ascx
+~/Views/Shared/purviewmanager.aspx
+~/Views/Shared/purviewmanager.ascx
+~/Areas/Manager/Views/role/purviewmanager.cshtml
+~/Areas/Manager/Views/role/purviewmanager.vbhtml
+~/Areas/Manager/Views/Shared/purviewmanager.cshtml
+~/Areas/Manager/Views/Shared/purviewmanager.vbhtml
+~/Views/role/purviewmanager.cshtml
+~/Views/role/purviewmanager.vbhtml
+~/Views/Shared/purviewmanager.cshtml
+~/Views/Shared/purviewmanager.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-02 11:27:55,193 [42] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“purviewmanager”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/Manager/Views/role/purviewmanager.aspx
+~/Areas/Manager/Views/role/purviewmanager.ascx
+~/Areas/Manager/Views/Shared/purviewmanager.aspx
+~/Areas/Manager/Views/Shared/purviewmanager.ascx
+~/Views/role/purviewmanager.aspx
+~/Views/role/purviewmanager.ascx
+~/Views/Shared/purviewmanager.aspx
+~/Views/Shared/purviewmanager.ascx
+~/Areas/Manager/Views/role/purviewmanager.cshtml
+~/Areas/Manager/Views/role/purviewmanager.vbhtml
+~/Areas/Manager/Views/Shared/purviewmanager.cshtml
+~/Areas/Manager/Views/Shared/purviewmanager.vbhtml
+~/Views/role/purviewmanager.cshtml
+~/Views/role/purviewmanager.vbhtml
+~/Views/Shared/purviewmanager.cshtml
+~/Views/Shared/purviewmanager.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-02 13:15:38,738 [7] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-12-02 13:15:48,023 [10] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“purviewmanager”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/Manager/Views/role/purviewmanager.aspx
+~/Areas/Manager/Views/role/purviewmanager.ascx
+~/Areas/Manager/Views/Shared/purviewmanager.aspx
+~/Areas/Manager/Views/Shared/purviewmanager.ascx
+~/Views/role/purviewmanager.aspx
+~/Views/role/purviewmanager.ascx
+~/Views/Shared/purviewmanager.aspx
+~/Views/Shared/purviewmanager.ascx
+~/Areas/Manager/Views/role/purviewmanager.cshtml
+~/Areas/Manager/Views/role/purviewmanager.vbhtml
+~/Areas/Manager/Views/Shared/purviewmanager.cshtml
+~/Areas/Manager/Views/Shared/purviewmanager.vbhtml
+~/Views/role/purviewmanager.cshtml
+~/Views/role/purviewmanager.vbhtml
+~/Views/Shared/purviewmanager.cshtml
+~/Views/Shared/purviewmanager.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-02 13:15:57,483 [8] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“purviewmanager”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/Manager/Views/role/purviewmanager.aspx
+~/Areas/Manager/Views/role/purviewmanager.ascx
+~/Areas/Manager/Views/Shared/purviewmanager.aspx
+~/Areas/Manager/Views/Shared/purviewmanager.ascx
+~/Views/role/purviewmanager.aspx
+~/Views/role/purviewmanager.ascx
+~/Views/Shared/purviewmanager.aspx
+~/Views/Shared/purviewmanager.ascx
+~/Areas/Manager/Views/role/purviewmanager.cshtml
+~/Areas/Manager/Views/role/purviewmanager.vbhtml
+~/Areas/Manager/Views/Shared/purviewmanager.cshtml
+~/Areas/Manager/Views/Shared/purviewmanager.vbhtml
+~/Views/role/purviewmanager.cshtml
+~/Views/role/purviewmanager.vbhtml
+~/Views/Shared/purviewmanager.cshtml
+~/Views/Shared/purviewmanager.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-02 16:49:31,149 [10] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-12-02 17:10:38,082 [11] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-12-02 17:14:33,743 [25] ERROR Szcg.Service.Common.LoggerManager -  消息类型：NullReferenceException 
+ 消息内容：未将对象引用设置到对象的实例。  
+ 引发异常的方法：System.Web.Mvc.ActionResult Main()  
+ 引发异常源：Szcg.Web   在 Szcg.Web.Controllers.HomeController.Main() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\HomeController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager

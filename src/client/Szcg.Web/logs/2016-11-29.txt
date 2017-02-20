@@ -1,0 +1,189 @@
+2016-11-29 13:26:25,189 [11] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-11-29 13:26:46,535 [14] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“purviewmanager”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/Manager/Views/role/purviewmanager.aspx
+~/Areas/Manager/Views/role/purviewmanager.ascx
+~/Areas/Manager/Views/Shared/purviewmanager.aspx
+~/Areas/Manager/Views/Shared/purviewmanager.ascx
+~/Views/role/purviewmanager.aspx
+~/Views/role/purviewmanager.ascx
+~/Views/Shared/purviewmanager.aspx
+~/Views/Shared/purviewmanager.ascx
+~/Areas/Manager/Views/role/purviewmanager.cshtml
+~/Areas/Manager/Views/role/purviewmanager.vbhtml
+~/Areas/Manager/Views/Shared/purviewmanager.cshtml
+~/Areas/Manager/Views/Shared/purviewmanager.vbhtml
+~/Views/role/purviewmanager.cshtml
+~/Views/role/purviewmanager.vbhtml
+~/Views/Shared/purviewmanager.cshtml
+~/Views/Shared/purviewmanager.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-29 16:13:01,164 [9] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-11-29 16:14:52,576 [11] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“purviewmanager”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/Manager/Views/role/purviewmanager.aspx
+~/Areas/Manager/Views/role/purviewmanager.ascx
+~/Areas/Manager/Views/Shared/purviewmanager.aspx
+~/Areas/Manager/Views/Shared/purviewmanager.ascx
+~/Views/role/purviewmanager.aspx
+~/Views/role/purviewmanager.ascx
+~/Views/Shared/purviewmanager.aspx
+~/Views/Shared/purviewmanager.ascx
+~/Areas/Manager/Views/role/purviewmanager.cshtml
+~/Areas/Manager/Views/role/purviewmanager.vbhtml
+~/Areas/Manager/Views/Shared/purviewmanager.cshtml
+~/Areas/Manager/Views/Shared/purviewmanager.vbhtml
+~/Views/role/purviewmanager.cshtml
+~/Views/role/purviewmanager.vbhtml
+~/Views/Shared/purviewmanager.cshtml
+~/Views/Shared/purviewmanager.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-29 16:26:18,367 [51] ERROR Szcg.Service.Common.LoggerManager -  消息类型：SqlException 
+ 消息内容：在将 varchar 值 '[object HTMLInputElement]' 转换成数据类型 int 时失败。  
+ 引发异常的方法：Void OnError(System.Data.SqlClient.SqlException, Boolean, System.Action`1[System.Action])  
+ 引发异常源：.Net SqlClient Data Provider   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   在 System.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   在 System.Data.SqlClient.SqlDataReader.Read()
+   在 bacgBL.web.szbase.purview.Purviews.GetPruviewModleCode(String id, String& strErr) 位置 e:\myspace\project\src\core\bl\Szcg.Core.szbaseBL\szbase\purview\Purviews.cs:行号 87
+   在 Szcg.Service.Bussiness.PermissionService.GetSystemModelsByRoleId(String roleId) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\PermissionService.cs:行号 71
+   在 Szcg.Web.Controllers.AccountController.GetRolePermissionTree(String roleId) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 210
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-29 16:26:18,807 [12] ERROR Szcg.Service.Common.LoggerManager -  消息类型：SqlException 
+ 消息内容：在将 varchar 值 '[object HTMLInputElement]' 转换成数据类型 int 时失败。  
+ 引发异常的方法：Void OnError(System.Data.SqlClient.SqlException, Boolean, System.Action`1[System.Action])  
+ 引发异常源：.Net SqlClient Data Provider   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   在 System.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   在 System.Data.SqlClient.SqlDataReader.Read()
+   在 bacgBL.web.szbase.purview.Purviews.GetPruviewModleCode(String id, String& strErr) 位置 e:\myspace\project\src\core\bl\Szcg.Core.szbaseBL\szbase\purview\Purviews.cs:行号 87
+   在 Szcg.Service.Bussiness.PermissionService.GetSystemModelsByRoleId(String roleId) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\PermissionService.cs:行号 71
+   在 Szcg.Web.Controllers.AccountController.GetRolePermissionTree(String roleId) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 210
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-29 16:26:19,274 [13] ERROR Szcg.Service.Common.LoggerManager -  消息类型：SqlException 
+ 消息内容：在将 varchar 值 '[object HTMLInputElement]' 转换成数据类型 int 时失败。  
+ 引发异常的方法：Void OnError(System.Data.SqlClient.SqlException, Boolean, System.Action`1[System.Action])  
+ 引发异常源：.Net SqlClient Data Provider   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   在 System.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   在 System.Data.SqlClient.SqlDataReader.Read()
+   在 bacgBL.web.szbase.purview.Purviews.GetPruviewModleCode(String id, String& strErr) 位置 e:\myspace\project\src\core\bl\Szcg.Core.szbaseBL\szbase\purview\Purviews.cs:行号 87
+   在 Szcg.Service.Bussiness.PermissionService.GetSystemModelsByRoleId(String roleId) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\PermissionService.cs:行号 71
+   在 Szcg.Web.Controllers.AccountController.GetRolePermissionTree(String roleId) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 210
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-29 16:26:19,709 [15] ERROR Szcg.Service.Common.LoggerManager -  消息类型：SqlException 
+ 消息内容：在将 varchar 值 '[object HTMLInputElement]' 转换成数据类型 int 时失败。  
+ 引发异常的方法：Void OnError(System.Data.SqlClient.SqlException, Boolean, System.Action`1[System.Action])  
+ 引发异常源：.Net SqlClient Data Provider   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   在 System.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   在 System.Data.SqlClient.SqlDataReader.Read()
+   在 bacgBL.web.szbase.purview.Purviews.GetPruviewModleCode(String id, String& strErr) 位置 e:\myspace\project\src\core\bl\Szcg.Core.szbaseBL\szbase\purview\Purviews.cs:行号 87
+   在 Szcg.Service.Bussiness.PermissionService.GetSystemModelsByRoleId(String roleId) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\PermissionService.cs:行号 71
+   在 Szcg.Web.Controllers.AccountController.GetRolePermissionTree(String roleId) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 210
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-29 16:26:19,984 [10] ERROR Szcg.Service.Common.LoggerManager -  消息类型：SqlException 
+ 消息内容：在将 varchar 值 '[object HTMLInputElement]' 转换成数据类型 int 时失败。  
+ 引发异常的方法：Void OnError(System.Data.SqlClient.SqlException, Boolean, System.Action`1[System.Action])  
+ 引发异常源：.Net SqlClient Data Provider   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   在 System.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   在 System.Data.SqlClient.SqlDataReader.Read()
+   在 bacgBL.web.szbase.purview.Purviews.GetPruviewModleCode(String id, String& strErr) 位置 e:\myspace\project\src\core\bl\Szcg.Core.szbaseBL\szbase\purview\Purviews.cs:行号 87
+   在 Szcg.Service.Bussiness.PermissionService.GetSystemModelsByRoleId(String roleId) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\PermissionService.cs:行号 71
+   在 Szcg.Web.Controllers.AccountController.GetRolePermissionTree(String roleId) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AccountController.cs:行号 210
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-29 16:33:47,604 [59] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidOperationException 
+ 消息内容：未找到视图“purviewmanager”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/Manager/Views/role/purviewmanager.aspx
+~/Areas/Manager/Views/role/purviewmanager.ascx
+~/Areas/Manager/Views/Shared/purviewmanager.aspx
+~/Areas/Manager/Views/Shared/purviewmanager.ascx
+~/Views/role/purviewmanager.aspx
+~/Views/role/purviewmanager.ascx
+~/Views/Shared/purviewmanager.aspx
+~/Views/Shared/purviewmanager.ascx
+~/Areas/Manager/Views/role/purviewmanager.cshtml
+~/Areas/Manager/Views/role/purviewmanager.vbhtml
+~/Areas/Manager/Views/Shared/purviewmanager.cshtml
+~/Areas/Manager/Views/Shared/purviewmanager.vbhtml
+~/Views/role/purviewmanager.cshtml
+~/Views/role/purviewmanager.vbhtml
+~/Views/Shared/purviewmanager.cshtml
+~/Views/Shared/purviewmanager.vbhtml  
+ 引发异常的方法：System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext)  
+ 引发异常源：System.Web.Mvc   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-29 18:21:05,826 [7] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-11-29 18:21:06,536 [9] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-11-29 18:21:06,539 [8] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-11-29 18:21:07,173 [10] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-11-29 18:21:08,154 [7] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-11-29 18:21:08,888 [10] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController

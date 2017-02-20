@@ -1,0 +1,587 @@
+2016-12-08 09:23:08,432 [13] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-12-08 09:23:11,833 [12] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-12-08 09:23:52,362 [13] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-12-08 10:04:01,973 [76] ERROR Szcg.Service.Common.LoggerManager -  消息类型：FormatException 
+ 消息内容：输入字符串的格式不正确。  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Web.Controllers.AppraiseApiController.GetEvePartAppraise(String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseController.cs:行号 35
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 10:04:09,178 [62] ERROR Szcg.Service.Common.LoggerManager -  消息类型：FormatException 
+ 消息内容：输入字符串的格式不正确。  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Web.Controllers.AppraiseApiController.GetEvePartAppraise(String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseController.cs:行号 35
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 10:04:54,464 [60] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentOutOfRangeException 
+ 消息内容：年、月和日参数描述无法表示的 DateTime。  
+ 引发异常的方法：Int64 DateToTicks(Int32, Int32, Int32)  
+ 引发异常源：mscorlib   在 System.DateTime.DateToTicks(Int32 year, Int32 month, Int32 day)
+   在 System.DateTime..ctor(Int32 year, Int32 month, Int32 day)
+   在 bacgBL.zhpj.area.AreaAppraise.SetStatDate(StructQuery sq) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 156
+   在 Szcg.Service.Bussiness.AppraiseService.GetEvePartAppraise(EveParAppraiseRequestArgs args) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\AppraiseService.cs:行号 42
+   在 Szcg.Web.Controllers.AppraiseApiController.GetEvePartAppraise(String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseController.cs:行号 56
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 10:06:30,135 [66] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentOutOfRangeException 
+ 消息内容：年、月和日参数描述无法表示的 DateTime。  
+ 引发异常的方法：Int64 DateToTicks(Int32, Int32, Int32)  
+ 引发异常源：mscorlib   在 System.DateTime.DateToTicks(Int32 year, Int32 month, Int32 day)
+   在 System.DateTime..ctor(Int32 year, Int32 month, Int32 day)
+   在 bacgBL.zhpj.area.AreaAppraise.SetStatDate(StructQuery sq) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 156
+   在 Szcg.Service.Bussiness.AppraiseService.GetEvePartAppraise(EveParAppraiseRequestArgs args) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\AppraiseService.cs:行号 42
+   在 Szcg.Web.Controllers.AppraiseApiController.GetEvePartAppraise(String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseController.cs:行号 56
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 10:07:16,728 [30] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentOutOfRangeException 
+ 消息内容：年、月和日参数描述无法表示的 DateTime。  
+ 引发异常的方法：Int64 DateToTicks(Int32, Int32, Int32)  
+ 引发异常源：mscorlib   在 System.DateTime.DateToTicks(Int32 year, Int32 month, Int32 day)
+   在 System.DateTime..ctor(Int32 year, Int32 month, Int32 day)
+   在 bacgBL.zhpj.area.AreaAppraise.SetStatDate(StructQuery sq) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 156
+   在 Szcg.Service.Bussiness.AppraiseService.GetEvePartAppraise(EveParAppraiseRequestArgs args) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\AppraiseService.cs:行号 42
+   在 Szcg.Web.Controllers.AppraiseApiController.GetEvePartAppraise(String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseController.cs:行号 56
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 10:07:48,123 [30] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentOutOfRangeException 
+ 消息内容：年、月和日参数描述无法表示的 DateTime。  
+ 引发异常的方法：Int64 DateToTicks(Int32, Int32, Int32)  
+ 引发异常源：mscorlib   在 System.DateTime.DateToTicks(Int32 year, Int32 month, Int32 day)
+   在 System.DateTime..ctor(Int32 year, Int32 month, Int32 day)
+   在 bacgBL.zhpj.area.AreaAppraise.SetStatDate(StructQuery sq) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 156
+   在 Szcg.Service.Bussiness.AppraiseService.GetEvePartAppraise(EveParAppraiseRequestArgs args) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\AppraiseService.cs:行号 42
+   在 Szcg.Web.Controllers.AppraiseApiController.GetEvePartAppraise(String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseController.cs:行号 56
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 10:08:01,518 [34] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentOutOfRangeException 
+ 消息内容：年、月和日参数描述无法表示的 DateTime。  
+ 引发异常的方法：Int64 DateToTicks(Int32, Int32, Int32)  
+ 引发异常源：mscorlib   在 System.DateTime.DateToTicks(Int32 year, Int32 month, Int32 day)
+   在 System.DateTime..ctor(Int32 year, Int32 month, Int32 day)
+   在 bacgBL.zhpj.area.AreaAppraise.SetStatDate(StructQuery sq) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 156
+   在 Szcg.Service.Bussiness.AppraiseService.GetEvePartAppraise(EveParAppraiseRequestArgs args) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\AppraiseService.cs:行号 42
+   在 Szcg.Web.Controllers.AppraiseApiController.GetEvePartAppraise(String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseController.cs:行号 56
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 10:08:17,364 [43] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentOutOfRangeException 
+ 消息内容：年、月和日参数描述无法表示的 DateTime。  
+ 引发异常的方法：Int64 DateToTicks(Int32, Int32, Int32)  
+ 引发异常源：mscorlib   在 System.DateTime.DateToTicks(Int32 year, Int32 month, Int32 day)
+   在 System.DateTime..ctor(Int32 year, Int32 month, Int32 day)
+   在 bacgBL.zhpj.area.AreaAppraise.SetStatDate(StructQuery sq) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 156
+   在 Szcg.Service.Bussiness.AppraiseService.GetEvePartAppraise(EveParAppraiseRequestArgs args) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\AppraiseService.cs:行号 42
+   在 Szcg.Web.Controllers.AppraiseApiController.GetEvePartAppraise(String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseController.cs:行号 56
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 10:08:54,282 [46] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentOutOfRangeException 
+ 消息内容：年、月和日参数描述无法表示的 DateTime。  
+ 引发异常的方法：Int64 DateToTicks(Int32, Int32, Int32)  
+ 引发异常源：mscorlib   在 System.DateTime.DateToTicks(Int32 year, Int32 month, Int32 day)
+   在 System.DateTime..ctor(Int32 year, Int32 month, Int32 day)
+   在 bacgBL.zhpj.area.AreaAppraise.SetStatDate(StructQuery sq) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 156
+   在 Szcg.Service.Bussiness.AppraiseService.GetEvePartAppraise(EveParAppraiseRequestArgs args) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\AppraiseService.cs:行号 42
+   在 Szcg.Web.Controllers.AppraiseApiController.GetEvePartAppraise(String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseController.cs:行号 56
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 10:52:58,861 [7] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Web.Controllers.AppraiseApiController.GetAreaAppraise(String id, String StreetId, String SquareId, String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseController.cs:行号 77
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 10:53:24,801 [21] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Web.Controllers.AppraiseApiController.GetAreaAppraise(String id, String StreetId, String SquareId, String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseController.cs:行号 77
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 10:54:32,191 [41] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Web.Controllers.AppraiseApiController.GetAreaAppraise(String id, String StreetId, String SquareId, String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseController.cs:行号 77
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 10:54:34,528 [38] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Web.Controllers.AppraiseApiController.GetAreaAppraise(String id, String StreetId, String SquareId, String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseController.cs:行号 77
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 10:54:41,850 [27] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Web.Controllers.AppraiseApiController.GetAreaAppraise(String id, String StreetId, String SquareId, String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseController.cs:行号 77
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 10:54:49,260 [27] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Web.Controllers.AppraiseApiController.GetAreaAppraise(String id, String StreetId, String SquareId, String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseController.cs:行号 77
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 13:55:41,803 [7] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-12-08 13:55:50,632 [14] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Web.Controllers.AppraiseApiController.GetAreaAppraise(String id, String StreetId, String SquareId, String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseController.cs:行号 77
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 13:56:03,682 [8] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Web.Controllers.AppraiseApiController.GetAreaAppraise(String id, String StreetId, String SquareId, String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseController.cs:行号 77
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 13:56:08,784 [13] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Web.Controllers.AppraiseApiController.GetAreaAppraise(String id, String StreetId, String SquareId, String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseController.cs:行号 77
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 13:56:12,737 [13] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Web.Controllers.AppraiseApiController.GetAreaAppraise(String id, String StreetId, String SquareId, String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseController.cs:行号 77
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 15:19:15,583 [94] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Web.Controllers.AppraiseApiController.GetAreaAppraise(String id, String StreetId, String SquareId, String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseApiController.cs:行号 77
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 15:19:33,284 [67] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Web.Controllers.AppraiseApiController.GetAreaAppraise(String id, String StreetId, String SquareId, String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseApiController.cs:行号 77
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 15:20:12,945 [95] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Web.Controllers.AppraiseApiController.GetAreaAppraise(String id, String StreetId, String SquareId, String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseApiController.cs:行号 77
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 15:22:06,211 [95] ERROR Szcg.Service.Common.LoggerManager -  消息类型：ArgumentNullException 
+ 消息内容：值不能为 null。
+参数名: String  
+ 引发异常的方法：Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)  
+ 引发异常源：mscorlib   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 Szcg.Web.Controllers.AppraiseApiController.GetAreaAppraise(String id, String StreetId, String SquareId, String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseApiController.cs:行号 77
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 16:58:47,841 [8] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：无法找到表 0。  
+ 引发异常的方法：System.Data.DataTable getAreaAppraise(Int32, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, Int32 ByRef, Int32 ByRef, System.String ByRef, System.String ByRef)  
+ 引发异常源：Szcg.Core.appraiseBL   在 bacgBL.zhpj.area.AreaAppraise.getAreaAppraise(Int32 modelid, String parm1, String parm2, String parm3, String parm4, String roleid, String field, String order, String startdate, String enddate, Int32& rowCount, Int32& pageCount, String& cols, String& ReportMessage) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 121
+   在 bacgBL.zhpj.area.AreaAppraise.getAreaAppraise(Int32 modelid, String parm1, String parm2, String parm3, String roleid, String field, String order, String startdate, String enddate, Int32& rowCount, Int32& pageCount, String& cols, String& ReportMessage) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 40
+   在 Szcg.Service.Bussiness.AppraiseService.GetDutyAppraise(DutyAppraiseRequestArgs args, PageInfo pageInfo) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\AppraiseService.cs:行号 207
+   在 Szcg.Web.Controllers.AppraiseApiController.GetDutyAppraise(String Code, String Name, String DepartCode, String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseApiController.cs:行号 225
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 16:59:22,190 [7] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：无法找到表 0。  
+ 引发异常的方法：System.Data.DataTable getAreaAppraise(Int32, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, Int32 ByRef, Int32 ByRef, System.String ByRef, System.String ByRef)  
+ 引发异常源：Szcg.Core.appraiseBL   在 bacgBL.zhpj.area.AreaAppraise.getAreaAppraise(Int32 modelid, String parm1, String parm2, String parm3, String parm4, String roleid, String field, String order, String startdate, String enddate, Int32& rowCount, Int32& pageCount, String& cols, String& ReportMessage) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 121
+   在 bacgBL.zhpj.area.AreaAppraise.getAreaAppraise(Int32 modelid, String parm1, String parm2, String parm3, String roleid, String field, String order, String startdate, String enddate, Int32& rowCount, Int32& pageCount, String& cols, String& ReportMessage) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 40
+   在 Szcg.Service.Bussiness.AppraiseService.GetDutyAppraise(DutyAppraiseRequestArgs args, PageInfo pageInfo) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\AppraiseService.cs:行号 207
+   在 Szcg.Web.Controllers.AppraiseApiController.GetDutyAppraise(String Code, String Name, String DepartCode, String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseApiController.cs:行号 225
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 17:00:16,304 [11] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：无法找到表 0。  
+ 引发异常的方法：System.Data.DataTable getAreaAppraise(Int32, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, Int32 ByRef, Int32 ByRef, System.String ByRef, System.String ByRef)  
+ 引发异常源：Szcg.Core.appraiseBL   在 bacgBL.zhpj.area.AreaAppraise.getAreaAppraise(Int32 modelid, String parm1, String parm2, String parm3, String parm4, String roleid, String field, String order, String startdate, String enddate, Int32& rowCount, Int32& pageCount, String& cols, String& ReportMessage) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 121
+   在 bacgBL.zhpj.area.AreaAppraise.getAreaAppraise(Int32 modelid, String parm1, String parm2, String parm3, String roleid, String field, String order, String startdate, String enddate, Int32& rowCount, Int32& pageCount, String& cols, String& ReportMessage) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 40
+   在 Szcg.Service.Bussiness.AppraiseService.GetDutyAppraise(DutyAppraiseRequestArgs args, PageInfo pageInfo) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\AppraiseService.cs:行号 207
+   在 Szcg.Web.Controllers.AppraiseApiController.GetDutyAppraise(String Code, String Name, String DepartCode, String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseApiController.cs:行号 225
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 17:01:02,105 [18] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：无法找到表 0。  
+ 引发异常的方法：System.Data.DataTable getAreaAppraise(Int32, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, Int32 ByRef, Int32 ByRef, System.String ByRef, System.String ByRef)  
+ 引发异常源：Szcg.Core.appraiseBL   在 bacgBL.zhpj.area.AreaAppraise.getAreaAppraise(Int32 modelid, String parm1, String parm2, String parm3, String parm4, String roleid, String field, String order, String startdate, String enddate, Int32& rowCount, Int32& pageCount, String& cols, String& ReportMessage) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 121
+   在 bacgBL.zhpj.area.AreaAppraise.getAreaAppraise(Int32 modelid, String parm1, String parm2, String parm3, String roleid, String field, String order, String startdate, String enddate, Int32& rowCount, Int32& pageCount, String& cols, String& ReportMessage) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 40
+   在 Szcg.Service.Bussiness.AppraiseService.GetDutyAppraise(DutyAppraiseRequestArgs args, PageInfo pageInfo) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\AppraiseService.cs:行号 207
+   在 Szcg.Web.Controllers.AppraiseApiController.GetDutyAppraise(String Code, String Name, String DepartCode, String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseApiController.cs:行号 233
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 17:01:28,145 [18] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：无法找到表 0。  
+ 引发异常的方法：System.Data.DataTable getAreaAppraise(Int32, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, Int32 ByRef, Int32 ByRef, System.String ByRef, System.String ByRef)  
+ 引发异常源：Szcg.Core.appraiseBL   在 bacgBL.zhpj.area.AreaAppraise.getAreaAppraise(Int32 modelid, String parm1, String parm2, String parm3, String parm4, String roleid, String field, String order, String startdate, String enddate, Int32& rowCount, Int32& pageCount, String& cols, String& ReportMessage) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 121
+   在 bacgBL.zhpj.area.AreaAppraise.getAreaAppraise(Int32 modelid, String parm1, String parm2, String parm3, String roleid, String field, String order, String startdate, String enddate, Int32& rowCount, Int32& pageCount, String& cols, String& ReportMessage) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 40
+   在 Szcg.Service.Bussiness.AppraiseService.GetDutyAppraise(DutyAppraiseRequestArgs args, PageInfo pageInfo) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\AppraiseService.cs:行号 207
+   在 Szcg.Web.Controllers.AppraiseApiController.GetDutyAppraise(String Code, String Name, String DepartCode, String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseApiController.cs:行号 233
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 17:01:58,133 [12] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：无法找到表 0。  
+ 引发异常的方法：System.Data.DataTable getAreaAppraise(Int32, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, Int32 ByRef, Int32 ByRef, System.String ByRef, System.String ByRef)  
+ 引发异常源：Szcg.Core.appraiseBL   在 bacgBL.zhpj.area.AreaAppraise.getAreaAppraise(Int32 modelid, String parm1, String parm2, String parm3, String parm4, String roleid, String field, String order, String startdate, String enddate, Int32& rowCount, Int32& pageCount, String& cols, String& ReportMessage) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 121
+   在 bacgBL.zhpj.area.AreaAppraise.getAreaAppraise(Int32 modelid, String parm1, String parm2, String parm3, String roleid, String field, String order, String startdate, String enddate, Int32& rowCount, Int32& pageCount, String& cols, String& ReportMessage) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 40
+   在 Szcg.Service.Bussiness.AppraiseService.GetDutyAppraise(DutyAppraiseRequestArgs args, PageInfo pageInfo) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\AppraiseService.cs:行号 207
+   在 Szcg.Web.Controllers.AppraiseApiController.GetDutyAppraise(String Code, String Name, String DepartCode, String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseApiController.cs:行号 233
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 17:02:24,191 [18] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：无法找到表 0。  
+ 引发异常的方法：System.Data.DataTable getAreaAppraise(Int32, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, Int32 ByRef, Int32 ByRef, System.String ByRef, System.String ByRef)  
+ 引发异常源：Szcg.Core.appraiseBL   在 bacgBL.zhpj.area.AreaAppraise.getAreaAppraise(Int32 modelid, String parm1, String parm2, String parm3, String parm4, String roleid, String field, String order, String startdate, String enddate, Int32& rowCount, Int32& pageCount, String& cols, String& ReportMessage) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 121
+   在 bacgBL.zhpj.area.AreaAppraise.getAreaAppraise(Int32 modelid, String parm1, String parm2, String parm3, String roleid, String field, String order, String startdate, String enddate, Int32& rowCount, Int32& pageCount, String& cols, String& ReportMessage) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 40
+   在 Szcg.Service.Bussiness.AppraiseService.GetDutyAppraise(DutyAppraiseRequestArgs args, PageInfo pageInfo) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\AppraiseService.cs:行号 207
+   在 Szcg.Web.Controllers.AppraiseApiController.GetDutyAppraise(String Code, String Name, String DepartCode, String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseApiController.cs:行号 228
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 17:02:49,867 [43] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：无法找到表 0。  
+ 引发异常的方法：System.Data.DataTable getAreaAppraise(Int32, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, Int32 ByRef, Int32 ByRef, System.String ByRef, System.String ByRef)  
+ 引发异常源：Szcg.Core.appraiseBL   在 bacgBL.zhpj.area.AreaAppraise.getAreaAppraise(Int32 modelid, String parm1, String parm2, String parm3, String parm4, String roleid, String field, String order, String startdate, String enddate, Int32& rowCount, Int32& pageCount, String& cols, String& ReportMessage) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 121
+   在 bacgBL.zhpj.area.AreaAppraise.getAreaAppraise(Int32 modelid, String parm1, String parm2, String parm3, String roleid, String field, String order, String startdate, String enddate, Int32& rowCount, Int32& pageCount, String& cols, String& ReportMessage) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 40
+   在 Szcg.Service.Bussiness.AppraiseService.GetDutyAppraise(DutyAppraiseRequestArgs args, PageInfo pageInfo) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\AppraiseService.cs:行号 207
+   在 Szcg.Web.Controllers.AppraiseApiController.GetDutyAppraise(String Code, String Name, String DepartCode, String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseApiController.cs:行号 228
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 17:07:16,661 [47] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：无法找到表 0。  
+ 引发异常的方法：System.Data.DataTable getAreaAppraise(Int32, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, Int32 ByRef, Int32 ByRef, System.String ByRef, System.String ByRef)  
+ 引发异常源：Szcg.Core.appraiseBL   在 bacgBL.zhpj.area.AreaAppraise.getAreaAppraise(Int32 modelid, String parm1, String parm2, String parm3, String parm4, String roleid, String field, String order, String startdate, String enddate, Int32& rowCount, Int32& pageCount, String& cols, String& ReportMessage) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 121
+   在 bacgBL.zhpj.area.AreaAppraise.getAreaAppraise(Int32 modelid, String parm1, String parm2, String parm3, String roleid, String field, String order, String startdate, String enddate, Int32& rowCount, Int32& pageCount, String& cols, String& ReportMessage) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 40
+   在 Szcg.Service.Bussiness.AppraiseService.GetDutyAppraise(DutyAppraiseRequestArgs args, PageInfo pageInfo) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\AppraiseService.cs:行号 207
+   在 Szcg.Web.Controllers.AppraiseApiController.GetDutyAppraise(String Code, String Name, String DepartCode, String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseApiController.cs:行号 228
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 17:07:58,211 [53] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：无法找到表 0。  
+ 引发异常的方法：System.Data.DataTable getAreaAppraise(Int32, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, Int32 ByRef, Int32 ByRef, System.String ByRef, System.String ByRef)  
+ 引发异常源：Szcg.Core.appraiseBL   在 bacgBL.zhpj.area.AreaAppraise.getAreaAppraise(Int32 modelid, String parm1, String parm2, String parm3, String parm4, String roleid, String field, String order, String startdate, String enddate, Int32& rowCount, Int32& pageCount, String& cols, String& ReportMessage) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 121
+   在 bacgBL.zhpj.area.AreaAppraise.getAreaAppraise(Int32 modelid, String parm1, String parm2, String parm3, String roleid, String field, String order, String startdate, String enddate, Int32& rowCount, Int32& pageCount, String& cols, String& ReportMessage) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 40
+   在 Szcg.Service.Bussiness.AppraiseService.GetDutyAppraise(DutyAppraiseRequestArgs args, PageInfo pageInfo) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\AppraiseService.cs:行号 207
+   在 Szcg.Web.Controllers.AppraiseApiController.GetDutyAppraise(String Code, String Name, String DepartCode, String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseApiController.cs:行号 228
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 17:08:06,653 [52] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：无法找到表 0。  
+ 引发异常的方法：System.Data.DataTable getAreaAppraise(Int32, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, Int32 ByRef, Int32 ByRef, System.String ByRef, System.String ByRef)  
+ 引发异常源：Szcg.Core.appraiseBL   在 bacgBL.zhpj.area.AreaAppraise.getAreaAppraise(Int32 modelid, String parm1, String parm2, String parm3, String parm4, String roleid, String field, String order, String startdate, String enddate, Int32& rowCount, Int32& pageCount, String& cols, String& ReportMessage) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 121
+   在 bacgBL.zhpj.area.AreaAppraise.getAreaAppraise(Int32 modelid, String parm1, String parm2, String parm3, String roleid, String field, String order, String startdate, String enddate, Int32& rowCount, Int32& pageCount, String& cols, String& ReportMessage) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 40
+   在 Szcg.Service.Bussiness.AppraiseService.GetDutyAppraise(DutyAppraiseRequestArgs args, PageInfo pageInfo) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\AppraiseService.cs:行号 207
+   在 Szcg.Web.Controllers.AppraiseApiController.GetDutyAppraise(String Code, String Name, String DepartCode, String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseApiController.cs:行号 228
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 17:08:11,180 [7] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：无法找到表 0。  
+ 引发异常的方法：System.Data.DataTable getAreaAppraise(Int32, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, Int32 ByRef, Int32 ByRef, System.String ByRef, System.String ByRef)  
+ 引发异常源：Szcg.Core.appraiseBL   在 bacgBL.zhpj.area.AreaAppraise.getAreaAppraise(Int32 modelid, String parm1, String parm2, String parm3, String parm4, String roleid, String field, String order, String startdate, String enddate, Int32& rowCount, Int32& pageCount, String& cols, String& ReportMessage) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 121
+   在 bacgBL.zhpj.area.AreaAppraise.getAreaAppraise(Int32 modelid, String parm1, String parm2, String parm3, String roleid, String field, String order, String startdate, String enddate, Int32& rowCount, Int32& pageCount, String& cols, String& ReportMessage) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 40
+   在 Szcg.Service.Bussiness.AppraiseService.GetDutyAppraise(DutyAppraiseRequestArgs args, PageInfo pageInfo) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\AppraiseService.cs:行号 207
+   在 Szcg.Web.Controllers.AppraiseApiController.GetDutyAppraise(String Code, String Name, String DepartCode, String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseApiController.cs:行号 228
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 17:09:02,655 [16] ERROR Szcg.Service.Common.LoggerManager -  消息类型：IndexOutOfRangeException 
+ 消息内容：无法找到表 0。  
+ 引发异常的方法：System.Data.DataTable getAreaAppraise(Int32, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, Int32 ByRef, Int32 ByRef, System.String ByRef, System.String ByRef)  
+ 引发异常源：Szcg.Core.appraiseBL   在 bacgBL.zhpj.area.AreaAppraise.getAreaAppraise(Int32 modelid, String parm1, String parm2, String parm3, String parm4, String roleid, String field, String order, String startdate, String enddate, Int32& rowCount, Int32& pageCount, String& cols, String& ReportMessage) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 121
+   在 bacgBL.zhpj.area.AreaAppraise.getAreaAppraise(Int32 modelid, String parm1, String parm2, String parm3, String roleid, String field, String order, String startdate, String enddate, Int32& rowCount, Int32& pageCount, String& cols, String& ReportMessage) 位置 e:\myspace\project\src\core\bl\Szcg.Core.appraiseBL\zhpj\AreaAppraise.cs:行号 40
+   在 Szcg.Service.Bussiness.AppraiseService.GetDutyAppraise(DutyAppraiseRequestArgs args, PageInfo pageInfo) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\AppraiseService.cs:行号 207
+   在 Szcg.Web.Controllers.AppraiseApiController.GetDutyAppraise(String Code, String Name, String DepartCode, String Type, String Year, String Number) 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\AppraiseApiController.cs:行号 228
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-12-08 18:23:35,655 [7] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController

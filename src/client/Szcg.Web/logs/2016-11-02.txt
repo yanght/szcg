@@ -1,0 +1,72 @@
+2016-11-02 09:07:15,730 [10] INFO  Szcg.Web.Controllers.LoginController - logger....
+ Szcg.Web.Controllers.LoginController2016-11-02 12:13:09,577 [99] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidCastException 
+ 消息内容：指定的转换无效。  
+ 引发异常的方法：System.Collections.Generic.List`1[Szcg.Service.Model.Depart] GetUserTreeList(System.String, System.String)  
+ 引发异常源：Szcg.Service.Bussiness   在 Szcg.Service.Bussiness.MessageService.GetUserTreeList(String areacode, String departcode) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\MessageService.cs:行号 330
+   在 Szcg.Web.Controllers.MessageController.GetUserTreeList() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\MessageController.cs:行号 355
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-02 12:13:41,463 [92] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidCastException 
+ 消息内容：指定的转换无效。  
+ 引发异常的方法：System.Collections.Generic.List`1[Szcg.Service.Model.Depart] GetUserTreeList(System.String, System.String)  
+ 引发异常源：Szcg.Service.Bussiness   在 Szcg.Service.Bussiness.MessageService.GetUserTreeList(String areacode, String departcode) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\MessageService.cs:行号 330
+   在 Szcg.Web.Controllers.MessageController.GetUserTreeList() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\MessageController.cs:行号 355
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-02 12:14:32,851 [90] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidCastException 
+ 消息内容：指定的转换无效。  
+ 引发异常的方法：System.Collections.Generic.List`1[Szcg.Service.Model.Depart] GetUserTreeList(System.String, System.String)  
+ 引发异常源：Szcg.Service.Bussiness   在 Szcg.Service.Bussiness.MessageService.GetUserTreeList(String areacode, String departcode) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\MessageService.cs:行号 330
+   在 Szcg.Web.Controllers.MessageController.GetUserTreeList() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\MessageController.cs:行号 355
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-02 12:14:51,742 [100] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidCastException 
+ 消息内容：指定的转换无效。  
+ 引发异常的方法：System.Collections.Generic.List`1[Szcg.Service.Model.Depart] GetUserTreeList(System.String, System.String)  
+ 引发异常源：Szcg.Service.Bussiness   在 Szcg.Service.Bussiness.MessageService.GetUserTreeList(String areacode, String departcode) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\MessageService.cs:行号 330
+   在 Szcg.Web.Controllers.MessageController.GetUserTreeList() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\MessageController.cs:行号 355
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager2016-11-02 12:15:57,425 [90] ERROR Szcg.Service.Common.LoggerManager -  消息类型：InvalidCastException 
+ 消息内容：指定的转换无效。  
+ 引发异常的方法：System.Collections.Generic.List`1[Szcg.Service.Model.Depart] GetUserTreeList(System.String, System.String)  
+ 引发异常源：Szcg.Service.Bussiness   在 Szcg.Service.Bussiness.MessageService.GetUserTreeList(String areacode, String departcode) 位置 e:\myspace\project\src\service\Szcg.Service.Bussiness\MessageService.cs:行号 330
+   在 Szcg.Web.Controllers.MessageController.GetUserTreeList() 位置 e:\myspace\project\src\client\Szcg.Web\Controllers\MessageController.cs:行号 355
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ Szcg.Service.Common.LoggerManager
