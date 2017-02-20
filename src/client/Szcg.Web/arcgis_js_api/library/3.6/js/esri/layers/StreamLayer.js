@@ -1,0 +1,19 @@
+/*
+ COPYRIGHT 2009 ESRI
+
+ TRADE SECRETS: ESRI PROPRIETARY AND CONFIDENTIAL
+ Unpublished material - all rights reserved under the
+ Copyright Laws of the United States and applicable international
+ laws, treaties, and conventions.
+
+ For additional information, contact:
+ Environmental Systems Research Institute, Inc.
+ Attn: Contracts and Legal Services Department
+ 380 New York Street
+ Redlands, California, 92373
+ USA
+
+ email: contracts@esri.com
+ */
+//>>built
+define("esri/layers/StreamLayer",["dojo/_base/declare","dojo/_base/connect","dojo/_base/array","esri/graphic","esri/layers/FeatureLayer","esri/geometry/jsonUtils","./PurgeOptions"],function(_1,_2,_3,_4,_5,_6,_7){var _8=_1([_5],{_eventMap:{"connect":true,"disconnect":true,"message":true,"remove":true},constructor:function(_9,_a){this.purgeOptions=new _7(this,_a.purgeOptions||{});this.registerConnectEvents("esri.layers.StreamLayer",{"connect":true,"disconnect":true,"message":true,"remove":true});},_initLayer:function(_b,io){this.inherited(arguments);if(_b){if(_b.layerDefinition){this.purgeOptions=new _7(this,this._params.purgeOptions||{});this.socketUrl=this._params.socketUrl||_b.layerDefinition.socketUrl||undefined;}else{this.socketUrl=this._params.socketUrl||_b.socketUrl||undefined;}if(this._map&&this.socketUrl&&!this._connected){this.connect(this.socketUrl);}}},_setMap:function(){if(this.socketUrl&&!this._connected){this.connect(this.socketUrl);}return this.inherited(arguments);},_unsetMap:function(_c,_d){_3.forEach(this._connects,_2.disconnect);if(this._connected){this.disconnect();}this._map=null;},add:function(_e){this.inherited(arguments);},remove:function(_f){this.inherited(arguments);},refresh:function(){this._purge();},destroy:function(){this.disconnect();this.inherited(arguments);},connect:function(_10){var _11=this;if(!this._connected){this.socket=new WebSocket(_10);this.socket.onopen=function(){_11._connected=true;_11.onConnect();_11._bind();};this.socket.onclose=function(m){if(this._connected){this._connected=false;this.onDisconnect();}};}},disconnect:function(){this.socket.close();this._connected=false;this.onDisconnect();},onMessage:function(){},onRemove:function(){},onConnect:function(){},onDisconnect:function(){},_purge:function(){if(this.purgeOptions.displayCount&&this.graphics.length>this.purgeOptions.displayCount){for(var i=0;i<(this.graphics.length-this.purgeOptions.displayCount);i++){var _12=this.graphics[0];this.remove(_12);this.onRemove({graphic:_12});}}},_bind:function(){var _13=this;this.socket.onmessage=function(m){_13._onMessage(JSON.parse(m.data));};},_onMessage:function(_14){var _15=this;var _16={"create":function(f){_15._create(f);},"update":function(f){_15._update(f);},"delete":function(f){_15._delete(f);}};if(_14.type){_16[_14.type](_14.feature);}else{this._create(_14);}},_create:function(_17){var _18=this;function add(f){var _19=new _4(f);_18.add(_19);_18.refresh();_18.onMessage({type:"create",graphic:_19});};if(_17.length){_17.forEach(function(f){if(f&&f.geometry){add(f);}});}else{if(_17&&_17.geometry){add(_17);}}},_delete:function(_1a){var _1b=this;var id=_1a[_1b.objectIdField]||_1a.attributes[_1b.objectIdField];var _1c=false;this.graphics.forEach(function(g){if(g.attributes[_1b.objectIdField]==id){_1c=g;}});if(_1c){this.remove(_1c);_1b.onMessage({type:"delete",graphic:_1c});}},_update:function(_1d){var _1e=this;var _1f=false;this.graphics.forEach(function(g){if(g.attributes[_1e.objectIdField]==_1d.attributes[_1e.objectIdField]){_1f=g;}});if(_1f){if(_1d.attributes){_1f.setAttributes(_1d.attributes);}if(_1d.geometry){_1f.setGeometry(new _6.fromJson(_1d.geometry));}_1e.onMessage({type:"update",graphic:_1f});}}});return _8;});
