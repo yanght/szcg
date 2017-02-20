@@ -115,7 +115,7 @@ function getcontent(result) {
                                 "</tr>" +
                          "</table>" +
                   "</div>" +
-                  "<div style=';margin-left:60px;width:211px;margin-top:3px;border:1px solid #8D8881;background-color:#ffffff '>" +
+                  "<div style=';width:211px;margin-top:3px;border:1px solid #8D8881;background-color:#ffffff '>" +
                              " <a href='#infoimage' rel='facebox'><img  id='clhimg'  style='margin:5px 5px 5px 5px;height:150px;width:200px'  alt=''/></a>" +
                   "</div>" +
                   "<div id='infoimage' style='display:none'>" +
