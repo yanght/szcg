@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription", class="largesize">
+        <h2>Izvilkt datus</h2><p/>
+        <h2></h2>
+        <hr/>
+    <p>Ar &scaron;o rīku jūs varat izvēlēties un lejupielādēt datus par noteiktu intere&scaron;u laukumu. Slāņi, ka jūs izvēlēsieties, tiks pievienoti zip failam vai slāņa pakotnei.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="InputLayers">
+        <div><h2>Slāņi, ko izvilkt</h2></div>
+        <hr/>
+        <div>
+            <p>Slāņi jūsu satura tabulā, no kuriem jūs varat izvilkt elementus.  Atzīmētie slāņi tiek izvilkti un iekļauti rezultējo&scaron;ā zip failā vai slāņa pakotnē.
+            </p>
+            
+        </div>
+    </div>
+    <div id="AreaOfInterest">
+        <div><h2>Studiju areāls</h2></div>
+        <hr/>
+        <div>
+            <p>Laukums, kas definē, kuri elementi tiks iekļauti izvades zip failā vai slāņa pakotnē. Jūs varat izvēlēties sekojo&scaron;os:
+                <ul>
+                    <li>Kartes pa&scaron;reizējais redzamais pārklājums (
+                        <b>Tāds pats </b>).
+                    </li>
+                    <li>Viens no jūsu satura tabulas slāņiem.
+                    </li>
+                    <li>Zīmē, lai definētu studiju laukumu.
+                    </li>
+                </ul>
+                 Pilnīgi visi elementi kartes pārklājumā tiks izvilkti.  Priek&scaron; elementiem, kas krusto vai &scaron;ķērso kartes pārklājuma robežas, bet nav pārklājumā pilnīgi, ir divas iespējas:
+                <ul>
+                    <li>
+                        <b>Izvēlēties elementus</b>&mdash;Visi elementi, kas krusto studiju laukuma robežas, tiks izvilkti.
+                    </li>
+                    <li>
+                        <b>Izgriezt elementus</b>&mdash;Tikai tie elementi, kas ir studiju laukuma iek&scaron;pusē, tiks izvilkti.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="OutputFormat">
+        <div><h2>Izvades datu tips</h2></div>
+        <hr/>
+        <div>
+            <p>Formatēt datus, kas tiks izvilkti un lejupielādēti. Slāņa pakotnes vienmēr iekļaus failu ģeodatubāzes.
+            </p>
+        </div>
+    </div>
+    <div id="OutputName">
+        <div><h2>Izvades faila nosaukums</h2></div>
+        <hr/>
+        <div>
+            <p>
+                &Scaron;is ir vienības nosaukums, kas tiks pievienots jūsu
+                <b>Mans Saturs</b>.  chosenVienības nosaukums ir balstīts uz izvēlētā
+                <b>Izvades datu formāta</b>.     Ja vienība jau pastāv, jums tiks lūgts apstiprināt, vai vēlaties to pārrakstīt.
+            </p>
+            <p>Lietojot 
+                <b>Saglabāt rezultātu</b> izvelkamajā lodziņā jūs varat norādīt nosaukumu mapē iek&scaron;
+                <b>Mans Saturs</b> kur rezultāts tiks saglabāts.
+            </p>
+            
+        </div>
+    </div>
+</div>
+</html>

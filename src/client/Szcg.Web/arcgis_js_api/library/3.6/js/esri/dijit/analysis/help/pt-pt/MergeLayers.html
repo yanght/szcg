@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription", class="largesize">
+        <h2>Juntar Camadas</h2><p/>
+        <h2></h2>
+        <hr/>
+    <p>Esta ferramenta copia elementos de duas camadas para uma nova camada.    As camadas a juntar devem conter os mesmos tipos de elementos (pontos, linhas ou &aacute;reas).  Pode controlar o m&eacute;todo de juntar e copiar os campos das camadas de entrada.  Por exemplo:
+        <ul>
+            <li>Tenho tr&ecirc;s camadas para Inglaterra, Pa&iacute;s de Gales e Esc&oacute;cia e quero obter uma s&oacute; camada de Gr&atilde;-Bretanha. 
+            </li>
+            <li>Tenho 12 camadas e cada uma cont&eacute;m informa&ccedil;&atilde;o relativa a parcelas de freguesias adjacentes.  Quero junt&aacute;-las numa s&oacute; camada, mantendo apenas os campos que t&ecirc;m o mesmo nome e o mesmo tipo nas 12 camadas de entrada.
+            </li>
+        </ul>
+        
+    </p>
+    <p>Se marcar a op&ccedil;&atilde;o 
+        <b>Utilizar a extens&atilde;o atual do mapa</b>, ser&atilde;o combinados apenas os elementos vis&iacute;veis na extens&atilde;o atual do mapa.  Se n&atilde;o marcar a op&ccedil;&atilde;o, ser&atilde;o combinados todos os elementos inclu&iacute;dos nas duas camadas, mesmo que estejam fora da extens&atilde;o atual do mapa.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="MergeLayer">
+        <div><h2>Choose Layer</h2></div>
+        <hr/>
+        <div>
+            <p>Selecione a camada que pretende juntar &agrave; camada de an&aacute;lise.
+            </p>
+        </div>
+    </div>
+    <div id="MergingAttributes">
+        <div><h2>Modify merging attributes</h2></div>
+        <hr/>
+        <div>
+            <p>Por predefini&ccedil;&atilde;o, todos os campos de ambas as camadas de entrada s&atilde;o transferidos para a camada de sa&iacute;da.  Pode alterar a forma de transferir os campos para a camada de sa&iacute;da da seguinte forma:
+                <ul>
+                    <li>
+                        <b>Renomear</b> &ndash; O nome do campo ser&aacute; mudado na camada de sa&iacute;da.
+                    </li>
+                    <li>
+                        <b>Remover</b> &ndash; O campo ser&aacute; removido da camada de sa&iacute;da.
+                    </li>
+                    <li>
+                        <b>Corresponder</b> &ndash; &Eacute; dada equival&ecirc;ncia aos nomes dos campos.  Os valores do campo da camada que pretende juntar ser&atilde;o copiados para o campo de sa&iacute;da correspondente.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="OutputName">
+        <div><h2>Result layer
+name</h2></div>
+        <hr/>
+        <div>
+            <p>Este &eacute; o nome da camada que ser&aacute; criada em 
+                <b>O Meu Conte&uacute;do</b> e adicionada ao mapa.  O nome padr&atilde;o &eacute; baseado no nome da camada de an&aacute;lise. Se a camada j&aacute; existir, ser-lhe-&aacute; pedido que confirme se pretende substituir a camada.
+            </p>
+            <p>Utilizando a caixa de lista pendente 
+                <b>Guardar resultado em</b>, pode definir o nome de uma pasta em
+                <b>O Meu Conte&uacute;do</b> para guardar o resultado.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

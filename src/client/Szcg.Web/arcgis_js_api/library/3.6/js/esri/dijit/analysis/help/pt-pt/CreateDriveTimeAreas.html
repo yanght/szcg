@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription", class="largesize">
+        <h2>Criar Áreas de Tempo de Condução</h2><p/>
+        <h2></h2>
+        <hr/>
+    <p>A ferramenta Criar &Aacute;reas de Tempo de Condu&ccedil;&atilde;o cria &aacute;reas que podem ser alcan&ccedil;adas num determinado per&iacute;odo de tempo de condu&ccedil;&atilde;o ou dentro de uma dist&acirc;ncia de condu&ccedil;&atilde;o definida. Faz uma medi&ccedil;&atilde;o a partir de um ou v&aacute;rios pontos (at&eacute; 1000) ao longo de estradas para criar uma camada que pode ajudar a responder a perguntas como:
+        <ul>
+            <li>Para onde posso ir a partir do ponto em que me encontro dentro de um tempo de condu&ccedil;&atilde;o de 30 minutos?
+            </li>
+            <li>Para onde posso ir a partir do ponto em que me encontro dentro de um tempo de condu&ccedil;&atilde;o de 30 minutos &agrave;s 17:30, durante a hora de ponta?
+            </li>
+            <li>A que &aacute;reas da cidade podem chegar os bombeiros num per&iacute;odo de cinco minutos? 
+            </li>
+            <li>De que forma seria melhorado o tempo de resposta a inc&ecirc;ndios se fosse constru&iacute;do um novo quartel neste local?
+            </li>
+            <li>Que &aacute;reas de mercado s&atilde;o abrangidas pelo meu neg&oacute;cio?
+            </li>
+        </ul>
+        
+    </p>
+    <p>Poder&aacute; conseguir responder &agrave;s suas perguntas unicamente atrav&eacute;s da visualiza&ccedil;&atilde;o das &aacute;reas de sa&iacute;da. Em alternativa, pode efetuar uma an&aacute;lise espacial adicional utilizando as &aacute;reas de sa&iacute;da. Por exemplo, a execu&ccedil;&atilde;o de Agregar Pontos utilizando &aacute;reas de tempo de condu&ccedil;&atilde;o com dados demogr&aacute;ficos pode ajudar a determinar que poss&iacute;vel local para uma loja tem maior probabilidade de oferecer a melhor base de clientes para o seu tipo de neg&oacute;cio. 
+    </p>
+    <p>
+        <table>
+        <tr><td colspan="3"><hr size="1" noshade="noshade"></td></tr>
+        <tr><td valign="baseline"><img src="../images/tip.png"></td><td valign="baseline"><h2>Tip:&ensp;</h2></td>
+        <td valign="baseline">
+            <p>Para criar &aacute;reas atrav&eacute;s de uma medi&ccedil;&atilde;o de dist&acirc;ncia em linha reta em vez de uma medi&ccedil;&atilde;o ao longo de estradas, utilize a ferramenta Criar Buffers em alternativa.
+            </p>
+        </td></tr>
+        <tr><td colspan="3"><hr size="1" noshade="noshade"></td></tr>
+        </table>
+    </p>
+    <p>Se marcar a op&ccedil;&atilde;o 
+        <b>Utilizar a extens&atilde;o atual do mapa</b>, ser&atilde;o utilizados apenas os elementos vis&iacute;veis na extens&atilde;o atual do mapa para criar &aacute;reas com base no tempo de condu&ccedil;&atilde;o ou na dist&acirc;ncia de condu&ccedil;&atilde;o. Se n&atilde;o marcar a op&ccedil;&atilde;o, ser&atilde;o utilizados todos os elementos na camada de entrada, mesmo que estejam fora da extens&atilde;o atual do mapa.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="MeasurementMethodTypicalTraffic">
+        <div><h2>Medir</h2></div>
+        <hr/>
+        <div>
+            <p>Selecione se pretende calcular &aacute;reas de tempo de condu&ccedil;&atilde;o ou dist&acirc;ncia de condu&ccedil;&atilde;o, e introduza uma dura&ccedil;&atilde;o ou uma dist&acirc;ncia de at&eacute; 300 minutos ou 300 milhas (482,8 quil&oacute;metros).  
+            </p>
+            <p>Quando seleciona 
+                <b>Tempo de condu&ccedil;&atilde;o</b>, disp&otilde;e das seguintes op&ccedil;&otilde;es:
+                <ul>
+                    <li>
+                        <p>Marque a op&ccedil;&atilde;o 
+                            <b>Utilizar condi&ccedil;&otilde;es de tr&acirc;nsito t&iacute;picas para</b> e defina um dia e uma hora para a ferramenta criar &aacute;reas de tempo de condu&ccedil;&atilde;o baseadas em condi&ccedil;&otilde;es de tr&acirc;nsito.  Para calcular o tempo de condu&ccedil;&atilde;o s&atilde;o utilizadas m&eacute;dias de velocidades hist&oacute;ricas para cada intervalo de cinco minutos ao longo de uma semana normal. O tamanho e a forma das &aacute;reas de tempo de condu&ccedil;&atilde;o variam consoante as flutua&ccedil;&otilde;es de tr&acirc;nsito e tempos de viagem ao longo da semana.
+                        </p>
+                        <p>
+                            Pode utilizar estas defini&ccedil;&otilde;es de tr&acirc;nsito para perguntar, por exemplo: &quot;De um modo geral, que &aacute;reas posso alcan&ccedil;ar se partir &agrave;s 11:30 numa quarta-feira?&quot;
+                        </p>
+                        <p>A hora definida refere-se ao fuso hor&aacute;rio no qual est&atilde;o localizados os pontos de entrada. Assim, se definir a hora para 8:00 e tiver dois pontos, um na cidade de Nova Iorque e outro em Los Angeles, as &aacute;reas de tempo de condu&ccedil;&atilde;o ser&atilde;o geradas para 8:00 (Hora da Costa Leste) e 8:00 (Hora do Pac&iacute;fico), respetivamente.
+                        </p>
+                        <p>
+                            
+                            Tenha em aten&ccedil;&atilde;o que, &agrave; medida que um ve&iacute;culo se desloca para fora a partir de um ponto, o tempo passa e as condi&ccedil;&otilde;es de tr&acirc;nsito mudam. A ferramenta Criar &Aacute;reas de Tempo de Condu&ccedil;&atilde;o tem em conta essas varia&ccedil;&otilde;es quando &eacute; marcada a op&ccedil;&atilde;o
+                            <b>Utilizar condi&ccedil;&otilde;es de tr&acirc;nsito t&iacute;picas para</b>; no entanto, nem todas as regi&otilde;es suportam tr&acirc;nsito. Clique na liga&ccedil;&atilde;o
+                            <b>Ver disponibilidade</b> na ferramenta para verificar se &eacute; disponibilizada na sua &aacute;rea de estudo.
+                        </p>
+                    </li>
+                    <li>
+                        <p>Se desmarcar esta op&ccedil;&atilde;o, a ferramenta cria &aacute;reas de tempo de condu&ccedil;&atilde;o baseadas em velocidades fixas, como limites de velocidade. Esta &eacute; a op&ccedil;&atilde;o que deve selecionar se quiser uma &aacute;rea de tempo de condu&ccedil;&atilde;o geral e n&atilde;o uma &aacute;rea calculada utilizando condi&ccedil;&otilde;es de tr&acirc;nsito em mudan&ccedil;a para uma hora de partida espec&iacute;fica.
+                        </p>
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="MeasurementMethod">
+        <div><h2>Medir</h2></div>
+        <hr/>
+        <div>
+            <p>Selecione se pretende calcular &aacute;reas de tempo de condu&ccedil;&atilde;o ou dist&acirc;ncia de condu&ccedil;&atilde;o, e introduza uma dura&ccedil;&atilde;o ou uma dist&acirc;ncia de at&eacute; 300 minutos ou 300 milhas (482,8 quil&oacute;metros).  
+            </p>
+            <p>Quando seleciona 
+                <b>Tempo de condu&ccedil;&atilde;o</b>, disp&otilde;e de op&ccedil;&otilde;es relativas ao modo de medir o tempo de condu&ccedil;&atilde;o.
+                <ul>
+                    <li>
+                        <p>Desmarque a op&ccedil;&atilde;o 
+                            <b>Utilizar Tr&acirc;nsito</b> para criar &aacute;reas de tempo de condu&ccedil;&atilde;o baseadas em velocidades fixas. Esta &eacute; a op&ccedil;&atilde;o que deve selecionar se quiser uma &aacute;rea de tempo de condu&ccedil;&atilde;o geral e n&atilde;o uma &aacute;rea calculada utilizando condi&ccedil;&otilde;es de tr&acirc;nsito em mudan&ccedil;a para uma hora de partida espec&iacute;fica.
+                        </p>
+                    </li>
+                    <li>
+                        <p>Marque a op&ccedil;&atilde;o 
+                            <b>Utilizar Tr&acirc;nsito</b> para criar &aacute;reas de tempo de condu&ccedil;&atilde;o baseadas numa hora de partida espec&iacute;fica e em condi&ccedil;&otilde;es de tr&acirc;nsito em mudan&ccedil;a. Se selecionar tamb&eacute;m a op&ccedil;&atilde;o
+                            <b>Tr&acirc;nsito real</b>, a hora de partida dos pontos de entrada &eacute; definida para a hora atual e as velocidades de tr&acirc;nsito atuais e previstas s&atilde;o referenciadas a partir de sensores e feeds para criar &aacute;reas de tempo de condu&ccedil;&atilde;o. As velocidades de tr&acirc;nsito previstas s&atilde;o calculadas referenciando velocidades de tr&acirc;nsito real, velocidades hist&oacute;ricas e eventos atuais, como a meteorologia. As velocidades de tr&acirc;nsito s&atilde;o previstas para um per&iacute;odo de 12 horas no futuro, por isso pode mover o cursor deslizante para definir a hora de partida com anteced&ecirc;ncia de at&eacute; 12 horas.
+                        </p>
+                        <p>Utilize estas defini&ccedil;&otilde;es de tr&acirc;nsito real para descobrir que &aacute;reas podem ser alcan&ccedil;adas partindo no momento, partindo ap&oacute;s uma hora, etc.
+                        </p>
+                    </li>
+                    <li>
+                        <p>Se marcar 
+                            <b>Utilizar Tr&acirc;nsito</b> e selecionar
+                            <b>Tr&acirc;nsito baseado em condi&ccedil;&otilde;es t&iacute;picas para</b> um dia e uma hora, a ferramenta cria &aacute;reas de tempo de condu&ccedil;&atilde;o baseadas em m&eacute;dias de velocidades hist&oacute;ricas para cada intervalo de cinco minutos ao longo de uma semana normal. Os resultados incluem tr&acirc;nsito, mas removem a influ&ecirc;ncia de condi&ccedil;&otilde;es de tr&acirc;nsito e eventos atuais, que podem variar significativamente em rela&ccedil;&atilde;o ao normal.
+                        </p>
+                        <p>
+                            Pode utilizar as defini&ccedil;&otilde;es de tr&acirc;nsito hist&oacute;rico para perguntar, por exemplo: &quot;De um modo geral, que &aacute;reas posso alcan&ccedil;ar se partir &agrave;s 11:30 numa quarta-feira?&quot;
+                        </p>
+                        <p>A hora definida refere-se ao fuso hor&aacute;rio no qual est&atilde;o localizados os pontos de entrada. Assim, se definir a hora para 8:00 e tiver dois pontos, um na cidade de Nova Iorque e outro em Los Angeles, as &aacute;reas de tempo de condu&ccedil;&atilde;o ser&atilde;o geradas para 8:00 (Hora da Costa Leste) e 8:00 (Hora do Pac&iacute;fico), respetivamente.
+                        </p>
+                    </li>
+                </ul>
+                
+            </p>
+            <p>
+                Tenha em aten&ccedil;&atilde;o que, &agrave; medida que um ve&iacute;culo se desloca para fora a partir de um ponto, o tempo passa e as condi&ccedil;&otilde;es de tr&acirc;nsito mudam. A ferramenta Criar &Aacute;reas de Tempo de Condu&ccedil;&atilde;o tem em conta essas varia&ccedil;&otilde;es quando &eacute; marcada a op&ccedil;&atilde;o
+                <b>Utilizar tr&acirc;nsito</b>; no entanto, nem todas as regi&otilde;es suportam tr&acirc;nsito. Clique na liga&ccedil;&atilde;o
+                <b>Ver disponibilidade</b> na ferramenta para verificar se &eacute; disponibilizada na sua &aacute;rea de estudo.
+            </p>
+            
+            
+        </div>
+    </div>
+    <div id="DissolveType">
+        <div><h2>Áreas de pontos de entrada diferentes</h2></div>
+        <hr/>
+        <div>
+            <p>Selecione de que forma pretende lidar com &aacute;reas sombreadas de pontos de entrada diferentes quando uma &aacute;rea alcan&ccedil;a outra. &Eacute; poss&iacute;vel:
+                <ul>
+                    <li>
+                        <b>Sobrepor</b> &ndash; &Aacute;reas de pontos de entrada diferentes podem cobrir a mesma estrada. Esta op&ccedil;&atilde;o &eacute; &uacute;til quando &eacute; necess&aacute;rio conhecer todos os pontos de entrada que podem alcan&ccedil;ar uma localiza&ccedil;&atilde;o espec&iacute;fica dentro de um determinado tempo ou uma determinada dist&acirc;ncia de condu&ccedil;&atilde;o.
+                    </li>
+                    <li>
+                        <b>Dissolver</b> &ndash; Todas as &aacute;reas s&atilde;o combinadas numa s&oacute; e uma localiza&ccedil;&atilde;o espec&iacute;fica n&atilde;o pode ser coberta por mais de uma &aacute;rea. Esta op&ccedil;&atilde;o &eacute; &uacute;til quando s&oacute; &eacute; necess&aacute;rio saber que &eacute; poss&iacute;vel alcan&ccedil;ar uma &aacute;rea dentro de um determinado tempo ou uma determinada dist&acirc;ncia, mas n&atilde;o &eacute; necess&aacute;rio saber que pontos espec&iacute;ficos podem alcan&ccedil;ar a localiza&ccedil;&atilde;o.
+                    </li>
+                    <li>
+                        <b>Dividir</b> &ndash; As &aacute;reas de diferentes localiza&ccedil;&otilde;es de entrada que se sobreporiam s&atilde;o divididas ao meio, ficando adjacentes. Esta op&ccedil;&atilde;o &eacute; &uacute;til quando pretende ver que &aacute;reas se encontram a um determinado tempo ou uma determinada dist&acirc;ncia dos pontos de entrada e, simultaneamente, determinar que ponto de entrada est&aacute; mais pr&oacute;ximo dessa &aacute;rea.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="OutputLayer">
+        <div><h2>Nome da Camada de Resultado</h2></div>
+        <hr/>
+        <div>
+            <p>
+                Este &eacute; o nome da camada que ser&aacute; criada em
+                <b>O Meu Conte&uacute;do</b> e adicionada ao mapa.  O nome padr&atilde;o &eacute; baseado no nome da camada de an&aacute;lise. Se a camada j&aacute; existir, ser-lhe-&aacute; pedido que confirme se pretende substituir a camada.
+            </p>
+            <p>Utilizando a caixa de lista pendente 
+                <b>Guardar resultado em</b>, pode definir o nome de uma pasta em
+                <b>O Meu Conte&uacute;do</b> para guardar o resultado.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

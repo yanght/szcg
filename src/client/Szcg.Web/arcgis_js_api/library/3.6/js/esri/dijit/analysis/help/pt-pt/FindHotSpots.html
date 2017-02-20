@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription", class="largesize">
+        <h2>Localizar Hot Spots</h2><p/>
+        <h2></h2>
+        <hr/>
+    <p>
+        A ferramenta Localizar Hot Spots permite determinar se existe algum tipo de clustering com relev&acirc;ncia estat&iacute;stica no padr&atilde;o espacial dos seus dados.
+        <ul>
+            <li>Os seus pontos (ocorr&ecirc;ncias de crime, &aacute;rvores, acidentes de via&ccedil;&atilde;o) est&atilde;o efetivamente agrupados num cluster?  Como pode saber ao certo?
+            </li>
+            <li>Descobriu efetivamente um hot spot com relev&acirc;ncia estat&iacute;stica (para despesas, mortalidade infantil, resultados de testes consistentemente elevados) ou ser&aacute; que o mapa contaria uma hist&oacute;ria diferente se alterasse a forma como est&aacute; simbolizado?
+            </li>
+        </ul>
+        A ferramenta Localizar Hot Spots ajuda-o a responder a essas perguntas com confian&ccedil;a.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="AnalysisFieldPoly">
+        <div><h2>Select an analysis field</h2></div>
+        <hr/>
+        <div>
+            <p>Esta an&aacute;lise responde &agrave; seguinte pergunta: Onde se agrupam espacialmente os valores altos e baixos (de um campo de an&aacute;lise definido por si)?  
+            </p>
+            <p>A camada de resultado ser&aacute; uma c&oacute;pia da camada de an&aacute;lise.  A tabela ir&aacute; incluir o campo de an&aacute;lise selecionado e tamb&eacute;m campos adicionais que refletem a for&ccedil;a do clustering, a relev&acirc;ncia estat&iacute;stica e o n&iacute;vel de confian&ccedil;a.
+            </p>
+            
+        </div>
+    </div>
+    <div id="AnalysisFieldPoint">
+        <div><h2>Select an analysis field</h2></div>
+        <hr/>
+        <div>
+            <p>Se disponibilizar um campo de an&aacute;lise, esta ferramenta responder&aacute; &agrave; seguinte pergunta: Onde se agrupam os valores altos e baixos entre os pontos? 
+            </p>
+            <p>A camada de resultado ser&aacute; uma c&oacute;pia da camada de an&aacute;lise de pontos.  A tabela ir&aacute; incluir o campo de an&aacute;lise selecionado e tamb&eacute;m campos adicionais que refletem a for&ccedil;a do clustering, a relev&acirc;ncia estat&iacute;stica e o n&iacute;vel de confian&ccedil;a.
+            </p>
+            <p>Se n&atilde;o disponibilizar um campo de an&aacute;lise, esta ferramenta ir&aacute; avaliar a disposi&ccedil;&atilde;o espacial dos elementos de pontos para responder &agrave; seguinte pergunta: Onde &eacute; que existe uma dispers&atilde;o imprevista ou um agrupamento imprevisto de pontos?  
+            </p>
+            <p>Se n&atilde;o for disponibilizado um campo de an&aacute;lise, a camada de resultado ser&aacute; constitu&iacute;da pelos quadrados da rede.  S&atilde;o inclu&iacute;dos apenas quadrados com contagens de pontos superiores a zero.  A tabela da camada de resultado ir&aacute; incluir os valores de contagem e tamb&eacute;m campos adicionais que refletem a for&ccedil;a do clustering, a relev&acirc;ncia estat&iacute;stica e o n&iacute;vel de confian&ccedil;a.
+            </p>
+            
+        </div>
+    </div>
+    <div id="BoundingPolygonLayer">
+        <div><h2>Define bounding areas</h2></div>
+        <hr/>
+        <div>
+            <p>Pode desenhar ou disponibilizar uma camada de &aacute;reas delimitadoras para responder &agrave; seguinte pergunta: Dentro das &aacute;reas delimitadoras, existem locais com concentra&ccedil;&otilde;es de pontos inesperadamente altas ou baixas?   
+            </p>
+            <p>Os elementos de &aacute;rea que desenhar ou os elementos na camada de &aacute;rea indicada devem definir os locais onde existe a possibilidade de ocorr&ecirc;ncia de pontos.  Para desenhar essas &aacute;reas, clique no bot&atilde;o Desenhar e, em seguida, clique no mapa para criar uma forma de &aacute;rea.  Para desenhar &aacute;reas adicionais, clique novamente no bot&atilde;o Desenhar e, em seguida, clique no mapa para continuar.
+            </p>
+            <p>Nota: Para sobrepor os pontos com &aacute;reas sem utilizar uma rede, selecione 
+                <b>Fornecer &aacute;reas de agrega&ccedil;&atilde;o para resumo de incidentes</b>.
+            </p>
+            <p>A camada de resultado desta an&aacute;lise ser&aacute; uma rede que abrange as &aacute;reas delimitadoras disponibilizadas.  A tabela ir&aacute; incluir as contagens de pontos dos quadrados da rede e tamb&eacute;m campos adicionais que refletem a for&ccedil;a do clustering, a relev&acirc;ncia estat&iacute;stica e o n&iacute;vel de confian&ccedil;a.  
+            </p>
+            
+        </div>
+    </div>
+    <div id="AggregationPolygonLayer">
+        <div><h2>Select aggregation areas</h2></div>
+        <hr/>
+        <div>
+            <p>Disponibilize uma camada de &aacute;rea (normalmente s&atilde;o utilizadas divis&otilde;es administrativas como &aacute;reas de recenseamento, fronteiras municipais ou concelhos) para responder &agrave; seguinte pergunta: Tendo em conta o n&uacute;mero de pontos dentro de cada elemento de &aacute;rea, existem locais com clustering espacial de contagens de pontos altas ou baixas com relev&acirc;ncia estat&iacute;stica?   
+            </p>
+            <p>A camada de resultado desta an&aacute;lise ser&aacute; uma c&oacute;pia das &aacute;reas de agrega&ccedil;&atilde;o.  A tabela ir&aacute; incluir as contagens de pontos de cada &aacute;rea e tamb&eacute;m campos adicionais que refletem a for&ccedil;a do clustering, a relev&acirc;ncia estat&iacute;stica e o n&iacute;vel de confian&ccedil;a. 
+            </p>
+            
+        </div>
+    </div>
+    <div id="OutputLayerName">
+        <div><h2>Result layer name</h2></div>
+        <hr/>
+        <div>
+            <p>D&ecirc; um nome &agrave; camada que ser&aacute; criada em 
+                <b>O Meu Conte&uacute;do</b> e adicionada ao mapa. Esta camada de resultado ir&aacute; mostrar clusters de valores ou contagens de pontos altos ou baixos com relev&acirc;ncia estat&iacute;stica. Se o nome da camada de resultado j&aacute; existir, ser-lhe-&aacute; pedido que mude o nome da camada.
+            </p>
+            <p>Utilizando a caixa de lista pendente 
+                <b>Guardar resultado em</b>, pode definir o nome de uma pasta em
+                <b>O Meu Conte&uacute;do</b> para guardar o resultado.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

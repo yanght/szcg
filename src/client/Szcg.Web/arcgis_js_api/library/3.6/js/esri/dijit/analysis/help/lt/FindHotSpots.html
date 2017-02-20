@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription", class="largesize">
+        <h2>Rasti aktyvius židinius</h2><p/>
+        <h2></h2>
+        <hr/>
+    <p>
+        Rasti aktyvius židinius įrankis aptiks statisti&scaron;kai reik&scaron;mingas elementų sankaupas duomenyse.
+        <ul>
+            <li>Ar jūsų ta&scaron;kai (nusikaltimai, medžiai, avarijos) yra pasiskirstę sankaupomis?  Kaip galite įsitikinti?
+            </li>
+            <li>Ar i&scaron; tikrųjų aptikote statisti&scaron;kai reik&scaron;mingą elementų sankaupą (i&scaron;laidų, kūdikių mir&scaron;tamumo, dėsningai auk&scaron;tesnių egzaminių rezultatų), ar pakeistas žemėlapio atvaizdavimas suteiktų papildomos informacijos?
+            </li>
+        </ul>
+        Rasti aktyvius židinius patikimai atsako į &scaron;iuos klausimus.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="AnalysisFieldPoly">
+        <div><h2>Nurodykite analizės lauką</h2></div>
+        <hr/>
+        <div>
+            <p>&Scaron;i analizė atsako į klausimą: Kur yra nurodyto lauko auk&scaron;tų ir žemų reik&scaron;mių erdviniai židiniai?  
+            </p>
+            <p>I&scaron;vesties sluoksnis bus analizės sluoksnio kopija.  Lentelėje bus analizės laukas ir papildomi laukai, rodantys židinio sankaupos stiprumo, statistinio reik&scaron;mingumo ir patikikimumo įverčius.
+            </p>
+            
+        </div>
+    </div>
+    <div id="AnalysisFieldPoint">
+        <div><h2>Nurodykite analizės lauką</h2></div>
+        <hr/>
+        <div>
+            <p>Jei nurodysite analizės lauką, &scaron;is įrankis padės atsakyti į klausimus: Kuriose vietose yra auk&scaron;tų ir žemų reik&scaron;mių ta&scaron;kuose sankaupos? 
+            </p>
+            <p>I&scaron;vesties sluoksnis bus analizės sluoksnio kopija.  Lentelėje bus analizės laukas ir papildomi laukai, rodantys židinio sankaupos stiprumo, statistinio reik&scaron;mingumo ir patikikimumo įverčius.
+            </p>
+            <p>Jei nenurodysite analizės lauko, įvertins erdvinį ta&scaron;kų i&scaron;sidėstymą tam, kad atsakytų į klausimą: Kur ta&scaron;kai neprognozuotai susitelkę ar i&scaron;siskirstę?  
+            </p>
+            <p>Kai analizės laukas nepateikiamas, i&scaron;vesties sluoksnis bus sudarytas i&scaron; plotų tinklelio kvadratų.  Jame bus tik kvadratai su ta&scaron;kų skaičiumi daugiau negu nulis.  I&scaron;vesties sluoksnyje bus suminis laukas ir papildomi laukai, rodantys židinio sankaupos stiprumo,statistinio reik&scaron;mingumo ir patikikimumo įverčius.
+            </p>
+            
+        </div>
+    </div>
+    <div id="BoundingPolygonLayer">
+        <div><h2>Nurodykite ribojančius plotus</h2></div>
+        <hr/>
+        <div>
+            <p>Įbrėžkite arba nurodykite aprėpties sluoksnį, jei norite atsakyti į klausimą: Ar &scaron;ioje teritorijoje esama neįprastai auk&scaron;tos ar žemos ta&scaron;kų koncentracijos?   
+            </p>
+            <p>Plotiniai elementai, kuriuos įbrė&scaron;ite nurodytame ploto sluoksnyje turėtų nusakyti kur yra galimos ta&scaron;kų vietos.  Norėdami įbrėžti plotus, paspauskite pie&scaron;imo mygtuką ir brėžkite žemėlapyje.  Norėdami įbrėžti papildomus plotus, paspauskite pie&scaron;imo mygtuką dar kartą ir brėžkite žemėlapyje.
+            </p>
+            <p>Pastaba: Norėdami sukirsti ta&scaron;kus su ne tinklelio plotais, 
+                <b>pateikite agregavimo plotus įvykių sumavimui</b>.
+            </p>
+            <p>I&scaron;vesties sluoksnis &scaron;ioje analizėje bus tinklelis, dengiantis jūsų pateiktus ribojančius plotus.  Lentelėje bus analizės laukas ir papildomi laukai, rodantys židinio sankaupos stiprumo, statistinio reik&scaron;mingumo ir patikikimumo įverčius.  
+            </p>
+            
+        </div>
+    </div>
+    <div id="AggregationPolygonLayer">
+        <div><h2>Nurodykite sumavimo plotus</h2></div>
+        <hr/>
+        <div>
+            <p>Nurodykite plotinių elementų sluoksnį (pavyzdžiui, administracinio suskirstymo ribų, savivaldybių, seniūnijų, gyvenviečių), jei norite atsakyti į klausimą: Pagal duotą ta&scaron;kų, patenkančių į kiekvieną i&scaron; teritorijų, skaičių, ar yra vietų, kurioms būdingos statisti&scaron;kai reik&scaron;mingos didelių ar mažų ta&scaron;kų skaičių sankaupos?   
+            </p>
+            <p>Analizės i&scaron;vesties sluoksnis bus agregavimo plotų kopija.  Lentelėje bus ta&scaron;kų kiekvienoje teritorijoje skaičius ir papildomi laukai, rodantys židinio sankaupos stiprumo, statistinio reik&scaron;mingumo ir patikikimumo įverčius. 
+            </p>
+            
+        </div>
+    </div>
+    <div id="OutputLayerName">
+        <div><h2>Rezultatų sluoksnio vardas</h2></div>
+        <hr/>
+        <div>
+            <p>Pateikite pavadinimą sluoksnio, kuris bus sukurtas ir patalpintas 
+                <b>Mano Turinyje</b> bei pridėtas į žemėlapį. &Scaron;is i&scaron;vesties sluoksnis parodys statisti&scaron;kai reik&scaron;mingas mažų ar didelių ta&scaron;kų skaičių sankaupas. Jei toks sluoksnis jau egzistuoja, galėsite pasirinkti jį pervadinti.
+            </p>
+            <p>Naudodami 
+                <b>Rezultatą įra&scaron;yti į</b> sąra&scaron;ą, galite nurodyti
+                <b>Mano Turinyje</b> esančio aplanko pavadinimą.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

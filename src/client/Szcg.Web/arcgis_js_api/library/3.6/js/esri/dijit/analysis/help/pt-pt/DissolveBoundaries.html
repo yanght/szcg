@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription", class="largesize">
+        <h2>Dissolver Limites</h2><p/>
+        <h2></h2>
+        <hr/>
+    <p>As &aacute;reas que ficam sobrepostas ou que partilham um limite comum s&atilde;o combinadas para formar uma &uacute;nica &aacute;rea.    
+    </p>
+    <p>Pode controlar que limites s&atilde;o combinados definindo um campo. Por exemplo, se tiver uma camada de concelhos e cada concelho tiver um atributo 
+        <i>State_Name</i>, pode dissolver limites utilizando o atributo
+        <i>State_Name</i>.  Concelhos adjacentes ser&atilde;o combinados se tiverem o mesmo valor de
+        <i>State_Name</i>.  O resultado final &eacute; uma camada de limites de concelhos.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="DissolveFields">
+        <div><h2>Choose dissolve method</h2></div>
+        <hr/>
+        <div>
+            <p>Pode selecionar um de dois m&eacute;todos para juntar elementos de &aacute;reas:
+                <ul>
+                    <li>
+                        <b>&Aacute;reas sobrepostas ou adjacentes</b> &ndash; Duas ou mais &aacute;reas com limites sobrepostos ser&atilde;o combinadas numa &uacute;nica &aacute;rea.  Adicionalmente, &aacute;reas que forem adjacentes (ou seja, que partilhem um limite comum) ser&atilde;o combinadas numa &uacute;nica &aacute;rea.
+                    </li>
+                    <li>
+                        <b>&Aacute;reas com o mesmo valor de atributo</b> &ndash; &Aacute;reas sobrepostas ou que partilhem um limite comum ser&atilde;o combinadas numa &uacute;nica &aacute;rea se tiverem o mesmo valor de atributo.
+                        <p>Por exemplo, se tiver uma camada de concelhos e cada concelho tiver um atributo 
+                            <i>State_Name</i>, pode dissolver limites utilizando o atributo
+                            <i>State_Name</i>.  Concelhos adjacentes ser&atilde;o combinados se tiverem o mesmo valor de
+                            <i>State_Name</i>.  O resultado final &eacute; uma camada de limites de concelhos.
+                        </p>
+                    </li>
+                </ul>
+                
+            </p>
+            <p>Se marcar a op&ccedil;&atilde;o 
+                <b>Utilizar a extens&atilde;o atual do mapa</b>, ser&atilde;o dissolvidos apenas os elementos vis&iacute;veis na extens&atilde;o atual do mapa.  Se n&atilde;o marcar a op&ccedil;&atilde;o, ser&atilde;o dissolvidos todos os elementos na camada de an&aacute;lise, mesmo que estejam fora da extens&atilde;o atual do mapa.
+            </p>
+        </div>
+    </div>
+    <div id="SummaryFields">
+        <div><h2>Summarize area attributes</h2></div>
+        <hr/>
+        <div>
+            <p>Quando se juntam &aacute;reas, &eacute; poss&iacute;vel resumir os respetivos atributos.  Por exemplo, se pretender dissolver o limite entre concelhos com base em 
+                <i>State_Name</i> e cada concelho tiver um atributo
+                <i>Population</i>, pode calcular a soma de
+                <i>Population</i> do estado.
+            </p>
+            <p>Os tipos de estat&iacute;stica dispon&iacute;veis s&atilde;o os seguintes:
+            </p>
+            <ul>
+                <li>
+                    <b>Soma</b> &ndash; Adiciona o valor total do atributo definido.
+                     
+                </li>
+                <li>
+                    <b>M&eacute;dia</b> &ndash; Calcula a m&eacute;dia do atributo definido.
+                     
+                </li>
+                <li>
+                    <b>M&iacute;nimo</b> &ndash; Encontra o valor mais pequeno de todos os registos do atributo definido.
+                     
+                </li>
+                <li>
+                    <b>M&aacute;ximo</b> &ndash; Encontra o valor maior de todos os registos do atributo definido.
+                     
+                </li>
+                <li>
+                    <b>Desvio Padr&atilde;o</b> &ndash; Encontra o desvio padr&atilde;o de valores no atributo definido.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="OutputName">
+        <div><h2>Result layer
+name</h2></div>
+        <hr/>
+        <div>
+            <p>Este &eacute; o nome da camada que ser&aacute; criada em 
+                <b>O Meu Conte&uacute;do</b> e adicionada ao mapa.  O nome padr&atilde;o &eacute; baseado no nome da camada de an&aacute;lise. Se a camada j&aacute; existir, ser-lhe-&aacute; pedido que confirme se pretende substituir a camada.
+            </p>
+            <p>Utilizando a caixa de lista pendente 
+                <b>Guardar resultado em</b>, pode definir o nome de uma pasta em
+                <b>O Meu Conte&uacute;do</b> para guardar o resultado.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

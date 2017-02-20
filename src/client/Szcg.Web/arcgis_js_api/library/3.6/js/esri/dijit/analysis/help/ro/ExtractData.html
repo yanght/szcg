@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription", class="largesize">
+        <h2>Extragere date</h2><p/>
+        <h2></h2>
+        <hr/>
+    <p>Cu acest instrument puteţi selecta şi descărca date pentru o anumită suprafaţă de interes. Straturile tematice pe care le selectaţi vor fi adăugate &icirc;ntr-un fişier zip sau pachet de straturi tematice.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="InputLayers">
+        <div><h2>Straturi tematice de extras</h2></div>
+        <hr/>
+        <div>
+            <p>Straturile tematice din tabelul dvs. de resurse din care puteţi extrage obiecte spaţiale.  Straturile tematice bifate sunt extrase şi incluse &icirc;ntr-un fişier zip sau pachet de straturi tematice rezultat.
+            </p>
+            
+        </div>
+    </div>
+    <div id="AreaOfInterest">
+        <div><h2>Zonă studiată</h2></div>
+        <hr/>
+        <div>
+            <p>Suprafaţa care defineşte ce straturi tematice vor fi incluse &icirc;n fişierul zip sau pachetul de straturi tematice rezultat. Puteţi alege din următoarele:
+                <ul>
+                    <li>Extinderea vizibilă curentă a hărţii (
+                        <b>Identică cu ceea ce este afişat</b>).
+                    </li>
+                    <li>Unul din straturile tematice din tabelul de resurse.
+                    </li>
+                    <li>Trasaţi o suprafaţă pentru a defini suprafaţa de studiu.
+                    </li>
+                </ul>
+                 Vor fi extrase toate obiectele spaţiale care sunt cuprinse complet &icirc;n extinderea hărţii.  Pentru obiectele spaţiale care traversează sau intersectează graniţa extinderii hărţii &icirc;nsă care nu sunt cuprinse complet &icirc;n extindere, aveţi două opţiuni:
+                <ul>
+                    <li>
+                        <b>Selectare obiecte spaţiale</b>&mdash;Obiectele spaţiale &icirc;n &icirc;ntregime, care traversează graniţa suprafeţei de studiu vor fi extrase.
+                    </li>
+                    <li>
+                        <b>Decupare obiecte spaţiale</b>&mdash;Numai porţiunile din obiecte spaţiale care sunt cuprinse &icirc;n suprafaţa de studiu vor fi extrase.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="OutputFormat">
+        <div><h2>Tip date de ieșire</h2></div>
+        <hr/>
+        <div>
+            <p>Formatul datelor care vor fi extrase şi descărcate.  Pachetele de straturi tematice vor include &icirc;ntotdeauna fişiere bază de date geografice.
+            </p>
+        </div>
+    </div>
+    <div id="OutputName">
+        <div><h2>Nume fişier de ieşire</h2></div>
+        <hr/>
+        <div>
+            <p>
+                Acesta este numele elementului care va fi adăugat &icirc;n
+                <b>Resursele mele</b>.  Numele elementului se bazează pe
+                <b>Formatul datelor de ieşire</b> ales.     Dacă elementul există deja, vi se va solicita să configuraţi dacă doriţi să &icirc;l suprascrieţi.
+            </p>
+            <p>Utiliz&acirc;nd caseta derulantă 
+                <b>Salvare rezultat &icirc;n</b>, puteţi specifica numele directorului din
+                <b>Resursele mele</b> &icirc;n care va fi salvat.
+            </p>
+            
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription", class="largesize">
+        <h2>Wydziel dane</h2><p/>
+        <h2></h2>
+        <hr/>
+    <p>Wydziel dane umożliwiaselekcję i pobranie danych dla określonego obszaru zainteresowania. Wybrane warstwy zostaną dodane do pliku zip lub pakietu warstwy.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="InputLayers">
+        <div><h2>Warstwy do wydzielenia</h2></div>
+        <hr/>
+        <div>
+            <p>Warstwy w tabeli zawartości , z kt&oacute;rych można wydzielać obiekty.  Zaznaczone warstwy zostają wydzielone i uwzględnione w wynikowym pliku zip lub pakiecie warstwy.
+            </p>
+            
+        </div>
+    </div>
+    <div id="AreaOfInterest">
+        <div><h2>Analizowany obszar</h2></div>
+        <hr/>
+        <div>
+            <p>Obszar definiujący, kt&oacute;re obiekty zostaną uwzględnione w wynikowym pliku zip lub pakiecie warstwy. Do wyboru są z następujące opcje:
+                <ul>
+                    <li>Bieżący widoczny zasięg mapy (
+                        <b>Tak jak w widoku</b>).
+                    </li>
+                    <li>Jedna z warstw w tabeli zawartości.
+                    </li>
+                    <li>Narysuj obszar, aby zdefiniować badany obszar.
+                    </li>
+                </ul>
+                 Wydzielone zostaną wszystkie obiekty, kt&oacute;re w pełni znajdują się w  zasięgu mapy.  W przypadku obiekt&oacute;w, kt&oacute;re znajdują sią na granicy zasięgu mapy, ale nie są całkowicie w jej zasięgu, istnieją dwie opcje do wyboru:
+                <ul>
+                    <li>
+                        <b>Wybierz obiekty</b> &ndash; wydzielone zostaną wszystkie obiekty, kt&oacute;re znajdują się na granicy badanego obszaru.
+                    </li>
+                    <li>
+                        <b>Wytnij obiekty</b> &ndash; wydzielone zostaną tylko te części obiekt&oacute;w, kt&oacute;re znajdują się w granicach badanego obszaru.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="OutputFormat">
+        <div><h2>Typ danych wynikowych</h2></div>
+        <hr/>
+        <div>
+            <p>Zostanie wydzielony i pobrany format danych.  Pakiety warstw zawsze zawierają geobazy plikowe.
+            </p>
+        </div>
+    </div>
+    <div id="OutputName">
+        <div><h2>Nazwa pliku wynikowego</h2></div>
+        <hr/>
+        <div>
+            <p>
+                Jest to nazwa elementu, kt&oacute;ry zostanie dodany do zakładki
+                <b>Moje zasoby</b>.  Nazwa elementu oparta jest na wybranym
+                <b>Formacie danych wynikowych</b>.     Jeśli dany element już istnieje, wyświetlony zostanie komunikat z pytaniem, czy ma zostać nadpisany.
+            </p>
+            <p>Korzystając z menu rozwijanego 
+                <b>Zapisz wynik w</b>, można wskazać nazwę folderu w zakładce
+                <b>Moje zasoby</b>, gdzie zostanie zapisany wynik.
+            </p>
+            
+        </div>
+    </div>
+</div>
+</html>

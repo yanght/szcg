@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription", class="largesize">
+        <h2>Wzbogać atrybuty danych</h2><p/>
+        <h2></h2>
+        <hr/>
+    <p>Narzędzie służy do wzbogacania danych punktowych i poligonowych poprzez pozyskanie informacji konsumenckich, dotyczących ludności, miejsc i działalności gospodarczej dla lokalizacji danych.  
+        <b>Narzędzie </b>Wzbogać atrybuty danych umożliwia udzielenie odpowiedzi na nowe pytania dotyczące lokalizacji, na kt&oacute;re nie można odpowiedzieć, korzystając z samych map. Na przykład: Jakiego rodzaju ludność mieszka w tym miejscu? Co ludzie na danym obszarze lubią robić? Jakie są ich nawyki i styl życia? Jakiego rodzaju działalność jest prowadzona na tym obszarze?
+    </p>
+    <p>Wynik będzie stanowić nową warstwę zawierającą wszystkie informacje demograficzne i geograficzne dla danego zbioru danych.  Tego typu nowe informacje są dodawane jako pola w tabeli.
+    </p>
+    <p>Jeśli zaznaczona jest opcja 
+        <b>Użyj bieżącego zasięgu mapy</b>, analizowane będą jedynie obiekty w warstwie analizy i obszaru widoczne na bieżącym zasięgu mapy.  Jeśli powyższa opcja nie jest zaznaczona, analizowane będą wszystkie obiekty w warstwie analizy i obszaru, nawet jeśli będą znajdować się poza bieżącym zasięgiem mapy.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="DataCollection">
+        <div><h2>Wybierz zbiór danych</h2></div>
+        <hr/>
+        <div>
+            <p>Wybierz region i pobierz listę dostępnych zbior&oacute;w danych, kt&oacute;re chcesz użyć do wzbogacenia o dodatkowe informacje.     W przypadku USA, Kanady i innych kraj&oacute;w na świecie, istnieje możliwość wzbogacania danych poprzez dodawanie zbior&oacute;w danych z wcześniej przygotowanymi listami atrybut&oacute;w, kt&oacute;re dostarczają dane demograficzne i kontekst geograficzny w odniesieniu do ludności, miejsc i działalności gospodarczej dla lokalizacji danych.
+            </p>
+            
+            
+        </div>
+    </div>
+    <div id="BufferOption">
+        <div><h2>Obszary do wzbogacania danych</h2></div>
+        <hr/>
+        <div>
+            <p>Są to obszary, kt&oacute;re należy wzbogacić dodatkowymi informacjami pozyskanymi ze zbior&oacute;w danych. Jeśli warstwa analizy zawiera punkty, obszary są tworzone wok&oacute;ł każdego punktu, z zastosowaniem odległości w prostej linii, odległości dojazdu lub czasu przjazdu.  
+            </p>
+        </div>
+    </div>
+    <div id="OutputName">
+        <div><h2>Nazwa warstwy wynikowej</h2></div>
+        <hr/>
+        <div>
+            <p>Jest to nazwa warstwy, kt&oacute;ra zostanie utworzona w zakładce 
+                <b>Moje zasoby</b> i dodana do mapy.  Domyślna nazwa jest oparta na nazwie warstwy analizy. Jeśli ta warstwa już istnieje, wyświetli się komunikat z pytaniem, czy ma zostać nadpisana.
+            </p>
+            <p>Używając menu rozwijalnego 
+                <b>Zapisz wynik w</b>, można wybrać folderu w zakładce
+                <b>Moje zasoby</b>, gdzie zostanie zapisany wynik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>
