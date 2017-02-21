@@ -50,6 +50,28 @@ function showMark(result) {
     }
 }
 
+function showMark2(result) {
+    if (result != undefined) {
+        var width = "20";
+        var height = "20";
+        var fpaths = pathcontext + imgpath + result.mappic;
+        var myPoint = new esri.geometry.Point(result.POINT_X, result.POINT_Y);
+        var attr = getattr(result);
+        if (result.fclass != undefined) {
+            if (result.fclass == "sub" || result.fclass == "xp") {
+                height = "14";
+                width = "14"
+            }
+        }
+        var graphicarray = new Array();
+        var fsymbol = new esri.symbol.PictureMarkerSymbol({ "url": fpaths, "height": height, "width": width });
+        var fgraphic = new esri.Graphic(myPoint, fsymbol, attr);
+        graphicarray.push(fgraphic);
+        map.graphics.add(fgraphic);
+        map.centerAt(myPoint);
+    }
+}
+
 function showInfowindow(evt) {
     var evtgr = evt.graphic;
     if (evtgr.attributes != undefined) {
@@ -175,9 +197,32 @@ function showgrout(evt) {
 
 $(function () {
     $("#btn-search").click(function () {
-        $("#resultlist").show();
+        $.post("/Tdtsys/search", {}, function (result) {
+            if (result) {
+                result = JSON.parse(result);
+                getpoint(result.RspData.data);
+                var html = template('resulttpl', result.RspData);
+                document.getElementById('resultlist').innerHTML = html;
+                $('.scrollable').each(function () {
+                    var $this = $(this);
+                    $(this).ace_scroll({
+                        size: $this.data('size') || 750,
+                        //styleClass: 'scroll-left scroll-margin scroll-thin scroll-dark scroll-light no-track scroll-visible'
+                    });
+                });
+                $(".location").click(function () {
+                    var index = $(this).attr("tabindex");
+                    //showMark2(result.RspData.data[index]);
+                    getinfowin(result.RspData.data[index]);
+
+                });
+                $("#resultlist").show();
+            }
+        })
+
     })
     $("#hideresultlist").click(function () {
         $("#resultlist").hide();
     })
+
 })
