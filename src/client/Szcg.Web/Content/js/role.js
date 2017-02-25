@@ -18,6 +18,8 @@ role.getRoleList = function (callback) {
                 $("#roleId").val($(this).attr("roleId"));
                 if (callback) {
                     callback();
+                } else {
+                    role.getRoleTree();
                 }
             })
             role.updateModels();
@@ -210,9 +212,15 @@ role.getDepartUser = function (callback) {
         },
         callback: {
             onClick: function (e, treeId, treeNode) {
-                if (callback) {
-                    callback();
-                }
+                //if (callback) {
+                //    callback(treeNode);
+                //}
+                var usercode = treeNode.id.replace("aaaa", "");
+
+                utils.httpClient("", "post", {}, function (data) {
+
+                })
+
             }
         }
     };

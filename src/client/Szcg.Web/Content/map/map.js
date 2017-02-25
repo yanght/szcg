@@ -1,5 +1,5 @@
 ﻿var map;
-
+var navToolbar;
 var pathcontext = "/content/map/images";var imgpath = "/";
 
 require(["esri/map",
@@ -9,6 +9,7 @@ require(["esri/map",
     "esri/toolbars/draw", "esri/toolbars/navigation",
     "esri/symbols/SimpleMarkerSymbol", "esri/symbols/SimpleLineSymbol", "esri/symbols/PictureFillSymbol", "esri/symbols/CartographicLineSymbol",
     "esri/graphic",
+    "esri/InfoTemplate",
     "dijit/form/Button", "dijit/Toolbar", "esri/dijit/Scalebar",
     "dojo/_base/Color", "dojo/dom", "dojo/on",
     "dojo/domReady!"],
@@ -19,6 +20,7 @@ function (Map,
     Draw, Navigation,
     SimpleMarkerSymbol, SimpleLineSymbol, PictureFillSymbol, CartographicLineSymbol,
     Graphic,
+    InfoTemplate,
     Button, Toolbar, Scalebar,
     Color, dom, on
     ) {
@@ -26,6 +28,7 @@ function (Map,
     map = new Map("map", {
         logo: false,
         sliderStyle: "large",
+        zoom:10
     });
     map.on("load", initToolbar);
 
@@ -33,9 +36,10 @@ function (Map,
     map.addLayer(basemap);
     var annolayer = new TDTAnnoLayer();
     map.addLayer(annolayer);
+
     //dojo.connect(map.graphics, "onMouseOver", showgrover)
     //dojo.connect(map.graphics, "onMouseOut", showgrout)
-    dojo.connect(map.graphics, "onClick", showInfowindow)
+    //dojo.connect(map.graphics, "onClick", showInfowindow)
 
     //map.centerAndZoom(new Point({ "x": 120.200018, "y": 30.209999, "spatialReference": { "wkid": 4326 } }), 14);
 
@@ -45,14 +49,14 @@ function (Map,
     //on(dom.byId("btn-point"), "click", function (evt) {
     //    ShowLocation(120.4986047744751, 30.54224967956543);
     //});
-    //on(dom.byId("btn-line"), "click", function (evt) {
-    //    var points = [[[120.200018, 30.209999], [120.4986047744751, 30.54224967956543], [120.69658208117, 30.75842902028], [120.69031139171, 30.75591936765]]];
-    //    polyline(points);
-    //});
-    //on(dom.byId("btn-mark"), "click", function (evt) {
-    //    var point = { POINT_X: 120.200018, POINT_Y: 30.209999 };
-    //    pointMark(point);
-    //});
+    on(dom.byId("btn-map"), "click", function (evt) {
+        var points = [[[120.200018, 30.209999], [120.4986047744751, 30.54224967956543], [120.69658208117, 30.75842902028], [120.69031139171, 30.75591936765]]];
+        polyline(points);
+    });
+    on(dom.byId("btn-mark"), "click", function (evt) {
+        var point = { POINT_X: 120.200018, POINT_Y: 30.209999 };
+        pointMark(point);
+    });
 
 
     //清除地图标注
@@ -81,18 +85,34 @@ function (Map,
 
     //地图全览
     on(dom.byId("btn-view"), "click", function (evt) {
-        var navToolbar = new Navigation(map);
         navToolbar.zoomToFullExtent();
+    })
+
+    on(dom.byId("ZOOM_IN"), "click", function (evt) {
+        navToolbar.activate(esri.toolbars.Navigation.ZOOM_IN);
+    })
+    on(dom.byId("ZOOM_OUT"), "click", function (evt) {
+        navToolbar.activate(esri.toolbars.Navigation.ZOOM_OUT);
+    })
+    on(dom.byId("PAN"), "click", function (evt) {
+        navToolbar.activate(esri.toolbars.Navigation.PAN);
     })
 
 
     //坐标画点
     function ShowLocation(x, y) {
+
         var point = new Point(x, y, new SpatialReference({ wkid: 4326 }));
+
         var simpleMarkerSymbol = new SimpleMarkerSymbol();
-        var graphic = new Graphic(point, simpleMarkerSymbol.setStyle(
-        SimpleMarkerSymbol.STYLE_CIRCLE).setColor(
-        new Color([0, 0, 0, 0.5])), null, null);
+
+        simpleMarkerSymbol.setStyle(SimpleMarkerSymbol.STYLE_CIRCLE).setSize(5).setColor(new Color([0, 0, 0, 1]));
+
+        var attr = { "Xcoord": x, "Ycoord": y, "Plant": "Mesa Mint" };
+
+        var infoTemplate = new InfoTemplate("Vernal Pool Locations", "Latitude: ${Ycoord} <br/>Longitude: ${Xcoord} Plant Name:${Plant}");
+
+        var graphic = new Graphic(point, simpleMarkerSymbol, attr, infoTemplate);
 
         map.graphics.add(graphic);
 
@@ -107,21 +127,40 @@ function (Map,
             },
             "symbol": { "color": [0, 0, 0, 255], "width": 1, "type": "esriSLS", "style": "esriSLSSolid" }
         };
+
+        for (var i = 0; i < points[0].length; i++) {
+            ShowLocation(points[0][i][0], points[0][i][1]);
+        }
         var gra = new Graphic(myLine);
         map.graphics.add(gra);
     }
 
     //图片标注
     function pointMark(point) {
+
         var fpaths = pathcontext + imgpath + "gssymbol4.png";
+
         var myPoint = new esri.geometry.Point(point.POINT_X, point.POINT_Y);
+
         var fsymbol = new esri.symbol.PictureMarkerSymbol({ "url": fpaths, "height": 12, "width": 12 });
-        var fgraphic = new esri.Graphic(myPoint, fsymbol, null);
+
+        var attr = { "Xcoord": "12121", "Ycoord": "21212", "Plant": "Mesa Mint" };
+
+        var infoTemplate = new InfoTemplate("Vernal Pool Locations", "Latitude: ${Ycoord} <br/>Longitude: ${Xcoord}<br/> Plant Name:${Plant}");
+
+        var fgraphic = new esri.Graphic(myPoint, fsymbol, attr, infoTemplate);
+
         map.graphics.add(fgraphic);
     }
 
     //初始化工具栏按钮
     function initToolbar() {
+
+        navToolbar = new esri.toolbars.Navigation(map);
+        dojo.connect(navToolbar, "onExtentHistoryChange", function () {
+            navToolbar.deactivate();
+        });
+
 
         var markerSymbol = new SimpleMarkerSymbol();
         markerSymbol.setPath("M16,4.938c-7.732,0-14,4.701-14,10.5c0,1.981,0.741,3.833,2.016,5.414L2,25.272l5.613-1.44c2.339,1.316,5.237,2.106,8.387,2.106c7.732,0,14-4.701,14-10.5S23.732,4.938,16,4.938zM16.868,21.375h-1.969v-1.889h1.969V21.375zM16.772,18.094h-1.777l-0.176-8.083h2.113L16.772,18.094z");

@@ -224,7 +224,7 @@ namespace Szcg.Service.Bussiness
                 Role role = new Role()
                 {
                     RoleName = names[i],
-                    RoleCode =codes[i]
+                    RoleCode = codes[i]
                 };
                 list.Add(role);
             }
