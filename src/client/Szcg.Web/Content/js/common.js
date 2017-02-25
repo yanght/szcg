@@ -15,8 +15,10 @@ utils.httpClient = function (url, requestType, args, callback) {
         async: true,
         type: requestType,
         success: function (r) {
-            var json = $.parseJSON(r);
-            callback(json);
+            if (r != undefined && r != "") {
+                var json = $.parseJSON(r);
+                callback(json);
+            }
         }
     });
 }

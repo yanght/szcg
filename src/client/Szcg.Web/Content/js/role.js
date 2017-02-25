@@ -216,9 +216,20 @@ role.getDepartUser = function (callback) {
                 //    callback(treeNode);
                 //}
                 var usercode = treeNode.id.replace("aaaa", "");
+                var username = treeNode.name;
+                utils.httpClient("/account/GetRoleListByUserCode", "post", { usercode: usercode, username: username }, function (data) {
+                    if (data.RspCode == 1) {
+                        var purview= data.RspData.purview;
+                        $("#consignerName").val(purview.consignerName);
+                        $("#consignerId").val(purview.consignerId);
+                        $("#accepterName").val(purview.accepterName);
+                        $("#accepterId").val(purview.accepterId);
 
-                utils.httpClient("", "post", {}, function (data) {
-
+                        $("#roleNames").val(purview.roleNames);
+                        $("#roleIds").val(purview.roleIds);
+                        //$("#startTime").val(purview.startTime);
+                        //$("#endTime").val(purview.endTime);
+                    }
                 })
 
             }

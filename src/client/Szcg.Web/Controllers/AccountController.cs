@@ -299,8 +299,8 @@ namespace Szcg.Web.Controllers
 
             purview.roleIds = purview.roleIds.TrimEnd(',');
             purview.roleNames = purview.roleNames.TrimEnd(',');
-
-
+            purview.consignerName = username;
+           
             ajax.RspData.Add("purview", JToken.FromObject(purview));
 
             return ajax;

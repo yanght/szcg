@@ -80,13 +80,21 @@ namespace Szcg.Service.Model
     public class AccreditPurview
     {
         /// <summary>
-        /// 授权人
+        /// 授权人编号
         /// </summary>
         public string consignerId { get; set; }
         /// <summary>
-        /// 接收人
+        /// 授权人
+        /// </summary>
+        public string consignerName { get; set; }
+        /// <summary>
+        /// 接收人编号
         /// </summary>
         public string accepterId { get; set; }
+        /// <summary>
+        /// 接收人
+        /// </summary>
+        public string accepterName { get; set; }
         /// <summary>
         /// 授权角色
         /// </summary>
