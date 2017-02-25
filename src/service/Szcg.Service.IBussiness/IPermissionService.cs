@@ -80,7 +80,7 @@ namespace Szcg.Service.IBussiness
         /// <param name="userCode"></param>
         /// <returns></returns>
         List<Role> GetRoleList(int userCode);
-
+        
         /// <summary>
         /// 获取角色步骤列表
         /// </summary>

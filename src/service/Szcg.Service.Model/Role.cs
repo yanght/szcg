@@ -13,7 +13,7 @@ namespace Szcg.Service.Model
         /// <summary>
         /// 角色编码
         /// </summary>
-        public string  RoleCode { get; set; }
+        public string RoleCode { get; set; }
         /// <summary>
         /// 角色名称
         /// </summary>
@@ -91,6 +91,15 @@ namespace Szcg.Service.Model
         /// 授权角色
         /// </summary>
         public string roleList { get; set; }
+
+        /// <summary>
+        /// 授权角色Id列表
+        /// </summary>
+        public string roleIds { get; set; }
+        /// <summary>
+        /// 授权角色名称列表
+        /// </summary>
+        public string roleNames { get; set; }
         /// <summary>
         /// 开始时间
         /// </summary>

@@ -274,6 +274,40 @@ namespace Szcg.Web.Controllers
 
         #endregion
 
+        #region [ 授权管理 ]
+
+        public AjaxFxRspJson GetRoleListByUserCode(string usercode, string username)
+        {
+            AjaxFxRspJson ajax = new AjaxFxRspJson() { RspCode = 1 };
+
+            if (string.IsNullOrEmpty(usercode))
+            {
+                ajax.RspMsg = "请选择用户";
+                ajax.RspCode = 0;
+                return ajax;
+            }
+
+            List<Role> roles = svc.GetRoleList(int.Parse(usercode));
+
+            AccreditPurview purview = new AccreditPurview();
+
+            foreach (var role in roles)
+            {
+                purview.roleIds += role.RoleCode + ",";
+                purview.roleNames += role.RoleName + ",";
+            }
+
+            purview.roleIds = purview.roleIds.TrimEnd(',');
+            purview.roleNames = purview.roleNames.TrimEnd(',');
+
+
+            ajax.RspData.Add("purview", JToken.FromObject(purview));
+
+            return ajax;
+        }
+
+        #endregion
+
         #region [ 获取用户角色树 ]
 
         public AjaxFxRspJson GetRoleTree()

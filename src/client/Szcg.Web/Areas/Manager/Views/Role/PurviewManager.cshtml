@@ -115,7 +115,9 @@
     $(function () {
 
         ace.load_ajax_scripts([null], function () {
-            role.getDepartUser();
+            role.getDepartUser(function (treeNode) {
+                
+            });
         });
 
     })

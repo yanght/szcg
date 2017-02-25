@@ -83,7 +83,7 @@
     <script type="text/javascript">
         $(function () {
             // scrollables
-           
+
         })
     </script>
 </head>
@@ -147,127 +147,137 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-
-                    <div id="map" class="col-sm-12" style="width:100%;height:800px;position:relative;margin:0px;padding:0px;">
-
-                        <p class="tool">
-                            <span id="info">
-                                <span class="label label-warning" id="Multipoint">
-                                    <i class="ace-icon fa fa-circle bigger-120"></i>
-                                    画点
-                                </span>
-                                <span class="label label-warning" id="Polyline">
-                                    <i class="ace-icon glyphicon glyphicon-pencil bigger-120"></i>
-                                    划线
-                                </span>
-                            </span>
-                            <span class="label label-warning" id="btn-view">
-                                <i class="ace-icon fa fa-globe bigger-120"></i>
-                                全览
-                            </span>
-                            <span class="label label-warning" id="btn-clear">
-                                <i class="ace-icon glyphicon glyphicon-remove bigger-120"></i>
-                                清除
-                            </span>
+                    <div class="col-sm-6">
+                        <p>
+                            <button type="button" class="btn btn-white" id="btn-mark">标注</button>
+                            <button type="button" class="btn btn-white btn-default" id="btn-map">轨迹</button>
                         </p>
-
-                        <div id="maptoolbar2" style="position: absolute;width:150px; height: 35px; margin-top:5px; left:auto;right:330px; z-index: 2;">
-                            <ul style="display: inline; ">
-                                <li>
-                                    <a href="javascript:void(0)" id="getVector">
-                                        <img id="Img1" src="/Content/map/images/v1.png" onmousemove="javascript: $(this).attr('src', '/Content/map/images//v2.png')" onmouseout="    javascript: $(this).attr('src', '/Content/map/images//v1.png')" alt="" style="border: node" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" id="getImg">
-                                        <img src="/Content/map/images/i1.png" alt="" onmousemove="javascript: $(this).attr('src', '/Content/map/images//i2.png')" onmouseout="    javascript: $(this).attr('src', '/Content/map/images//i1.png')" />
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="col-sm-2 widget-container-col" id="resultlist">
-                            .
-                            <script type="text/template" id="resulttpl">
-                                <div class="widget-box widget-color-blue">
-                                    <div class="widget-header widget-hea1der-small">
-                                        <h6 class="widget-title">查询结果</h6>
-                                        <div class="widget-toolbar">
-                                            <a href="#" data-action="collapse">
-                                                <i class="ace-icon fa fa-chevron-up"></i>
-                                            </a>
-                                            <a href="#" data-action="close">
-                                                <i class="ace-icon fa fa-times"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="widget-body">
-                                        <div class="widget-main padding-4">
-                                            <!-- #section:custom/scrollbar -->
-                                            <div class="scrollable" data-height="125">
-                                                <div class="content">
-                                                    <ul class="list-unstyled spaced2">
-                                                        {{each data as part}}
-                                                        <li>
-                                                            <div class="profile-user-info profile-user-info-striped">
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name"> 序号 </div>
-
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable editable-click" >{{part.ID}}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name"> 位置 </div>
-
-                                                                    <div class="profile-info-value">
-                                                                        <i class="fa fa-map-marker light-orange bigger-110"></i>
-                                                                        <span class="editable editable-click" >{{part.POINT_X}}</span>
-                                                                        <span class="editable editable-click" >{{part.POINT_Y}}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name"> 名称 </div>
-
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable editable-click location " tabindex="{{$index}}">{{part.adder}}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">图片 </div>
-
-                                                                    <div class="profile-info-value">
-                                                                        <img width="100" height="100" alt="150x150" src="{{part.mappic}}" />
-
-                                                                    </div>
-                                                                </div>
-
-                                                            </div>
-                                                        </li>
-                                                        {{/each}}
-                                                    </ul>
-                                                </div>
-                                            </div>
-
-                                            <!-- /section:custom/scrollbar -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </script>
-                        </div>
-
                     </div>
-                </div>
+                    <div class="row">
 
+                        <div id="map" class="col-sm-12" style="width:100%;height:800px;position:relative;margin:0px;padding:0px;">
+
+                            <p class="tool">
+                                <span class="label label-warning" id="ZOOM_IN">
+                                    <i class="ace-icon glyphicon glyphicon-zoom-in bigger-120"></i>
+                                    放大
+                                </span>
+                                <span class="label label-warning" id="ZOOM_OUT">
+                                    <i class="ace-icon glyphicon glyphicon-zoom-out bigger-120"></i>
+                                    缩小
+                                </span>
+                                <span class="label label-warning" id="PAN">
+                                    <i class="ace-icon glyphicon glyphicon-move bigger-120"></i>
+                                    漫游
+                                </span>
+                                <span id="info">
+
+                                </span>
+                                <span class="label label-warning" id="btn-view">
+                                    <i class="ace-icon fa fa-globe bigger-120"></i>
+                                    全览
+                                </span>
+                                <span class="label label-warning" id="btn-clear">
+                                    <i class="ace-icon glyphicon glyphicon-remove bigger-120"></i>
+                                    清除
+                                </span>
+                            </p>
+
+                            <div id="maptoolbar2" style="position: absolute;width:150px; height: 35px; margin-top:5px; left:auto;right:330px; z-index: 2;">
+                                <ul style="display: inline; ">
+                                    <li>
+                                        <a href="javascript:void(0)" id="getVector">
+                                            <img id="Img1" src="/Content/map/images/v1.png" onmousemove="javascript: $(this).attr('src', '/Content/map/images//v2.png')" onmouseout="    javascript: $(this).attr('src', '/Content/map/images//v1.png')" alt="" style="border: node" />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" id="getImg">
+                                            <img src="/Content/map/images/i1.png" alt="" onmousemove="javascript: $(this).attr('src', '/Content/map/images//i2.png')" onmouseout="    javascript: $(this).attr('src', '/Content/map/images//i1.png')" />
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-2 widget-container-col" id="resultlist">
+                                .
+                                <script type="text/template" id="resulttpl">
+                                    <div class="widget-box widget-color-blue">
+                                        <div class="widget-header widget-hea1der-small">
+                                            <h6 class="widget-title">查询结果</h6>
+                                            <div class="widget-toolbar">
+                                                <a href="#" data-action="collapse">
+                                                    <i class="ace-icon fa fa-chevron-up"></i>
+                                                </a>
+                                                <a href="#" data-action="close">
+                                                    <i class="ace-icon fa fa-times"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="widget-body">
+                                            <div class="widget-main padding-4">
+                                                <!-- #section:custom/scrollbar -->
+                                                <div class="scrollable" data-height="125">
+                                                    <div class="content">
+                                                        <ul class="list-unstyled spaced2">
+                                                            {{each data as part}}
+                                                            <li>
+                                                                <div class="profile-user-info profile-user-info-striped">
+                                                                    <div class="profile-info-row">
+                                                                        <div class="profile-info-name"> 序号 </div>
+
+                                                                        <div class="profile-info-value">
+                                                                            <span class="editable editable-click">{{part.ID}}</span>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="profile-info-row">
+                                                                        <div class="profile-info-name"> 位置 </div>
+
+                                                                        <div class="profile-info-value">
+                                                                            <i class="fa fa-map-marker light-orange bigger-110"></i>
+                                                                            <span class="editable editable-click">{{part.POINT_X}}</span>
+                                                                            <span class="editable editable-click">{{part.POINT_Y}}</span>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="profile-info-row">
+                                                                        <div class="profile-info-name"> 名称 </div>
+
+                                                                        <div class="profile-info-value">
+                                                                            <span class="editable editable-click location " tabindex="{{$index}}">{{part.adder}}</span>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="profile-info-row">
+                                                                        <div class="profile-info-name">图片 </div>
+
+                                                                        <div class="profile-info-value">
+                                                                            <img width="100" height="100" alt="150x150" src="{{part.mappic}}" />
+
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </li>
+                                                            {{/each}}
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <!-- /section:custom/scrollbar -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </script>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
-    </div>
 
 </body>
 </html>
