@@ -34,5 +34,10 @@ namespace Szcg.Web.Areas.Manager.Controllers
             return View();
         }
 
+        public ActionResult SeletUserTree()
+        {
+            return View();
+        }
+
     }
 }

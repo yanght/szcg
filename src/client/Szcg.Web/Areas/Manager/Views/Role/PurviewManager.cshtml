@@ -47,8 +47,11 @@
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 接收人（To）: </label>
                                         <div class="col-sm-9">
-                                            <input type="text" id="accepterName" name="accepterName" placeholder="" class="form-control" value="">
-                                            <input type="hidden" id="accepterId" name="accepterId"  value="">
+                                            <span class="input-icon input-icon-right" style="width:100%;">
+                                                <input type="text" id="accepterName" name="accepterName" placeholder="" class="form-control" data-url="/Manager/Role/SeletUserTree" value="">
+                                                <input type="hidden" id="accepterId" name="accepterId" value="">
+                                                <i class="ace-icon fa fa-plus-circle bigger-120  blue"></i>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -111,6 +114,7 @@
             role.getDepartUser(function (treeNode) {
 
             });
+            role.InitUserTree(function () { });
         });
 
     })

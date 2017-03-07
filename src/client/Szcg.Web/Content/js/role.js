@@ -219,7 +219,7 @@ role.getDepartUser = function (callback) {
                 var username = treeNode.name;
                 utils.httpClient("/account/GetRoleListByUserCode", "post", { usercode: usercode, username: username }, function (data) {
                     if (data.RspCode == 1) {
-                        var purview= data.RspData.purview;
+                        var purview = data.RspData.purview;
                         $("#consignerName").val(purview.consignerName);
                         $("#consignerId").val(purview.consignerId);
                         $("#accepterName").val(purview.accepterName);
@@ -246,5 +246,82 @@ role.getDepartUser = function (callback) {
         } else {
             utils.alert(data.RspMsg);
         }
+    })
+}
+
+role.InitUserTree = function () {
+    $("#accepterName").click(function () {
+        $.get("/Manager/Role/SeletUserTree", function (data) {
+            var dialog = bootbox.dialog({
+                message: data,
+                title: "选择人员",
+                className: "depart-modal",
+                buttons:
+                {
+                    "save":
+                    {
+                        "label": "选择",
+                        "className": "btn-sm btn-primary",
+                        "callback": function () {
+                            var zTree = $.fn.zTree.getZTreeObj("treeDemo1");
+                            var nodes = zTree.getCheckedNodes();
+                            var names = '';
+                            var ids = '';
+                            if (nodes != null && nodes.length > 0) {
+
+                                $.each(nodes, function (index, item) {
+                                    names += item.name + ',';
+                                    ids += item.id.substring(0, item.id.length - 4) + ',';
+                                })
+
+                                $("#accepterName").val(names.substring(0, names.length - 1));
+                                $("#accepterId").val(ids.substring(0, ids.length - 1));
+                            }
+                        }
+                    },
+                    "button":
+                    {
+                        "label": "取消",
+                        "className": "btn-sm"
+                    }
+                }
+            });
+
+            var setting = {
+                check: {
+                    enable: true,
+                    chkboxType: { "Y": "", "N": "" }
+                },
+                view: {
+                    dblClickExpand: false,
+                    showLine: true
+                },
+                data: {
+                    simpleData: {
+                        enable: true
+                    }
+                },
+                callback: {
+                    onClick: function (e, treeId, treeNode) {
+                        var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                        zTree.expandNode(treeNode);
+                    },
+                    onCheck: function (event, treeId, treeNode) {
+
+                    }
+                }
+            };
+            utils.httpClient("/depart/GetUserTreeList", "post", null, function (data) {
+                if (data.RspCode == 1) {
+
+                    zNodes = data.RspData.users;
+
+                    var treeObj = $.fn.zTree.init($("#treeDemo1"), setting, zNodes);
+
+                } else {
+                    utils.alert(data.RspMsg);
+                }
+            });
+        });
     })
 }
