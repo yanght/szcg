@@ -52,6 +52,46 @@ namespace Szcg.Service.Bussiness
             return users;
         }
 
+        public List<UserData> GetUserTreeList1(string areacode, string departcode)
+        {
+
+            ArrayList array = new Purviews().GetDepartList(areacode, departcode, ref strErr);
+
+            string pcode = new bacgBL.web.szbase.organize.DepartManage().GetParentCode(departcode, ref strErr);
+
+            for (int i = 0; i < array.Count; i++)
+            {
+                string[] info = (string[])array[i];
+                if (info[2] == pcode)
+                {
+                    ArrayList array1 = new Purviews().GetUsers(Convert.ToInt32(info[0]), ref strErr);
+                      
+                }
+            }
+
+            List<UserData> users = new List<UserData>();
+
+            Purviews bl = new Purviews();
+
+            ArrayList list = bl.GetUserTreeList(areacode, departcode, ref strErr);
+
+            foreach (var item in list)
+            {
+                TreeSuruct ts = (TreeSuruct)item;
+                UserData user = new UserData()
+                {
+                    userCode = ts.code,
+                    parentID = ts.pcode,
+                    userName = ts.text,
+                    memo = ts.tag
+                };
+
+                users.Add(user);
+            }
+
+            return users;
+        }
+
         /// <summary>
         /// 根据部门获取用户列表
         /// </summary>

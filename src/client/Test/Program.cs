@@ -14,7 +14,7 @@ namespace Test
         static void Main(string[] args)
         {
             IProjectService svc = new ProjectService();
-
+            svc.GetAreaList();
             //svc.GetDealProjectList();
             //getprojectlist();
             //svc.GetProjectTrace("231526", 2016, false);
@@ -30,12 +30,12 @@ namespace Test
             //new OrganizeService().GetDepartList("331125", "183", "2");
 
             // List<Role> list = new PermissionService().GetRoles();
-            List<FlowNodePower> flowers = new PermissionService().GetFlowNodePower("23", string.Empty, "11");
+            //List<FlowNodePower> flowers = new PermissionService().GetFlowNodePower("23", string.Empty, "11");
 
-            foreach (var item in flowers)
-            {
-                Console.Write(item.ShowName + ",");
-            }
+            //foreach (var item in flowers)
+            //{
+            //    Console.Write(item.ShowName + ",");
+            //}
 
 
             Console.ReadLine();
