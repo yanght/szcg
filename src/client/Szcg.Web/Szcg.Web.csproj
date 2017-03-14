@@ -7931,10 +7931,10 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <None Include="Service References\ServiceReference1\CobSecurityServicePort1.xsd">
+    <None Include="Service References\ServiceReference1\CobSecurityServicePort.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\CobSecurityServiceService1.wsdl" />
+    <None Include="Service References\ServiceReference1\CobSecurityServiceService.wsdl" />
     <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
     <None Include="Service References\ServiceReference1\configuration.svcinfo" />
     <None Include="Service References\ServiceReference1\Reference.svcmap">

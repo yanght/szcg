@@ -1713,18 +1713,14 @@ namespace Szcg.Service.Bussiness
         /// <returns></returns>
         public List<Community> GetCommunityList(string areaCode, string streetCode)
         {
-            List<Community> list = new List<Community>();
-            DataSet ds = bacgBL.business.Project.GetCommList(areaCode, streetCode, out strErr);
+            var list = new List<Community>();
+            var ds = bacgBL.business.Project.GetCommList(areaCode, streetCode, out strErr);
 
             if (!string.IsNullOrEmpty(strErr))
-            {
                 LoggerManager.Instance.logger.ErrorFormat("获取社区列表异常:" + strErr);
-            }
 
             if (ds != null && ds.Tables.Count > 0)
-            {
                 list = ConvertDtHelper<Community>.GetModelList(ds.Tables[0]);
-            }
 
             return list;
         }

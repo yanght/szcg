@@ -2,7 +2,7 @@
 <definitions xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://service.boc.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CobSecurityServiceService" targetNamespace="http://service.boc.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <xsd:schema>
-      <xsd:import schemaLocation="http://localhost:8084/RsaSecurityWebService/CobSecurityServicePort?xsd=1" namespace="http://service.boc.com/" />
+      <xsd:import schemaLocation="http://localhost:8080/RsaSecurityWebService/CobSecurityServicePort?xsd=1" namespace="http://service.boc.com/" />
     </xsd:schema>
   </types>
   <message name="main">
@@ -107,7 +107,7 @@
   </binding>
   <service name="CobSecurityServiceService">
     <port name="CobSecurityServicePort" binding="tns:CobSecurityServicePortBinding">
-      <soap:address location="http://localhost:8084/RsaSecurityWebService/CobSecurityServicePort" />
+      <soap:address location="http://localhost:8080/RsaSecurityWebService/CobSecurityServicePort" />
     </port>
   </service>
 </definitions>

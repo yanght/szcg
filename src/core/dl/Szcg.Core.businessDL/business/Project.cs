@@ -1594,7 +1594,6 @@ and  nodeid=12  and tracetime is NULL";
         /// </summary>
         /// <param name="areacode">区域编码</param>
         /// <param name="streetcode">街道编码</param>
-        /// <param name="ErrMsg">输出错误信息</param>
         /// <returns></returns>
         public DataSet GetCommList(string areacode, string streetcode)
         {
@@ -1626,18 +1625,17 @@ and  nodeid=12  and tracetime is NULL";
 
         /// </summary>
         /// <param name="areacode">区域编码</param>
-        /// <param name="ErrMsg">输出错误信息</param>
         /// <returns></returns>
         public DataSet GetDepartList(string areacode)
         {
-            string strSQL = string.Format(@"   select '' as UserDefinedCode,'全部' as departname
+            string strSqlL = string.Format(@"   select '' as UserDefinedCode,'全部' as departname
                                                 union
                                                 select UserDefinedCode,departname
                                                 from p_depart
                                                 where area like '{0}%' 
                                                     and IsDuty=1 and isnull(IsDel,0) <> 1
                                                 order by UserDefinedCode", areacode);
-            return this.ExecuteDataset(strSQL);
+            return this.ExecuteDataset(strSqlL);
         }
 
         /// <summary>
@@ -1645,8 +1643,7 @@ and  nodeid=12  and tracetime is NULL";
 
         /// </summary>
         /// <param name="areacode">区域编码</param>
-        /// <param name="parentcode">是否要查询父级列</param>
-        /// <param name="ErrMsg">输出错误信息</param>
+        /// <param name="IsParentcode">是否要查询父级列</param>
         /// <returns></returns>
         public DataSet GetDepartList(string areacode, bool IsParentcode)
         {

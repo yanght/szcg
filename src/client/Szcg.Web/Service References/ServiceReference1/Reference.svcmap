@@ -18,11 +18,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8084/RsaSecurityWebService/CobSecurityServicePort?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8080/RsaSecurityWebService/CobSecurityServicePort?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="CobSecurityServicePort1.xsd" MetadataType="Schema" ID="5457a550-5bb3-4c15-8618-516bdb3dd90f" SourceId="1" SourceUrl="http://localhost:8084/RsaSecurityWebService/CobSecurityServicePort?xsd=1" />
-    <MetadataFile FileName="CobSecurityServiceService1.wsdl" MetadataType="Wsdl" ID="fe09ae2c-670f-4dc4-89ed-6145b3062527" SourceId="1" SourceUrl="http://localhost:8084/RsaSecurityWebService/CobSecurityServicePort?wsdl" />
+    <MetadataFile FileName="CobSecurityServicePort.xsd" MetadataType="Schema" ID="bd93b6b0-f9a5-4fd5-959c-cdfe71ea4a81" SourceId="1" SourceUrl="http://localhost:8080/RsaSecurityWebService/CobSecurityServicePort?xsd=1" />
+    <MetadataFile FileName="CobSecurityServiceService.wsdl" MetadataType="Wsdl" ID="0f68ca42-1ea3-4a30-80be-256d4cd63d28" SourceId="1" SourceUrl="http://localhost:8080/RsaSecurityWebService/CobSecurityServicePort?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
